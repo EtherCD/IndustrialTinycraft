@@ -1,16 +1,16 @@
-package com.ethercd.it.items;
+package cd.ethercd.it.items;
 
-import com.ethercd.it.ITcCreativeTab;
-import com.ethercd.it.IndustrialTinyCraft;
-import com.ethercd.it.load.ItemLoader;
-import com.ethercd.it.utils.IHasModel;
+import cd.ethercd.it.ITcCreativeTab;
+import cd.ethercd.it.IndustrialTinyCraft;
+import cd.ethercd.it.ITcItemLoader;
+import cd.ethercd.it.utils.IHasModel;
 import net.minecraft.item.Item;
 
 public class BasicItem extends Item implements IHasModel {
     public BasicItem(String name) {
         setRegistryName(name);
         setCreativeTab(ITcCreativeTab.CREATIVE_TAB);
-        ItemLoader.ITEMS.add(this);
+        ITcItemLoader.ITEMS.add(this);
         setTranslationKey(name);
     }
 

@@ -1,12 +1,17 @@
-package com.ethercd.it;
+package cd.ethercd.it;
 
-import com.ethercd.it.proxy.CommonProxy;
+import cd.ethercd.it.proxy.CommonProxy;
+import ic2.api.event.TeBlockFinalCallEvent;
+import ic2.core.block.TeBlockRegistry;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.SidedProxy;
+import net.minecraftforge.fml.common.event.FMLConstructionEvent;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import org.apache.logging.log4j.Logger;
 
 @Mod(modid = IndustrialTinyCraft.MODID, name = IndustrialTinyCraft.NAME, version = IndustrialTinyCraft.VERSION)
@@ -18,7 +23,12 @@ public class IndustrialTinyCraft
 
     public static Logger LOGGER;
 
-    @SidedProxy(clientSide = "com.ethercd.it.proxy.ClientProxy", serverSide = "com.ethercd.it.proxy.CommonProxy")
+    @EventHandler
+    public void start(FMLConstructionEvent event) {
+        MinecraftForge.EVENT_BUS.register(this);
+    }
+
+    @SidedProxy(clientSide = "cd.ethercd.it.proxy.ClientProxy", serverSide = "cd.ethercd.it.proxy.CommonProxy")
     public static CommonProxy proxy;
 
     @Mod.Instance("industrialtinycraft")
@@ -33,12 +43,18 @@ public class IndustrialTinyCraft
     @EventHandler
     public void init(FMLInitializationEvent event)
     {
-        Crafting.addBasicRecipes();
-        Crafting.addMachineRecipes();
+        ITcRecipes.addBasicRecipes();
+        ITcRecipes.addMachineRecipes();
+        ITcMachines.build();
     }
 
     @EventHandler
     public void postInit(FMLPostInitializationEvent event) {
 
+    }
+
+    @SubscribeEvent
+    public void register(TeBlockFinalCallEvent event) {
+        TeBlockRegistry.addAll(ITcMachines.class, ITcMachines.LOCATION);
     }
 }

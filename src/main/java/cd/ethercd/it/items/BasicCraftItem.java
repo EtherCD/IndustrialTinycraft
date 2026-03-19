@@ -1,4 +1,4 @@
-package com.ethercd.it.items;
+package cd.ethercd.it.items;
 
 import net.minecraft.item.ItemStack;
 
@@ -18,7 +18,11 @@ public enum BasicCraftItem {
 
     CACHE_MEMORY_CHIP("cache_memory_chip"),
     BASIC_PROCESSOR_CHIP("basic_processor_chip"),
-    PROCESSOR_90NM("processor_90nm");
+    PROCESSOR_90NM("processor_90nm"),
+    PROCESSOR_45NM("processor_45nm"),
+    PROCESSOR_22NM("processor_22nm"),
+    PROCESSOR_7NM("processor_7nm"),
+    PROCESSOR_2NM("processor_2nm");
 
     private BasicItem item;
     private ItemStack stack;

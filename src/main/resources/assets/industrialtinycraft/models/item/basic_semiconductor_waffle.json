@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "industrialtinycraft:items/basic_semiconductor_waffle",
+    "layer0": "industrialtinycraft:items/basic_semiconductor_waffle"
   }
 }

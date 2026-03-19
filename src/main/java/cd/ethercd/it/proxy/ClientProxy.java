@@ -1,4 +1,4 @@
-package com.ethercd.it.proxy;
+package cd.ethercd.it.proxy;
 
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;

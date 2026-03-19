@@ -1,16 +1,19 @@
-package com.ethercd.it;
+package cd.ethercd.it;
 
-import com.ethercd.it.items.BasicCraftItem;
+import cd.ethercd.it.items.BasicCraftItem;
+import ic2.api.recipe.IBasicMachineRecipeManager;
 import ic2.api.recipe.IRecipeInput;
 import ic2.api.recipe.IRecipeInputFactory;
 import ic2.api.recipe.Recipes;
+import ic2.core.recipe.BasicMachineRecipeManager;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 
-public class Crafting {
+public class ITcRecipes {
+    public static IBasicMachineRecipeManager processor_assembler = new BasicMachineRecipeManager();
+
     public static void addBasicRecipes() {
         addBasicRecipe(IC2Items.reinfored_glass,
                 "BCB",
@@ -21,13 +24,34 @@ public class Crafting {
                 'L', IC2Items.mining_laser,
                 'G', IC2Items.reinfored_glass,
                 'P', IC2Items.mining_laser);
-        addBasicRecipe(IC2Items.reinfored_glass,
+        addBasicRecipe(BasicCraftItem.RAW_PROCESSOR_SUBSTRATE.getStack(),
                 " G ",
                 " R ",
                 " F ",
                 'G', IC2Items.plate_gold,
                 'R', IC2Items.rubber,
                 'F', BasicCraftItem.FIBERGLASS.getStack());
+        addBasicRecipe(BasicCraftItem.RAW_PROCESSOR_SUBSTRATE.getStack(),
+                "G  ",
+                "R  ",
+                "F  ",
+                'G', IC2Items.plate_gold,
+                'R', IC2Items.rubber,
+                'F', BasicCraftItem.FIBERGLASS.getStack());
+        addBasicRecipe(BasicCraftItem.RAW_PROCESSOR_SUBSTRATE.getStack(),
+                "  G",
+                "  R",
+                "  F",
+                'G', IC2Items.plate_gold,
+                'R', IC2Items.rubber,
+                'F', BasicCraftItem.FIBERGLASS.getStack());
+        addBasicRecipe(new ItemStack(ITcItemLoader.improved_overclocker),
+                "   ",
+                "CCC",
+                "PUP",
+                'C', IC2Items.heat_storage,
+                'P', BasicCraftItem.PROCESSOR_90NM.getStack(),
+                'U', IC2Items.upgrade_overclocker);
     }
 
     public static void addMachineRecipes() {
@@ -47,6 +71,8 @@ public class Crafting {
         addOreWashingRecipe(factory.forStack(IC2Items.dust_gold), BasicCraftItem.PURIFIED_GOLD_DUST.getStack(), nbt);
         addOreWashingRecipe(factory.forStack(IC2Items.dust_silicon_dioxide), BasicCraftItem.PURIFIED_SILICON.getStack(), nbt);
         addOreWashingRecipe(factory.forStack(BasicCraftItem.CRUSHED_SILICON.getStack()), BasicCraftItem.PURIFIED_SILICON.getStack(), nbt);
+
+        addProcessorAssemblerRecipe(factory.forStack(BasicCraftItem.BASIC_SEMICONDUCTOR_WAFFLE.getStack()), BasicCraftItem.BASIC_PROCESSOR_CHIP.getStack());
     }
 
     private static void addBasicRecipe(ItemStack output, Object... input) {
@@ -64,5 +90,9 @@ public class Crafting {
 
     private static void addOreWashingRecipe(IRecipeInput input, ItemStack output, NBTTagCompound nbt) {
         Recipes.oreWashing.addRecipe(input, nbt, false, output);
+    }
+
+    private static void addProcessorAssemblerRecipe(IRecipeInput input, ItemStack output) {
+        ITcRecipes.processor_assembler.addRecipe(input, null, false, output);
     }
 }

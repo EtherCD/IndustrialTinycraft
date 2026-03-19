@@ -1,10 +1,10 @@
-package com.ethercd.it.items;
+package cd.ethercd.it.items;
 
 
 import ic2.api.upgrade.IProcessingUpgrade;
 import ic2.api.upgrade.IUpgradableBlock;
 import ic2.api.upgrade.UpgradableProperty;
-import ic2.core.block.machine.tileentity.TileEntityMacerator;
+import ic2.core.block.invslot.InvSlotProcessable;
 import ic2.core.block.machine.tileentity.TileEntityStandardMachine;
 import net.minecraft.item.ItemStack;
 
@@ -13,9 +13,13 @@ import java.util.*;
 public class BasicProcessingImproverUpgrade extends BasicItem implements IProcessingUpgrade {
     private boolean needToConsume = false;
     private int oldStackSize = 0;
+    private int consumeMultiplier;
+    private int produceMultiplier;
 
-    public BasicProcessingImproverUpgrade(String name) {
+    public BasicProcessingImproverUpgrade(String name, int consumeMultiplier, int produceMultiplier) {
         super(name);
+        this.consumeMultiplier = consumeMultiplier;
+        this.produceMultiplier = produceMultiplier;
     }
 
     @Override
@@ -25,17 +29,17 @@ public class BasicProcessingImproverUpgrade extends BasicItem implements IProces
 
     @Override
     public double getProcessTimeMultiplier(ItemStack stack, IUpgradableBlock parent) {
-        return 0.5;
+        return 1;
     }
 
     @Override
     public int getExtraEnergyDemand(ItemStack stack, IUpgradableBlock parent) {
-        return 0;
+        return 600;
     }
 
     @Override
     public double getEnergyDemandMultiplier(ItemStack stack, IUpgradableBlock parent) {
-        return 2.5;
+        return 0;
     }
 
     @Override
@@ -52,10 +56,18 @@ public class BasicProcessingImproverUpgrade extends BasicItem implements IProces
     public boolean onTick(ItemStack stack, IUpgradableBlock parent) {
         if (parent instanceof TileEntityStandardMachine && needToConsume) {
             TileEntityStandardMachine<?, ?, ?> machine = (TileEntityStandardMachine<?, ?, ?>) parent;
-            int count = machine.inputSlot.get().getCount();
+            InvSlotProcessable<?, ?, ?> input = machine.inputSlot;
+            int count = input.get().getCount();
             if (count > 0) {
                 int diff = oldStackSize - count;
-                machine.inputSlot.consume(diff);
+                int extra = diff * (this.consumeMultiplier - 1);
+
+                if (input.get().getCount() >= extra) {
+                    input.consume(extra);
+                } else {
+                    input.consume(input.get().getCount());
+                }
+                input.consume(diff );
             }
 
             needToConsume = false;
@@ -67,12 +79,13 @@ public class BasicProcessingImproverUpgrade extends BasicItem implements IProces
     public Collection<ItemStack> onProcessEnd(ItemStack stack, IUpgradableBlock parent, Collection<ItemStack> output) {
         if (parent instanceof TileEntityStandardMachine) {
             List<ItemStack> out = new ArrayList<>();
-            needToConsume = true;
             TileEntityStandardMachine<?, ?, ?> machine = (TileEntityStandardMachine<?, ?, ?>) parent;
-            oldStackSize = machine.inputSlot.get().getCount();
+            ItemStack slotItem = machine.inputSlot.get();
+            oldStackSize = slotItem.getCount();
             for (ItemStack item : output) {
-                if (item.isStackable()) {
-                    item.setCount(item.getCount() * 2);
+                if (item.isStackable() && oldStackSize >= this.consumeMultiplier && oldStackSize + (item.getCount() * this.produceMultiplier) <= slotItem.getItem().getItemStackLimit()) {
+                    item.setCount(item.getCount() * this.produceMultiplier);
+                    needToConsume = true;
                     out.add(item);
                 } else {
                     out.add(item);

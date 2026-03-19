@@ -1,4 +1,4 @@
-package com.ethercd.it.items;
+package cd.ethercd.it.items;
 
 
 import ic2.api.upgrade.IProcessingUpgrade;

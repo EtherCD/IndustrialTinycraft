@@ -1,4 +1,4 @@
-package com.ethercd.it;
+package cd.ethercd.it;
 
 import net.minecraft.item.ItemStack;
 
@@ -17,6 +17,8 @@ public class IC2Items {
 
     public static final ItemStack plate_gold = ic2.api.item.IC2Items.getItem("plate", "gold");
     public static final ItemStack rubber = ic2.api.item.IC2Items.getItem("crafting", "rubber");
+    public static final ItemStack heat_storage = ic2.api.item.IC2Items.getItem("heat_storage");
+    public static final ItemStack upgrade_overclocker = ic2.api.item.IC2Items.getItem("upgrade", "overclocker");
 }
 
 /**
