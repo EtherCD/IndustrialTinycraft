@@ -55,6 +55,14 @@ public class ITcRecipes {
                 'C', IC2Items.heat_storage,
                 'P', BasicCraftItem.PROCESSOR_90NM.getStack(),
                 'U', IC2Items.upgrade_overclocker);
+        addBasicRecipe(new ItemStack(ITcMachines.crystal_grower.getDummyTe().getBlockType().getItem()),
+                "WSW",
+                "BCB",
+                "WSW",
+                'W', IC2Items.cable_copper,
+                'B', IC2Items.resource_machine,
+                'S', new ItemStack(Blocks.CHEST),
+                'C', IC2Items.heat_storage);
     }
 
     public static void addMachineRecipes() {
@@ -75,10 +83,15 @@ public class ITcRecipes {
         addOreWashingRecipe(factory.forStack(IC2Items.dust_silicon_dioxide), BasicCraftItem.PURIFIED_SILICON.getStack(), nbt);
         addOreWashingRecipe(factory.forStack(new ItemStack(Items.REDSTONE)), BasicCraftItem.PURIFIED_REDSTONE.getStack(), nbt);
 
-        addCrystalGrowerRecipe(factory.forStack(BasicCraftItem.PURIFIED_SILICON.getStack()), BasicCraftItem.SILICON_PLATE.getStack());
+        addExtrudingRecipe(factory.forStack(BasicCraftItem.SILICON_INGOT.getStack()), BasicCraftItem.SILICON_PLATE.getStack());
+
+        addCrystalGrowerRecipe(factory.forStack(BasicCraftItem.PURIFIED_SILICON.getStack()), BasicCraftItem.SILICON_INGOT.getStack());
+
         addProcessorAssemblerRecipe(factory, BasicCraftItem.SILICON_PLATE.getStack(), BasicCraftItem.SILICON_PLATE.getStack(), BasicCraftItem.PROCESSOR_90NM_CHIP.getStack());
-        addProcessorAssemblerRecipe(factory, BasicCraftItem.PROCESSOR_90NM_CHIP.getStack(), BasicCraftItem.PROCESSOR_SUBSTRATE.getStack(), BasicCraftItem.PROCESSOR_90NM.getStack());
+        addProcessorAssemblerRecipe(factory, BasicCraftItem.SILICON_PLATE.getStack(), ItemStack.EMPTY, BasicCraftItem.PROCESSOR_90NM_CHIP.getStack());
         addProcessorAssemblerRecipe(factory, BasicCraftItem.PROCESSOR_SUBSTRATE.getStack(), BasicCraftItem.PROCESSOR_90NM_CHIP.getStack(), BasicCraftItem.PROCESSOR_90NM.getStack());
+        addProcessorAssemblerRecipe(factory, BasicCraftItem.ALLOYED_SILICON_PLATE.getStack(), BasicCraftItem.ALLOYED_SILICON_PLATE.getStack(), BasicCraftItem.PROCESSOR_45NM_CHIP.getStack());
+        addProcessorAssemblerRecipe(factory, BasicCraftItem.MICROSTRUCTURED_SILICON_PLATE.getStack(), BasicCraftItem.MICROSTRUCTURED_SILICON_PLATE.getStack(), BasicCraftItem.PROCESSOR_22NM_CHIP.getStack());
     }
 
     private static void addBasicRecipe(ItemStack output, Object... input) {
@@ -97,10 +110,16 @@ public class ITcRecipes {
         Recipes.oreWashing.addRecipe(input, nbt, false, output);
     }
 
+    private static void addExtrudingRecipe(IRecipeInput input, ItemStack output) {
+        Recipes.metalformerExtruding.addRecipe(input, null, false, output);
+    }
+
     private static void addProcessorAssemblerRecipe(IRecipeInputFactory factory, ItemStack firstInput, ItemStack secondInput, ItemStack output) {
         ITcRecipes.processor_assembler.addRecipe(firstInput, secondInput, output);
-        ITcRecipes.processor_assembler_ic2_plug.addRecipe(factory.forStack(firstInput), null, false, output);
-        ITcRecipes.processor_assembler_ic2_plug.addRecipe(factory.forStack(secondInput), null, false, output);
+        if (!firstInput.isEmpty())
+            ITcRecipes.processor_assembler_ic2_plug.addRecipe(factory.forStack(firstInput), null, false, output);
+        if (!secondInput.isEmpty())
+            ITcRecipes.processor_assembler_ic2_plug.addRecipe(factory.forStack(secondInput), null, false, output);
     }
 
     private static void addCrystalGrowerRecipe(IRecipeInput input, ItemStack output) {

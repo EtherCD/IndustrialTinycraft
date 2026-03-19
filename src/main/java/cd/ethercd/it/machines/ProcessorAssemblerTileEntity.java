@@ -1,6 +1,7 @@
 package cd.ethercd.it.machines;
 
 import cd.ethercd.it.ITcRecipes;
+import cd.ethercd.it.IndustrialTinyCraft;
 import ic2.api.recipe.IMachineRecipeManager;
 import ic2.api.recipe.IRecipeInput;
 import ic2.api.recipe.MachineRecipeResult;
@@ -158,8 +159,8 @@ public class ProcessorAssemblerTileEntity  extends TileEntityElectricMachine imp
         if (this.inputSlot.get(0).isEmpty() || this.inputSlot.get(1).isEmpty()) {
             return false;
         }
-        ItemStack output = ITcRecipes.processor_assembler.getResult(this.inputSlot.get(0), this.inputSlot.get(1));;
-        return output != null && this.outputSlot.canAdd(output);
+        ItemStack output = ITcRecipes.processor_assembler.getResult(this.inputSlot.get(0), this.inputSlot.get(1));
+        return !output.isEmpty() && this.outputSlot.canAdd(output);
     }
 
     public void operate() {

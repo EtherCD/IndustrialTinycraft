@@ -4,6 +4,9 @@ import mezz.jei.api.ingredients.IIngredients;
 import mezz.jei.api.recipe.IRecipeWrapper;
 import net.minecraft.item.ItemStack;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class ProcessorAssemblerWrapper implements IRecipeWrapper {
     private ItemStack firstInput;
     private ItemStack secondInput;
@@ -17,8 +20,10 @@ public class ProcessorAssemblerWrapper implements IRecipeWrapper {
 
     @Override
     public void getIngredients(IIngredients ingredients) {
-        ingredients.setInput(ItemStack.class, firstInput);
-        ingredients.setInput(ItemStack.class, secondInput);
+        List<ItemStack> items = new ArrayList();
+        items.add(firstInput);
+        items.add(secondInput);
+        ingredients.setInputs(ItemStack.class, items);
         ingredients.setOutput(ItemStack.class, output);
     }
 

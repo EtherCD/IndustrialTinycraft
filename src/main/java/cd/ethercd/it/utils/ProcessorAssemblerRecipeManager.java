@@ -52,7 +52,6 @@ public class ProcessorAssemblerRecipeManager {
                     if (input1.isItemEqual(ent.getKey()))
                         return ent.getValue();
         }
-
         return ItemStack.EMPTY;
     }
 

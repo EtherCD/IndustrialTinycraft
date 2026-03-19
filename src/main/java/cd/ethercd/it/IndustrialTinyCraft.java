@@ -44,9 +44,9 @@ public class IndustrialTinyCraft
     @EventHandler
     public void init(FMLInitializationEvent event)
     {
+        ITcMachines.buildDummies();
         ITcRecipes.addBasicRecipes();
         ITcRecipes.addMachineRecipes();
-        ITcMachines.buildDummies();
     }
 
     @EventHandler

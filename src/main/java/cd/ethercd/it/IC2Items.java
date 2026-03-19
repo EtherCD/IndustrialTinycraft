@@ -19,6 +19,8 @@ public class IC2Items {
     public static final ItemStack rubber = ic2.api.item.IC2Items.getItem("crafting", "rubber");
     public static final ItemStack heat_storage = ic2.api.item.IC2Items.getItem("heat_storage");
     public static final ItemStack upgrade_overclocker = ic2.api.item.IC2Items.getItem("upgrade", "overclocker");
+    public static final ItemStack cable_copper = ic2.api.item.IC2Items.getItem("cable", "type:copper,insulation:1");
+    public static final ItemStack resource_machine = ic2.api.item.IC2Items.getItem("resource", "machine");
 }
 
 /**

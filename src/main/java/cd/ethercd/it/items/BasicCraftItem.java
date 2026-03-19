@@ -10,6 +10,7 @@ public enum BasicCraftItem {
     PURIFIED_DIAMOND_DUST("purified_diamond_dust"),
     PURIFIED_REDSTONE("purified_redstone"),
 
+    SILICON_INGOT("silicon_ingot"),
     SILICON_PLATE("silicon_plate"),
     ALLOYED_SILICON_PLATE("alloyed_silicon_plate"),
     MICROSTRUCTURED_SILICON_PLATE("microstructured_silicon_plate"),
@@ -28,6 +29,8 @@ public enum BasicCraftItem {
     PROCESSOR_2NM("processor_2nm"),
 
     PROCESSOR_90NM_CHIP("processor_90nm_chip"),
+    PROCESSOR_45NM_CHIP("processor_45nm_chip"),
+    PROCESSOR_22NM_CHIP("processor_22nm_chip"),
     ;
 
     private BasicItem item;
@@ -41,7 +44,14 @@ public enum BasicCraftItem {
     public BasicItem getItem() {
         return item;
     }
+
     public ItemStack getStack() {
+        return stack;
+    }
+
+    public ItemStack getStack(int size) {
+        ItemStack stack = new ItemStack(item);
+        stack.setCount(size);
         return stack;
     }
 
