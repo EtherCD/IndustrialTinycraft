@@ -1,0 +1,72 @@
+buildscript {
+    repositories {
+        maven { url = "https://maven.minecraftforge.net" }
+    }
+    dependencies {
+        classpath ('net.minecraftforge.gradle:ForgeGradle:2.3.7')
+    }
+}
+
+apply plugin: 'idea'
+apply plugin: 'net.minecraftforge.gradle.forge'
+
+version = "1.0"
+group = "com.ethercd.it"
+archivesBaseName = "IndustrialTinyCraft"
+
+sourceCompatibility = targetCompatibility = '1.8'
+compileJava {
+    sourceCompatibility = targetCompatibility = '1.8'
+    options.encoding = 'UTF-8'
+}
+
+minecraft {
+    version = "1.12.2-14.23.5.2847"
+    runDir = "run"
+    mappings = "stable_39"
+}
+repositories {
+    maven {
+        name 'CurseMaven'
+        url 'https://www.cursemaven.com'
+    }
+    maven {
+        name 'IC2'
+        url 'http://maven.ic2.player.to'
+    }
+    maven {
+        name "BlakesMods"
+        url 'https://maven.blakesmods.com'
+    }
+    maven {
+        name "Progwml6 maven"
+        url "http://dvs1.progwml6.com/files/maven"
+    }
+    maven {
+        name "ModMaven"
+        url "https://modmaven.k-4u.nl/"
+    }
+    mavenCentral()
+}
+
+dependencies {
+    compile "mezz.jei:jei_${minecraft_version}:${jei_version}:api"
+    runtime "mezz.jei:jei_${minecraft_version}:${jei_version}"
+
+    compile "curse.maven:industrial-craft-${ic2_project_id}:${ic2_file_id}"
+}
+
+processResources {
+    inputs.property "version", project.version
+    inputs.property "mcversion", project.minecraft.version
+
+    from(sourceSets.main.resources.srcDirs) {
+        include 'mcmod.info'
+
+        expand 'version': project.version, 'mcversion': project.minecraft.version
+    }
+
+    from(sourceSets.main.resources.srcDirs) {
+        exclude 'mcmod.info'
+    }
+}
