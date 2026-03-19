@@ -10,7 +10,6 @@ public class BasicItem extends Item implements IHasModel {
     public BasicItem(String name) {
         setRegistryName(name);
         setCreativeTab(ITcCreativeTab.CREATIVE_TAB);
-        ITcItemLoader.ITEMS.add(this);
         setTranslationKey(name);
     }
 

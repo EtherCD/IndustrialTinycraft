@@ -1,28 +1,34 @@
 package cd.ethercd.it.items;
 
+import cd.ethercd.it.ITcItemLoader;
 import net.minecraft.item.ItemStack;
 
 public enum BasicCraftItem {
-    CRUSHED_SILICON("crushed_silicon"),
     PURIFIED_SILICON("purified_silicon"),
     PURIFIED_COPPER_DUST("purified_copper_dust"),
     PURIFIED_GOLD_DUST("purified_gold_dust"),
     PURIFIED_DIAMOND_DUST("purified_diamond_dust"),
+    PURIFIED_REDSTONE("purified_redstone"),
 
-    BASIC_SEMICONDUCTOR_WAFFLE("basic_semiconductor_waffle"),
+    SILICON_PLATE("silicon_plate"),
+    ALLOYED_SILICON_PLATE("alloyed_silicon_plate"),
+    MICROSTRUCTURED_SILICON_PLATE("microstructured_silicon_plate"),
 
     FIBERGLASS("fiberglass"),
+    MICROSTRUCTURED_FIBERGLASS_DUST("microstructured_fiberglass_dust"),
     GLASS_DUST("glass_dust"),
     RAW_PROCESSOR_SUBSTRATE("raw_processor_substrate"),
     PROCESSOR_SUBSTRATE("processor_substrate"),
 
     CACHE_MEMORY_CHIP("cache_memory_chip"),
-    BASIC_PROCESSOR_CHIP("basic_processor_chip"),
     PROCESSOR_90NM("processor_90nm"),
     PROCESSOR_45NM("processor_45nm"),
     PROCESSOR_22NM("processor_22nm"),
     PROCESSOR_7NM("processor_7nm"),
-    PROCESSOR_2NM("processor_2nm");
+    PROCESSOR_2NM("processor_2nm"),
+
+    PROCESSOR_90NM_CHIP("processor_90nm_chip"),
+    ;
 
     private BasicItem item;
     private ItemStack stack;
@@ -37,5 +43,11 @@ public enum BasicCraftItem {
     }
     public ItemStack getStack() {
         return stack;
+    }
+
+    public static void register() {
+        for (BasicCraftItem item : BasicCraftItem.values()) {
+            ITcItemLoader.ITEMS.add(item.getItem());
+        }
     }
 }

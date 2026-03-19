@@ -1,6 +1,5 @@
 package cd.ethercd.it;
 
-import cd.ethercd.it.machines.ProcessorAssemblerTileEntity;
 import ic2.core.block.ITeBlock;
 import ic2.core.block.TileEntityBlock;
 import ic2.core.ref.TeBlock;
@@ -16,7 +15,8 @@ import javax.annotation.Nullable;
 import java.util.Set;
 
 public enum ITcMachines implements ITeBlock {
-    processor_assembler(cd.ethercd.it.machines.ProcessorAssemblerTileEntity.class, 0, EnumRarity.RARE),
+    crystal_grower(cd.ethercd.it.machines.CrystalGrowerTileEntity.class, 0, EnumRarity.RARE),
+    processor_assembler(cd.ethercd.it.machines.ProcessorAssemblerTileEntity.class, 1, EnumRarity.RARE),
     ;
 
     private final Class<? extends TileEntityBlock> teClass;
@@ -24,7 +24,7 @@ public enum ITcMachines implements ITeBlock {
     private final EnumRarity rarity;
     private TileEntityBlock te;
 
-    public static final ResourceLocation LOCATION = new ResourceLocation(IndustrialTinyCraft.MODID, "machines");
+    public static final ResourceLocation LOCATION = new ResourceLocation("industrialtinycraft", "machines");
 
     ITcMachines(Class<? extends TileEntityBlock> teClass, int itemMeta, EnumRarity rarity) {
         this.teClass = teClass;
@@ -109,7 +109,7 @@ public enum ITcMachines implements ITeBlock {
         return new String[] {this.getName()};
     }
 
-    public static void build() {
+    public static void buildDummies() {
         ModContainer mc = Loader.instance().activeModContainer();
         if(mc != null && IndustrialTinyCraft.MODID.equals(mc.getModId())) {
             ITcMachines[] var1 = values();

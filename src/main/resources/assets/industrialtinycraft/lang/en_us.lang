@@ -3,12 +3,12 @@ item.purified_silicon.name=Purified Silicon
 item.purified_copper_dust.name=Purified Copper Dust
 item.purified_gold_dust.name=Purified Gold Dust
 item.purified_diamond_dust.name=Purified Diamond Dust
+item.purified_redstone.name=Purified Redstone
 item.basic_semiconductor_waffle.name=Basic Semiconductor Waffle
 item.fiberglass.name=Fiberglass
 item.glass_dust.name=Glass Dust
 item.raw_processor_substrate.name=Raw Processor Substrate
 item.processor_substrate.name=Processor Substrate
-item.cache_memory_chip.name=Cache Memory Chip
 item.basic_processor_chip.name=Basic Processor chip
 item.processor_90nm.name=Processor 90nm
 item.processor_45nm.name=Processor 45nm
@@ -18,6 +18,16 @@ item.processor_2nm.name=Processor 2nm
 item.processing_improver.name=Processing Improver
 item.advanced_processing_improver.name=Advanced Processing Improver
 item.improved_overclocker.name=Improved Overclocker
-
+item.silicon_plate.name=Silicon Plate
+item.alloyed_silicon_plate.name=Alloyed Silicon Plate
+item.microstructured_silicon_plate.name=Microstructured Silicon Plate
 
 industrialtinycraft.title.title=Processor Assembler
+
+itemGroup.industrialtinycraft=Industrial TinyCraft
+
+industrialtinycraft.crystal_grower.title=Crystal Grower
+industrialtinycraft.processor_assembler.title=Processor Assembler
+
+industrialtinycraft.machines.crystal_grower=Crystal Grower
+industrialtinycraft.machines.processor_assembler=Processor Assembler

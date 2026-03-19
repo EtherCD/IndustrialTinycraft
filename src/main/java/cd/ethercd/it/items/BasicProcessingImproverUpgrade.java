@@ -1,6 +1,7 @@
 package cd.ethercd.it.items;
 
 
+import cd.ethercd.it.ITcItemLoader;
 import ic2.api.upgrade.IProcessingUpgrade;
 import ic2.api.upgrade.IUpgradableBlock;
 import ic2.api.upgrade.UpgradableProperty;
@@ -20,6 +21,7 @@ public class BasicProcessingImproverUpgrade extends BasicItem implements IProces
         super(name);
         this.consumeMultiplier = consumeMultiplier;
         this.produceMultiplier = produceMultiplier;
+        ITcItemLoader.ITEMS.add(this);
     }
 
     @Override

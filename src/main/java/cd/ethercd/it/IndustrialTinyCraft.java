@@ -37,6 +37,7 @@ public class IndustrialTinyCraft
     @EventHandler
     public void preInit(FMLPreInitializationEvent event)
     {
+        ITcItemLoader.register();
         LOGGER = event.getModLog();
     }
 
@@ -45,7 +46,7 @@ public class IndustrialTinyCraft
     {
         ITcRecipes.addBasicRecipes();
         ITcRecipes.addMachineRecipes();
-        ITcMachines.build();
+        ITcMachines.buildDummies();
     }
 
     @EventHandler

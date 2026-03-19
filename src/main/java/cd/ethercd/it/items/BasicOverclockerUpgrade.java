@@ -1,6 +1,7 @@
 package cd.ethercd.it.items;
 
 
+import cd.ethercd.it.ITcItemLoader;
 import ic2.api.upgrade.IProcessingUpgrade;
 import ic2.api.upgrade.IUpgradableBlock;
 import ic2.api.upgrade.UpgradableProperty;
@@ -12,6 +13,7 @@ import java.util.Set;
 public class BasicOverclockerUpgrade extends BasicItem implements IProcessingUpgrade {
     public BasicOverclockerUpgrade(String name) {
         super(name);
+        ITcItemLoader.ITEMS.add(this);
     }
 
     @Override

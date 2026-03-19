@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <gui width="176" height="166">
-    <text y="6" align="center">{industrialtinycraft.title.title}</text>
-    <slot name="input" x="50" y="17"/>
-    <slotgrid name="output" x="113" y="35" rows="1" style="plain"/>
-    <image x="112" y="34" src="industrialtinycraft:textures/gui/overlay/processor_assembler_output"/>
-    <slot name="discharge" x="50" y="52"/>
+    <text y="6" align="center">{industrialtinycraft.processor_assembler.title}</text>
+    <slotgrid name="input" x="66" y="24" rows="2"/>
+    <slotgrid name="output" x="115" y="33" rows="1" style="plain"/>
+<!--    <image x="112" y="30" src="industrialtinycraft:textures/gui/overlay/output"/>-->
+    <slot name="discharge" x="45" y="42"/>
     <environment name="game">
-        <button type="recipe" x="77" y="37" width="22" height="15" event="electric_centrifuge"></button>
-        <slotgrid name="upgrade" x="151" y="25" cols="1"/>
+        <button type="recipe" x="88" y="36" width="22" height="15" event="crystal_grower"></button>
+        <slotgrid name="upgrade" x="151" y="7" cols="1"/>
     </environment>
-    <energygauge x="55" y="37"/>
-    <gauge name="progress" x="77" y="37" style="progressarrowmodern"/>
+    <energygauge x="50" y="26"/>
+    <gauge name="progress" x="88" y="36" style="progressarrow"/>
     <playerInventory x="7" y="83"/>
 </gui>

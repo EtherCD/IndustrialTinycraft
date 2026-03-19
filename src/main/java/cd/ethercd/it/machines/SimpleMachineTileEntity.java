@@ -38,7 +38,7 @@ import java.util.Set;
 public class SimpleMachineTileEntity extends TileEntityElectricMachine implements IHasGui, IGuiValueProvider, IUpgradableBlock {
     protected final int idleEU;
     protected final int activeEU;
-    protected final int maxProgress;
+    protected int maxProgress;
 
     public final InvSlotProcessable<IRecipeInput, Collection<ItemStack>, ItemStack> inputSlot;
     public final InvSlotOutput outputSlot;
@@ -50,7 +50,7 @@ public class SimpleMachineTileEntity extends TileEntityElectricMachine implement
     public int progress;
 
     public SimpleMachineTileEntity(int tier, IMachineRecipeManager<IRecipeInput, Collection<ItemStack>, ItemStack> recipeSet, int idleEU, int activeEU) {
-        super(25000, tier);
+        super(1600, tier);
         this.maxProgress = 1000;
         this.progress = 0;
         this.idleEU = idleEU;
@@ -112,7 +112,7 @@ public class SimpleMachineTileEntity extends TileEntityElectricMachine implement
 
     @Override
     public Set<UpgradableProperty> getUpgradableProperties() {
-        return EnumSet.of(UpgradableProperty.ItemConsuming, UpgradableProperty.ItemProducing);
+        return EnumSet.of(UpgradableProperty.ItemConsuming, UpgradableProperty.ItemProducing, UpgradableProperty.Processing, UpgradableProperty.Transformer);
     }
 
     protected void updateEntityServer() {
@@ -175,110 +175,5 @@ public class SimpleMachineTileEntity extends TileEntityElectricMachine implement
                 ((IUpgradeItem)stack.getItem()).onProcessEnd(stack, (IUpgradableBlock)this, (Collection<ItemStack>)output);
             }
         }
-    }
-
-    @Override
-    public int[] getSlotsForFace(EnumFacing enumFacing) {
-        return new int[0];
-    }
-
-    @Override
-    public boolean canInsertItem(int i, ItemStack itemStack, EnumFacing enumFacing) {
-        return true;
-    }
-
-    @Override
-    public boolean canExtractItem(int i, ItemStack itemStack, EnumFacing enumFacing) {
-        return true;
-    }
-
-    @Override
-    public int getSizeInventory() {
-        return this.inventorySize;
-    }
-
-    @Override
-    public boolean isEmpty() {
-        return this.outputSlot.isEmpty();
-    }
-
-    @Override
-    public ItemStack getStackInSlot(int i) {
-        return null;
-    }
-
-    @Override
-    public ItemStack decrStackSize(int i, int i1) {
-        return null;
-    }
-
-    @Override
-    public ItemStack removeStackFromSlot(int i) {
-        return null;
-    }
-
-    @Override
-    public void setInventorySlotContents(int i, ItemStack itemStack) {
-
-    }
-
-    @Override
-    public int getInventoryStackLimit() {
-        return 0;
-    }
-
-    @Override
-    public boolean isUsableByPlayer(EntityPlayer entityPlayer) {
-        return false;
-    }
-
-    @Override
-    public void openInventory(EntityPlayer entityPlayer) {
-
-    }
-
-    @Override
-    public void closeInventory(EntityPlayer entityPlayer) {
-
-    }
-
-    @Override
-    public boolean isItemValidForSlot(int i, ItemStack itemStack) {
-        return false;
-    }
-
-    @Override
-    public int getField(int i) {
-        return 0;
-    }
-
-    @Override
-    public void setField(int i, int i1) {
-
-    }
-
-    @Override
-    public int getFieldCount() {
-        return 0;
-    }
-
-    @Override
-    public void clear() {
-
-    }
-
-    @Override
-    public void update() {
-
-    }
-
-    @Override
-    public String getName() {
-        return "";
-    }
-
-    @Override
-    public boolean hasCustomName() {
-        return false;
     }
 }
