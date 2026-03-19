@@ -1,9 +1,12 @@
 package cd.ethercd.it.utils;
 
+import cd.ethercd.it.jei.machines.ProcessorAssemblerWrapper;
 import com.google.common.collect.HashBasedTable;
+import com.google.common.collect.Lists;
 import com.google.common.collect.Table;
-import ic2.api.recipe.*;
 import net.minecraft.item.ItemStack;
+
+import java.util.List;
 import java.util.Map;
 
 public class ProcessorAssemblerRecipeManager {
@@ -64,5 +67,22 @@ public class ProcessorAssemblerRecipeManager {
 
     public Table<ItemStack, ItemStack, ItemStack> getRecipesList() {
         return recipesList;
+    }
+
+    public List<ProcessorAssemblerWrapper> getRecipes() {
+        Table<ItemStack, ItemStack, ItemStack> recipes = this.getRecipesList();
+        List<ProcessorAssemblerWrapper> jeiRecipes = Lists.newArrayList();
+
+        for (Map.Entry<ItemStack, Map<ItemStack, ItemStack>> entry : recipes.columnMap().entrySet()) {
+            for (Map.Entry<ItemStack, ItemStack> ent : entry.getValue().entrySet()) {
+                ItemStack input1 = entry.getKey();
+                ItemStack input2 = ent.getKey();
+                ItemStack output = ent.getValue();
+                ProcessorAssemblerWrapper recipe = new ProcessorAssemblerWrapper(input1, input2, output);
+                jeiRecipes.add(recipe);
+            }
+        }
+
+        return jeiRecipes;
     }
 }

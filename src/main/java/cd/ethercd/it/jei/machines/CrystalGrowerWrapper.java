@@ -1,6 +1,5 @@
-package cd.ethercd.it.jei;
+package cd.ethercd.it.jei.machines;
 
-import ic2.api.recipe.IMachineRecipeManager;
 import ic2.api.recipe.IRecipeInput;
 import ic2.api.recipe.MachineRecipe;
 import mezz.jei.api.ingredients.IIngredients;
@@ -13,9 +12,9 @@ public class CrystalGrowerWrapper implements IRecipeWrapper {
     private ItemStack input;
     private ItemStack output;
 
-    public CrystalGrowerWrapper(MachineRecipe<IRecipeInput, ItemStack> recipe) {
+    public CrystalGrowerWrapper(MachineRecipe<IRecipeInput, Collection<ItemStack>> recipe) {
         input = recipe.getInput().getInputs().get(0);
-        output = recipe.getOutput();
+        output = recipe.getOutput().iterator().next().copy();
     }
 
     @Override

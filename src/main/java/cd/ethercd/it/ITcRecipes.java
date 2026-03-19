@@ -82,7 +82,6 @@ public class ITcRecipes {
     }
 
     private static void addBasicRecipe(ItemStack output, Object... input) {
-        System.out.println(input);
         Recipes.advRecipes.addRecipe(output, input);
     }
 
