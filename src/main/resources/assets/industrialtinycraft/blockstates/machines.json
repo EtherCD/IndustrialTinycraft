@@ -3,7 +3,8 @@
   "variants": {
     "type": {
       "processor_assembler": { "model": "industrialtinycraft:processor_assembler" },
-      "crystal_grower": { "model": "industrialtinycraft:crystal_grower" }
+      "crystal_grower": { "model": "industrialtinycraft:crystal_grower" },
+      "process_optimizer": { "model": "industrialtinycraft:process_optimizer" }
     },
     "facing": {
       "down": { "x": 90 },

@@ -32,6 +32,8 @@ public class IC2Items {
     public static final ItemStack resource_machine = ic2.api.item.IC2Items.getItem("resource", "machine");
     public static final ItemStack resource_advanced_machine = ic2.api.item.IC2Items.getItem("resource", "advanced_machine");
     public static final ItemStack crafting_alloy = ic2.api.item.IC2Items.getItem("crafting", "alloy");
+
+    public static final ItemStack carbon_plate = ic2.api.item.IC2Items.getItem("crafting", "carbon_plate");
 }
 
 /**

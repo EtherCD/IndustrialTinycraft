@@ -3,6 +3,7 @@ package cd.ethercd.it.machines;
 import cd.ethercd.it.ITcRecipes;
 import ic2.api.recipe.IRecipeInput;
 import ic2.api.recipe.MachineRecipeResult;
+import ic2.api.upgrade.IProcessingUpgrade;
 import ic2.api.upgrade.IUpgradableBlock;
 import ic2.api.upgrade.IUpgradeItem;
 import ic2.api.upgrade.UpgradableProperty;
@@ -110,6 +111,21 @@ public abstract class ComplexMachineTileEntity extends TileEntityElectricMachine
         super.updateEntityServer();
         boolean needsInvUpdate = false;
         boolean canOperate = this.canOperate();
+        Iterator<ItemStack> var4 = this.upgradeSlot.iterator();
+        double accelerate = 1;
+        double energy = 1;
+        while(var4.hasNext()) {
+            ItemStack stack = (ItemStack)var4.next();
+            if (!StackUtil.isEmpty(stack) && stack.getItem() instanceof IUpgradeItem) {
+                needsInvUpdate |= ((IUpgradeItem)stack.getItem()).onTick(stack, this);
+                if (stack.getItem() instanceof IProcessingUpgrade) {
+                    IProcessingUpgrade upgrade = (IProcessingUpgrade) stack.getItem();
+                    accelerate /= Math.pow(upgrade.getProcessTimeMultiplier(stack, this), StackUtil.getSize(stack));
+                    energy *= Math.pow(upgrade.getEnergyDemandMultiplier(stack, this), StackUtil.getSize(stack));
+                }
+            }
+        }
+
         if (this.progress >= this.maxProgress) {
             while(true) {
                 if (this.progress < this.maxProgress || !canOperate) {
@@ -122,8 +138,8 @@ public abstract class ComplexMachineTileEntity extends TileEntityElectricMachine
             }
         }
         if (this.canRun()) {
-            if (canOperate && this.energy.useEnergy((double)this.activeEU)) {
-                this.progress += 10;
+            if (canOperate && this.energy.useEnergy((double)this.activeEU * energy)) {
+                this.progress += (int) (10 * accelerate);
             } else {
                 this.progress = 0;
             }
@@ -131,13 +147,6 @@ public abstract class ComplexMachineTileEntity extends TileEntityElectricMachine
             this.progress = 0;
         }
 
-        Iterator<ItemStack> var4 = this.upgradeSlot.iterator();
-        while(var4.hasNext()) {
-            ItemStack stack = (ItemStack)var4.next();
-            if (!StackUtil.isEmpty(stack) && stack.getItem() instanceof IUpgradeItem) {
-                needsInvUpdate |= ((IUpgradeItem)stack.getItem()).onTick(stack, this);
-            }
-        }
         this.setActive(true);
         if (needsInvUpdate) {
             this.consume();

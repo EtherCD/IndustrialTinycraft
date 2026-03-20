@@ -6,7 +6,7 @@ import net.minecraft.item.ItemStack;
 
 public class ProcessorAssemblerTileEntity  extends ComplexMachineTileEntity {
     public ProcessorAssemblerTileEntity() {
-        super(5000000, 4, 1500);
+        super(2000000, 4, 1500);
         this.activeEU = 600;
         this.inputSlot = new InvSlotProcessableGeneric(this, "input", 2, ITcRecipes.processor_assembler_ic2_plug);
     }
@@ -14,14 +14,11 @@ public class ProcessorAssemblerTileEntity  extends ComplexMachineTileEntity {
     public void consume() {
         ItemStack input1 = inputSlot.get(0);
         ItemStack input2 = inputSlot.get(1);
-        if (!input1.isEmpty() && input2.isEmpty()) {
-            input1.setCount(input1.getCount() - 1);
-        }
-        if (!input2.isEmpty() && input1.isEmpty()) {
-            input2.setCount(input2.getCount() - 1);
-        }
-        input1.setCount(input1.getCount() - 1);
-        input2.setCount(input2.getCount() - 1);
+        int[] ingridientsConsume = ITcRecipes.processor_assembler.getIngirientsConsume(input1, input2);
+        if (!input1.isEmpty())
+            input1.setCount(input1.getCount() - ingridientsConsume[0]);
+        if (!input2.isEmpty())
+            input2.setCount(input2.getCount() - ingridientsConsume[1]);
     }
 
     public boolean canOperate() {

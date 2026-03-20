@@ -9,7 +9,6 @@ public enum BasicCraftItem {
     HAFNIUM_INGOT("hafnium_ingot"),
     HAFNIUM_DUST("hafnium_dust"),
 
-    PURIFIED_HAFNIUM_DUST("purified_hafnium_dust"),
     PURIFIED_SILICON("purified_silicon"),
     PURIFIED_COPPER_DUST("purified_copper_dust"),
     PURIFIED_GOLD_DUST("purified_gold_dust"),
