@@ -20,7 +20,7 @@ import java.util.List;
 
 public class ProcessOptimizerCategory extends IORecipeCategory<ProcessorAssemblerRecipeManager> implements IDrawable {
     private final IDrawableStatic bg;
-    public static final String UID = IndustrialTinyCraft.MODID + ".processor_assembler";
+    public static final String UID = IndustrialTinyCraft.MODID + ".process_optimizer";
 
     public ProcessOptimizerCategory(IGuiHelper h) {
         super(ITcMachines.crystal_grower, ITcRecipes.processor_assembler);

@@ -21,7 +21,7 @@ import java.util.List;
 
 public class ProcessorAssemblerCategory extends IORecipeCategory<ProcessorAssemblerRecipeManager> implements IDrawable {
     private final IDrawableStatic bg;
-    public static final String UID = IndustrialTinyCraft.MODID + ".process_optimizer";
+    public static final String UID = IndustrialTinyCraft.MODID + ".processor_assembler";
 
     public ProcessorAssemblerCategory(IGuiHelper h) {
         super(ITcMachines.crystal_grower, ITcRecipes.processor_assembler);
@@ -43,7 +43,7 @@ public class ProcessorAssemblerCategory extends IORecipeCategory<ProcessorAssemb
 
     @Override
     public String getTitle() {
-        return "Processor Assembler";
+        return "Processor Fabricator";
     }
 
     @Override

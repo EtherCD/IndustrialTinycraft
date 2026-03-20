@@ -19,8 +19,8 @@ item.processor_7nm_chip.name=Processor 7nm Chip
 item.processor_7nm.name=Processor 7nm
 item.processor_2nm_chip.name=Processor 2nm Chip
 item.processor_2nm.name=Processor 2nm
-item.processing_improver.name=Processing Improver
-item.advanced_processing_improver.name=Advanced Processing Improver
+item.parallel_processing_upgrade.name=Parallel Processing Upgrade
+item.advanced_parallel_processing_upgrade.name=Advanced Parallel Processing Upgrade
 item.improved_overclocker.name=Improved Overclocker
 item.silicon_plate.name=Silicon Plate
 item.alloyed_silicon_plate.name=Alloyed Silicon Plate
@@ -29,21 +29,23 @@ item.improved_processor_substrate.name=Improved Processor Substrate
 item.advanced_processor_substrate.name=Advanced Processor Substrate
 item.microstructured_fiberglass_dust.name=Microstructured Fiberglass Dust
 item.silicon_ingot.name=Silicon Crystal
-item.improved_hex_heat_storage.name=Improved Hex Heat Storage
-item.improved_tri_heat_storage.name=Improved Tri Heat Storage
-item.improved_heat_storage.name=Improved Heat Storage
-item.advanced_hex_heat_storage.name=Improved Hex Heat Storage
-item.advanced_tri_heat_storage.name=Improved Tri Heat Storage
+item.improved_hex_heat_storage.name=90k Heat Storage
+item.improved_tri_heat_storage.name=45k Heat Storage
+item.improved_heat_storage.name=15k Heat Storage
+item.advanced_hex_heat_storage.name=120k Heat Storage
+item.advanced_tri_heat_storage.name=60k Heat Storage
+item.lithography_laser.name=Lithography Laser
+item.unstable_energy_core.name=Unstable Energy Core
+item.stabilized_energy_core.name=Stabilized Energy Core
 
-
-industrialtinycraft.title.title=Processor Assembler
+industrialtinycraft.tooltip.parallel_processing_upgrade=Makes the processing of items parallel.
 
 itemGroup.industrialtinycraft=Industrial TinyCraft
 
 industrialtinycraft.crystal_grower.title=Crystal Grower
-industrialtinycraft.processor_assembler.title=Processor Assembler
+industrialtinycraft.processor_assembler.title=Processor Fabricator
 industrialtinycraft.process_optimizer.title=Process Optimizer
 
 industrialtinycraft.machines.crystal_grower=Crystal Grower
-industrialtinycraft.machines.processor_assembler=Processor Assembler
+industrialtinycraft.machines.processor_assembler=Processor Fabricator
 industrialtinycraft.machines.process_optimizer=Process Optimizer

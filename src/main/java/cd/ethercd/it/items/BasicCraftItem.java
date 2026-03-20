@@ -23,7 +23,6 @@ public enum BasicCraftItem {
     IMPROVED_PROCESSOR_SUBSTRATE("improved_processor_substrate"),
     ADVANCED_PROCESSOR_SUBSTRATE("advanced_processor_substrate"),
 
-    CACHE_MEMORY_CHIP("cache_memory_chip"),
     PROCESSOR_90NM("processor_90nm"),
     PROCESSOR_45NM("processor_45nm"),
     PROCESSOR_22NM("processor_22nm"),
@@ -35,6 +34,8 @@ public enum BasicCraftItem {
     PROCESSOR_22NM_CHIP("processor_22nm_chip"),
 
     LITHOGRAPHY_LASER("lithography_laser"),
+    UNSTABLE_ENERGY_CORE("unstable_energy_core"),
+    STABILIZED_ENERGY_CORE("stabilized_energy_core"),
     ;
 
     private BasicItem item;

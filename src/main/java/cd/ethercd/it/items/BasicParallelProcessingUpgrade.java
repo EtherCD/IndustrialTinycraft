@@ -7,17 +7,23 @@ import ic2.api.upgrade.IUpgradableBlock;
 import ic2.api.upgrade.UpgradableProperty;
 import ic2.core.block.invslot.InvSlotProcessable;
 import ic2.core.block.machine.tileentity.TileEntityStandardMachine;
+import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.text.TextComponentTranslation;
+import net.minecraft.world.World;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
+import javax.annotation.Nullable;
 import java.util.*;
 
-public class BasicProcessingImproverUpgrade extends BasicItem implements IProcessingUpgrade {
+public class BasicParallelProcessingUpgrade extends BasicItem implements IProcessingUpgrade {
     private boolean needToConsume = false;
     private int oldStackSize = 0;
     private int consumeMultiplier;
     private int produceMultiplier;
 
-    public BasicProcessingImproverUpgrade(String name, int consumeMultiplier, int produceMultiplier) {
+    public BasicParallelProcessingUpgrade(String name, int consumeMultiplier, int produceMultiplier) {
         super(name);
         this.consumeMultiplier = consumeMultiplier;
         this.produceMultiplier = produceMultiplier;
@@ -97,5 +103,11 @@ public class BasicProcessingImproverUpgrade extends BasicItem implements IProces
         } else {
             return output;
         }
+    }
+
+    @SideOnly(Side.CLIENT)
+    @Override
+    public void addInformation(ItemStack stack, @Nullable World world, List<String> tooltip, ITooltipFlag flag) {
+        tooltip.add(new TextComponentTranslation("industrialtinycraft.tooltip.parallel_processing_upgrade").getFormattedText());
     }
 }

@@ -42,6 +42,15 @@ public class ITcRecipes {
                 'G', IC2Items.plate_gold,
                 'R', IC2Items.rubber,
                 'F', BasicCraftItem.FIBERGLASS.getStack());
+        addBasicRecipe(BasicCraftItem.LITHOGRAPHY_LASER.getStack(),
+                "GCG",
+                "AMA",
+                "GEG",
+                'E', IC2Items.energy_crystal,
+                'M', IC2Items.resource_advanced_machine,
+                'A', IC2Items.crafting_alloy,
+                'G', IC2Items.reinforced_stone,
+                'C', IC2Items.advanced_circuit);
         // Upgrades
         addBasicRecipe(new ItemStack(ITcItemLoader.improved_overclocker),
                 "   ",
@@ -91,7 +100,7 @@ public class ITcRecipes {
                 " S ",
                 'B', IC2Items.plate_tin,
                 'S', BasicCraftItem.PROCESSOR_90NM.getStack(),
-                'C', BasicCraftItem.IMPROVED_PROCESSOR_SUBSTRATE.getStack());
+                'C', IC2Items.heat_storage);
         addBasicRecipe(new ItemStack(ITcItemLoader.improved_tri_heat_storage),
                 "BBB",
                 "SSB",
@@ -107,6 +116,73 @@ public class ITcRecipes {
                 'S', new ItemStack(ITcItemLoader.improved_tri_heat_storage),
                 'I', new ItemStack(ITcItemLoader.improved_heat_storage),
                 'C', BasicCraftItem.PROCESSOR_90NM.getStack());
+        addBasicRecipe(new ItemStack(ITcItemLoader.improved_tri_heat_storage),
+                "BSB",
+                "BCB",
+                "BSB",
+                'B', IC2Items.plate_tin,
+                'S', BasicCraftItem.PROCESSOR_22NM.getStack(),
+                'C', IC2Items.tri_heat_storage);
+        addBasicRecipe(new ItemStack(ITcItemLoader.improved_hex_heat_storage),
+                "BSB",
+                "BCB",
+                "BSB",
+                'B', IC2Items.plate_tin,
+                'S', BasicCraftItem.PROCESSOR_22NM.getStack(),
+                'C', IC2Items.hex_heat_storage);
+        // Advanced heat storage
+        addBasicRecipe(new ItemStack(ITcItemLoader.advanced_heat_storage),
+                " S ",
+                "BCB",
+                " S ",
+                'B', IC2Items.plate_tin,
+                'S', BasicCraftItem.PROCESSOR_45NM.getStack(),
+                'C', new ItemStack(ITcItemLoader.improved_heat_storage));
+        addBasicRecipe(new ItemStack(ITcItemLoader.advanced_tri_heat_storage),
+                "BBB",
+                "SSB",
+                "BCB",
+                'B', IC2Items.plate_tin,
+                'S', new ItemStack(ITcItemLoader.advanced_heat_storage),
+                'C', BasicCraftItem.PROCESSOR_45NM.getStack());
+        addBasicRecipe(new ItemStack(ITcItemLoader.advanced_hex_heat_storage),
+                "BSB",
+                "BCB",
+                "BIB",
+                'B', IC2Items.plate_tin,
+                'S', new ItemStack(ITcItemLoader.advanced_tri_heat_storage),
+                'I', new ItemStack(ITcItemLoader.advanced_heat_storage),
+                'C', BasicCraftItem.PROCESSOR_45NM.getStack());
+        addBasicRecipe(new ItemStack(ITcItemLoader.advanced_tri_heat_storage),
+                "BSB",
+                "BCB",
+                "BSB",
+                'B', IC2Items.plate_tin,
+                'S', BasicCraftItem.PROCESSOR_22NM.getStack(),
+                'C', new ItemStack(ITcItemLoader.improved_tri_heat_storage));
+        addBasicRecipe(new ItemStack(ITcItemLoader.advanced_hex_heat_storage),
+                "BSB",
+                "BCB",
+                "BSB",
+                'B', IC2Items.plate_tin,
+                'S', BasicCraftItem.PROCESSOR_22NM.getStack(),
+                'C', new ItemStack(ITcItemLoader.improved_hex_heat_storage));
+        // Unstable/Stabilized Energy Core
+        addBasicRecipe(BasicCraftItem.UNSTABLE_ENERGY_CORE.getStack(),
+                "URU",
+                "RCR",
+                "URU",
+                'R', BasicCraftItem.PURIFIED_REDSTONE.getStack(),
+                'C', BasicCraftItem.PROCESSOR_45NM.getStack(),
+                'U', IC2Items.nuclear_small_uranium_235);
+        addBasicRecipe(BasicCraftItem.STABILIZED_ENERGY_CORE.getStack(),
+                "CHC",
+                "HUH",
+                "CHC",
+                'H', new ItemStack(ITcItemLoader.improved_heat_storage),
+                'C', BasicCraftItem.PROCESSOR_22NM.getStack(),
+                'U', BasicCraftItem.UNSTABLE_ENERGY_CORE.getStack());
+        // Parallel
     }
 
     public static void addMachineRecipes() {

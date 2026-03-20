@@ -6,7 +6,7 @@
     <image  x="114" y="32" src="industrialtinycraft:textures/gui/overlay/normal_output"/>
     <slot name="discharge" x="45" y="42"/>
     <environment name="game">
-        <button type="recipe" x="88" y="34" width="22" height="15" event="processor_assembler"></button>
+        <button type="recipe" x="88" y="34" width="22" height="15" event="industrialtinycraft.processor_assembler"></button>
         <slotgrid name="upgrade" x="151" y="7" cols="1"/>
     </environment>
     <energygauge x="50" y="26"/>
