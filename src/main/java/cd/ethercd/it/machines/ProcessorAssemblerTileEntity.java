@@ -6,7 +6,8 @@ import net.minecraft.item.ItemStack;
 
 public class ProcessorAssemblerTileEntity  extends ComplexMachineTileEntity {
     public ProcessorAssemblerTileEntity() {
-        super(25000, 2, 1000);
+        super(5000000, 4, 1500);
+        this.activeEU = 600;
         this.inputSlot = new InvSlotProcessableGeneric(this, "input", 2, ITcRecipes.processor_assembler_ic2_plug);
     }
 

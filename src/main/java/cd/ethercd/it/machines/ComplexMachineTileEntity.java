@@ -33,7 +33,7 @@ import java.util.Set;
 
 public abstract class ComplexMachineTileEntity extends TileEntityElectricMachine implements IHasGui, IGuiValueProvider, IUpgradableBlock {
     protected final int idleEU = 0;
-    protected final int activeEU = 32;
+    protected int activeEU = 32;
     protected int maxProgress;
 
     protected InvSlotProcessable<IRecipeInput, Collection<ItemStack>, ItemStack> inputSlot;

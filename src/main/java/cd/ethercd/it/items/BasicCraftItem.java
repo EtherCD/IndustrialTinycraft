@@ -33,6 +33,8 @@ public enum BasicCraftItem {
     PROCESSOR_90NM_CHIP("processor_90nm_chip"),
     PROCESSOR_45NM_CHIP("processor_45nm_chip"),
     PROCESSOR_22NM_CHIP("processor_22nm_chip"),
+
+    LITHOGRAPHY_LASER("lithography_laser"),
     ;
 
     private BasicItem item;

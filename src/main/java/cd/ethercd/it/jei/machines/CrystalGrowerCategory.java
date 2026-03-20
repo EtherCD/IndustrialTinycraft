@@ -30,7 +30,7 @@ public class CrystalGrowerCategory extends IORecipeCategory<IBasicMachineRecipeM
     @Override
     public void setRecipe(IRecipeLayout recipeLayout, IRecipeWrapper recipeWrapper, IIngredients ingredients) {
         recipeLayout.getItemStacks().init(0, true,  0, 4);
-        recipeLayout.getItemStacks().init(1, false,  59, 4);
+        recipeLayout.getItemStacks().init(1, false,  60, 4);
         recipeLayout.getItemStacks().set(ingredients);
     }
 

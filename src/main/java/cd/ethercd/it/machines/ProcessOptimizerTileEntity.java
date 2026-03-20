@@ -7,7 +7,7 @@ import net.minecraft.item.ItemStack;
 public class ProcessOptimizerTileEntity extends ComplexMachineTileEntity {
 
     public ProcessOptimizerTileEntity() {
-        super(2400, 2, 3000);
+        super(8000, 2, 3000);
         this.inputSlot = new InvSlotProcessableGeneric(this, "input", 3, ITcRecipes.processs_optimizer_ic2_plug);
     }
 

@@ -29,6 +29,12 @@ item.improved_processor_substrate.name=Improved Processor Substrate
 item.advanced_processor_substrate.name=Advanced Processor Substrate
 item.microstructured_fiberglass_dust.name=Microstructured Fiberglass Dust
 item.silicon_ingot.name=Silicon Crystal
+item.improved_hex_heat_storage.name=Improved Hex Heat Storage
+item.improved_tri_heat_storage.name=Improved Tri Heat Storage
+item.improved_heat_storage.name=Improved Heat Storage
+item.advanced_hex_heat_storage.name=Improved Hex Heat Storage
+item.advanced_tri_heat_storage.name=Improved Tri Heat Storage
+
 
 industrialtinycraft.title.title=Processor Assembler
 

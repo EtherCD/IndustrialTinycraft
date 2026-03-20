@@ -5,6 +5,7 @@ import ic2.core.block.TileEntityBlock;
 import ic2.core.ref.TeBlock;
 import ic2.core.util.Util;
 import net.minecraft.item.EnumRarity;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.common.Loader;
@@ -108,6 +109,10 @@ public enum ITcMachines implements ITeBlock {
 
     public String[] getRecipeCategory() {
         return new String[] {this.getName()};
+    }
+
+    public ItemStack getStack() {
+        return this.getDummyTe().getBlockType().getItemStack(this);
     }
 
     public static void buildDummies() {

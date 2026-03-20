@@ -17,11 +17,14 @@ public class IC2Items {
     public static final ItemStack dust_silicon_dioxide = ic2.api.item.IC2Items.getItem("dust", "silicon_dioxide");
 
     public static final ItemStack plate_gold = ic2.api.item.IC2Items.getItem("plate", "gold");
+    public static final ItemStack plate_tin = ic2.api.item.IC2Items.getItem("plate", "tin");
+    public static final ItemStack lapotron_crystal = ic2.api.item.IC2Items.getItem("lapotron_crystal");
     public static final ItemStack rubber = ic2.api.item.IC2Items.getItem("crafting", "rubber");
     public static final ItemStack heat_storage = ic2.api.item.IC2Items.getItem("heat_storage");
     public static final ItemStack upgrade_overclocker = ic2.api.item.IC2Items.getItem("upgrade", "overclocker");
     public static final ItemStack cable_copper = ic2.api.item.IC2Items.getItem("cable", "type:copper,insulation:1");
     public static final ItemStack resource_machine = ic2.api.item.IC2Items.getItem("resource", "machine");
+    public static final ItemStack resource_advanced_machine = ic2.api.item.IC2Items.getItem("resource", "advanced_machine");
 }
 
 /**
