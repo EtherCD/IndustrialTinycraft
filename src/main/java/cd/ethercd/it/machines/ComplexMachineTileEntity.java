@@ -1,6 +1,6 @@
 package cd.ethercd.it.machines;
 
-import ic2.api.recipe.IMachineRecipeManager;
+import cd.ethercd.it.ITcRecipes;
 import ic2.api.recipe.IRecipeInput;
 import ic2.api.recipe.MachineRecipeResult;
 import ic2.api.upgrade.IUpgradableBlock;
@@ -23,7 +23,6 @@ import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.util.EnumFacing;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -32,32 +31,24 @@ import java.util.EnumSet;
 import java.util.Iterator;
 import java.util.Set;
 
-// Basics from https://github.com/Artic030-new/IC2AddonTutorial-1.12.2/blob/master/src/main/java/ru/artic030/mod02/machines/TileEntityTestMachine.java
-// Thanks to Artic030
-
-public class SimpleMachineTileEntity extends TileEntityElectricMachine implements IHasGui, IGuiValueProvider, IUpgradableBlock {
-    protected final int idleEU;
-    protected final int activeEU;
+public abstract class ComplexMachineTileEntity extends TileEntityElectricMachine implements IHasGui, IGuiValueProvider, IUpgradableBlock {
+    protected final int idleEU = 0;
+    protected final int activeEU = 32;
     protected int maxProgress;
 
-    public final InvSlotProcessable<IRecipeInput, Collection<ItemStack>, ItemStack> inputSlot;
-    public final InvSlotOutput outputSlot;
-    public final InvSlotUpgrade upgradeSlot;
-
-    protected int inventorySize = 0;
+    protected InvSlotProcessable<IRecipeInput, Collection<ItemStack>, ItemStack> inputSlot;
+    protected final InvSlotOutput outputSlot;
+    protected final InvSlotUpgrade upgradeSlot;
 
     @GuiSynced
     public int progress;
 
-    public SimpleMachineTileEntity(int tier, IMachineRecipeManager<IRecipeInput, Collection<ItemStack>, ItemStack> recipeSet, int idleEU, int activeEU) {
-        super(8000, tier);
-        this.maxProgress = 1000;
+    public ComplexMachineTileEntity(int maxEnergy, int tier, int maxProgress) {
+        super(maxEnergy, tier);
+        this.maxProgress = maxProgress;
         this.progress = 0;
-        this.idleEU = idleEU;
-        this.activeEU = activeEU;
-        this.inputSlot = new InvSlotProcessableGeneric(this, "input", 1, recipeSet);
         this.outputSlot = new InvSlotOutput(this, "output", 1);
-        this.upgradeSlot  = new InvSlotUpgrade(this, "upgrade", 2);
+        this.upgradeSlot  = new InvSlotUpgrade(this, "upgrade", 4);
     }
 
     @Override
@@ -149,16 +140,15 @@ public class SimpleMachineTileEntity extends TileEntityElectricMachine implement
         }
         this.setActive(true);
         if (needsInvUpdate) {
+            this.consume();
             this.markDirty();
         }
     }
 
-    public boolean canOperate() {
-        if (this.inputSlot.isEmpty()) {
-            return false;
-        }
-        final MachineRecipeResult<IRecipeInput, Collection<ItemStack>, ItemStack> output = (MachineRecipeResult<IRecipeInput, Collection<ItemStack>, ItemStack>)this.inputSlot.process();
-        return output != null && this.outputSlot.canAdd((Collection<ItemStack>)output.getOutput());
+    void consume() {}
+
+    boolean canOperate() {
+        return false;
     }
 
     public void operate() {
@@ -166,7 +156,6 @@ public class SimpleMachineTileEntity extends TileEntityElectricMachine implement
         final MachineRecipeResult<IRecipeInput, Collection<ItemStack>, ItemStack> output = (MachineRecipeResult<IRecipeInput, Collection<ItemStack>, ItemStack>)this.inputSlot.process();
         this.processUpgrades((Collection<ItemStack>)output.getOutput());
         this.outputSlot.add((Collection<ItemStack>)output.getOutput());
-        this.inputSlot.consume((MachineRecipeResult<IRecipeInput, Collection<ItemStack>, ItemStack>)output);
     }
 
     protected void processUpgrades(final Collection<ItemStack> output) {
@@ -175,5 +164,9 @@ public class SimpleMachineTileEntity extends TileEntityElectricMachine implement
                 ((IUpgradeItem)stack.getItem()).onProcessEnd(stack, (IUpgradableBlock)this, (Collection<ItemStack>)output);
             }
         }
+    }
+
+    public String getSound() {
+        return "Machines/MaceratorOp.ogg";
     }
 }

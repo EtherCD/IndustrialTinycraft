@@ -4,6 +4,7 @@ import net.minecraft.item.ItemStack;
 
 public class IC2Items {
     public static final ItemStack advanced_circuit = ic2.api.item.IC2Items.getItem("crafting", "advanced_circuit");
+    public static final ItemStack circuit = ic2.api.item.IC2Items.getItem("crafting", "circuit");
 
     public static final ItemStack reinforced_stone = ic2.api.item.IC2Items.getItem("resource", "reinforced_stone");
     public static final ItemStack reinfored_glass = ic2.api.item.IC2Items.getItem("glass", "reinforced");

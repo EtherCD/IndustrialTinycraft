@@ -25,6 +25,10 @@ item.improved_overclocker.name=Improved Overclocker
 item.silicon_plate.name=Silicon Plate
 item.alloyed_silicon_plate.name=Alloyed Silicon Plate
 item.microstructured_silicon_plate.name=Microstructured Silicon Plate
+item.improved_processor_substrate.name=Improved Processor Substrate
+item.advanced_processor_substrate.name=Advanced Processor Substrate
+item.microstructured_fiberglass_dust.name=Microstructured Fiberglass Dust
+item.silicon_ingot.name=Silicon Crystal
 
 industrialtinycraft.title.title=Processor Assembler
 
@@ -32,6 +36,8 @@ itemGroup.industrialtinycraft=Industrial TinyCraft
 
 industrialtinycraft.crystal_grower.title=Crystal Grower
 industrialtinycraft.processor_assembler.title=Processor Assembler
+industrialtinycraft.process_optimizer.title=Process Optimizer
 
 industrialtinycraft.machines.crystal_grower=Crystal Grower
 industrialtinycraft.machines.processor_assembler=Processor Assembler
+industrialtinycraft.machines.process_optimizer=Process Optimizer

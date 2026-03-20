@@ -9,8 +9,8 @@ import net.minecraft.item.ItemStack;
 import java.util.Collection;
 
 public class CrystalGrowerWrapper implements IRecipeWrapper {
-    private ItemStack input;
-    private ItemStack output;
+    private final ItemStack input;
+    private final ItemStack output;
 
     public CrystalGrowerWrapper(MachineRecipe<IRecipeInput, Collection<ItemStack>> recipe) {
         input = recipe.getInput().getInputs().get(0);

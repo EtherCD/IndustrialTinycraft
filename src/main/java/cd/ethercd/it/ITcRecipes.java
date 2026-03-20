@@ -1,6 +1,7 @@
 package cd.ethercd.it;
 
 import cd.ethercd.it.items.BasicCraftItem;
+import cd.ethercd.it.utils.ProcessOptimizerRecipeManager;
 import cd.ethercd.it.utils.ProcessorAssemblerRecipeManager;
 import ic2.api.recipe.IBasicMachineRecipeManager;
 import ic2.api.recipe.IRecipeInput;
@@ -15,6 +16,8 @@ import net.minecraft.nbt.NBTTagCompound;
 public class ITcRecipes {
     public static ProcessorAssemblerRecipeManager processor_assembler = new ProcessorAssemblerRecipeManager();
     public static IBasicMachineRecipeManager processor_assembler_ic2_plug = new BasicMachineRecipeManager();
+    public static ProcessOptimizerRecipeManager processs_optimizer = new ProcessOptimizerRecipeManager();
+    public static IBasicMachineRecipeManager processs_optimizer_ic2_plug = new BasicMachineRecipeManager();
     public static IBasicMachineRecipeManager crystal_grower = new BasicMachineRecipeManager();
 
     public static void addBasicRecipes() {
@@ -61,14 +64,27 @@ public class ITcRecipes {
                 "WSW",
                 'W', IC2Items.cable_copper,
                 'B', IC2Items.resource_machine,
-                'S', new ItemStack(Blocks.CHEST),
+                'S', IC2Items.advanced_circuit,
                 'C', IC2Items.heat_storage);
+        addBasicRecipe(BasicCraftItem.IMPROVED_PROCESSOR_SUBSTRATE.getStack(),
+                " S ",
+                "BCB",
+                " S ",
+                'B', BasicCraftItem.PURIFIED_GOLD_DUST.getStack(),
+                'S', IC2Items.circuit,
+                'C', BasicCraftItem.PROCESSOR_SUBSTRATE.getStack());
+        addBasicRecipe(BasicCraftItem.ADVANCED_PROCESSOR_SUBSTRATE.getStack(),
+                " S ",
+                "BCB",
+                " S ",
+                'B', BasicCraftItem.PURIFIED_DIAMOND_DUST.getStack(),
+                'S', IC2Items.advanced_circuit,
+                'C', BasicCraftItem.IMPROVED_PROCESSOR_SUBSTRATE.getStack());
     }
 
     public static void addMachineRecipes() {
         IRecipeInputFactory factory = Recipes.inputFactory;
 
-//        addCompressorRecipe(factory.forStack(BasicCraftItem.PURIFIED_SILICON.getStack(), 2), BasicCraftItem.SILICON_PLATE.getStack());
         addCompressorRecipe(factory.forStack(BasicCraftItem.GLASS_DUST.getStack(), 4), BasicCraftItem.FIBERGLASS.getStack());
         addCompressorRecipe(factory.forStack(BasicCraftItem.RAW_PROCESSOR_SUBSTRATE.getStack()), BasicCraftItem.PROCESSOR_SUBSTRATE.getStack());
 
@@ -91,7 +107,12 @@ public class ITcRecipes {
         addProcessorAssemblerRecipe(factory, BasicCraftItem.SILICON_PLATE.getStack(), ItemStack.EMPTY, BasicCraftItem.PROCESSOR_90NM_CHIP.getStack());
         addProcessorAssemblerRecipe(factory, BasicCraftItem.PROCESSOR_SUBSTRATE.getStack(), BasicCraftItem.PROCESSOR_90NM_CHIP.getStack(), BasicCraftItem.PROCESSOR_90NM.getStack());
         addProcessorAssemblerRecipe(factory, BasicCraftItem.ALLOYED_SILICON_PLATE.getStack(), BasicCraftItem.ALLOYED_SILICON_PLATE.getStack(), BasicCraftItem.PROCESSOR_45NM_CHIP.getStack());
+        addProcessorAssemblerRecipe(factory, BasicCraftItem.IMPROVED_PROCESSOR_SUBSTRATE.getStack(), BasicCraftItem.PROCESSOR_45NM_CHIP.getStack(), BasicCraftItem.PROCESSOR_45NM.getStack());
         addProcessorAssemblerRecipe(factory, BasicCraftItem.MICROSTRUCTURED_SILICON_PLATE.getStack(), BasicCraftItem.MICROSTRUCTURED_SILICON_PLATE.getStack(), BasicCraftItem.PROCESSOR_22NM_CHIP.getStack());
+        addProcessorAssemblerRecipe(factory, BasicCraftItem.ADVANCED_PROCESSOR_SUBSTRATE.getStack(), BasicCraftItem.PROCESSOR_22NM_CHIP.getStack(), BasicCraftItem.PROCESSOR_22NM.getStack());
+
+        addProcessOptimizerRecipe(factory, BasicCraftItem.SILICON_PLATE.getStack(), BasicCraftItem.PURIFIED_REDSTONE.getStack(), ItemStack.EMPTY, BasicCraftItem.ALLOYED_SILICON_PLATE.getStack());
+        addProcessOptimizerRecipe(factory, BasicCraftItem.ALLOYED_SILICON_PLATE.getStack(), BasicCraftItem.PURIFIED_COPPER_DUST.getStack(), BasicCraftItem.MICROSTRUCTURED_FIBERGLASS_DUST.getStack(), BasicCraftItem.MICROSTRUCTURED_SILICON_PLATE.getStack());
     }
 
     private static void addBasicRecipe(ItemStack output, Object... input) {
@@ -120,6 +141,16 @@ public class ITcRecipes {
             ITcRecipes.processor_assembler_ic2_plug.addRecipe(factory.forStack(firstInput), null, false, output);
         if (!secondInput.isEmpty())
             ITcRecipes.processor_assembler_ic2_plug.addRecipe(factory.forStack(secondInput), null, false, output);
+    }
+
+    private static void addProcessOptimizerRecipe(IRecipeInputFactory factory, ItemStack firstInput, ItemStack secondInput, ItemStack tridInput, ItemStack output) {
+        ITcRecipes.processs_optimizer.addRecipe(firstInput, secondInput, tridInput, output);
+        if (!firstInput.isEmpty())
+            ITcRecipes.processs_optimizer_ic2_plug.addRecipe(factory.forStack(firstInput), null, false, output);
+        if (!secondInput.isEmpty())
+            ITcRecipes.processs_optimizer_ic2_plug.addRecipe(factory.forStack(secondInput), null, false, output);
+        if (!tridInput.isEmpty())
+            ITcRecipes.processs_optimizer_ic2_plug.addRecipe(factory.forStack(tridInput), null, false, output);
     }
 
     private static void addCrystalGrowerRecipe(IRecipeInput input, ItemStack output) {

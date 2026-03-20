@@ -7,14 +7,16 @@ import net.minecraft.item.ItemStack;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ProcessorAssemblerWrapper implements IRecipeWrapper {
+public class ProcessOptimizerWrapper implements IRecipeWrapper {
     private final ItemStack firstInput;
     private final ItemStack secondInput;
+    private final ItemStack tridInput;
     private final ItemStack output;
 
-    public ProcessorAssemblerWrapper(ItemStack firstInput, ItemStack secondInput, ItemStack output) {
+    public ProcessOptimizerWrapper(ItemStack firstInput, ItemStack secondInput, ItemStack tridInput, ItemStack output) {
         this.firstInput = firstInput;
         this.secondInput = secondInput;
+        this.tridInput = tridInput;
         this.output = output;
     }
 
@@ -23,16 +25,9 @@ public class ProcessorAssemblerWrapper implements IRecipeWrapper {
         List<ItemStack> items = new ArrayList();
         items.add(firstInput);
         items.add(secondInput);
+        items.add(tridInput);
         ingredients.setInputs(ItemStack.class, items);
         ingredients.setOutput(ItemStack.class, output);
-    }
-
-    public ItemStack getFirstInput() {
-        return firstInput;
-    }
-
-    public ItemStack getSecondInput() {
-        return secondInput;
     }
 
     public ItemStack getOutput() {

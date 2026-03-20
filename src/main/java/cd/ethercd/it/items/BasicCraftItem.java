@@ -20,6 +20,8 @@ public enum BasicCraftItem {
     GLASS_DUST("glass_dust"),
     RAW_PROCESSOR_SUBSTRATE("raw_processor_substrate"),
     PROCESSOR_SUBSTRATE("processor_substrate"),
+    IMPROVED_PROCESSOR_SUBSTRATE("improved_processor_substrate"),
+    ADVANCED_PROCESSOR_SUBSTRATE("advanced_processor_substrate"),
 
     CACHE_MEMORY_CHIP("cache_memory_chip"),
     PROCESSOR_90NM("processor_90nm"),

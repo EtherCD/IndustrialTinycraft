@@ -24,18 +24,6 @@ public class ProcessorAssemblerRecipeManager {
     }
 
     /**
-     * Adds recipe to Mutagenesis Processor.
-     * @param input1 Input first seeds
-     * @param input2 Input second seeds
-     * @param output Output seeds
-     * @param chance Chance of successful mutation
-     */
-    public void addRecipe(ItemStack input1, ItemStack input2, ItemStack output, int chance) {
-        if (getResult(input1, input2) != ItemStack.EMPTY) return;
-        recipesList.put(input1, input2, output);
-    }
-
-    /**
      * Returns result from recipe
      * @param input1 Recipe input first slot
      * @param input2 Recipe inputs second slot
@@ -55,21 +43,9 @@ public class ProcessorAssemblerRecipeManager {
         return ItemStack.EMPTY;
     }
 
-    /**
-     * Getting ItemStack without meta
-     * @param stack Stack
-     * @return Result
-     */
-    public ItemStack getStackWithoutMeta(ItemStack stack) {
-        return new ItemStack(stack.getItem(), stack.getCount(), 0);
-    }
-
-    public Table<ItemStack, ItemStack, ItemStack> getRecipesList() {
-        return recipesList;
-    }
 
     public List<ProcessorAssemblerWrapper> getRecipes() {
-        Table<ItemStack, ItemStack, ItemStack> recipes = this.getRecipesList();
+        Table<ItemStack, ItemStack, ItemStack> recipes = recipesList;
         List<ProcessorAssemblerWrapper> jeiRecipes = Lists.newArrayList();
 
         for (Map.Entry<ItemStack, Map<ItemStack, ItemStack>> entry : recipes.columnMap().entrySet()) {

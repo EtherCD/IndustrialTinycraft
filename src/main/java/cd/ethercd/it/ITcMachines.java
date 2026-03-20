@@ -15,8 +15,9 @@ import javax.annotation.Nullable;
 import java.util.Set;
 
 public enum ITcMachines implements ITeBlock {
-    crystal_grower(cd.ethercd.it.machines.CrystalGrowerTileEntity.class, 0, EnumRarity.RARE),
-    processor_assembler(cd.ethercd.it.machines.ProcessorAssemblerTileEntity.class, 1, EnumRarity.RARE),
+    crystal_grower(cd.ethercd.it.machines.CrystalGrowerTileEntity.class, 0, EnumRarity.UNCOMMON),
+    processor_assembler(cd.ethercd.it.machines.ProcessorAssemblerTileEntity.class, 1, EnumRarity.UNCOMMON),
+    process_optimizer(cd.ethercd.it.machines.ProcessOptimizerTileEntity.class, 2, EnumRarity.UNCOMMON),
     ;
 
     private final Class<? extends TileEntityBlock> teClass;
