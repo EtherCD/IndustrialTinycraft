@@ -31,13 +31,14 @@ public class ProcessorAssemblerRecipeManager {
      */
     public ItemStack getResult(ItemStack input1, ItemStack input2) {
         for (Map.Entry<ItemStack, Map<ItemStack, ItemStack>> entry : recipesList.columnMap().entrySet()) {
-            if (input1.isItemEqual(entry.getKey()))
+            ItemStack key = entry.getKey();
+            if (input1.isItemEqual(key) || (input1.isEmpty() && key.isEmpty()))
                 for (Map.Entry<ItemStack, ItemStack> ent : entry.getValue().entrySet())
-                    if (input2.isItemEqual(ent.getKey()))
+                    if (input2.isItemEqual(ent.getKey()) && input2.getCount() > key.getCount())
                         return ent.getValue();
-            if (input2.isItemEqual(entry.getKey()))
+            if (input2.isItemEqual(key) || (input2.isEmpty() && key.isEmpty()))
                 for (Map.Entry<ItemStack, ItemStack> ent : entry.getValue().entrySet())
-                    if (input1.isItemEqual(ent.getKey()))
+                    if (input1.isItemEqual(ent.getKey()) && input1.getCount() > key.getCount())
                         return ent.getValue();
         }
         return ItemStack.EMPTY;

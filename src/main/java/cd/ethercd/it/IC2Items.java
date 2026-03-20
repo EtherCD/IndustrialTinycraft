@@ -17,6 +17,7 @@ public class IC2Items {
     public static final ItemStack dust_copper = ic2.api.item.IC2Items.getItem("dust", "copper");
     public static final ItemStack dust_diamond = ic2.api.item.IC2Items.getItem("dust", "diamond");
     public static final ItemStack dust_silicon_dioxide = ic2.api.item.IC2Items.getItem("dust", "silicon_dioxide");
+    public static final ItemStack dust_stone = ic2.api.item.IC2Items.getItem("dust", "stone");
 
     public static final ItemStack plate_gold = ic2.api.item.IC2Items.getItem("plate", "gold");
     public static final ItemStack plate_tin = ic2.api.item.IC2Items.getItem("plate", "tin");

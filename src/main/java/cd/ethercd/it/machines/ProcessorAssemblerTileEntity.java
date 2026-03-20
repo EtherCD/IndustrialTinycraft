@@ -12,12 +12,20 @@ public class ProcessorAssemblerTileEntity  extends ComplexMachineTileEntity {
     }
 
     public void consume() {
-        inputSlot.get(0).setCount(inputSlot.get(0).getCount()-1);
-        inputSlot.get(1).setCount(inputSlot.get(1).getCount()-1);
+        ItemStack input1 = inputSlot.get(0);
+        ItemStack input2 = inputSlot.get(1);
+        if (!input1.isEmpty() && input2.isEmpty()) {
+            input1.setCount(input1.getCount() - 1);
+        }
+        if (!input2.isEmpty() && input1.isEmpty()) {
+            input2.setCount(input2.getCount() - 1);
+        }
+        input1.setCount(input1.getCount() - 1);
+        input2.setCount(input2.getCount() - 1);
     }
 
     public boolean canOperate() {
-        if (this.inputSlot.get(0).isEmpty() || this.inputSlot.get(1).isEmpty()) {
+        if (this.inputSlot.get(0).isEmpty() && this.inputSlot.get(1).isEmpty()) {
             return false;
         }
         ItemStack output = ITcRecipes.processor_assembler.getResult(this.inputSlot.get(0), this.inputSlot.get(1));

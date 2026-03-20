@@ -37,6 +37,15 @@ item.advanced_tri_heat_storage.name=60k Heat Storage
 item.lithography_laser.name=Lithography Laser
 item.unstable_energy_core.name=Unstable Energy Core
 item.stabilized_energy_core.name=Stabilized Energy Core
+item.cyrtolite_ore.name=Cyrtolite Ore
+item.crushed_cyrtolite_ore.name=Crushed Cyrtolite Ore
+item.purified_cyrtolite_ore.name=Purified Cyrtolite Ore
+item.hafnium_ingot.name=Hafnium Dust
+item.hafnium_dust.name=Hafnium Dust
+item.purified_hafnium_dust.name=Purified Hafnium Dust
+item.high_density_silicon_plate.name=High Density Silicon Plate
+item.photonic_computing_accelerator.name=Photonic Computing Accelerator
+item.advanced_overclocker.name=Advanced Overclocker
 
 industrialtinycraft.tooltip.parallel_processing_upgrade=Makes the processing of items parallel.
 
@@ -49,3 +58,6 @@ industrialtinycraft.process_optimizer.title=Process Optimizer
 industrialtinycraft.machines.crystal_grower=Crystal Grower
 industrialtinycraft.machines.processor_assembler=Processor Fabricator
 industrialtinycraft.machines.process_optimizer=Process Optimizer
+
+
+tile.cyrtolite_ore.name=Cyrtolite Ore

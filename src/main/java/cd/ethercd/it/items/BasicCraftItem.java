@@ -4,6 +4,12 @@ import cd.ethercd.it.ITcItemLoader;
 import net.minecraft.item.ItemStack;
 
 public enum BasicCraftItem {
+    CRUSHED_CYRTOLITE_ORE("crushed_cyrtolite_ore"),
+    PURIFIED_CYRTOLITE_ORE("purified_cyrtolite_ore"),
+    HAFNIUM_INGOT("hafnium_ingot"),
+    HAFNIUM_DUST("hafnium_dust"),
+
+    PURIFIED_HAFNIUM_DUST("purified_hafnium_dust"),
     PURIFIED_SILICON("purified_silicon"),
     PURIFIED_COPPER_DUST("purified_copper_dust"),
     PURIFIED_GOLD_DUST("purified_gold_dust"),
@@ -14,6 +20,7 @@ public enum BasicCraftItem {
     SILICON_PLATE("silicon_plate"),
     ALLOYED_SILICON_PLATE("alloyed_silicon_plate"),
     MICROSTRUCTURED_SILICON_PLATE("microstructured_silicon_plate"),
+    HIGH_DENSITY_SILICON_PLATE("high_density_silicon_plate"),
 
     FIBERGLASS("fiberglass"),
     MICROSTRUCTURED_FIBERGLASS_DUST("microstructured_fiberglass_dust"),
@@ -32,10 +39,14 @@ public enum BasicCraftItem {
     PROCESSOR_90NM_CHIP("processor_90nm_chip"),
     PROCESSOR_45NM_CHIP("processor_45nm_chip"),
     PROCESSOR_22NM_CHIP("processor_22nm_chip"),
+    PROCESSOR_7NM_CHIP("processor_7nm_chip"),
+
+    PHOTONIC_COMPUTING_ACCELERATOR("photonic_computing_accelerator"),
 
     LITHOGRAPHY_LASER("lithography_laser"),
     UNSTABLE_ENERGY_CORE("unstable_energy_core"),
     STABILIZED_ENERGY_CORE("stabilized_energy_core"),
+
     ;
 
     private BasicItem item;

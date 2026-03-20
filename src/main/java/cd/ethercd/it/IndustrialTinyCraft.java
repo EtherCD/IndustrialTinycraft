@@ -37,6 +37,7 @@ public class IndustrialTinyCraft
     @EventHandler
     public void preInit(FMLPreInitializationEvent event)
     {
+        ITcBlocksLoader.register();
         ITcItemLoader.register();
         LOGGER = event.getModLog();
     }
