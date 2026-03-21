@@ -2,8 +2,6 @@ package cd.ethercd.it.items;
 
 
 import cd.ethercd.it.ITcItemLoader;
-import ic2.api.recipe.IRecipeInput;
-import ic2.api.recipe.MachineRecipeResult;
 import ic2.api.upgrade.IProcessingUpgrade;
 import ic2.api.upgrade.IUpgradableBlock;
 import ic2.api.upgrade.UpgradableProperty;
@@ -12,6 +10,7 @@ import ic2.core.block.machine.tileentity.TileEntityStandardMachine;
 import ic2.core.init.Localization;
 import ic2.core.util.StackUtil;
 import net.minecraft.client.util.ITooltipFlag;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.world.World;
@@ -24,14 +23,15 @@ import java.util.*;
 public class BasicParallelProcessingUpgrade extends BasicItem implements IProcessingUpgrade {
     private boolean needToConsume = false;
     private int oldStackSize = 0;
-    private int consumeMultiplier;
-    private int produceMultiplier;
+    private final int consumeMultiplier;
+    private final int produceMultiplier;
     private Collection<ItemStack> extraOutput;
 
     public BasicParallelProcessingUpgrade(String name, int consumeMultiplier, int produceMultiplier) {
         super(name);
         this.consumeMultiplier = consumeMultiplier;
         this.produceMultiplier = produceMultiplier;
+        setMaxStackSize(1);
         ITcItemLoader.ITEMS.add(this);
     }
 
@@ -70,9 +70,15 @@ public class BasicParallelProcessingUpgrade extends BasicItem implements IProces
         if (needToConsume && parent instanceof TileEntityStandardMachine) {
             TileEntityStandardMachine<?, ?, ?> machine = (TileEntityStandardMachine<?, ?, ?>) parent;
             InvSlotProcessable<?, ?, ?> input = machine.inputSlot;
+            List<Item> upgrades = new ArrayList<>();
+            upgrades.add(machine.upgradeSlot.get(0).getItem());
+            upgrades.add(machine.upgradeSlot.get(1).getItem());
+            upgrades.add(machine.upgradeSlot.get(2).getItem());
+            upgrades.add(machine.upgradeSlot.get(3).getItem());
+            if (upgrades.stream().filter(e -> e instanceof BasicParallelProcessingUpgrade).count() > 1) return false;
 
             int currentCount = input.get().getCount();
-            int diff = oldStackSize - currentCount; // сколько уже съела машина
+            int diff = oldStackSize - currentCount;
 
             if (diff > 0) {
                 int extraConsume = diff * (this.consumeMultiplier - 1);

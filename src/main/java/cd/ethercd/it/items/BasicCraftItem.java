@@ -16,6 +16,9 @@ public enum BasicCraftItem {
     ZIRCONIUM_SMALL_DUST("zirconium_small"),
     ZIRCONIUM_PLATE("zirconium_plate"),
 
+    TECHNETIUM_DUST("technetium_dust"),
+    TECHNETIUM_SMALL_DUST("technetium_small"),
+
     PURIFIED_SILICON("purified_silicon"),
     PURIFIED_COPPER_DUST("purified_copper_dust"),
     PURIFIED_GOLD_DUST("purified_gold_dust"),
@@ -53,6 +56,9 @@ public enum BasicCraftItem {
     UNSTABLE_ENERGY_CORE("unstable_energy_core"),
     STABILIZED_ENERGY_CORE("stabilized_energy_core"),
 
+    DEPLETED_TECHNETIUM("depleted_technetium"),
+    DEPLETED_DUAL_TECHNETIUM("depleted_dual_technetium"),
+    DEPLETED_QUAD_TECHNETIUM("depleted_quad_technetium"),
     ;
 
     private BasicItem item;

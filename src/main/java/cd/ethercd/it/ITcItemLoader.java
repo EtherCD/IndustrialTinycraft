@@ -23,6 +23,12 @@ public class ITcItemLoader {
 
     public static final BasicNeutronModerator neutron_moderator = new BasicNeutronModerator("neutron_moderator", 2000);
 
+    public static final BasicRadioativeFuel technetium_rod = new BasicRadioativeFuel("technetium_rod", 5000, 1, 4F);
+    public static final BasicRadioativeFuel technetium_dual_rod = new BasicRadioativeFuel("technetium_dual_rod", 5000, 2, 4F);
+    public static final BasicRadioativeFuel technetium_quad_rod = new BasicRadioativeFuel("technetium_quad_rod", 5000, 4, 4F);
+
+    public static final BasicCentrifugeUpgrade always_on_centrifuge = new BasicCentrifugeUpgrade("always_on_centrifuge");
+
     public static void register() {
         BasicCraftItem.register();
     }

@@ -158,7 +158,7 @@ public abstract class ComplexMachineTileEntity extends TileEntityElectricMachine
         while (it.hasNext()) {
             ItemStack stack = it.next();
             if (!StackUtil.isEmpty(stack) && stack.getItem() instanceof IUpgradeItem) {
-                needsInvUpdate |= ((IUpgradeItem) stack.getItem()).onTick(stack, this);
+//                needsInvUpdate |= ((IUpgradeItem) stack.getItem()).onTick(stack, this);
             }
         }
 
