@@ -17,7 +17,6 @@ import java.util.List;
 public class BasicHeatStorage extends BasicItem implements IReactorComponent {
     public BasicHeatStorage(String name, int heatStorage) {
         super(name);
-        setMaxStackSize(1);
         setMaxDamage(heatStorage);
         ITcItemLoader.ITEMS.add(this);
     }

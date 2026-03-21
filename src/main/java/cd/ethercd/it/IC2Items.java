@@ -11,16 +11,16 @@ public class IC2Items {
     public static final ItemStack reinforced_stone = ic2.api.item.IC2Items.getItem("resource", "reinforced_stone");
     public static final ItemStack reinfored_glass = ic2.api.item.IC2Items.getItem("glass", "reinforced");
 
-    public static final ItemStack mining_laser = ic2.api.item.IC2Items.getItem("mining_laser");
-
     public static final ItemStack dust_gold = ic2.api.item.IC2Items.getItem("dust", "gold");
     public static final ItemStack dust_copper = ic2.api.item.IC2Items.getItem("dust", "copper");
     public static final ItemStack dust_diamond = ic2.api.item.IC2Items.getItem("dust", "diamond");
     public static final ItemStack dust_silicon_dioxide = ic2.api.item.IC2Items.getItem("dust", "silicon_dioxide");
     public static final ItemStack dust_stone = ic2.api.item.IC2Items.getItem("dust", "stone");
+    public static final ItemStack dust_coal_fuel = ic2.api.item.IC2Items.getItem("dust", "coal_fuel");
 
     public static final ItemStack plate_gold = ic2.api.item.IC2Items.getItem("plate", "gold");
     public static final ItemStack plate_tin = ic2.api.item.IC2Items.getItem("plate", "tin");
+    public static final ItemStack plate_copper = ic2.api.item.IC2Items.getItem("plate", "copper");
     public static final ItemStack energy_crystal = ic2.api.item.IC2Items.getItem("energy_crystal");
     public static final ItemStack lapotron_crystal = ic2.api.item.IC2Items.getItem("lapotron_crystal");
     public static final ItemStack rubber = ic2.api.item.IC2Items.getItem("crafting", "rubber");
