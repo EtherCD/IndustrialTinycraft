@@ -39,6 +39,7 @@ public class IndustrialTinyCraft
     {
         ITcBlocksLoader.register();
         ITcItemLoader.register();
+        ITcWorldGenerator.register();
         LOGGER = event.getModLog();
     }
 

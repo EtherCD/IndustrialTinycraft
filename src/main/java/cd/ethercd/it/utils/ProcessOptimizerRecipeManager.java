@@ -44,7 +44,7 @@ public class ProcessOptimizerRecipeManager {
             List<ItemStack> inputs = new ArrayList<>(Arrays.asList(input1, input2, input3));
             List<ItemStack> recipe = new ArrayList<>(Arrays.asList(r1, r2, r3));
 
-            if (matches(inputs, recipe)) {
+            if (matches(inputs, recipe) && !out.isEmpty()) {
                 return out.copy();
             }
         }
@@ -71,16 +71,33 @@ public class ProcessOptimizerRecipeManager {
         return remaining.isEmpty();
     }
 
-   public List<ProcessOptimizerWrapper> getRecipes() {
+    public int[] getIngirientsConsume(ItemStack input1, ItemStack input2, ItemStack input3) {
+        for (int index = 0; index < recipesList.size(); index += 4) {
+            ItemStack r1 = recipesList.get(index);
+            ItemStack r2 = recipesList.get(index + 1);
+            ItemStack r3 = recipesList.get(index + 2);
+            ItemStack out = recipesList.get(index + 3);
+
+            List<ItemStack> inputs = new ArrayList<>(Arrays.asList(input1, input2, input3));
+            List<ItemStack> recipe = new ArrayList<>(Arrays.asList(r1, r2, r3));
+
+            if (matches(inputs, recipe) && !out.isEmpty()) {
+                return new int[] {r1.getCount(), r2.getCount(), r3.getCount()};
+            }
+        }
+        return new int[] {0, 0, 0};
+    }
+
+    public List<ProcessOptimizerWrapper> getRecipes() {
         List<ProcessOptimizerWrapper> jeiRecipes = Lists.newArrayList();
 
-       for (int index = 0; index < recipesList.size(); index += 4) {
-           ItemStack r1 = recipesList.get(index);
-           ItemStack r2 = recipesList.get(index + 1);
-           ItemStack r3 = recipesList.get(index + 2);
-           ItemStack out = recipesList.get(index + 3);
-           ProcessOptimizerWrapper recipe = new ProcessOptimizerWrapper(r1, r2, r3, out);
-           jeiRecipes.add(recipe);
+        for (int index = 0; index < recipesList.size(); index += 4) {
+            ItemStack r1 = recipesList.get(index);
+            ItemStack r2 = recipesList.get(index + 1);
+            ItemStack r3 = recipesList.get(index + 2);
+            ItemStack out = recipesList.get(index + 3);
+            ProcessOptimizerWrapper recipe = new ProcessOptimizerWrapper(r1, r2, r3, out);
+            jeiRecipes.add(recipe);
         }
 
         return jeiRecipes;

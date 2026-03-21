@@ -2,6 +2,7 @@ package cd.ethercd.it.load;
 
 import cd.ethercd.it.ITcBlocksLoader;
 import cd.ethercd.it.ITcItemLoader;
+import cd.ethercd.it.ITcWorldGenerator;
 import cd.ethercd.it.utils.IHasModel;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
@@ -9,6 +10,7 @@ import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 
 @Mod.EventBusSubscriber
 public class RegistryHandlers {

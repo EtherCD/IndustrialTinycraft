@@ -8,7 +8,6 @@ import ic2.api.recipe.IBasicMachineRecipeManager;
 import ic2.api.recipe.IRecipeInput;
 import ic2.api.recipe.IRecipeInputFactory;
 import ic2.api.recipe.Recipes;
-import ic2.core.IC2;
 import ic2.core.recipe.BasicMachineRecipeManager;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -23,6 +22,16 @@ public class ITcRecipes {
     public static IBasicMachineRecipeManager crystal_grower = new BasicMachineRecipeManager();
 
     public static void addBasicRecipes() {
+        addBasicRecipe(BasicCraftItem.HAFNIUM_DUST.getStack(),
+                "SSS",
+                "SSS",
+                "SSS",
+                'S', BasicCraftItem.HAFNIUM_SMALL_DUST.getStack());
+        addBasicRecipe(BasicCraftItem.ZIRCONIUM_DUST.getStack(),
+                "SSS",
+                "SSS",
+                "SSS",
+                'S', BasicCraftItem.ZIRCONIUM_SMALL_DUST.getStack());
         addBasicRecipe(BasicCraftItem.RAW_PROCESSOR_SUBSTRATE.getStack(),
                 " G ",
                 " R ",
@@ -185,6 +194,17 @@ public class ITcRecipes {
                 'C', BasicCraftItem.PROCESSOR_22NM.getStack(),
                 'U', BasicCraftItem.UNSTABLE_ENERGY_CORE.getStack());
         // Parallel
+
+        // Nuclear
+
+        // Neutron moderator
+        addBasicRecipe(new ItemStack(ITcItemLoader.neutron_moderator),
+                "CHC",
+                "HUH",
+                "CHC",
+                'H', IC2Items.plate_copper,
+                'C', BasicCraftItem.ZIRCONIUM_PLATE.getStack(),
+                'U', IC2Items.dust_coal_fuel);
     }
 
     public static void addMachineRecipes() {
@@ -192,7 +212,6 @@ public class ITcRecipes {
 
         addCompressorRecipe(factory.forStack(BasicCraftItem.GLASS_DUST.getStack(), 4), BasicCraftItem.FIBERGLASS.getStack());
         addCompressorRecipe(factory.forStack(BasicCraftItem.RAW_PROCESSOR_SUBSTRATE.getStack()), BasicCraftItem.PROCESSOR_SUBSTRATE.getStack());
-        addCompressorRecipe(factory.forStack(BasicCraftItem.HAFNIUM_DUST.getStack()), BasicCraftItem.HAFNIUM_INGOT.getStack());
 
         addMaceratorRecipe(factory.forStack(new ItemStack(Blocks.GLASS)), BasicCraftItem.GLASS_DUST.getStack());
         addMaceratorRecipe(factory.forStack(BasicCraftItem.FIBERGLASS.getStack()), BasicCraftItem.MICROSTRUCTURED_FIBERGLASS_DUST.getStack());
@@ -208,10 +227,15 @@ public class ITcRecipes {
         addOreWashingRecipe(factory.forStack(BasicCraftItem.CRUSHED_CYRTOLITE_ORE.getStack()), BasicCraftItem.PURIFIED_CYRTOLITE_ORE.getStack(), nbt);
 
         addExtrudingRecipe(factory.forStack(BasicCraftItem.SILICON_INGOT.getStack()), BasicCraftItem.SILICON_PLATE.getStack());
+        addExtrudingRecipe(factory.forStack(BasicCraftItem.HAFNIUM_INGOT.getStack()), BasicCraftItem.HAFNIUM_PLATE.getStack());
+        addExtrudingRecipe(factory.forStack(BasicCraftItem.ZIRCONIUM_INGOT.getStack()), BasicCraftItem.ZIRCONIUM_PLATE.getStack());
 
-        addCentrifugeRecipe(factory.forStack(BasicCraftItem.PURIFIED_CYRTOLITE_ORE.getStack()), BasicCraftItem.HAFNIUM_DUST.getStack(2));
+        addCentrifugeRecipe(factory.forStack(BasicCraftItem.PURIFIED_CYRTOLITE_ORE.getStack()), BasicCraftItem.ZIRCONIUM_SMALL_DUST.getStack(2), BasicCraftItem.HAFNIUM_SMALL_DUST.getStack(), IC2Items.dust_stone);
 
         addCrystalGrowerRecipe(factory.forStack(BasicCraftItem.PURIFIED_SILICON.getStack()), BasicCraftItem.SILICON_INGOT.getStack());
+
+        addBlastRecipe(factory.forStack(BasicCraftItem.HAFNIUM_DUST.getStack()), BasicCraftItem.HAFNIUM_INGOT.getStack());
+        addBlastRecipe(factory.forStack(BasicCraftItem.ZIRCONIUM_DUST.getStack()), BasicCraftItem.ZIRCONIUM_INGOT.getStack());
 
         addProcessorAssemblerRecipe(factory, BasicCraftItem.SILICON_PLATE.getStack(), BasicCraftItem.SILICON_PLATE.getStack(), BasicCraftItem.PROCESSOR_90NM_CHIP.getStack());
         addProcessorAssemblerRecipe(factory, BasicCraftItem.SILICON_PLATE.getStack(2), ItemStack.EMPTY, BasicCraftItem.PROCESSOR_90NM_CHIP.getStack());
@@ -249,6 +273,10 @@ public class ITcRecipes {
         Recipes.metalformerExtruding.addRecipe(input, null, false, output);
     }
 
+    private static void addBlastRecipe(IRecipeInput input, ItemStack output) {
+        Recipes.blastfurnace.addRecipe(input, null, false, output);
+    }
+
     private static void addCentrifugeRecipe(IRecipeInput input, ItemStack... output) {
         NBTTagCompound nbt = new NBTTagCompound();
         nbt.setInteger("minHeat", 600);
@@ -256,6 +284,7 @@ public class ITcRecipes {
     }
 
     private static void addProcessorAssemblerRecipe(IRecipeInputFactory factory, ItemStack firstInput, ItemStack secondInput, ItemStack output) {
+        if (output.isEmpty()) return;
         ITcRecipes.processor_assembler.addRecipe(firstInput, secondInput, output);
         if (!firstInput.isEmpty())
             ITcRecipes.processor_assembler_ic2_plug.addRecipe(factory.forStack(firstInput), null, false, output);
@@ -264,6 +293,7 @@ public class ITcRecipes {
     }
 
     private static void addProcessOptimizerRecipe(IRecipeInputFactory factory, ItemStack firstInput, ItemStack secondInput, ItemStack tridInput, ItemStack output) {
+        if (output.isEmpty()) return;
         ITcRecipes.processs_optimizer.addRecipe(firstInput, secondInput, tridInput, output);
         if (!firstInput.isEmpty())
             ITcRecipes.processs_optimizer_ic2_plug.addRecipe(factory.forStack(firstInput), null, false, output);

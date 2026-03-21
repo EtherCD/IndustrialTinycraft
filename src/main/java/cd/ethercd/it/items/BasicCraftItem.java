@@ -8,6 +8,13 @@ public enum BasicCraftItem {
     PURIFIED_CYRTOLITE_ORE("purified_cyrtolite_ore"),
     HAFNIUM_INGOT("hafnium_ingot"),
     HAFNIUM_DUST("hafnium_dust"),
+    HAFNIUM_SMALL_DUST("hafnium_small"),
+    HAFNIUM_PLATE("hafnium_plate"),
+
+    ZIRCONIUM_INGOT("zirconium_ingot"),
+    ZIRCONIUM_DUST("zirconium_dust"),
+    ZIRCONIUM_SMALL_DUST("zirconium_small"),
+    ZIRCONIUM_PLATE("zirconium_plate"),
 
     PURIFIED_SILICON("purified_silicon"),
     PURIFIED_COPPER_DUST("purified_copper_dust"),

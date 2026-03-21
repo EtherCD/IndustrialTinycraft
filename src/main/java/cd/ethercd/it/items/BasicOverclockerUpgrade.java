@@ -21,7 +21,7 @@ import java.util.List;
 import java.util.Set;
 
 public class BasicOverclockerUpgrade extends BasicItem implements IProcessingUpgrade {
-    private static final DecimalFormat decimalformat = new DecimalFormat("0.##");
+    public static final DecimalFormat decimalformat = new DecimalFormat("0.##");
 
     private final double processTimeMulti;
     private final double energyDemandMulti;

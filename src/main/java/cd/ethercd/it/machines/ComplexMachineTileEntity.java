@@ -24,6 +24,7 @@ import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.util.EnumFacing;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -109,15 +110,17 @@ public abstract class ComplexMachineTileEntity extends TileEntityElectricMachine
 
     protected void updateEntityServer() {
         super.updateEntityServer();
+
         boolean needsInvUpdate = false;
         boolean canOperate = this.canOperate();
-        Iterator<ItemStack> var4 = this.upgradeSlot.iterator();
-        double accelerate = 1;
-        double energy = 1;
-        while(var4.hasNext()) {
-            ItemStack stack = (ItemStack)var4.next();
+
+        double accelerate = 1.0;
+        double energy = 1.0;
+
+        Iterator<ItemStack> it = this.upgradeSlot.iterator();
+        while (it.hasNext()) {
+            ItemStack stack = it.next();
             if (!StackUtil.isEmpty(stack) && stack.getItem() instanceof IUpgradeItem) {
-                needsInvUpdate |= ((IUpgradeItem)stack.getItem()).onTick(stack, this);
                 if (stack.getItem() instanceof IProcessingUpgrade) {
                     IProcessingUpgrade upgrade = (IProcessingUpgrade) stack.getItem();
                     accelerate /= Math.pow(upgrade.getProcessTimeMultiplier(stack, this), StackUtil.getSize(stack));
@@ -127,19 +130,23 @@ public abstract class ComplexMachineTileEntity extends TileEntityElectricMachine
         }
 
         if (this.progress >= this.maxProgress) {
-            while(true) {
-                if (this.progress < this.maxProgress || !canOperate) {
-                    needsInvUpdate = true;
-                    break;
-                }
+            while (this.progress >= this.maxProgress && canOperate) {
                 this.operate();
+
+                this.consume();
+
                 this.progress -= this.maxProgress;
                 canOperate = this.canOperate();
+                needsInvUpdate = true;
             }
         }
+
+        boolean active = false;
+
         if (this.canRun()) {
-            if (canOperate && this.energy.useEnergy((double)this.activeEU * energy)) {
+            if (canOperate && this.energy.useEnergy((double) this.activeEU * energy)) {
                 this.progress += (int) (10 * accelerate);
+                active = true;
             } else {
                 this.progress = 0;
             }
@@ -147,11 +154,25 @@ public abstract class ComplexMachineTileEntity extends TileEntityElectricMachine
             this.progress = 0;
         }
 
-        this.setActive(true);
+        it = this.upgradeSlot.iterator();
+        while (it.hasNext()) {
+            ItemStack stack = it.next();
+            if (!StackUtil.isEmpty(stack) && stack.getItem() instanceof IUpgradeItem) {
+                needsInvUpdate |= ((IUpgradeItem) stack.getItem()).onTick(stack, this);
+            }
+        }
+
+        this.setActive(active);
+
         if (needsInvUpdate) {
-            this.consume();
             this.markDirty();
         }
+    }
+
+    @Override
+    public void setInventorySlotContents(int index, ItemStack stack) {
+        this.markDirty();
+        super.setInventorySlotContents(index, stack);
     }
 
     void consume() {}

@@ -29,11 +29,11 @@ item.improved_processor_substrate.name=Improved Processor Substrate
 item.advanced_processor_substrate.name=Advanced Processor Substrate
 item.microstructured_fiberglass_dust.name=Microstructured Fiberglass Dust
 item.silicon_ingot.name=Silicon Crystal
-item.improved_hex_heat_storage.name=90k Heat Storage
-item.improved_tri_heat_storage.name=45k Heat Storage
-item.improved_heat_storage.name=15k Heat Storage
-item.advanced_hex_heat_storage.name=120k Heat Storage
-item.advanced_tri_heat_storage.name=60k Heat Storage
+item.improved_hex_heat_storage.name=90k Coolant Cell
+item.improved_tri_heat_storage.name=45k Coolant Cell
+item.improved_heat_storage.name=15k Coolant Cell
+item.advanced_hex_heat_storage.name=120k Coolant Cell
+item.advanced_tri_heat_storage.name=60k Coolant Cell
 item.lithography_laser.name=Lithography Laser
 item.unstable_energy_core.name=Unstable Energy Core
 item.stabilized_energy_core.name=Stabilized Energy Core
@@ -46,18 +46,29 @@ item.purified_hafnium_dust.name=Purified Hafnium Dust
 item.high_density_silicon_plate.name=High Density Silicon Plate
 item.photonic_computing_accelerator.name=Photonic Computing Accelerator
 item.advanced_overclocker.name=Advanced Overclocker
+item.hafnium_small.name=Tiny Pile of Hafnium Dust
+item.zirconium_small.name=Tiny Pile of Zirconium Dust
+item.advanced_heat_storage.name=Advanced Heat Storage
+item.hafnium_plate.name=Hafnium Plate
+item.zirconium_ingot.name=Zirconium Ingot
+item.zirconium_dust.name=Zirconium Dust
+item.zirconium_plate.name=Zirconium Plate
+item.neutron_moderator.name=Neutron Moderator
+
 
 industrialtinycraft.tooltip.parallel_processing_upgrade=Makes the processing of items parallel.
+industrialtinycraft.tooltip.parallel_processing_upgrade.not_working=Not working with Tech-Process Optimizer and Processor Fabricator.
+industrialtinycraft.tooltip.neutron_moderator_0=Used to enhance the impulse from the rod.
+industrialtinycraft.tooltip.neutron_moderator_1=Works best when the rods are installed in the opposite direction.
 
 itemGroup.industrialtinycraft=Industrial TinyCraft
 
 industrialtinycraft.crystal_grower.title=Crystal Grower
 industrialtinycraft.processor_assembler.title=Processor Fabricator
-industrialtinycraft.process_optimizer.title=Process Optimizer
+industrialtinycraft.process_optimizer.title=Tech-Process Optimizer
 
 industrialtinycraft.machines.crystal_grower=Crystal Grower
 industrialtinycraft.machines.processor_assembler=Processor Fabricator
-industrialtinycraft.machines.process_optimizer=Process Optimizer
-
+industrialtinycraft.machines.process_optimizer=Tech-Process Optimizer
 
 tile.cyrtolite_ore.name=Cyrtolite Ore
