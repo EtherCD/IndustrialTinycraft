@@ -21,17 +21,24 @@ public class ITcRecipes {
     public static IBasicMachineRecipeManager processs_optimizer_ic2_plug = new BasicMachineRecipeManager();
     public static IBasicMachineRecipeManager crystal_grower = new BasicMachineRecipeManager();
 
+    private static void addCycleRecipeForDust(BasicCraftItem dust, BasicCraftItem small) {
+        addBasicRecipe(dust.getStack(),
+                "SSS",
+                "SSS",
+                "SSS",
+                'S', small.getStack());
+        addBasicRecipe(small.getStack(9),
+                "   ",
+                " S ",
+                "   ",
+                'S', dust.getStack());
+    }
+
     public static void addBasicRecipes() {
-        addBasicRecipe(BasicCraftItem.HAFNIUM_DUST.getStack(),
-                "SSS",
-                "SSS",
-                "SSS",
-                'S', BasicCraftItem.HAFNIUM_SMALL_DUST.getStack());
-        addBasicRecipe(BasicCraftItem.ZIRCONIUM_DUST.getStack(),
-                "SSS",
-                "SSS",
-                "SSS",
-                'S', BasicCraftItem.ZIRCONIUM_SMALL_DUST.getStack());
+        addCycleRecipeForDust(BasicCraftItem.HAFNIUM_DUST, BasicCraftItem.HAFNIUM_SMALL_DUST);
+        addCycleRecipeForDust(BasicCraftItem.ZIRCONIUM_DUST, BasicCraftItem.ZIRCONIUM_SMALL_DUST);
+        addCycleRecipeForDust(BasicCraftItem.TECHNETIUM_DUST, BasicCraftItem.TECHNETIUM_SMALL_DUST);
+        addCycleRecipeForDust(BasicCraftItem.MOLYBDENUM_DUST, BasicCraftItem.MOLYBDENUM_SMALL_DUST);
         addBasicRecipe(BasicCraftItem.RAW_PROCESSOR_SUBSTRATE.getStack(),
                 " G ",
                 " R ",
@@ -216,6 +223,8 @@ public class ITcRecipes {
         addMaceratorRecipe(factory.forStack(new ItemStack(Blocks.GLASS)), BasicCraftItem.GLASS_DUST.getStack());
         addMaceratorRecipe(factory.forStack(BasicCraftItem.FIBERGLASS.getStack()), BasicCraftItem.MICROSTRUCTURED_FIBERGLASS_DUST.getStack());
         addMaceratorRecipe(factory.forStack(BasicCraftBlock.CYRTOLITE_ORE.getStack()), BasicCraftItem.CRUSHED_CYRTOLITE_ORE.getStack());
+        addMaceratorRecipe(factory.forStack(BasicCraftItem.HAFNIUM_INGOT.getStack()), BasicCraftItem.HAFNIUM_DUST.getStack());
+        addMaceratorRecipe(factory.forStack(BasicCraftItem.ZIRCONIUM_INGOT.getStack()), BasicCraftItem.ZIRCONIUM_DUST.getStack());
 
         NBTTagCompound nbt = new NBTTagCompound();
         nbt.setInteger("amount", 250);

@@ -50,7 +50,7 @@ public class BasicHeatStorage extends BasicItem implements IReactorComponent {
         myHeat += heat;
         int max = this.getMaxHeat(stack, reactor, x, y);
         if (myHeat > max) {
-            reactor.setItemAt(x, y, null);
+            reactor.setItemAt(x, y, ItemStack.EMPTY);
             heat = max - myHeat + 1;
         } else {
             if (myHeat < 0) {

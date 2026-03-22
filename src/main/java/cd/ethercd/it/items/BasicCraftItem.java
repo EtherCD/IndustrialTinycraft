@@ -3,6 +3,8 @@ package cd.ethercd.it.items;
 import cd.ethercd.it.ITcItemLoader;
 import net.minecraft.item.ItemStack;
 
+import java.util.Objects;
+
 public enum BasicCraftItem {
     CRUSHED_CYRTOLITE_ORE("crushed_cyrtolite_ore"),
     PURIFIED_CYRTOLITE_ORE("purified_cyrtolite_ore"),
@@ -18,6 +20,8 @@ public enum BasicCraftItem {
 
     TECHNETIUM_DUST("technetium_dust"),
     TECHNETIUM_SMALL_DUST("technetium_small"),
+    MOLYBDENUM_DUST("molybdenum_dust"),
+    MOLYBDENUM_SMALL_DUST("molybdenum_small"),
 
     PURIFIED_SILICON("purified_silicon"),
     PURIFIED_COPPER_DUST("purified_copper_dust"),
@@ -56,9 +60,15 @@ public enum BasicCraftItem {
     UNSTABLE_ENERGY_CORE("unstable_energy_core"),
     STABILIZED_ENERGY_CORE("stabilized_energy_core"),
 
-    DEPLETED_TECHNETIUM("depleted_technetium"),
-    DEPLETED_DUAL_TECHNETIUM("depleted_dual_technetium"),
-    DEPLETED_QUAD_TECHNETIUM("depleted_quad_technetium"),
+    DEPLETED_TECHNETIUM("depleted_technetium", CustomConstructor.REACTOR_COMPONENT),
+    DEPLETED_DUAL_TECHNETIUM("depleted_dual_technetium", CustomConstructor.REACTOR_COMPONENT),
+    DEPLETED_QUAD_TECHNETIUM("depleted_quad_technetium", CustomConstructor.REACTOR_COMPONENT),
+
+    DEPLETED_MOLYBDENUM("depleted_molybdenum", CustomConstructor.REACTOR_COMPONENT),
+    DEPLETED_DUAL_MOLYBDENUM("depleted_dual_molybdanum", CustomConstructor.REACTOR_COMPONENT),
+    DEPLETED_QUAD_MOLYBDENUM("depleted_quad_molybdenum", CustomConstructor.REACTOR_COMPONENT),
+
+    TECHNETIUM_FUEL("technetium_fuel"),
     ;
 
     private BasicItem item;
@@ -66,6 +76,13 @@ public enum BasicCraftItem {
 
     BasicCraftItem(String name) {
         this.item = new BasicItem(name);
+        this.stack = new ItemStack(this.item);
+    }
+
+    BasicCraftItem(String name, CustomConstructor type) {
+        if (Objects.requireNonNull(type) == CustomConstructor.REACTOR_COMPONENT) {
+            this.item = new BasicReactorComponent(name);
+        }
         this.stack = new ItemStack(this.item);
     }
 
@@ -87,5 +104,10 @@ public enum BasicCraftItem {
         for (BasicCraftItem item : BasicCraftItem.values()) {
             ITcItemLoader.ITEMS.add(item.getItem());
         }
+    }
+    
+    enum CustomConstructor {
+        REACTOR_COMPONENT
+        ;
     }
 }

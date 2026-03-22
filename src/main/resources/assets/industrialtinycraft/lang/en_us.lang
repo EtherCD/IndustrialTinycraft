@@ -54,22 +54,30 @@ item.zirconium_ingot.name=Zirconium Ingot
 item.zirconium_dust.name=Zirconium Dust
 item.zirconium_plate.name=Zirconium Plate
 item.neutron_moderator.name=Neutron Moderator
-item.depleted_technetium.name=Depleted Technetium
-item.depleted_dual_technetium.name=Depleted Dual Technetium
-item.depleted_quad_technetium.name=Depleted Quad Technetium
+item.depleted_technetium.name=Depleted Technetium Rod
+item.depleted_dual_technetium.name=Depleted Dual Technetium Rod
+item.depleted_quad_technetium.name=Depleted Quad Technetium Rod
 item.technetium_rod.name=Technetium Rod
 item.technetium_dual_rod.name=Technetium Dual Rod
 item.technetium_quad_rod.name=Technetium Quad Rod
 item.always_on_centrifuge.name=Always On Centrifuge Upgrade
 item.technetium_dust.name=Technetium Dust
 item.technetium_small.name=Tiny Pile of Technetium Dust
-
+item.depleted_molybdenum.name=Depleted Molybdenum Rod
+item.depleted_dual_molybdenum.name=Depleted Dual Molybdenum Rod
+item.depleted_quad_molybdenum.name=Depleted Quad Molybdenum Rod
+item.molybdenum_rod.name=Molybdenum Rod
+item.molybdenum_dual_rod.name=Molybdenum Dual Rod
+item.molybdenum_quad_rod.name=Molybdenum Quad Rod
+item.molybdenum_small.name=Tiny Pile of Molybdenum Dust
+item.molybdenum_dust.name=Molybdenum Dust
 
 industrialtinycraft.tooltip.parallel_processing_upgrade=Makes the processing of items parallel.
 industrialtinycraft.tooltip.parallel_processing_upgrade.not_working=Not working with Tech-Process Optimizer and Processor Fabricator.
 industrialtinycraft.tooltip.neutron_moderator_0=Used to enhance the impulse from the rod.
 industrialtinycraft.tooltip.neutron_moderator_1=Works best when the rods are installed in the opposite direction.
 industrialtinycraft.tooltip.centrifuge_upgrade=Allows to keep the centrifuge constantly heated
+industrialtinycraft.tooltip.enrichment_fuel=When installed in a reactor, it creates enrichment products of the element
 
 itemGroup.industrialtinycraft=Industrial TinyCraft
 

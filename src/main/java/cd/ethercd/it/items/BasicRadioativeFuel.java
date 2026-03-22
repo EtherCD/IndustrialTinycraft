@@ -15,8 +15,8 @@ import java.util.List;
 import java.util.Queue;
 
 public class BasicRadioativeFuel extends BasicItem implements IReactorComponent {
-    private int numberOfCells;
-    private float energyPulseMult;
+    private final int numberOfCells;
+    private final  float energyPulseMult;
 
     public BasicRadioativeFuel(String name, int maxDamage, int cells, float energyPulseMult) {
         super(name);
@@ -41,7 +41,7 @@ public class BasicRadioativeFuel extends BasicItem implements IReactorComponent 
                     pulses = basePulses + checkPulseable(reactor, x - 1, y, stack, x, y, heatrun) + checkPulseable(reactor, x + 1, y, stack, x, y, heatrun) + checkPulseable(reactor, x, y - 1, stack, x, y, heatrun) + checkPulseable(reactor, x, y + 1, stack, x, y, heatrun);
                     int heat = triangularNumber(pulses) * 4;
                     heat = this.getFinalHeat(stack, reactor, x, y, heat);
-                    Queue<ItemStackCoord> heatAcceptors = new ArrayDeque();
+                    Queue<ItemStackCoord> heatAcceptors = new ArrayDeque<>();
                     this.checkHeatAcceptor(reactor, x - 1, y, heatAcceptors);
                     this.checkHeatAcceptor(reactor, x + 1, y, heatAcceptors);
                     this.checkHeatAcceptor(reactor, x, y - 1, heatAcceptors);
@@ -65,12 +65,12 @@ public class BasicRadioativeFuel extends BasicItem implements IReactorComponent 
             if (!heatrun && this.getDamage(stack) >= this.getMaxDamage(stack) - 1) {
                 reactor.setItemAt(x, y, this.getDepletedStack(stack, reactor));
             } else if (!heatrun) {
-                this.setDamage(stack, 1);
+                this.setDamage(stack, this.getDamage(stack) + 1);
             }
         }
     }
 
-    protected int getFinalHeat(ItemStack stack, IReactor reactor, int x, int y, int heat) {
+    protected int getFinalHeat(ItemStack _, IReactor reactor, int x, int y, int heat) {
         return heat;
     }
 
