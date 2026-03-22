@@ -124,6 +124,11 @@ public class BasicRadioativeFuel extends BasicItem implements IReactorComponent 
     }
 
     @Override
+    public boolean showDurabilityBar(ItemStack stack) {
+        return true;
+    }
+
+    @Override
     public boolean canStoreHeat(ItemStack stack, IReactor reactor, int x, int y) {
         return false;
     }

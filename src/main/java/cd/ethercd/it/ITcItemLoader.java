@@ -32,6 +32,11 @@ public class ITcItemLoader {
     public static final BasicEnrichmentFuel molybdenum_dual_rod = new BasicEnrichmentFuel("molybdenum_dual_rod", 1000, 2, 1F);
     public static final BasicEnrichmentFuel molybdenum_quad_rod = new BasicEnrichmentFuel("molybdenum_quad_rod", 1000, 4, 1F);
 
+    public static final BasicNeutronAbsorber hafnium_rod = new BasicNeutronAbsorber("hafnium_rod", 5000, -2F, 10);
+
+    public static final BasicElectricStorage lithium_battery = new BasicElectricStorage("lithium_battery", 4000000, 4, 2048);
+    public static final BasicElectricStorage lithium_battery_assembly = new BasicElectricStorage("lithium_battery_assembly", 4000000 * 9, 4, 8192);
+
     public static void register() {
         BasicCraftItem.register();
     }

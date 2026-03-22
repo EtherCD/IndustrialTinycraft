@@ -1,6 +1,6 @@
 package cd.ethercd.it.jei.machines;
 
-import cd.ethercd.it.ITcMachines;
+import cd.ethercd.it.ITcMachine;
 import cd.ethercd.it.ITcRecipes;
 import cd.ethercd.it.IndustrialTinyCraft;
 import cd.ethercd.it.utils.ProcessorAssemblerRecipeManager;
@@ -23,7 +23,7 @@ public class ProcessOptimizerCategory extends IORecipeCategory<ProcessorAssemble
     public static final String UID = IndustrialTinyCraft.MODID + ".process_optimizer";
 
     public ProcessOptimizerCategory(IGuiHelper h) {
-        super(ITcMachines.crystal_grower, ITcRecipes.processor_assembler);
+        super(ITcMachine.crystal_grower, ITcRecipes.processor_assembler);
         bg = h.createDrawable(new ResourceLocation(IndustrialTinyCraft.MODID + ":textures/gui/process_optimizer.png"), 0, 0, 103, 18, 103, 18);
     }
 
@@ -43,7 +43,7 @@ public class ProcessOptimizerCategory extends IORecipeCategory<ProcessorAssemble
 
     @Override
     public String getTitle() {
-        return "Processor Assembler";
+        return "Tech-Process Optimizer";
     }
 
     @Override

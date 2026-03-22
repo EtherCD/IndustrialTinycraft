@@ -1,10 +1,9 @@
 package cd.ethercd.it.jei.machines;
 
-import cd.ethercd.it.ITcMachines;
+import cd.ethercd.it.ITcMachine;
 import cd.ethercd.it.ITcRecipes;
 import cd.ethercd.it.IndustrialTinyCraft;
 import cd.ethercd.it.utils.ProcessorAssemblerRecipeManager;
-import ic2.api.recipe.IBasicMachineRecipeManager;
 import ic2.jeiIntegration.SlotPosition;
 import ic2.jeiIntegration.recipe.machine.IORecipeCategory;
 import mezz.jei.api.IGuiHelper;
@@ -24,7 +23,7 @@ public class ProcessorAssemblerCategory extends IORecipeCategory<ProcessorAssemb
     public static final String UID = IndustrialTinyCraft.MODID + ".processor_assembler";
 
     public ProcessorAssemblerCategory(IGuiHelper h) {
-        super(ITcMachines.crystal_grower, ITcRecipes.processor_assembler);
+        super(ITcMachine.crystal_grower, ITcRecipes.processor_assembler);
         bg = h.createDrawable(new ResourceLocation(IndustrialTinyCraft.MODID + ":textures/gui/processor_assembler.png"), 0, 0, 67, 36, 67, 36);
     }
 

@@ -67,6 +67,11 @@ public class BasicHeatStorage extends BasicItem implements IReactorComponent {
     }
 
     @Override
+    public boolean showDurabilityBar(ItemStack stack) {
+        return true;
+    }
+
+    @Override
     public float influenceExplosion(ItemStack stack, IReactor reactor) {
         return 0;
     }

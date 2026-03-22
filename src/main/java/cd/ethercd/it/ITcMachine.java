@@ -15,7 +15,7 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 import javax.annotation.Nullable;
 import java.util.Set;
 
-public enum ITcMachines implements ITeBlock {
+public enum ITcMachine implements ITeBlock {
     crystal_grower(cd.ethercd.it.machines.CrystalGrowerTileEntity.class, 0, EnumRarity.UNCOMMON),
     processor_assembler(cd.ethercd.it.machines.ProcessorAssemblerTileEntity.class, 1, EnumRarity.UNCOMMON),
     process_optimizer(cd.ethercd.it.machines.ProcessOptimizerTileEntity.class, 2, EnumRarity.UNCOMMON),
@@ -28,7 +28,7 @@ public enum ITcMachines implements ITeBlock {
 
     public static final ResourceLocation LOCATION = new ResourceLocation("industrialtinycraft", "machines");
 
-    ITcMachines(Class<? extends TileEntityBlock> teClass, int itemMeta, EnumRarity rarity) {
+    ITcMachine(Class<? extends TileEntityBlock> teClass, int itemMeta, EnumRarity rarity) {
         this.teClass = teClass;
         this.itemMeta = itemMeta;
         this.rarity = rarity;
@@ -118,11 +118,11 @@ public enum ITcMachines implements ITeBlock {
     public static void buildDummies() {
         ModContainer mc = Loader.instance().activeModContainer();
         if(mc != null && IndustrialTinyCraft.MODID.equals(mc.getModId())) {
-            ITcMachines[] var1 = values();
+            ITcMachine[] var1 = values();
             int var2 = var1.length;
 
             for(int var3 = 0; var3 < var2; ++var3) {
-                ITcMachines block = var1[var3];
+                ITcMachine block = var1[var3];
                 if(block.teClass != null) {
                     try {
                         block.te = block.teClass.newInstance();

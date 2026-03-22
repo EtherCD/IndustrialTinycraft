@@ -19,11 +19,14 @@ public enum BasicCraftItem {
     ZIRCONIUM_DUST("zirconium_dust"),
     ZIRCONIUM_SMALL_DUST("zirconium_small"),
     ZIRCONIUM_PLATE("zirconium_plate"),
+    ZIRCONIUM_ROD("zirconium_fuel_rod"),
 
     TECHNETIUM_DUST("technetium_dust"),
     TECHNETIUM_SMALL_DUST("technetium_small"),
     MOLYBDENUM_DUST("molybdenum_dust"),
     MOLYBDENUM_SMALL_DUST("molybdenum_small"),
+
+    GRAPHITE_PLATE("graphite_plate"),
 
     PURIFIED_SILICON("purified_silicon"),
     PURIFIED_COPPER_DUST("purified_copper_dust"),
@@ -36,6 +39,7 @@ public enum BasicCraftItem {
     ALLOYED_SILICON_PLATE("alloyed_silicon_plate"),
     MICROSTRUCTURED_SILICON_PLATE("microstructured_silicon_plate"),
     HIGH_DENSITY_SILICON_PLATE("high_density_silicon_plate"),
+    FIBER_OPTIC_PLATE("fiber_optic_plate"),
 
     FIBERGLASS("fiberglass"),
     MICROSTRUCTURED_FIBERGLASS_DUST("microstructured_fiberglass_dust"),
@@ -71,6 +75,10 @@ public enum BasicCraftItem {
     DEPLETED_QUAD_MOLYBDENUM("depleted_quad_molybdenum", CustomConstructor.REACTOR_COMPONENT),
 
     TECHNETIUM_FUEL("technetium_fuel"),
+
+    RAW_LITHIUM_ASSEMBLY("raw_lithium_assembly"),
+    UNFILLED_LITHIUM_BATTERY("unfilled_lithium_battery"),
+    LITHIUM_SULFURIC_MIXTURE("lithium_sulfuric_mixture"),
     ;
 
     private BasicItem item;

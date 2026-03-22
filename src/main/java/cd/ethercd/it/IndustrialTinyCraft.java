@@ -40,13 +40,14 @@ public class IndustrialTinyCraft
         ITcBlocksLoader.register();
         ITcItemLoader.register();
         ITcWorldGenerator.register();
+        ITcFluid.registerFluidModels();
         LOGGER = event.getModLog();
     }
 
     @EventHandler
     public void init(FMLInitializationEvent event)
     {
-        ITcMachines.buildDummies();
+        ITcMachine.buildDummies();
         ITcRecipes.addBasicRecipes();
         ITcRecipes.addMachineRecipes();
     }
@@ -58,6 +59,6 @@ public class IndustrialTinyCraft
 
     @SubscribeEvent
     public void register(TeBlockFinalCallEvent event) {
-        TeBlockRegistry.addAll(ITcMachines.class, ITcMachines.LOCATION);
+        TeBlockRegistry.addAll(ITcMachine.class, ITcMachine.LOCATION);
     }
 }

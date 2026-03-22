@@ -117,4 +117,9 @@ public class BasicEnrichmentFuel extends BasicItem implements IReactorComponent 
         tooltip.add(new TextComponentTranslation("industrialtinycraft.tooltip.enrichment_fuel").getFormattedText());
         tooltip.add(Localization.translate("ic2.reactoritem.durability") + " " + (stack.getMaxDamage() - stack.getItemDamage()) + "/" + stack.getMaxDamage());
     }
+
+    @Override
+    public boolean showDurabilityBar(ItemStack stack) {
+        return true;
+    }
 }

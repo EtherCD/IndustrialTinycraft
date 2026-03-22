@@ -1,6 +1,6 @@
 package cd.ethercd.it.jei.machines;
 
-import cd.ethercd.it.ITcMachines;
+import cd.ethercd.it.ITcMachine;
 import cd.ethercd.it.ITcRecipes;
 import cd.ethercd.it.IndustrialTinyCraft;
 import ic2.api.recipe.IBasicMachineRecipeManager;
@@ -23,7 +23,7 @@ public class CrystalGrowerCategory extends IORecipeCategory<IBasicMachineRecipeM
     public static final String UID = IndustrialTinyCraft.MODID + ".crystal_grower";
 
     public CrystalGrowerCategory(IGuiHelper h) {
-        super(ITcMachines.crystal_grower, ITcRecipes.crystal_grower);
+        super(ITcMachine.crystal_grower, ITcRecipes.crystal_grower);
         bg = h.createDrawable(new ResourceLocation(IndustrialTinyCraft.MODID + ":textures/gui/crystal_grower.png"), 0, 0, 82, 26, 82, 26);
     }
 

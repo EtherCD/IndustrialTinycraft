@@ -17,6 +17,8 @@ public class IC2Items {
     public static final ItemStack dust_silicon_dioxide = ic2.api.item.IC2Items.getItem("dust", "silicon_dioxide");
     public static final ItemStack dust_stone = ic2.api.item.IC2Items.getItem("dust", "stone");
     public static final ItemStack dust_coal_fuel = ic2.api.item.IC2Items.getItem("dust", "coal_fuel");
+    public static final ItemStack dust_sulfuric = ic2.api.item.IC2Items.getItem("dust", "sulfur");
+    public static final ItemStack dust_lithium = ic2.api.item.IC2Items.getItem("dust", "lithium");
 
     public static final ItemStack plate_gold = ic2.api.item.IC2Items.getItem("plate", "gold");
     public static final ItemStack plate_tin = ic2.api.item.IC2Items.getItem("plate", "tin");
@@ -33,6 +35,8 @@ public class IC2Items {
     public static final ItemStack resource_machine = ic2.api.item.IC2Items.getItem("resource", "machine");
     public static final ItemStack resource_advanced_machine = ic2.api.item.IC2Items.getItem("resource", "advanced_machine");
     public static final ItemStack crafting_alloy = ic2.api.item.IC2Items.getItem("crafting", "alloy");
+
+    public static final ItemStack fluid_cell = ic2.api.item.IC2Items.getItem("fluid_cell");
 
     public static final ItemStack carbon_plate = ic2.api.item.IC2Items.getItem("crafting", "carbon_plate");
 
