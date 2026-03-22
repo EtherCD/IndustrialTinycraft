@@ -28,9 +28,9 @@ public class ITcItemLoader {
     public static final BasicRadioativeFuel technetium_dual_rod = new BasicRadioativeFuel("technetium_dual_rod", 5000, 2, 4F);
     public static final BasicRadioativeFuel technetium_quad_rod = new BasicRadioativeFuel("technetium_quad_rod", 5000, 4, 4F);
 
-    public static final BasicEnrichmentFuel molybdenum_rod = new BasicEnrichmentFuel("molybdenum_rod", 1000, 1, 0.5F);
-    public static final BasicEnrichmentFuel molybdenum_dual_rod = new BasicEnrichmentFuel("molybdenum_dual_rod", 1000, 2, 0.5F);
-    public static final BasicEnrichmentFuel molybdenum_quad_rod = new BasicEnrichmentFuel("molybdenum_quad_rod", 1000, 4, 0.5F);
+    public static final BasicEnrichmentFuel molybdenum_rod = new BasicEnrichmentFuel("molybdenum_rod", 1000, 1, 1F);
+    public static final BasicEnrichmentFuel molybdenum_dual_rod = new BasicEnrichmentFuel("molybdenum_dual_rod", 1000, 2, 1F);
+    public static final BasicEnrichmentFuel molybdenum_quad_rod = new BasicEnrichmentFuel("molybdenum_quad_rod", 1000, 4, 1F);
 
     public static void register() {
         BasicCraftItem.register();

@@ -8,6 +8,8 @@ import java.util.Objects;
 public enum BasicCraftItem {
     CRUSHED_CYRTOLITE_ORE("crushed_cyrtolite_ore"),
     PURIFIED_CYRTOLITE_ORE("purified_cyrtolite_ore"),
+    CRUSHED_WULFENITE_ORE("crushed_wulfenite"),
+    PURIFIED_WULFENITE_ORE("purified_wulfenite"),
     HAFNIUM_INGOT("hafnium_ingot"),
     HAFNIUM_DUST("hafnium_dust"),
     HAFNIUM_SMALL_DUST("hafnium_small"),
@@ -65,14 +67,14 @@ public enum BasicCraftItem {
     DEPLETED_QUAD_TECHNETIUM("depleted_quad_technetium", CustomConstructor.REACTOR_COMPONENT),
 
     DEPLETED_MOLYBDENUM("depleted_molybdenum", CustomConstructor.REACTOR_COMPONENT),
-    DEPLETED_DUAL_MOLYBDENUM("depleted_dual_molybdanum", CustomConstructor.REACTOR_COMPONENT),
+    DEPLETED_DUAL_MOLYBDENUM("depleted_dual_molybdenum", CustomConstructor.REACTOR_COMPONENT),
     DEPLETED_QUAD_MOLYBDENUM("depleted_quad_molybdenum", CustomConstructor.REACTOR_COMPONENT),
 
     TECHNETIUM_FUEL("technetium_fuel"),
     ;
 
     private BasicItem item;
-    private ItemStack stack;
+    private final ItemStack stack;
 
     BasicCraftItem(String name) {
         this.item = new BasicItem(name);
@@ -83,6 +85,7 @@ public enum BasicCraftItem {
         if (Objects.requireNonNull(type) == CustomConstructor.REACTOR_COMPONENT) {
             this.item = new BasicReactorComponent(name);
         }
+        assert this.item != null;
         this.stack = new ItemStack(this.item);
     }
 

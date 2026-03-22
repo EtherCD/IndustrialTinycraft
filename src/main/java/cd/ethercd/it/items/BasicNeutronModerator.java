@@ -4,6 +4,8 @@ import cd.ethercd.it.ITcItemLoader;
 import ic2.api.reactor.IReactor;
 import ic2.api.reactor.IReactorComponent;
 import ic2.core.init.Localization;
+import ic2.core.item.reactor.ItemReactorMOX;
+import ic2.core.item.reactor.ItemReactorUranium;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.text.TextComponentTranslation;
@@ -29,7 +31,8 @@ public class BasicNeutronModerator extends BasicItem implements IReactorComponen
                                       int youX, int youY, int pulseX, int pulseY, boolean heatrun) {
         if (!heatrun) {
             IReactorComponent source = (IReactorComponent) pulsingStack.getItem();
-            source.acceptUraniumPulse(pulsingStack, reactor, stack, pulseX, pulseY, youX, youY, false);
+            if (!(source instanceof BasicNeutronModerator))
+                source.acceptUraniumPulse(pulsingStack, reactor, stack, pulseX, pulseY, youX, youY, false);
 
             int dx = youX - pulseX;
             int dy = youY - pulseY;
@@ -39,10 +42,12 @@ public class BasicNeutronModerator extends BasicItem implements IReactorComponen
 
             ItemStack opposite = reactor.getItemAt(oppositeX, oppositeY);
 
-            if (!opposite.isEmpty() && opposite.getItem() instanceof IReactorComponent) {
-                reactor.addOutput(2);
-            } else if (!opposite.isEmpty() && opposite.getItem() instanceof BasicNeutronModerator) {
-                ((BasicNeutronModerator)opposite.getItem()).acceptUraniumPulse(opposite, reactor, stack, oppositeX, oppositeY, youX, youY, heatrun);
+            if (opposite != null && !opposite.isEmpty()) {
+                if (opposite.getItem() instanceof IReactorComponent) {
+                    if (((IReactorComponent) opposite.getItem()).acceptUraniumPulse(opposite, reactor, stack, oppositeX, oppositeY, youX, youY, heatrun)) {
+                        reactor.addOutput(4F);
+                    }
+                }
             }
         } else {
             int damage = this.getDamage(stack) + 1;

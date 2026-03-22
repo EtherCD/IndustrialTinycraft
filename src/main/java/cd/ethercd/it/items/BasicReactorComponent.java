@@ -2,7 +2,12 @@ package cd.ethercd.it.items;
 
 import ic2.api.reactor.IReactor;
 import ic2.api.reactor.IReactorComponent;
+import ic2.core.IC2Potion;
+import ic2.core.item.armor.ItemArmorHazmat;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
+import net.minecraft.world.World;
 
 public class BasicReactorComponent extends BasicItem implements IReactorComponent {
     public BasicReactorComponent(String name) {
@@ -47,5 +52,15 @@ public class BasicReactorComponent extends BasicItem implements IReactorComponen
     @Override
     public boolean canBePlacedIn(ItemStack stack, IReactor reactor) {
         return true;
+    }
+
+    @Override
+    public void onUpdate(ItemStack stack, World world, Entity entity, int slotIndex, boolean isCurrentItem) {
+        if (entity instanceof EntityLivingBase) {
+            EntityLivingBase entityLiving = (EntityLivingBase)entity;
+            if (!ItemArmorHazmat.hasCompleteHazmat(entityLiving)) {
+                IC2Potion.radiation.applyTo(entityLiving, 200, 100);
+            }
+        }
     }
 }

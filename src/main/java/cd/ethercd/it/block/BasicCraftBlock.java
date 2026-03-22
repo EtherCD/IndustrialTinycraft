@@ -10,7 +10,8 @@ import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 
 public enum BasicCraftBlock {
-    CYRTOLITE_ORE("cyrtolite_ore", Material.ROCK, SoundType.STONE, 5.0f, 8.0f)
+    CYRTOLITE_ORE("cyrtolite_ore", Material.ROCK, SoundType.STONE, 5.0f, 8.0f),
+    WULFENITE_ORE("wulfenite_ore", Material.ROCK, SoundType.STONE, 5.0f, 8.0f)
     ;
     private final BasicBlock block;
     private final ItemBlock item;

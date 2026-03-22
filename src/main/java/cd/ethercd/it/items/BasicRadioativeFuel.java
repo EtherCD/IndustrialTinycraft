@@ -3,8 +3,13 @@ package cd.ethercd.it.items;
 import cd.ethercd.it.ITcItemLoader;
 import ic2.api.reactor.IReactor;
 import ic2.api.reactor.IReactorComponent;
+import ic2.core.IC2Potion;
 import ic2.core.init.Localization;
+import ic2.core.item.armor.ItemArmorHazmat;
+import ic2.core.item.reactor.ItemReactorUranium;
 import net.minecraft.client.util.ITooltipFlag;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
@@ -16,7 +21,7 @@ import java.util.Queue;
 
 public class BasicRadioativeFuel extends BasicItem implements IReactorComponent {
     private final int numberOfCells;
-    private final  float energyPulseMult;
+    private final float energyPulseMult;
 
     public BasicRadioativeFuel(String name, int maxDamage, int cells, float energyPulseMult) {
         super(name);
@@ -34,9 +39,10 @@ public class BasicRadioativeFuel extends BasicItem implements IReactorComponent 
             for(int iteration = 0; iteration < this.numberOfCells; iteration++) {
                 int pulses = basePulses;
                 if (!heatrun) {
-                    for(int i = 0; i < pulses; ++i) {
+                    for(int i = 0; i < pulses; i++) {
                         this.acceptUraniumPulse(stack, reactor, stack, x, y, x, y, heatrun);
                     }
+                    int variableDontKnow = pulses + checkPulseable(reactor, x - 1, y, stack, x, y, heatrun) + checkPulseable(reactor, x + 1, y, stack, x, y, heatrun) + checkPulseable(reactor, x, y - 1, stack, x, y, heatrun) + checkPulseable(reactor, x, y + 1, stack, x, y, heatrun);
                 } else {
                     pulses = basePulses + checkPulseable(reactor, x - 1, y, stack, x, y, heatrun) + checkPulseable(reactor, x + 1, y, stack, x, y, heatrun) + checkPulseable(reactor, x, y - 1, stack, x, y, heatrun) + checkPulseable(reactor, x, y + 1, stack, x, y, heatrun);
                     int heat = triangularNumber(pulses) * 4;
@@ -70,7 +76,7 @@ public class BasicRadioativeFuel extends BasicItem implements IReactorComponent 
         }
     }
 
-    protected int getFinalHeat(ItemStack _, IReactor reactor, int x, int y, int heat) {
+    protected int getFinalHeat(ItemStack stack, IReactor reactor, int x, int y, int heat) {
         return heat;
     }
 
@@ -150,6 +156,16 @@ public class BasicRadioativeFuel extends BasicItem implements IReactorComponent 
     @SideOnly(Side.CLIENT)
     public void addInformation(ItemStack stack, World world, List<String> tooltip, ITooltipFlag advanced) {
         tooltip.add(Localization.translate("ic2.reactoritem.durability") + " " + (stack.getMaxDamage() - stack.getItemDamage()) + "/" + stack.getMaxDamage());
+    }
+
+    @Override
+    public void onUpdate(ItemStack stack, World world, Entity entity, int slotIndex, boolean isCurrentItem) {
+        if (entity instanceof EntityLivingBase) {
+            EntityLivingBase entityLiving = (EntityLivingBase)entity;
+            if (!ItemArmorHazmat.hasCompleteHazmat(entityLiving)) {
+                IC2Potion.radiation.applyTo(entityLiving, 200, 100);
+            }
+        }
     }
 
     private static class ItemStackCoord {

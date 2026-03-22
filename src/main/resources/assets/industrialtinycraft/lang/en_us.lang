@@ -62,6 +62,7 @@ item.technetium_dual_rod.name=Technetium Dual Rod
 item.technetium_quad_rod.name=Technetium Quad Rod
 item.always_on_centrifuge.name=Always On Centrifuge Upgrade
 item.technetium_dust.name=Technetium Dust
+item.technetium_fuel.name=Technetium Fuel
 item.technetium_small.name=Tiny Pile of Technetium Dust
 item.depleted_molybdenum.name=Depleted Molybdenum Rod
 item.depleted_dual_molybdenum.name=Depleted Dual Molybdenum Rod
@@ -71,6 +72,8 @@ item.molybdenum_dual_rod.name=Molybdenum Dual Rod
 item.molybdenum_quad_rod.name=Molybdenum Quad Rod
 item.molybdenum_small.name=Tiny Pile of Molybdenum Dust
 item.molybdenum_dust.name=Molybdenum Dust
+item.crushed_wulfenite.name=Crushed Wulfenite Ore
+item.purified_wulfenite.name=Purified Wulfenite Ore
 
 industrialtinycraft.tooltip.parallel_processing_upgrade=Makes the processing of items parallel.
 industrialtinycraft.tooltip.parallel_processing_upgrade.not_working=Not working with Tech-Process Optimizer and Processor Fabricator.
@@ -90,3 +93,4 @@ industrialtinycraft.machines.processor_assembler=Processor Fabricator
 industrialtinycraft.machines.process_optimizer=Tech-Process Optimizer
 
 tile.cyrtolite_ore.name=Cyrtolite Ore
+tile.wulfenite_ore.name=Wulfenite Ore
