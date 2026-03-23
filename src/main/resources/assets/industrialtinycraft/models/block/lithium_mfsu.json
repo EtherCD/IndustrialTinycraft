@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "particle": "industrialtinycraft:blocks/storages/lithium_mfsu_leftrightback",
+    "down": "industrialtinycraft:blocks/storages/lithium_mfsu_bottomtop",
+    "up": "industrialtinycraft:blocks/storages/lithium_mfsu_bottomtop",
+    "north": "industrialtinycraft:blocks/storages/lithium_mfsu_front",
+    "east": "industrialtinycraft:blocks/storages/lithium_mfsu_leftrightback",
+    "south": "industrialtinycraft:blocks/storages/lithium_mfsu_leftrightback",
+    "west": "industrialtinycraft:blocks/storages/lithium_mfsu_leftrightback"
+  }
+}

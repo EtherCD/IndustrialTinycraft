@@ -6,7 +6,6 @@ import cd.ethercd.it.items.BasicItem;
 import cd.ethercd.it.utils.ProcessOptimizerRecipeManager;
 import cd.ethercd.it.utils.ProcessorAssemblerRecipeManager;
 import ic2.api.recipe.*;
-import ic2.core.block.comp.Fluids;
 import ic2.core.recipe.BasicMachineRecipeManager;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -14,10 +13,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fluids.FluidStack;
-
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
 
 public class ITcRecipes {
     public static ProcessorAssemblerRecipeManager processor_assembler = new ProcessorAssemblerRecipeManager();
@@ -103,7 +98,7 @@ public class ITcRecipes {
 
         addTriPlateCraft(BasicCraftItem.RAW_PROCESSOR_SUBSTRATE.getStack(), IC2Items.plate_gold, IC2Items.rubber, BasicCraftItem.FIBERGLASS.getStack());
         addTriPlateCraft(BasicCraftItem.RAW_LITHIUM_ASSEMBLY.getStack(), IC2Items.plate_copper, BasicCraftItem.FIBERGLASS.getStack(), BasicCraftItem.GRAPHITE_PLATE.getStack());
-
+        addTriPlateCraft(BasicCraftItem.MOLYBDENUM_ALLOY_DUST.getStack(), BasicCraftItem.MOLYBDENUM_DUST.getStack(), IC2Items.dust_iron, IC2Items.dust_coal_fuel);
 
         addBasicRecipe(BasicCraftItem.LITHIUM_SULFURIC_MIXTURE.getStack(2),
                 " S ",
@@ -270,6 +265,33 @@ public class ITcRecipes {
                 'H', IC2Items.plate_copper,
                 'C', BasicCraftItem.ZIRCONIUM_PLATE.getStack(),
                 'U', IC2Items.dust_coal_fuel);
+        // Lithium MFSU
+        addBasicRecipe(ITcEnergyStorage.lithium_mfsu.getStack(),
+                "PLP",
+                "SMS",
+                "PLP",
+                'P', BasicCraftItem.DENSE_MOLYBDENUM_ALLOY_PLATE.getStack(),
+                'S', BasicCraftItem.PROCESSOR_22NM.getStack(),
+                'L', new ItemStack(ITcItemLoader.lithium_battery_assembly),
+                'M', IC2Items.mfsu);
+        addBasicRecipe(ITcEnergyStorage.lithium_mfsu.getStack(),
+                "PLP",
+                "SMS",
+                "PLP",
+                'P', BasicCraftItem.DENSE_MOLYBDENUM_ALLOY_PLATE.getStack(),
+                'S', BasicCraftItem.PROCESSOR_22NM.getStack(),
+                'L', new ItemStack(ITcItemLoader.lithium_battery_assembly),
+                'M', IC2Items.chargepad_mfsu);
+        // Tech-Process Optimizer
+        addBasicRecipe(ITcMachine.process_optimizer.getStack(),
+                "PCP",
+                "SBS",
+                "PEP",
+                'P', BasicCraftItem.MOLYBDENUM_ALLOY_PLATE.getStack(),
+                'B', IC2Items.blast_furnace,
+                'E', IC2Items.electric_heat_generator,
+                'S', BasicCraftItem.PROCESSOR_90NM.getStack(),
+                'C', IC2Items.coil);
     }
 
     public static void addMachineRecipes() {
@@ -281,6 +303,7 @@ public class ITcRecipes {
         addCompressorRecipe(factory.forStack(IC2Items.dust_coal_fuel, 4), BasicCraftItem.GRAPHITE_PLATE.getStack());
         addCompressorRecipe(factory.forStack(BasicCraftItem.RAW_LITHIUM_ASSEMBLY.getStack()), BasicCraftItem.UNFILLED_LITHIUM_BATTERY.getStack());
         addCompressorRecipe(factory.forStack(new ItemStack(ITcItemLoader.lithium_battery), 9), new ItemStack(ITcItemLoader.lithium_battery_assembly));
+        addCompressorRecipe(factory.forStack(BasicCraftItem.MOLYBDENUM_ALLOY_PLATE.getStack(), 9), BasicCraftItem.DENSE_MOLYBDENUM_ALLOY_PLATE.getStack());
 
         addMaceratorRecipe(factory.forStack(new ItemStack(Blocks.GLASS)), BasicCraftItem.GLASS_DUST.getStack());
         addMaceratorRecipe(factory.forStack(BasicCraftItem.FIBERGLASS.getStack()), BasicCraftItem.MICROSTRUCTURED_FIBERGLASS_DUST.getStack());
@@ -302,6 +325,7 @@ public class ITcRecipes {
         addRollingRecipe(factory.forStack(BasicCraftItem.SILICON_INGOT.getStack()), BasicCraftItem.SILICON_PLATE.getStack());
         addRollingRecipe(factory.forStack(BasicCraftItem.HAFNIUM_INGOT.getStack()), BasicCraftItem.HAFNIUM_PLATE.getStack());
         addRollingRecipe(factory.forStack(BasicCraftItem.ZIRCONIUM_INGOT.getStack()), BasicCraftItem.ZIRCONIUM_PLATE.getStack());
+        addRollingRecipe(factory.forStack(BasicCraftItem.MOLYBDENUM_ALLOY_INGOT.getStack()), BasicCraftItem.MOLYBDENUM_ALLOY_PLATE.getStack());
 
         addExtrudingRecipe(factory.forStack(BasicCraftItem.ZIRCONIUM_PLATE.getStack()), BasicCraftItem.ZIRCONIUM_ROD.getStack());
 
@@ -318,13 +342,14 @@ public class ITcRecipes {
 
         addBlastRecipe(factory.forStack(BasicCraftItem.HAFNIUM_DUST.getStack()), BasicCraftItem.HAFNIUM_INGOT.getStack());
         addBlastRecipe(factory.forStack(BasicCraftItem.ZIRCONIUM_DUST.getStack()), BasicCraftItem.ZIRCONIUM_INGOT.getStack());
+        addBlastRecipe(factory.forStack(BasicCraftItem.MOLYBDENUM_ALLOY_DUST.getStack()), BasicCraftItem.MOLYBDENUM_ALLOY_INGOT.getStack());
 
         addCanningRecipe(factory.forStack(BasicCraftItem.ZIRCONIUM_ROD.getStack()), factory.forStack(BasicCraftItem.MOLYBDENUM_DUST.getStack()), new ItemStack(ITcItemLoader.molybdenum_rod));
         addCanningRecipe(factory.forStack(BasicCraftItem.ZIRCONIUM_ROD.getStack()), factory.forStack(BasicCraftItem.TECHNETIUM_FUEL.getStack()), new ItemStack(ITcItemLoader.technetium_rod));
 
         addCannerEnrichRecipe(new FluidStack(FluidRegistry.WATER, 1000), factory.forStack(BasicCraftItem.LITHIUM_SULFURIC_MIXTURE.getStack()), new FluidStack(ITcFluid.LITHIUM_ELECTROLYTE.getFluid(), 1000));
 
-        addCannerBottleRecipe(factory.forStack(BasicCraftItem.UNFILLED_LITHIUM_BATTERY.getStack()), factory.forStack(BasicCraftItem.UNFILLED_LITHIUM_BATTERY.getStack()), new ItemStack(ITcItemLoader.lithium_battery));
+        addCannerBottleRecipe(factory.forFluidContainer(ITcFluid.LITHIUM_ELECTROLYTE.getFluid()), factory.forStack(BasicCraftItem.UNFILLED_LITHIUM_BATTERY.getStack()), new ItemStack(ITcItemLoader.lithium_battery));
 
         addCrystalGrowerRecipe(factory.forStack(BasicCraftItem.PURIFIED_SILICON.getStack()), BasicCraftItem.SILICON_INGOT.getStack());
 

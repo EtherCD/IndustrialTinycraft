@@ -34,8 +34,8 @@ public class ITcItemLoader {
 
     public static final BasicNeutronAbsorber hafnium_rod = new BasicNeutronAbsorber("hafnium_rod", 5000, -2F, 10);
 
-    public static final BasicElectricStorage lithium_battery = new BasicElectricStorage("lithium_battery", 4000000, 4, 2048);
-    public static final BasicElectricStorage lithium_battery_assembly = new BasicElectricStorage("lithium_battery_assembly", 4000000 * 9, 4, 8192);
+    public static final BasicElectricStorage lithium_battery = new BasicElectricStorage("lithium_battery", 4000000, 4);
+    public static final BasicElectricStorage lithium_battery_assembly = new BasicElectricStorage("lithium_battery_assembly", 4000000 * 9, 5);
 
     public static void register() {
         BasicCraftItem.register();

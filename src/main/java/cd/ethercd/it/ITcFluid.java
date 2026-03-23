@@ -71,7 +71,7 @@ public enum ITcFluid {
 
     public static class FluidLiquid extends Fluid {
         public FluidLiquid(String fluidName, String still, String flowing, Color color) {
-            super(fluidName, new ResourceLocation(IndustrialTinyCraft.MODID+":blocks/"+still), new ResourceLocation(IndustrialTinyCraft.MODID+":blocks/"+flowing), color);
+            super(fluidName, new ResourceLocation(IndustrialTinyCraft.MODID+":blocks/fluids/"+still), new ResourceLocation(IndustrialTinyCraft.MODID+":blocks/fluids/"+flowing), color);
         }
     }
 

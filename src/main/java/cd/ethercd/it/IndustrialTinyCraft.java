@@ -48,6 +48,7 @@ public class IndustrialTinyCraft
     public void init(FMLInitializationEvent event)
     {
         ITcMachine.buildDummies();
+        ITcEnergyStorage.buildDummies();
         ITcRecipes.addBasicRecipes();
         ITcRecipes.addMachineRecipes();
     }
@@ -60,5 +61,6 @@ public class IndustrialTinyCraft
     @SubscribeEvent
     public void register(TeBlockFinalCallEvent event) {
         TeBlockRegistry.addAll(ITcMachine.class, ITcMachine.LOCATION);
+        TeBlockRegistry.addAll(ITcEnergyStorage.class, ITcEnergyStorage.LOCATION);
     }
 }

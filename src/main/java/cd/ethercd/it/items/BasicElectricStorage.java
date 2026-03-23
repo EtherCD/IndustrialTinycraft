@@ -4,17 +4,20 @@ import cd.ethercd.it.ITcItemLoader;
 import ic2.api.item.ElectricItem;
 import ic2.api.item.IElectricItem;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
+
+import javax.annotation.Nullable;
 
 public class BasicElectricStorage extends BasicItem implements IElectricItem {
     private final int maxCharge;
     private final int tier;
     private final int transferLimit;
 
-    public BasicElectricStorage(String name, int maxCharge, int tier, int transferLimit) {
+    public BasicElectricStorage(String name, int maxCharge, int tier) {
         super(name);
         this.maxCharge = maxCharge;
         this.tier = tier;
-        this.transferLimit = transferLimit;
+        this.transferLimit = (int) (32 * Math.pow(4, tier - 1));
         ITcItemLoader.ITEMS.add(this);
     }
 

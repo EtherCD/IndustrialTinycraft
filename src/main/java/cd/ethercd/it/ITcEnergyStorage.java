@@ -1,7 +1,9 @@
 package cd.ethercd.it;
 
+import cd.ethercd.it.storages.LithiumMFSUTileEntity;
 import ic2.core.block.ITeBlock;
 import ic2.core.block.TileEntityBlock;
+import ic2.core.block.wiring.TileEntityElectricBlock;
 import ic2.core.ref.TeBlock;
 import ic2.core.util.Util;
 import net.minecraft.item.EnumRarity;
@@ -15,20 +17,18 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 import javax.annotation.Nullable;
 import java.util.Set;
 
-public enum ITcMachine implements ITeBlock {
-    crystal_grower(cd.ethercd.it.machines.CrystalGrowerTileEntity.class, 0, EnumRarity.UNCOMMON),
-    processor_assembler(cd.ethercd.it.machines.ProcessorAssemblerTileEntity.class, 1, EnumRarity.UNCOMMON),
-    process_optimizer(cd.ethercd.it.machines.ProcessOptimizerTileEntity.class, 2, EnumRarity.UNCOMMON),
+public enum ITcEnergyStorage implements ITeBlock {
+    lithium_mfsu(LithiumMFSUTileEntity.class, 0, EnumRarity.EPIC),
     ;
 
-    private final Class<? extends TileEntityBlock> teClass;
+    private final Class<? extends TileEntityElectricBlock> teClass;
     private final int itemMeta;
     private final EnumRarity rarity;
-    TileEntityBlock te;
+    public TileEntityBlock te;
 
-    public static final ResourceLocation LOCATION = new ResourceLocation("industrialtinycraft", "machines");
+    public static final ResourceLocation LOCATION = new ResourceLocation("industrialtinycraft", "storages");
 
-    ITcMachine(Class<? extends TileEntityBlock> teClass, int itemMeta, EnumRarity rarity) {
+    ITcEnergyStorage(Class<? extends TileEntityElectricBlock> teClass, int itemMeta, EnumRarity rarity) {
         this.teClass = teClass;
         this.itemMeta = itemMeta;
         this.rarity = rarity;
@@ -47,7 +47,7 @@ public enum ITcMachine implements ITeBlock {
 
     @Nullable
     @Override
-    public Class getTeClass() {
+    public Class<? extends TileEntityElectricBlock> getTeClass() {
         return this.teClass;
     }
 
@@ -58,7 +58,7 @@ public enum ITcMachine implements ITeBlock {
 
     @Override
     public Set<EnumFacing> getSupportedFacings() {
-        return Util.horizontalFacings;
+        return Util.allFacings;
     }
 
     @Override
@@ -118,14 +118,14 @@ public enum ITcMachine implements ITeBlock {
     public static void buildDummies() {
         ModContainer mc = Loader.instance().activeModContainer();
         if(mc != null && IndustrialTinyCraft.MODID.equals(mc.getModId())) {
-            ITcMachine[] var1 = values();
+            ITcEnergyStorage[] var1 = values();
             int var2 = var1.length;
 
             for(int var3 = 0; var3 < var2; ++var3) {
-                ITcMachine block = var1[var3];
-                if(block.teClass != null) {
+                ITcEnergyStorage block = var1[var3];
+                if(block.getTeClass() != null) {
                     try {
-                        block.te = block.teClass.newInstance();
+                        block.te = block.getTeClass().newInstance();
                     } catch (Exception var6) {
                         if(Util.inDev()) {
                             var6.printStackTrace();

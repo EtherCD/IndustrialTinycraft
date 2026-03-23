@@ -19,6 +19,7 @@ public class IC2Items {
     public static final ItemStack dust_coal_fuel = ic2.api.item.IC2Items.getItem("dust", "coal_fuel");
     public static final ItemStack dust_sulfuric = ic2.api.item.IC2Items.getItem("dust", "sulfur");
     public static final ItemStack dust_lithium = ic2.api.item.IC2Items.getItem("dust", "lithium");
+    public static final ItemStack dust_iron = ic2.api.item.IC2Items.getItem("dust", "iron");
 
     public static final ItemStack plate_gold = ic2.api.item.IC2Items.getItem("plate", "gold");
     public static final ItemStack plate_tin = ic2.api.item.IC2Items.getItem("plate", "tin");
@@ -41,12 +42,10 @@ public class IC2Items {
     public static final ItemStack carbon_plate = ic2.api.item.IC2Items.getItem("crafting", "carbon_plate");
 
     public static final ItemStack fuel_rod = ic2.api.item.IC2Items.getItem("crafting", "fuel_rod");
+
+    public static final ItemStack mfsu = ic2.api.item.IC2Items.getItem("te", "mfsu");
+    public static final ItemStack chargepad_mfsu = ic2.api.item.IC2Items.getItem("te", "chargepad_mfsu");
+    public static final ItemStack blast_furnace = ic2.api.item.IC2Items.getItem("te", "blast_furnace");
+    public static final ItemStack electric_heat_generator = ic2.api.item.IC2Items.getItem("te", "electric_heat_generator");
+    public static final ItemStack coil = ic2.api.item.IC2Items.getItem("crafting", "coil");
 }
-
-/**
-
- - Очищенная Медная Пыль
- - Очищенная Золотая Пыль
- - Очищенная Алмазная Пыль
- Ураново-Энергетический
- */

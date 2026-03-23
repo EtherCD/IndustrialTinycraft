@@ -79,6 +79,11 @@ public enum BasicCraftItem {
     RAW_LITHIUM_ASSEMBLY("raw_lithium_assembly"),
     UNFILLED_LITHIUM_BATTERY("unfilled_lithium_battery"),
     LITHIUM_SULFURIC_MIXTURE("lithium_sulfuric_mixture"),
+
+    MOLYBDENUM_ALLOY_DUST("molybdenum_alloy_dust"),
+    MOLYBDENUM_ALLOY_INGOT("molybdenum_alloy_ingot"),
+    MOLYBDENUM_ALLOY_PLATE("molybdenum_alloy_plate"),
+    DENSE_MOLYBDENUM_ALLOY_PLATE("dense_molybdenum_alloy_plate")
     ;
 
     private BasicItem item;
