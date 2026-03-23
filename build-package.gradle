@@ -1,0 +1,103 @@
+buildscript {
+    repositories {
+        maven { url = 'https://maven.minecraftforge.net/' }
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'net.minecraftforge.gradle:ForgeGradle:3.+'
+    }
+}
+
+apply plugin: 'net.minecraftforge.gradle'
+apply plugin: 'idea'
+apply plugin: 'maven-publish'
+
+version = '1.0'
+group = 'cd.ethercd.it'
+archivesBaseName = 'Industrial TinyCraft'
+
+sourceCompatibility = targetCompatibility = compileJava.sourceCompatibility = compileJava.targetCompatibility = '1.8'
+
+minecraft {
+    mappings channel: 'snapshot', version: '20171003-1.12'
+    runs {
+        client {
+            workingDirectory project.file('run')
+
+            property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
+
+            property 'forge.logging.console.level', 'debug'
+        }
+
+        server {
+            property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
+
+            property 'forge.logging.console.level', 'debug'
+        }
+    }
+}
+
+dependencies {
+    minecraft 'net.minecraftforge:forge:1.12.2-14.23.5.2859'
+
+    compileOnly "net.industrial-craft:industrialcraft-2:2.8.222-ex112:dev"
+
+    compile "mezz.jei:jei_${minecraft_version}:${jei_version}:api"
+}
+
+jar {
+    manifest {
+        attributes([
+                "Specification-Title": "Industrial TinyCraft",
+                "Specification-Vendor": "EtherCD",
+                "Specification-Version": "1",
+                "Implementation-Title": project.name,
+                "Implementation-Version": "${version}",
+                "Implementation-Vendor" :"EtherCD",
+                "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
+        ])
+    }
+}
+
+repositories {
+    maven {
+        name 'CurseMaven'
+        url 'https://www.cursemaven.com'
+    }
+    maven {
+        name 'IC2'
+        url 'http://maven.ic2.player.to'
+    }
+    maven {
+        name "BlakesMods"
+        url 'https://maven.blakesmods.com'
+    }
+    maven {
+        name "Progwml6 maven"
+        url "http://dvs1.progwml6.com/files/maven"
+    }
+    maven {
+        name "ModMaven"
+        url "https://modmaven.k-4u.nl/"
+    }
+    mavenCentral()
+}
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            artifact jar
+        }
+    }
+    repositories {
+        maven {
+            url "file:///${project.projectDir}/mcmodsrepo"
+        }
+    }
+}
+
+sourceSets.each {
+    def dir = layout.buildDirectory.file("sourcesSets/$it.name").get().asFile
+    it.output.resourcesDir = dir
+    it.java.outputDir = dir
+}

@@ -66,6 +66,8 @@ public class BasicEnrichmentFuel extends BasicItem implements IReactorComponent 
 
             ItemStack opposite = reactor.getItemAt(oppositeX, oppositeY);
 
+            if (opposite == null) return false;
+
             if (!opposite.isEmpty() && opposite.getItem() instanceof IReactorComponent) {
                 reactor.addOutput(2);
             } else if (!opposite.isEmpty() && opposite.getItem() instanceof BasicNeutronModerator) {

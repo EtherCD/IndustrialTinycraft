@@ -1,4 +1,4 @@
-package cd.ethercd.it.block;
+package cd.ethercd.it.blocks;
 
 import cd.ethercd.it.ITcBlocksLoader;
 import cd.ethercd.it.ITcCreativeTab;

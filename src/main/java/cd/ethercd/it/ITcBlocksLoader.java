@@ -1,6 +1,6 @@
 package cd.ethercd.it;
 
-import cd.ethercd.it.block.BasicCraftBlock;
+import cd.ethercd.it.blocks.BasicCraftBlock;
 import net.minecraft.block.Block;
 
 import java.util.ArrayList;

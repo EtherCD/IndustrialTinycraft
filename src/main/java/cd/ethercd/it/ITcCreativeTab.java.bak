@@ -9,7 +9,7 @@ import static cd.ethercd.it.IndustrialTinyCraft.MODID;
 public class ITcCreativeTab {
     public static CreativeTabs CREATIVE_TAB = new CreativeTabs(MODID) {
         @Override
-        public ItemStack getTabIconItem() {
+        public ItemStack createIcon() {
             return new ItemStack(BasicCraftItem.PURIFIED_SILICON.getItem(), 1, 0);
         }
     };

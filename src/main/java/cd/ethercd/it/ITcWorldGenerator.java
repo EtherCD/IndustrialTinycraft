@@ -1,6 +1,6 @@
 package cd.ethercd.it;
 
-import cd.ethercd.it.block.BasicCraftBlock;
+import cd.ethercd.it.blocks.BasicCraftBlock;
 import net.minecraft.block.state.pattern.BlockMatcher;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
