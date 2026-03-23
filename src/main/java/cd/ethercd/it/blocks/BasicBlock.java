@@ -14,7 +14,7 @@ public class BasicBlock extends Block implements IHasModel {
         setCreativeTab(ITcCreativeTab.CREATIVE_TAB);
         setSoundType(sound);
         setRegistryName(name);
-        setUnlocalizedName(name);
+        setTranslationKey(name);
         setHardness(hardness);
         setResistance(resistance);
     }

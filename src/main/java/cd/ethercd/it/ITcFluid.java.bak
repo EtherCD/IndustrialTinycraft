@@ -79,7 +79,7 @@ public enum ITcFluid {
         public BlockFluid(String name, Fluid fluid, Material material) {
             super(fluid, material);
             setRegistryName(name);
-            setTranslationKey(name);
+            setUnlocalizedName(name);
 
             ITcBlocksLoader.BLOCKS.add(this);
             ITcItemLoader.ITEMS.add(new ItemBlock(this).setRegistryName(name));
