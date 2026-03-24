@@ -43,15 +43,14 @@ public class SimpleMachineTileEntity extends TileEntityElectricMachine implement
     public final InvSlotOutput outputSlot;
     public final InvSlotUpgrade upgradeSlot;
 
-    protected int inventorySize = 0;
-
-    private int initialMaxEnergy = 8000;
+    private int initialMaxEnergy;
 
     @GuiSynced
     public int progress;
 
-    public SimpleMachineTileEntity(int tier, IMachineRecipeManager<IRecipeInput, Collection<ItemStack>, ItemStack> recipeSet, int idleEU, int activeEU) {
-        super(8000, tier);
+    public SimpleMachineTileEntity(int tier, IMachineRecipeManager<IRecipeInput, Collection<ItemStack>, ItemStack> recipeSet, int idleEU, int activeEU, int maxEnergy) {
+        super(maxEnergy, tier);
+        this.initialMaxEnergy = maxEnergy;
         this.maxProgress = 1000;
         this.progress = 0;
         this.idleEU = idleEU;
@@ -59,6 +58,18 @@ public class SimpleMachineTileEntity extends TileEntityElectricMachine implement
         this.inputSlot = new InvSlotProcessableGeneric(this, "input", 1, recipeSet);
         this.outputSlot = new InvSlotOutput(this, "output", 1);
         this.upgradeSlot  = new InvSlotUpgrade(this, "upgrade", 2);
+    }
+
+    public SimpleMachineTileEntity(int tier, IMachineRecipeManager<IRecipeInput, Collection<ItemStack>, ItemStack> recipeSet, int idleEU, int activeEU, int maxEnergy, int outputSlots) {
+        super(maxEnergy, tier);
+        this.initialMaxEnergy = maxEnergy;
+        this.maxProgress = 1000;
+        this.progress = 0;
+        this.idleEU = idleEU;
+        this.activeEU = activeEU;
+        this.inputSlot = new InvSlotProcessableGeneric(this, "input", 1, recipeSet);
+        this.outputSlot = new InvSlotOutput(this, "output", outputSlots);
+        this.upgradeSlot  = new InvSlotUpgrade(this, "upgrade", 4);
     }
 
     @Override
@@ -171,16 +182,16 @@ public class SimpleMachineTileEntity extends TileEntityElectricMachine implement
         if (this.inputSlot.isEmpty()) {
             return false;
         }
-        final MachineRecipeResult<IRecipeInput, Collection<ItemStack>, ItemStack> output = (MachineRecipeResult<IRecipeInput, Collection<ItemStack>, ItemStack>)this.inputSlot.process();
-        return output != null && this.outputSlot.canAdd((Collection<ItemStack>)output.getOutput());
+        final MachineRecipeResult<IRecipeInput, Collection<ItemStack>, ItemStack> output = this.inputSlot.process();
+        return output != null && this.outputSlot.canAdd(output.getOutput());
     }
 
     public void operate() {
         this.canOperate();
-        final MachineRecipeResult<IRecipeInput, Collection<ItemStack>, ItemStack> output = (MachineRecipeResult<IRecipeInput, Collection<ItemStack>, ItemStack>)this.inputSlot.process();
-        this.processUpgrades((Collection<ItemStack>)output.getOutput());
-        this.outputSlot.add((Collection<ItemStack>)output.getOutput());
-        this.inputSlot.consume((MachineRecipeResult<IRecipeInput, Collection<ItemStack>, ItemStack>)output);
+        final MachineRecipeResult<IRecipeInput, Collection<ItemStack>, ItemStack> output = this.inputSlot.process();
+        this.processUpgrades(output.getOutput());
+        this.outputSlot.add(output.getOutput());
+        this.inputSlot.consume(output);
     }
 
     protected void processUpgrades(final Collection<ItemStack> output) {

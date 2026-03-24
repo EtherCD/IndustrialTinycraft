@@ -101,9 +101,9 @@ public class ITcRecipes {
         addTriPlateCraft(BasicCraftItem.MOLYBDENUM_ALLOY_DUST.getStack(), BasicCraftItem.MOLYBDENUM_DUST.getStack(), IC2Items.dust_iron, IC2Items.dust_coal_fuel);
 
         addBasicRecipe(BasicCraftItem.LITHIUM_SULFURIC_MIXTURE.getStack(2),
-                " S ",
+                "SSS",
                 "BBB",
-                " S ",
+                "SSS",
                 'B', IC2Items.dust_lithium,
                 'S', IC2Items.dust_sulfuric);
 
@@ -139,6 +139,13 @@ public class ITcRecipes {
                 'C', IC2Items.heat_storage,
                 'P', BasicCraftItem.PROCESSOR_90NM.getStack(),
                 'U', IC2Items.upgrade_overclocker);
+        addBasicRecipe(new ItemStack(ITcItemLoader.advanced_overclocker),
+                "   ",
+                "CCC",
+                "PUP",
+                'C', new ItemStack(ITcItemLoader.advanced_heat_storage),
+                'P', BasicCraftItem.PROCESSOR_22NM.getStack(),
+                'U', new ItemStack(ITcItemLoader.improved_overclocker));
         // Machines
         addBasicRecipe(ITcMachine.crystal_grower.getStack(),
                 "WSW",
@@ -248,12 +255,32 @@ public class ITcRecipes {
                 'C', BasicCraftItem.PROCESSOR_22NM.getStack(),
                 'U', BasicCraftItem.UNSTABLE_ENERGY_CORE.getStack());
         // Parallel
-//        addBasicRecipe(new ItemStack(ITcItemLoader.parallel_processing_upgrade),
-//                "",);
+        addBasicRecipe(new ItemStack(ITcItemLoader.parallel_processing_upgrade),
+                "TCT",
+                "PMP",
+                "TCT",
+                'T', IC2Items.plate_tin,
+                'C', IC2Items.tri_heat_storage,
+                'P', BasicCraftItem.PROCESSOR_90NM.getItem(),
+                'M', IC2Items.resource_machine);
+        addBasicRecipe(new ItemStack(ITcItemLoader.advanced_parallel_processing_upgrade),
+                "TCT",
+                "PAP",
+                "TCT",
+                'T', IC2Items.plate_steel,
+                'C', new ItemStack(ITcItemLoader.improved_tri_heat_storage),
+                'P', BasicCraftItem.PROCESSOR_22NM.getItem(),
+                'A', IC2Items.resource_advanced_machine);
 
         // Centrifuge Upgrade
-//        addBasicRecipe(new ItemStack(ITcItemLoader.always_on_centrifuge),
-//                "");
+        addBasicRecipe(new ItemStack(ITcItemLoader.always_on_centrifuge),
+                "PCP",
+                "MSM",
+                "PCP",
+                'P', IC2Items.plate_steel,
+                'C', IC2Items.coil,
+                'M', BasicCraftItem.PROCESSOR_90NM.getStack(),
+                'S', IC2Items.upgrade_energy_storage);
 
         // Nuclear
 
@@ -265,6 +292,8 @@ public class ITcRecipes {
                 'H', IC2Items.plate_copper,
                 'C', BasicCraftItem.ZIRCONIUM_PLATE.getStack(),
                 'U', IC2Items.dust_coal_fuel);
+
+
         // Lithium MFSU
         addBasicRecipe(ITcEnergyStorage.lithium_mfsu.getStack(),
                 "PLP",
@@ -291,7 +320,18 @@ public class ITcRecipes {
                 'B', IC2Items.blast_furnace,
                 'E', IC2Items.electric_heat_generator,
                 'S', BasicCraftItem.PROCESSOR_90NM.getStack(),
-                'C', IC2Items.coil);
+                'C', IC2Items.energy_crystal);
+        // Industrial Alloy Furance
+        addBasicRecipe(ITcMachine.industrial_alloy_furnace.getStack(),
+                "PCQ",
+                "SBS",
+                "QEP",
+                'P', BasicCraftItem.DENSE_MOLYBDENUM_ALLOY_PLATE.getStack(),
+                'B', IC2Items.blast_furnace,
+                'E', IC2Items.electric_heat_generator,
+                'S', BasicCraftItem.PROCESSOR_22NM.getStack(),
+                'C', new ItemStack(ITcItemLoader.lithium_battery),
+                'Q', IC2Items.resource_advanced_machine);
     }
 
     public static void addMachineRecipes() {
@@ -344,12 +384,11 @@ public class ITcRecipes {
         addBlastRecipe(factory.forStack(BasicCraftItem.ZIRCONIUM_DUST.getStack()), BasicCraftItem.ZIRCONIUM_INGOT.getStack());
         addBlastRecipe(factory.forStack(BasicCraftItem.MOLYBDENUM_ALLOY_DUST.getStack()), BasicCraftItem.MOLYBDENUM_ALLOY_INGOT.getStack());
 
-        addCanningRecipe(factory.forStack(BasicCraftItem.ZIRCONIUM_ROD.getStack()), factory.forStack(BasicCraftItem.MOLYBDENUM_DUST.getStack()), new ItemStack(ITcItemLoader.molybdenum_rod));
-        addCanningRecipe(factory.forStack(BasicCraftItem.ZIRCONIUM_ROD.getStack()), factory.forStack(BasicCraftItem.TECHNETIUM_FUEL.getStack()), new ItemStack(ITcItemLoader.technetium_rod));
-
         addCannerEnrichRecipe(new FluidStack(FluidRegistry.WATER, 1000), factory.forStack(BasicCraftItem.LITHIUM_SULFURIC_MIXTURE.getStack()), new FluidStack(ITcFluid.LITHIUM_ELECTROLYTE.getFluid(), 1000));
 
         addCannerBottleRecipe(factory.forFluidContainer(ITcFluid.LITHIUM_ELECTROLYTE.getFluid()), factory.forStack(BasicCraftItem.UNFILLED_LITHIUM_BATTERY.getStack()), new ItemStack(ITcItemLoader.lithium_battery));
+        addCannerBottleRecipe(factory.forStack(BasicCraftItem.ZIRCONIUM_ROD.getStack()), factory.forStack(BasicCraftItem.MOLYBDENUM_DUST.getStack()), new ItemStack(ITcItemLoader.molybdenum_rod));
+        addCannerBottleRecipe(factory.forStack(BasicCraftItem.ZIRCONIUM_ROD.getStack()), factory.forStack(BasicCraftItem.TECHNETIUM_FUEL.getStack()), new ItemStack(ITcItemLoader.technetium_rod));
 
         addCrystalGrowerRecipe(factory.forStack(BasicCraftItem.PURIFIED_SILICON.getStack()), BasicCraftItem.SILICON_INGOT.getStack());
 
@@ -402,11 +441,10 @@ public class ITcRecipes {
     }
 
     private static void addBlastRecipe(IRecipeInput input, ItemStack output) {
-        Recipes.blastfurnace.addRecipe(input, null, false, output);
-    }
-
-    private static void addCanningRecipe(IRecipeInput container, IRecipeInput input, ItemStack output) {
-        Recipes.cannerBottle.addRecipe(container, input, output);
+        NBTTagCompound nbt = new NBTTagCompound();
+        nbt.setInteger("duration", 200);
+        nbt.setInteger("fluid", 1);
+        Recipes.blastfurnace.addRecipe(input, nbt, false, output);
     }
 
     private static void addCentrifugeRecipe(IRecipeInput input, ItemStack... output) {

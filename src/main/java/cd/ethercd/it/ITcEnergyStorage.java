@@ -1,11 +1,14 @@
 package cd.ethercd.it;
 
 import cd.ethercd.it.storages.LithiumMFSUTileEntity;
+import ic2.api.tile.IEnergyStorage;
 import ic2.core.block.ITeBlock;
 import ic2.core.block.TileEntityBlock;
 import ic2.core.block.wiring.TileEntityElectricBlock;
 import ic2.core.ref.TeBlock;
+import ic2.core.util.StackUtil;
 import ic2.core.util.Util;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumFacing;
@@ -113,6 +116,23 @@ public enum ITcEnergyStorage implements ITeBlock {
 
     public ItemStack getStack() {
         return this.getDummyTe().getBlockType().getItemStack(this);
+    }
+
+    public static ITeBlockCreativeRegisterer getCreativeRegisterer() {
+        return (list, block, itemBlockTileEntity, tab) -> {
+            if (tab == ITcCreativeTab.CREATIVE_TAB || tab == CreativeTabs.SEARCH) {
+                for(ITeBlock type : values()) {
+                    if (type.hasItem()) {
+                        list.add(block.getItemStack(type));
+                        if (type.getDummyTe() instanceof IEnergyStorage) {
+                            ItemStack filled = block.getItemStack(type);
+                            StackUtil.getOrCreateNbtData(filled).setDouble("energy", (double)((IEnergyStorage)type.getDummyTe()).getCapacity());
+                            list.add(filled);
+                        }
+                    }
+                }
+            }
+        };
     }
 
     public static void buildDummies() {

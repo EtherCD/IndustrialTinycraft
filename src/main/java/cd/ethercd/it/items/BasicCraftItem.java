@@ -77,7 +77,8 @@ public enum BasicCraftItem {
     TECHNETIUM_FUEL("technetium_fuel"),
 
     RAW_LITHIUM_ASSEMBLY("raw_lithium_assembly"),
-    UNFILLED_LITHIUM_BATTERY("unfilled_lithium_battery"),
+    UNFILLED_LITHIUM_BATTERY("unfilled_lithium_battery", CustomConstructor.EMPTY_BATTERY),
+    UNFILLED_SILICON_LITHIUM_BATTERY("unfilled_silicon_lithium_battery", CustomConstructor.EMPTY_BATTERY),
     LITHIUM_SULFURIC_MIXTURE("lithium_sulfuric_mixture"),
 
     MOLYBDENUM_ALLOY_DUST("molybdenum_alloy_dust"),
@@ -97,6 +98,9 @@ public enum BasicCraftItem {
     BasicCraftItem(String name, CustomConstructor type) {
         if (Objects.requireNonNull(type) == CustomConstructor.REACTOR_COMPONENT) {
             this.item = new BasicReactorComponent(name);
+        }
+        if (Objects.requireNonNull(type) == CustomConstructor.EMPTY_BATTERY) {
+            this.item = new BasicEmptyBattery(name);
         }
         assert this.item != null;
         this.stack = new ItemStack(this.item);
@@ -123,7 +127,8 @@ public enum BasicCraftItem {
     }
     
     enum CustomConstructor {
-        REACTOR_COMPONENT
+        REACTOR_COMPONENT,
+        EMPTY_BATTERY
         ;
     }
 }

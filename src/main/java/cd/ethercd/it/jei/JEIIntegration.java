@@ -32,6 +32,7 @@ public class JEIIntegration implements IModPlugin {
         addRecipeCatalyst(registry, ITcMachine.processor_assembler, ProcessorAssemblerCategory.UID);
         registry.addRecipes(ITcRecipes.processs_optimizer.getRecipes(), ProcessOptimizerCategory.UID);
         addRecipeCatalyst(registry, ITcMachine.process_optimizer, ProcessOptimizerCategory.UID);
+        addRecipeCatalyst(registry, ITcMachine.industrial_alloy_furnace, "blast_furnace");
     }
 
     private void addRecipeCatalyst(IModRegistry registry, ITeBlock block, String uid) {

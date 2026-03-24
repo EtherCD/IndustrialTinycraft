@@ -25,6 +25,8 @@ public class IC2Items {
     public static final ItemStack plate_tin = ic2.api.item.IC2Items.getItem("plate", "tin");
     public static final ItemStack plate_copper = ic2.api.item.IC2Items.getItem("plate", "copper");
     public static final ItemStack plate_iron = ic2.api.item.IC2Items.getItem("plate", "iron");
+    public static final ItemStack plate_steel = ic2.api.item.IC2Items.getItem("plate", "steel");
+
     public static final ItemStack energy_crystal = ic2.api.item.IC2Items.getItem("energy_crystal");
     public static final ItemStack lapotron_crystal = ic2.api.item.IC2Items.getItem("lapotron_crystal");
     public static final ItemStack rubber = ic2.api.item.IC2Items.getItem("crafting", "rubber");
@@ -32,6 +34,7 @@ public class IC2Items {
     public static final ItemStack tri_heat_storage = ic2.api.item.IC2Items.getItem("tri_heat_storage");
     public static final ItemStack hex_heat_storage = ic2.api.item.IC2Items.getItem("hex_heat_storage");
     public static final ItemStack upgrade_overclocker = ic2.api.item.IC2Items.getItem("upgrade", "overclocker");
+    public static final ItemStack upgrade_energy_storage = ic2.api.item.IC2Items.getItem("upgrade", "energy_storage");
     public static final ItemStack cable_copper = ic2.api.item.IC2Items.getItem("cable", "type:copper,insulation:1");
     public static final ItemStack resource_machine = ic2.api.item.IC2Items.getItem("resource", "machine");
     public static final ItemStack resource_advanced_machine = ic2.api.item.IC2Items.getItem("resource", "advanced_machine");

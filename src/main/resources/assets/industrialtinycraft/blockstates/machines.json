@@ -4,7 +4,9 @@
     "type": {
       "processor_assembler": { "model": "industrialtinycraft:processor_assembler" },
       "crystal_grower": { "model": "industrialtinycraft:crystal_grower" },
-      "process_optimizer": { "model": "industrialtinycraft:process_optimizer" }
+      "process_optimizer": { "model": "industrialtinycraft:process_optimizer" },
+      "industrial_alloy_furnace": { "model": "industrialtinycraft:industrial_alloy_furnace" },
+      "industrial_alloy_furnace#type=active": { "model": "industrialtinycraft:industrial_alloy_furnace_active" }
     },
     "facing": {
       "down": { "x": 90 },

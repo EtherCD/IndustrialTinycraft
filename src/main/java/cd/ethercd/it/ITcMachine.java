@@ -1,9 +1,12 @@
 package cd.ethercd.it;
 
+import ic2.api.tile.IEnergyStorage;
 import ic2.core.block.ITeBlock;
 import ic2.core.block.TileEntityBlock;
 import ic2.core.ref.TeBlock;
+import ic2.core.util.StackUtil;
 import ic2.core.util.Util;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumFacing;
@@ -19,6 +22,7 @@ public enum ITcMachine implements ITeBlock {
     crystal_grower(cd.ethercd.it.machines.CrystalGrowerTileEntity.class, 0, EnumRarity.UNCOMMON),
     processor_assembler(cd.ethercd.it.machines.ProcessorAssemblerTileEntity.class, 1, EnumRarity.UNCOMMON),
     process_optimizer(cd.ethercd.it.machines.ProcessOptimizerTileEntity.class, 2, EnumRarity.UNCOMMON),
+    industrial_alloy_furnace(cd.ethercd.it.machines.IndustrialAlloyFurnaceTileEntity.class, 3, EnumRarity.EPIC)
     ;
 
     private final Class<? extends TileEntityBlock> teClass;
@@ -113,6 +117,23 @@ public enum ITcMachine implements ITeBlock {
 
     public ItemStack getStack() {
         return this.getDummyTe().getBlockType().getItemStack(this);
+    }
+
+    public static ITeBlockCreativeRegisterer getCreativeRegisterer() {
+        return (list, block, itemBlockTileEntity, tab) -> {
+            if (tab == ITcCreativeTab.CREATIVE_TAB || tab == CreativeTabs.SEARCH) {
+                for(ITeBlock type : values()) {
+                    if (type.hasItem()) {
+                        list.add(block.getItemStack(type));
+                        if (type.getDummyTe() instanceof IEnergyStorage) {
+                            ItemStack filled = block.getItemStack(type);
+                            StackUtil.getOrCreateNbtData(filled).setDouble("energy", (double)((IEnergyStorage)type.getDummyTe()).getCapacity());
+                            list.add(filled);
+                        }
+                    }
+                }
+            }
+        };
     }
 
     public static void buildDummies() {
