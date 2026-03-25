@@ -15,6 +15,7 @@ import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fluids.BlockFluidClassic;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidRegistry;
+import net.minecraftforge.fluids.FluidStack;
 
 import java.awt.*;
 
@@ -23,6 +24,7 @@ public enum ITcFluid {
     ;
 
     private final FluidLiquid fluid;
+    private final FluidStack stack;
     private final BlockFluid block;
     private final String name;
 
@@ -31,10 +33,15 @@ public enum ITcFluid {
         this.fluid = new FluidLiquid(name, still, flowing, color);
         registerFluid(this.fluid);
         this.block = new BlockFluid(name, this.fluid, material);
+        this.stack = new FluidStack(this.fluid, 1000);
     }
 
     public FluidLiquid getFluid() {
         return this.fluid;
+    }
+
+    public FluidStack getStack() {
+        return this.stack;
     }
 
     public BlockFluid getBlock() {

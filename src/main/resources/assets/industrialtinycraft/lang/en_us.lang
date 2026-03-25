@@ -115,6 +115,10 @@ industrialtinycraft.machines.industrial_alloy_furnace=Industrial Alloy Furnace
 
 tile.cyrtolite_ore.name=Cyrtolite Ore
 tile.wulfenite_ore.name=Wulfenite Ore
-tile.lithium_electrolyte.name=Lithium Electrolyte
+tile.itc_lithium_electrolyte.name=Lithium Electrolyte
+tile.itc_deuterium.name=Lithium Electrolyte
+tile.itc_tritium.name=Lithium Electrolyte
 
-fluid.lithium_electrolyte=Lithium Electrolyte
+fluid.itc_lithium_electrolyte=Lithium Electrolyte
+fluid.itc_deuterium=Deuterium
+fluid.itc_tritium=Tritium

@@ -1,0 +1,14 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "model": "forge:fluid",
+    "transform": "forge:default-item"
+  },
+  "variants": {
+    "type": {
+      "lithium_electrolyte": { "custom": { "fluid": "itc_lithium_electrolyte" } },
+      "deuterium": { "custom": { "fluid": "itc_deuterium" } },
+      "tritium": { "custom": { "fluid": "itc_tritium" } }
+    }
+  }
+}

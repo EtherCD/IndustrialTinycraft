@@ -9,14 +9,14 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 
-public enum BasicCraftBlock {
+public enum ITcResource {
     CYRTOLITE_ORE("cyrtolite_ore", Material.ROCK, SoundType.STONE, 5.0f, 8.0f),
     WULFENITE_ORE("wulfenite_ore", Material.ROCK, SoundType.STONE, 5.0f, 8.0f)
     ;
     private final BasicBlock block;
     private final ItemBlock item;
 
-    BasicCraftBlock(String name, Material material, SoundType soundType, float hardness, float resistance) {
+    ITcResource(String name, Material material, SoundType soundType, float hardness, float resistance) {
         block = new BasicBlock(name, material, soundType, hardness, resistance);
         item = new ItemBlock(block);
         item.setRegistryName(block.getRegistryName()+"");
@@ -36,7 +36,7 @@ public enum BasicCraftBlock {
     }
 
     public static void register() {
-        for (BasicCraftBlock basic : BasicCraftBlock.values()) {
+        for (ITcResource basic : ITcResource.values()) {
             ITcBlocksLoader.BLOCKS.add(basic.getBlock());
             ITcItemLoader.ITEMS.add(basic.getItem());
         }

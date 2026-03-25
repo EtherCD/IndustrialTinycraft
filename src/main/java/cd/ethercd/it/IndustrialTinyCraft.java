@@ -2,18 +2,7 @@ package cd.ethercd.it;
 
 import cd.ethercd.it.proxy.CommonProxy;
 import ic2.api.event.TeBlockFinalCallEvent;
-import ic2.api.tile.IEnergyStorage;
-import ic2.core.IC2;
-import ic2.core.block.BlockTileEntity;
-import ic2.core.block.ITeBlock;
 import ic2.core.block.TeBlockRegistry;
-import ic2.core.item.block.ItemBlockTileEntity;
-import ic2.core.profile.Version;
-import ic2.core.ref.TeBlock;
-import ic2.core.util.StackUtil;
-import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.NonNullList;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
@@ -48,11 +37,11 @@ public class IndustrialTinyCraft
     @EventHandler
     public void preInit(FMLPreInitializationEvent event)
     {
+        LOGGER = event.getModLog();
+        ITcFluid.values();
         ITcBlocksLoader.register();
         ITcItemLoader.register();
         ITcWorldGenerator.register();
-        ITcFluid.registerFluidModels();
-        LOGGER = event.getModLog();
     }
 
     @EventHandler

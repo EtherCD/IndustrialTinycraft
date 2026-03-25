@@ -1,6 +1,6 @@
 package cd.ethercd.it;
 
-import cd.ethercd.it.blocks.BasicCraftBlock;
+import cd.ethercd.it.blocks.ITcResource;
 import net.minecraft.block.Block;
 
 import java.util.ArrayList;
@@ -10,6 +10,6 @@ public class ITcBlocksLoader {
     public static final List<Block> BLOCKS = new ArrayList<>();
 
     public static void register() {
-        BasicCraftBlock.register();
+        ITcResource.register();
     }
 }

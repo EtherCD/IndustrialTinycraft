@@ -1,6 +1,6 @@
 package cd.ethercd.it;
 
-import cd.ethercd.it.blocks.BasicCraftBlock;
+import cd.ethercd.it.blocks.ITcResource;
 import cd.ethercd.it.items.BasicCraftItem;
 import cd.ethercd.it.items.BasicItem;
 import cd.ethercd.it.utils.ProcessOptimizerRecipeManager;
@@ -11,6 +11,7 @@ import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.util.EnumFacing;
 import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fluids.FluidStack;
 
@@ -347,8 +348,8 @@ public class ITcRecipes {
 
         addMaceratorRecipe(factory.forStack(new ItemStack(Blocks.GLASS)), BasicCraftItem.GLASS_DUST.getStack());
         addMaceratorRecipe(factory.forStack(BasicCraftItem.FIBERGLASS.getStack()), BasicCraftItem.MICROSTRUCTURED_FIBERGLASS_DUST.getStack());
-        addMaceratorRecipe(factory.forStack(BasicCraftBlock.CYRTOLITE_ORE.getStack()), BasicCraftItem.CRUSHED_CYRTOLITE_ORE.getStack());
-        addMaceratorRecipe(factory.forStack(BasicCraftBlock.WULFENITE_ORE.getStack()), BasicCraftItem.CRUSHED_WULFENITE_ORE.getStack());
+        addMaceratorRecipe(factory.forStack(ITcResource.CYRTOLITE_ORE.getStack()), BasicCraftItem.CRUSHED_CYRTOLITE_ORE.getStack());
+        addMaceratorRecipe(factory.forStack(ITcResource.WULFENITE_ORE.getStack()), BasicCraftItem.CRUSHED_WULFENITE_ORE.getStack());
         addMaceratorRecipe(factory.forStack(BasicCraftItem.HAFNIUM_INGOT.getStack()), BasicCraftItem.HAFNIUM_DUST.getStack());
         addMaceratorRecipe(factory.forStack(BasicCraftItem.ZIRCONIUM_INGOT.getStack()), BasicCraftItem.ZIRCONIUM_DUST.getStack());
 
@@ -406,6 +407,8 @@ public class ITcRecipes {
         addProcessOptimizerRecipe(factory, BasicCraftItem.ALLOYED_SILICON_PLATE.getStack(), BasicCraftItem.PURIFIED_COPPER_DUST.getStack(), BasicCraftItem.MICROSTRUCTURED_FIBERGLASS_DUST.getStack(), BasicCraftItem.MICROSTRUCTURED_SILICON_PLATE.getStack());
         addProcessOptimizerRecipe(factory, BasicCraftItem.MICROSTRUCTURED_SILICON_PLATE.getStack(), BasicCraftItem.HAFNIUM_DUST.getStack(), BasicCraftItem.PURIFIED_DIAMOND_DUST.getStack(), BasicCraftItem.HIGH_DENSITY_SILICON_PLATE.getStack());
         addProcessOptimizerRecipe(factory, BasicCraftItem.FIBER_OPTIC_PLATE.getStack(), BasicCraftItem.ADVANCED_PROCESSOR_SUBSTRATE.getStack(), BasicCraftItem.TECHNETIUM_DUST.getStack(), BasicCraftItem.PHOTONIC_COMPUTING_ACCELERATOR.getStack());
+
+        Recipes.electrolyzer.addRecipe("ic2heavy_water", 40, 1, new IElectrolyzerRecipeManager.ElectrolyzerOutput("itc_deuterium", 26, EnumFacing.UP), new IElectrolyzerRecipeManager.ElectrolyzerOutput("ic2oxygen", 13, EnumFacing.DOWN));
     }
 
     private static void addBasicRecipe(ItemStack output, Object... input) {

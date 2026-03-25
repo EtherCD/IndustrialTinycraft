@@ -169,10 +169,11 @@ public class SimpleMachineTileEntity extends TileEntityElectricMachine implement
             } else {
                 this.progress = 0;
             }
+            this.setActive(true);
         } else {
             this.progress = 0;
+            this.setActive(false);
         }
-        this.setActive(true);
         if (needsInvUpdate) {
             this.markDirty();
         }

@@ -1,6 +1,6 @@
 package cd.ethercd.it;
 
-import cd.ethercd.it.blocks.BasicCraftBlock;
+import cd.ethercd.it.blocks.ITcResource;
 import net.minecraft.block.state.pattern.BlockMatcher;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
@@ -19,8 +19,8 @@ public class ITcWorldGenerator implements IWorldGenerator {
     private final WorldGenerator wulfenite_ore;
 
     public ITcWorldGenerator() {
-        cyrtolite_ore = new WorldGenMinable(BasicCraftBlock.CYRTOLITE_ORE.getBlock().getDefaultState(), 4, BlockMatcher.forBlock(Blocks.STONE));
-        wulfenite_ore = new WorldGenMinable(BasicCraftBlock.WULFENITE_ORE.getBlock().getDefaultState(), 2, BlockMatcher.forBlock(Blocks.STONE));
+        cyrtolite_ore = new WorldGenMinable(ITcResource.CYRTOLITE_ORE.getBlock().getDefaultState(), 4, BlockMatcher.forBlock(Blocks.STONE));
+        wulfenite_ore = new WorldGenMinable(ITcResource.WULFENITE_ORE.getBlock().getDefaultState(), 2, BlockMatcher.forBlock(Blocks.STONE));
     }
 
     @Override
