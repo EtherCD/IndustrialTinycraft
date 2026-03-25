@@ -26,14 +26,29 @@ public class BasicNeutronModerator extends BasicItem implements IReactorComponen
     public void processChamber(ItemStack stack, IReactor reactor, int x, int y, boolean heatrun) {
     }
 
+    public void acceptRay(ItemStack myStack, IReactor reactor, ItemStack pulsingStack,
+                          int youX, int youY, int pulseX, int pulseY, float mult) {
+        int dx = youX - pulseX;
+        int dy = youY - pulseY;
+
+        int nextX = youX + dx;
+        int nextY = youY + dy;
+        ItemStack nextItem = reactor.getItemAt(nextX, nextY);
+        if (nextItem == null || nextItem.isEmpty()) return;
+        IReactorComponent component = (IReactorComponent) nextItem.getItem();
+
+        if (!(component instanceof BasicNeutronModerator)) {
+            if (component.acceptUraniumPulse(pulsingStack, reactor, myStack, pulseX, pulseY, youX, youY, false))
+                reactor.addOutput(mult);
+        } else {
+            ((BasicNeutronModerator) component).acceptRay(nextItem, reactor, myStack, nextX, nextY, youX, youY, mult + 4.0f);
+        }
+    }
+
     @Override
     public boolean acceptUraniumPulse(ItemStack stack, IReactor reactor, ItemStack pulsingStack,
                                       int youX, int youY, int pulseX, int pulseY, boolean heatrun) {
         if (!heatrun) {
-            IReactorComponent source = (IReactorComponent) pulsingStack.getItem();
-            if (!(source instanceof BasicNeutronModerator))
-                source.acceptUraniumPulse(pulsingStack, reactor, stack, pulseX, pulseY, youX, youY, false);
-
             int dx = youX - pulseX;
             int dy = youY - pulseY;
 
@@ -41,12 +56,13 @@ public class BasicNeutronModerator extends BasicItem implements IReactorComponen
             int oppositeY = youY + dy;
 
             ItemStack opposite = reactor.getItemAt(oppositeX, oppositeY);
-
             if (opposite != null && !opposite.isEmpty()) {
-                if (opposite.getItem() instanceof IReactorComponent) {
-                    if (((IReactorComponent) opposite.getItem()).acceptUraniumPulse(opposite, reactor, stack, oppositeX, oppositeY, youX, youY, heatrun)) {
-                        reactor.addOutput(4F);
-                    }
+                IReactorComponent oppositeItem = (IReactorComponent) opposite.getItem();
+                if (oppositeItem instanceof BasicNeutronModerator) {
+                    ((BasicNeutronModerator) oppositeItem).acceptRay(opposite, reactor, stack, oppositeX, oppositeY, youX, youY, 4.0f);
+                    return false;
+                } else {
+                    oppositeItem.acceptUraniumPulse(opposite, reactor, stack, oppositeX, oppositeY, youX, youY, false);
                 }
             }
         } else {
