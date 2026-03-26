@@ -68,6 +68,22 @@ public class ProcessOptimizerRecipeManager {
         return remaining.isEmpty();
     }
 
+    private List<ItemStack> matchesConsume(List<ItemStack> inputs, List<ItemStack> recipe) {
+        List<ItemStack> list = new ArrayList<>();
+
+        for (ItemStack input: inputs) {
+            if (input.isEmpty()) {
+                list.add(ItemStack.EMPTY);
+                continue;
+            }
+            for (ItemStack recipeInput: recipe)
+                if (recipeInput.isItemEqual(input))
+                    list.add(recipeInput);
+        }
+
+        return list;
+    }
+
     public int[] getIngirientsConsume(ItemStack input1, ItemStack input2, ItemStack input3) {
         for (int index = 0; index < recipesList.size(); index += 4) {
             ItemStack r1 = recipesList.get(index);
@@ -79,7 +95,8 @@ public class ProcessOptimizerRecipeManager {
             List<ItemStack> recipe = new ArrayList<>(Arrays.asList(r1, r2, r3));
 
             if (matches(inputs, recipe) && !out.isEmpty()) {
-                return new int[] {r1.getCount(), r2.getCount(), r3.getCount()};
+                List<ItemStack> sorted = matchesConsume(inputs, recipe);
+                return new int[] {sorted.get(0).getCount(), sorted.get(1).getCount(), sorted.get(2).getCount()};
             }
         }
         return new int[] {0, 0, 0};

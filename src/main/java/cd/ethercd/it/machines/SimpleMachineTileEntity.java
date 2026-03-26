@@ -20,6 +20,8 @@ import ic2.core.util.StackUtil;
 import mcp.MethodsReturnNonnullByDefault;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemAir;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraftforge.fml.relauncher.Side;
@@ -56,7 +58,7 @@ public class SimpleMachineTileEntity extends TileEntityElectricMachine implement
         this.activeEU = activeEU;
         this.inputSlot = new InvSlotProcessableGeneric(this, "input", 1, recipeSet);
         this.outputSlot = new InvSlotOutput(this, "output", 1);
-        this.upgradeSlot  = new InvSlotUpgrade(this, "upgrade", 2);
+        this.upgradeSlot  = new InvSlotUpgrade(this, "upgrade", 4);
     }
 
     public SimpleMachineTileEntity(int tier, IMachineRecipeManager<IRecipeInput, Collection<ItemStack>, ItemStack> recipeSet, int idleEU, int activeEU, int maxEnergy, int outputSlots) {
@@ -131,14 +133,13 @@ public class SimpleMachineTileEntity extends TileEntityElectricMachine implement
         super.updateEntityServer();
         boolean needsInvUpdate = false;
         boolean canOperate = this.canOperate();
-        Iterator<ItemStack> var4 = this.upgradeSlot.iterator();
+        Iterator<ItemStack> it = this.upgradeSlot.iterator();
         double accelerate = 1;
         double energy = 1;
         int additionalEnergyCapacity = 0;
-        while(var4.hasNext()) {
-            ItemStack stack = var4.next();
+        while(it.hasNext()) {
+            ItemStack stack = it.next();
             if (!StackUtil.isEmpty(stack) && stack.getItem() instanceof IUpgradeItem) {
-                needsInvUpdate |= ((IUpgradeItem)stack.getItem()).onTick(stack, this);
                 if (stack.getItem() instanceof IProcessingUpgrade) {
                     IProcessingUpgrade upgrade = (IProcessingUpgrade) stack.getItem();
                     accelerate /= Math.pow(upgrade.getProcessTimeMultiplier(stack, this), StackUtil.getSize(stack));
@@ -163,17 +164,32 @@ public class SimpleMachineTileEntity extends TileEntityElectricMachine implement
                 canOperate = this.canOperate();
             }
         }
+        boolean active = false;
+
         if (this.canRun()) {
             if (canOperate && this.energy.useEnergy((double)this.activeEU * energy)) {
                 this.progress += (int) (10 * accelerate);
+                active = true;
             } else {
                 this.progress = 0;
             }
-            this.setActive(true);
         } else {
             this.progress = 0;
-            this.setActive(false);
         }
+
+        this.setActive(active);
+
+        it = this.upgradeSlot.iterator();
+        while (it.hasNext()) {
+            ItemStack stack = it.next();
+            if (!StackUtil.isEmpty(stack) && stack.getCount() > 0) {
+                Item item =  stack.getItem();
+                if (!(item instanceof ItemAir) && item instanceof IUpgradeItem) {
+                    needsInvUpdate |= ((IUpgradeItem) item).onTick(stack, this);
+                }
+            }
+        }
+
         if (needsInvUpdate) {
             this.markDirty();
         }

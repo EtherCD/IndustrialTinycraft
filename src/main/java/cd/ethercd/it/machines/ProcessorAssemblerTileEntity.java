@@ -4,6 +4,8 @@ import cd.ethercd.it.ITcRecipes;
 import ic2.core.block.invslot.InvSlotProcessableGeneric;
 import net.minecraft.item.ItemStack;
 
+import java.util.Collections;
+
 public class ProcessorAssemblerTileEntity  extends ComplexMachineTileEntity {
     public ProcessorAssemblerTileEntity() {
         super(2000000, 4, 1500);
@@ -39,5 +41,12 @@ public class ProcessorAssemblerTileEntity  extends ComplexMachineTileEntity {
         }
         ItemStack output = ITcRecipes.processor_assembler.getResult(this.inputSlot.get(0), this.inputSlot.get(1));
         return !output.isEmpty() && this.outputSlot.canAdd(output);
+    }
+
+    @Override
+    protected void operate() {
+        ItemStack output = ITcRecipes.processor_assembler.getResult(this.inputSlot.get(0), this.inputSlot.get(1));
+        this.processUpgrades(Collections.singletonList(output));
+        this.outputSlot.add(output);
     }
 }

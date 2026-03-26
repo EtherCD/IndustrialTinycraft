@@ -8,6 +8,7 @@ import ic2.api.upgrade.IUpgradeItem;
 import ic2.api.upgrade.UpgradableProperty;
 import ic2.core.ContainerBase;
 import ic2.core.IHasGui;
+import ic2.core.block.invslot.InvSlot;
 import ic2.core.block.invslot.InvSlotOutput;
 import ic2.core.block.invslot.InvSlotProcessable;
 import ic2.core.block.invslot.InvSlotUpgrade;
@@ -21,14 +22,14 @@ import ic2.core.util.StackUtil;
 import mcp.MethodsReturnNonnullByDefault;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Items;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemAir;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.util.EnumFacing;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.Collection;
 import java.util.EnumSet;
 import java.util.Iterator;
@@ -52,6 +53,8 @@ public abstract class ComplexMachineTileEntity extends TileEntityElectricMachine
         this.outputSlot = new InvSlotOutput(this, "output", 1);
         this.upgradeSlot  = new InvSlotUpgrade(this, "upgrade", 4);
     }
+
+
 
     @Override
     public void readFromNBT(final NBTTagCompound nbt) {
@@ -109,6 +112,21 @@ public abstract class ComplexMachineTileEntity extends TileEntityElectricMachine
         return EnumSet.of(UpgradableProperty.ItemConsuming, UpgradableProperty.ItemProducing, UpgradableProperty.Processing, UpgradableProperty.Transformer);
     }
 
+    protected String getSlotNameByIndex(int index) {
+        if (index == 1) {
+            return "output";
+        }
+        return "";
+    }
+
+    public boolean canExtractItem(int index, ItemStack stack, EnumFacing side) {
+        InvSlot targetSlot = this.getInventorySlot(this.getSlotNameByIndex(index));
+        if (targetSlot == null || StackUtil.isEmpty(targetSlot.get())) {
+            return false;
+        }
+        return super.canExtractItem(index, stack, side);
+    }
+
     protected void updateEntityServer() {
         super.updateEntityServer();
 
@@ -158,9 +176,9 @@ public abstract class ComplexMachineTileEntity extends TileEntityElectricMachine
         it = this.upgradeSlot.iterator();
         while (it.hasNext()) {
             ItemStack stack = it.next();
-            if (!StackUtil.isEmpty(stack)) {
+            if (!StackUtil.isEmpty(stack) && stack.getCount() > 0) {
                 Item item =  stack.getItem();
-                if (item != Items.AIR && item instanceof IUpgradeItem) {
+                if (!(item instanceof ItemAir) && item instanceof IUpgradeItem) {
                     needsInvUpdate |= ((IUpgradeItem) item).onTick(stack, this);
                 }
             }
@@ -173,25 +191,11 @@ public abstract class ComplexMachineTileEntity extends TileEntityElectricMachine
         }
     }
 
-    @Override
-    @ParametersAreNonnullByDefault
-    public void setInventorySlotContents(int index, ItemStack stack) {
-        this.markDirty();
-        super.setInventorySlotContents(index, stack);
-    }
+    protected abstract void consume();
 
-    void consume() {}
+    protected abstract boolean canOperate();
 
-    boolean canOperate() {
-        return false;
-    }
-
-    public void operate() {
-        this.canOperate();
-        final MachineRecipeResult<IRecipeInput, Collection<ItemStack>, ItemStack> output = this.inputSlot.process();
-        this.processUpgrades(output.getOutput());
-        this.outputSlot.add(output.getOutput());
-    }
+    protected abstract void operate();
 
     protected void processUpgrades(final Collection<ItemStack> output) {
         for (final ItemStack stack : this.upgradeSlot) {

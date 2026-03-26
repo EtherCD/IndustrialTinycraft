@@ -2,6 +2,7 @@ package cd.ethercd.it.items;
 
 
 import cd.ethercd.it.ITcItemLoader;
+import cd.ethercd.it.machines.ComplexMachineTileEntity;
 import ic2.api.upgrade.IProcessingUpgrade;
 import ic2.api.upgrade.IUpgradableBlock;
 import ic2.api.upgrade.UpgradableProperty;
@@ -77,6 +78,7 @@ public class BasicParallelProcessingUpgrade extends BasicItem implements IProces
             upgrades.add(machine.upgradeSlot.get(2).getItem());
             upgrades.add(machine.upgradeSlot.get(3).getItem());
             if (upgrades.stream().filter(e -> e instanceof BasicParallelProcessingUpgrade).count() > 1) return false;
+            if (StackUtil.isEmpty(input.get())) return false;
 
             int currentCount = input.get().getCount();
             int diff = oldStackSize - currentCount;

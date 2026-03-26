@@ -4,6 +4,8 @@ import cd.ethercd.it.ITcRecipes;
 import ic2.core.block.invslot.InvSlotProcessableGeneric;
 import net.minecraft.item.ItemStack;
 
+import java.util.Collections;
+
 public class ProcessOptimizerTileEntity extends ComplexMachineTileEntity {
 
     public ProcessOptimizerTileEntity() {
@@ -38,6 +40,12 @@ public class ProcessOptimizerTileEntity extends ComplexMachineTileEntity {
                 inputSlot.put(2, ItemStack.EMPTY);
             }
         }
+    }
+
+    public void operate() {
+        ItemStack output = ITcRecipes.processs_optimizer.getResult(this.inputSlot.get(0), this.inputSlot.get(1), this.inputSlot.get(2));
+        this.processUpgrades(Collections.singletonList(output));
+        this.outputSlot.add(output);
     }
 
     @Override
