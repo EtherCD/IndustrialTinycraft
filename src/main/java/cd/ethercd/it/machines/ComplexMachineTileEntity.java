@@ -1,6 +1,5 @@
 package cd.ethercd.it.machines;
 
-import cd.ethercd.it.ITcRecipes;
 import ic2.api.recipe.IRecipeInput;
 import ic2.api.recipe.MachineRecipeResult;
 import ic2.api.upgrade.IProcessingUpgrade;
@@ -11,7 +10,6 @@ import ic2.core.ContainerBase;
 import ic2.core.IHasGui;
 import ic2.core.block.invslot.InvSlotOutput;
 import ic2.core.block.invslot.InvSlotProcessable;
-import ic2.core.block.invslot.InvSlotProcessableGeneric;
 import ic2.core.block.invslot.InvSlotUpgrade;
 import ic2.core.block.machine.tileentity.TileEntityElectricMachine;
 import ic2.core.gui.dynamic.DynamicContainer;
@@ -20,21 +18,23 @@ import ic2.core.gui.dynamic.GuiParser;
 import ic2.core.gui.dynamic.IGuiValueProvider;
 import ic2.core.network.GuiSynced;
 import ic2.core.util.StackUtil;
+import mcp.MethodsReturnNonnullByDefault;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Items;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.util.EnumFacing;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
+import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.Collection;
 import java.util.EnumSet;
 import java.util.Iterator;
 import java.util.Set;
 
 public abstract class ComplexMachineTileEntity extends TileEntityElectricMachine implements IHasGui, IGuiValueProvider, IUpgradableBlock {
-    protected final int idleEU = 0;
     protected int activeEU = 32;
     protected int maxProgress;
 
@@ -60,6 +60,7 @@ public abstract class ComplexMachineTileEntity extends TileEntityElectricMachine
     }
 
     @Override
+    @MethodsReturnNonnullByDefault
     public NBTTagCompound writeToNBT(final NBTTagCompound nbt) {
         super.writeToNBT(nbt);
         nbt.setInteger("progress", this.progress);
@@ -157,8 +158,11 @@ public abstract class ComplexMachineTileEntity extends TileEntityElectricMachine
         it = this.upgradeSlot.iterator();
         while (it.hasNext()) {
             ItemStack stack = it.next();
-            if (!StackUtil.isEmpty(stack) && stack.getItem() instanceof IUpgradeItem) {
-//                needsInvUpdate |= ((IUpgradeItem) stack.getItem()).onTick(stack, this);
+            if (!StackUtil.isEmpty(stack)) {
+                Item item =  stack.getItem();
+                if (item != Items.AIR && item instanceof IUpgradeItem) {
+                    needsInvUpdate |= ((IUpgradeItem) item).onTick(stack, this);
+                }
             }
         }
 
@@ -170,6 +174,7 @@ public abstract class ComplexMachineTileEntity extends TileEntityElectricMachine
     }
 
     @Override
+    @ParametersAreNonnullByDefault
     public void setInventorySlotContents(int index, ItemStack stack) {
         this.markDirty();
         super.setInventorySlotContents(index, stack);
@@ -183,20 +188,16 @@ public abstract class ComplexMachineTileEntity extends TileEntityElectricMachine
 
     public void operate() {
         this.canOperate();
-        final MachineRecipeResult<IRecipeInput, Collection<ItemStack>, ItemStack> output = (MachineRecipeResult<IRecipeInput, Collection<ItemStack>, ItemStack>)this.inputSlot.process();
-        this.processUpgrades((Collection<ItemStack>)output.getOutput());
-        this.outputSlot.add((Collection<ItemStack>)output.getOutput());
+        final MachineRecipeResult<IRecipeInput, Collection<ItemStack>, ItemStack> output = this.inputSlot.process();
+        this.processUpgrades(output.getOutput());
+        this.outputSlot.add(output.getOutput());
     }
 
     protected void processUpgrades(final Collection<ItemStack> output) {
         for (final ItemStack stack : this.upgradeSlot) {
             if (stack != null && stack.getItem() instanceof IUpgradeItem) {
-                ((IUpgradeItem)stack.getItem()).onProcessEnd(stack, (IUpgradableBlock)this, (Collection<ItemStack>)output);
+                ((IUpgradeItem)stack.getItem()).onProcessEnd(stack, this, output);
             }
         }
-    }
-
-    public String getSound() {
-        return "Machines/MaceratorOp.ogg";
     }
 }

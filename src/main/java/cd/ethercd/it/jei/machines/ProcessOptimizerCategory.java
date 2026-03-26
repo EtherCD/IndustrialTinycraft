@@ -6,6 +6,7 @@ import cd.ethercd.it.IndustrialTinyCraft;
 import cd.ethercd.it.utils.ProcessorAssemblerRecipeManager;
 import ic2.jeiIntegration.SlotPosition;
 import ic2.jeiIntegration.recipe.machine.IORecipeCategory;
+import mcp.MethodsReturnNonnullByDefault;
 import mezz.jei.api.IGuiHelper;
 import mezz.jei.api.gui.IDrawable;
 import mezz.jei.api.gui.IDrawableStatic;
@@ -15,6 +16,7 @@ import mezz.jei.api.recipe.IRecipeWrapper;
 import net.minecraft.client.Minecraft;
 import net.minecraft.util.ResourceLocation;
 
+import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.Collections;
 import java.util.List;
 
@@ -37,16 +39,19 @@ public class ProcessOptimizerCategory extends IORecipeCategory<ProcessorAssemble
     }
 
     @Override
+    @MethodsReturnNonnullByDefault
     public String getUid() {
         return UID;
     }
 
     @Override
+    @MethodsReturnNonnullByDefault
     public String getTitle() {
         return "Tech-Process Optimizer";
     }
 
     @Override
+    @MethodsReturnNonnullByDefault
     public String getModName() {
         return IndustrialTinyCraft.NAME;
     }
@@ -72,9 +77,11 @@ public class ProcessOptimizerCategory extends IORecipeCategory<ProcessorAssemble
     }
 
     @Override
+    @ParametersAreNonnullByDefault
     public void draw(Minecraft minecraft, int xOffset, int yOffset) {}
 
     @Override
+    @MethodsReturnNonnullByDefault
     public IDrawable getBackground() {
         return bg;
     }

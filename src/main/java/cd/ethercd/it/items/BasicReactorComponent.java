@@ -9,6 +9,8 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
+import javax.annotation.ParametersAreNonnullByDefault;
+
 public class BasicReactorComponent extends BasicItem implements IReactorComponent {
     public BasicReactorComponent(String name) {
         super(name);
@@ -55,6 +57,7 @@ public class BasicReactorComponent extends BasicItem implements IReactorComponen
     }
 
     @Override
+    @ParametersAreNonnullByDefault
     public void onUpdate(ItemStack stack, World world, Entity entity, int slotIndex, boolean isCurrentItem) {
         if (entity instanceof EntityLivingBase) {
             EntityLivingBase entityLiving = (EntityLivingBase)entity;

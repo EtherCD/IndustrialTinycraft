@@ -3,7 +3,6 @@ package cd.ethercd.it.machines;
 import cd.ethercd.it.ITcRecipes;
 import ic2.core.block.invslot.InvSlotProcessableGeneric;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.EnumFacing;
 
 public class ProcessOptimizerTileEntity extends ComplexMachineTileEntity {
 
@@ -15,7 +14,7 @@ public class ProcessOptimizerTileEntity extends ComplexMachineTileEntity {
     @Override
     public void consume() {
         ItemStack input1 = inputSlot.get(0);
-        ItemStack input2 = inputSlot.get(1);;
+        ItemStack input2 = inputSlot.get(1);
         ItemStack input3 = inputSlot.get(2);
         int[] ingredientsConsume = ITcRecipes.processs_optimizer.getIngirientsConsume(input1, input2, input3);
 

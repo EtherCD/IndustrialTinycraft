@@ -4,13 +4,8 @@ import cd.ethercd.it.ITcItemLoader;
 import ic2.api.upgrade.IProcessingUpgrade;
 import ic2.api.upgrade.IUpgradableBlock;
 import ic2.api.upgrade.UpgradableProperty;
-import ic2.core.block.invslot.InvSlotProcessable;
 import ic2.core.block.machine.tileentity.TileEntityCentrifuge;
-import ic2.core.block.machine.tileentity.TileEntityStandardMachine;
-import ic2.core.init.Localization;
-import ic2.core.util.StackUtil;
 import net.minecraft.client.util.ITooltipFlag;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.world.World;
@@ -18,6 +13,7 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 import javax.annotation.Nullable;
+import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.*;
 
 public class BasicCentrifugeUpgrade extends BasicItem implements IProcessingUpgrade {
@@ -71,12 +67,14 @@ public class BasicCentrifugeUpgrade extends BasicItem implements IProcessingUpgr
     }
 
     @Override
+    @ParametersAreNonnullByDefault
     public Collection<ItemStack> onProcessEnd(ItemStack stack, IUpgradableBlock parent, Collection<ItemStack> output) {
         return output;
     }
 
     @SideOnly(Side.CLIENT)
     @Override
+    @ParametersAreNonnullByDefault
     public void addInformation(ItemStack stack, @Nullable World world, List<String> tooltip, ITooltipFlag flag) {
         tooltip.add(new TextComponentTranslation("industrialtinycraft.tooltip.centrifuge_upgrade").getFormattedText());
     }

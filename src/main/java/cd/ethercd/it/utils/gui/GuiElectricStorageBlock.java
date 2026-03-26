@@ -2,7 +2,6 @@ package cd.ethercd.it.utils.gui;
 
 import cd.ethercd.it.IndustrialTinyCraft;
 import ic2.core.GuiIC2;
-import ic2.core.block.wiring.TileEntityElectricBlock;
 import ic2.core.gui.VanillaButton;
 import ic2.core.init.Localization;
 import ic2.core.util.Util;

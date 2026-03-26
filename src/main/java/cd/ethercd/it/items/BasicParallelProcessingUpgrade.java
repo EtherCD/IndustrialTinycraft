@@ -18,6 +18,7 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 import javax.annotation.Nullable;
+import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.*;
 
 public class BasicParallelProcessingUpgrade extends BasicItem implements IProcessingUpgrade {
@@ -125,9 +126,10 @@ public class BasicParallelProcessingUpgrade extends BasicItem implements IProces
 
     @SideOnly(Side.CLIENT)
     @Override
+    @ParametersAreNonnullByDefault
     public void addInformation(ItemStack stack, @Nullable World world, List<String> tooltip, ITooltipFlag flag) {
         tooltip.add(new TextComponentTranslation("industrialtinycraft.tooltip.parallel_processing_upgrade").getFormattedText());
         tooltip.add(new TextComponentTranslation("industrialtinycraft.tooltip.parallel_processing_upgrade.not_working").getFormattedText());
-        tooltip.add(Localization.translate("ic2.tooltip.upgrade.overclocker.power", new Object[]{BasicOverclockerUpgrade.decimalformat.format((double)100.0F * Math.pow(this.getEnergyDemandMultiplier(stack, (IUpgradableBlock)null), (double) StackUtil.getSize(stack)))}));
+        tooltip.add(Localization.translate("ic2.tooltip.upgrade.overclocker.power", BasicOverclockerUpgrade.decimalformat.format((double)100.0F * Math.pow(this.getEnergyDemandMultiplier(stack, null), StackUtil.getSize(stack)))));
     }
 }

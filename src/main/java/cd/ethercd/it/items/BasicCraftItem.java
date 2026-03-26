@@ -129,6 +129,5 @@ public enum BasicCraftItem {
     enum CustomConstructor {
         REACTOR_COMPONENT,
         EMPTY_BATTERY
-        ;
     }
 }

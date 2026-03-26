@@ -6,7 +6,6 @@ import ic2.api.upgrade.IProcessingUpgrade;
 import ic2.api.upgrade.IUpgradableBlock;
 import ic2.api.upgrade.UpgradableProperty;
 import ic2.core.init.Localization;
-import ic2.core.item.upgrade.ItemUpgradeModule;
 import ic2.core.util.StackUtil;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.item.ItemStack;
@@ -15,6 +14,7 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 import javax.annotation.Nullable;
+import javax.annotation.ParametersAreNonnullByDefault;
 import java.text.DecimalFormat;
 import java.util.Collection;
 import java.util.List;
@@ -75,8 +75,9 @@ public class BasicOverclockerUpgrade extends BasicItem implements IProcessingUpg
 
     @SideOnly(Side.CLIENT)
     @Override
+    @ParametersAreNonnullByDefault
     public void addInformation(ItemStack stack, @Nullable World world, List<String> tooltip, ITooltipFlag flag) {
-        tooltip.add(Localization.translate("ic2.tooltip.upgrade.overclocker.time", new Object[]{decimalformat.format((double)100.0F * Math.pow(this.getProcessTimeMultiplier(stack, (IUpgradableBlock)null), (double) StackUtil.getSize(stack)))}));
-        tooltip.add(Localization.translate("ic2.tooltip.upgrade.overclocker.power", new Object[]{decimalformat.format((double)100.0F * Math.pow(this.getEnergyDemandMultiplier(stack, (IUpgradableBlock)null), (double)StackUtil.getSize(stack)))}));
+        tooltip.add(Localization.translate("ic2.tooltip.upgrade.overclocker.time",decimalformat.format((double)100.0F * Math.pow(this.getProcessTimeMultiplier(stack, null), StackUtil.getSize(stack)))));
+        tooltip.add(Localization.translate("ic2.tooltip.upgrade.overclocker.power", decimalformat.format((double)100.0F * Math.pow(this.getEnergyDemandMultiplier(stack, null), StackUtil.getSize(stack)))));
     }
 }

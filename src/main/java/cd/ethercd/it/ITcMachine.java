@@ -57,7 +57,7 @@ public enum ITcMachine implements ITeBlock {
 
     @Override
     public boolean hasActive() {
-        return false;
+        return true;
     }
 
     @Override

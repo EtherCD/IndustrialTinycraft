@@ -3,8 +3,11 @@
   "variants": {
     "type": {
       "processor_assembler": { "model": "industrialtinycraft:processor_assembler" },
+      "processor_assembler_active": { "model": "industrialtinycraft:processor_assembler_active" },
       "crystal_grower": { "model": "industrialtinycraft:crystal_grower" },
+      "crystal_grower_active": { "model": "industrialtinycraft:crystal_grower_active" },
       "process_optimizer": { "model": "industrialtinycraft:process_optimizer" },
+      "process_optimizer_active": { "model": "industrialtinycraft:process_optimizer_active" },
       "industrial_alloy_furnace": { "model": "industrialtinycraft:industrial_alloy_furnace" },
       "industrial_alloy_furnace_active": { "model": "industrialtinycraft:industrial_alloy_furnace_active" }
     },

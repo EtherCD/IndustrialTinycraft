@@ -1,14 +1,10 @@
 package cd.ethercd.it;
 
-import mcp.MethodsReturnNonnullByDefault;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.client.renderer.ItemMeshDefinition;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.client.renderer.block.statemap.StateMapperBase;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemBlock;
-import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumBlockRenderType;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.model.ModelLoader;
@@ -16,11 +12,16 @@ import net.minecraftforge.fluids.BlockFluidClassic;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fluids.FluidStack;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
+import org.apache.logging.log4j.Level;
 
 import java.awt.*;
 
-public enum ITcFluid {
-    LITHIUM_ELECTROLYTE("lithium_electrolyte", "lithium_electrolyte_still", "lithium_electrolyte_flow", Color.YELLOW, Material.WATER)
+public enum ITcFluid  {
+    LITHIUM_ELECTROLYTE("itc_lithium_electrolyte", "lithium_electrolyte_still", "lithium_electrolyte_flow", Color.YELLOW, Material.WATER),
+    DEUTERIUM("itc_deuterium", "deuterium_still", "deuterium_still", Color.BLUE, Material.WATER),
+    TRITIUM("itc_tritium", "tritium_still", "tritium_still", Color.YELLOW, Material.WATER),
     ;
 
     private final FluidLiquid fluid;
@@ -52,20 +53,22 @@ public enum ITcFluid {
         return this.name;
     }
 
+    @SideOnly(Side.CLIENT)
     public static void registerFluidModels() {
         for (ITcFluid basic : ITcFluid.values()) {
-            ModelLoader.setCustomMeshDefinition(Item.getItemFromBlock(basic.getBlock()), new ItemMeshDefinition() {
-                @Override
-                @MethodsReturnNonnullByDefault
-                public ModelResourceLocation getModelLocation(ItemStack itemStack) {
-                    return new ModelResourceLocation(IndustrialTinyCraft.MODID+":"+basic.getName(), "fluid");
-                }
-            });
+            final String variant = "type=" + basic.name().toLowerCase();
+            final ModelResourceLocation location =
+                    new ModelResourceLocation(
+                            new ResourceLocation(IndustrialTinyCraft.MODID, "fluid"),
+                            variant
+                    );
+
+            IndustrialTinyCraft.LOGGER.log(Level.INFO, "Let's register state mappers and mesh definitions for fluids for " + variant);
+
             ModelLoader.setCustomStateMapper(basic.getBlock(), new StateMapperBase() {
                 @Override
-                @MethodsReturnNonnullByDefault
-                protected ModelResourceLocation getModelResourceLocation(IBlockState iBlockState) {
-                    return new ModelResourceLocation(IndustrialTinyCraft.MODID+":"+basic.getName(), "fluid");
+                protected ModelResourceLocation getModelResourceLocation(IBlockState state) {
+                    return location;
                 }
             });
         }
@@ -78,7 +81,12 @@ public enum ITcFluid {
 
     public static class FluidLiquid extends Fluid {
         public FluidLiquid(String fluidName, String still, String flowing, Color color) {
-            super(fluidName, new ResourceLocation(IndustrialTinyCraft.MODID+":blocks/fluids/"+still), new ResourceLocation(IndustrialTinyCraft.MODID+":blocks/fluids/"+flowing), color);
+            super(
+                    fluidName,
+                    new ResourceLocation(IndustrialTinyCraft.MODID, "blocks/fluids/" + still),
+                    new ResourceLocation(IndustrialTinyCraft.MODID, "blocks/fluids/" + flowing),
+                    color
+            );
         }
     }
 
@@ -89,7 +97,7 @@ public enum ITcFluid {
             setUnlocalizedName(name);
 
             ITcBlocksLoader.BLOCKS.add(this);
-            ITcItemLoader.ITEMS.add(new ItemBlock(this).setRegistryName(name));
+//            ITcItemLoader.ITEMS.add(new ItemBlock(this).setRegistryName(name));
         }
 
         @Override

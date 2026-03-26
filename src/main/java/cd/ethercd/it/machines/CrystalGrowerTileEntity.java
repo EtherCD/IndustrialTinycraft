@@ -7,8 +7,4 @@ public class CrystalGrowerTileEntity extends SimpleMachineTileEntity {
         super(1, ITcRecipes.crystal_grower, 0, 16, 8000);
         this.maxProgress = 10000;
     }
-
-    public String getSound() {
-        return "Machines/MaceratorOp.ogg";
-    }
 }

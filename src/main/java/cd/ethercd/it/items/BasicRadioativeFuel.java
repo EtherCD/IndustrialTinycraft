@@ -6,7 +6,6 @@ import ic2.api.reactor.IReactorComponent;
 import ic2.core.IC2Potion;
 import ic2.core.init.Localization;
 import ic2.core.item.armor.ItemArmorHazmat;
-import ic2.core.item.reactor.ItemReactorUranium;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -15,6 +14,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
+import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.ArrayDeque;
 import java.util.List;
 import java.util.Queue;
@@ -69,7 +69,7 @@ public class BasicRadioativeFuel extends BasicItem implements IReactorComponent 
             }
 
             if (!heatrun && this.getDamage(stack) >= this.getMaxDamage(stack) - 1) {
-                reactor.setItemAt(x, y, this.getDepletedStack(stack, reactor));
+                reactor.setItemAt(x, y, this.getDepletedStack());
             } else if (!heatrun) {
                 this.setDamage(stack, this.getDamage(stack) + 1);
             }
@@ -84,7 +84,7 @@ public class BasicRadioativeFuel extends BasicItem implements IReactorComponent 
         return (x * x + x) / 2;
     }
 
-    protected ItemStack getDepletedStack(ItemStack stack, IReactor reactor) {
+    protected ItemStack getDepletedStack() {
         ItemStack ret;
         switch (this.numberOfCells) {
             case 1:
@@ -124,6 +124,7 @@ public class BasicRadioativeFuel extends BasicItem implements IReactorComponent 
     }
 
     @Override
+    @ParametersAreNonnullByDefault
     public boolean showDurabilityBar(ItemStack stack) {
         return true;
     }
@@ -164,6 +165,7 @@ public class BasicRadioativeFuel extends BasicItem implements IReactorComponent 
     }
 
     @Override
+    @ParametersAreNonnullByDefault
     public void onUpdate(ItemStack stack, World world, Entity entity, int slotIndex, boolean isCurrentItem) {
         if (entity instanceof EntityLivingBase) {
             EntityLivingBase entityLiving = (EntityLivingBase)entity;

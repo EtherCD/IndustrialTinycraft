@@ -11,18 +11,17 @@ import ic2.core.block.invslot.InvSlotProcessable;
 import ic2.core.block.invslot.InvSlotProcessableGeneric;
 import ic2.core.block.invslot.InvSlotUpgrade;
 import ic2.core.block.machine.tileentity.TileEntityElectricMachine;
-import ic2.core.block.machine.tileentity.TileEntityExtractor;
 import ic2.core.gui.dynamic.DynamicContainer;
 import ic2.core.gui.dynamic.DynamicGui;
 import ic2.core.gui.dynamic.GuiParser;
 import ic2.core.gui.dynamic.IGuiValueProvider;
 import ic2.core.network.GuiSynced;
 import ic2.core.util.StackUtil;
+import mcp.MethodsReturnNonnullByDefault;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.util.EnumFacing;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -43,7 +42,7 @@ public class SimpleMachineTileEntity extends TileEntityElectricMachine implement
     public final InvSlotOutput outputSlot;
     public final InvSlotUpgrade upgradeSlot;
 
-    private int initialMaxEnergy;
+    private final int initialMaxEnergy;
 
     @GuiSynced
     public int progress;
@@ -79,6 +78,7 @@ public class SimpleMachineTileEntity extends TileEntityElectricMachine implement
     }
 
     @Override
+    @MethodsReturnNonnullByDefault
     public NBTTagCompound writeToNBT(final NBTTagCompound nbt) {
         super.writeToNBT(nbt);
         nbt.setInteger("progress", this.progress);
@@ -136,7 +136,7 @@ public class SimpleMachineTileEntity extends TileEntityElectricMachine implement
         double energy = 1;
         int additionalEnergyCapacity = 0;
         while(var4.hasNext()) {
-            ItemStack stack = (ItemStack)var4.next();
+            ItemStack stack = var4.next();
             if (!StackUtil.isEmpty(stack) && stack.getItem() instanceof IUpgradeItem) {
                 needsInvUpdate |= ((IUpgradeItem)stack.getItem()).onTick(stack, this);
                 if (stack.getItem() instanceof IProcessingUpgrade) {
@@ -198,7 +198,7 @@ public class SimpleMachineTileEntity extends TileEntityElectricMachine implement
     protected void processUpgrades(final Collection<ItemStack> output) {
         for (final ItemStack stack : this.upgradeSlot) {
             if (stack != null && stack.getItem() instanceof IUpgradeItem) {
-                ((IUpgradeItem)stack.getItem()).onProcessEnd(stack, (IUpgradableBlock)this, (Collection<ItemStack>)output);
+                ((IUpgradeItem)stack.getItem()).onProcessEnd(stack, this, output);
             }
         }
     }

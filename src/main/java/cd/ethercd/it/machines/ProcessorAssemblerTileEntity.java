@@ -3,7 +3,6 @@ package cd.ethercd.it.machines;
 import cd.ethercd.it.ITcRecipes;
 import ic2.core.block.invslot.InvSlotProcessableGeneric;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.EnumFacing;
 
 public class ProcessorAssemblerTileEntity  extends ComplexMachineTileEntity {
     public ProcessorAssemblerTileEntity() {

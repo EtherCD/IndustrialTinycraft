@@ -4,14 +4,13 @@ import cd.ethercd.it.ITcItemLoader;
 import ic2.api.reactor.IReactor;
 import ic2.api.reactor.IReactorComponent;
 import ic2.core.init.Localization;
-import ic2.core.item.reactor.ItemReactorHeatStorage;
-import ic2.core.item.upgrade.ItemUpgradeModule;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
+import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.List;
 
 public class BasicHeatStorage extends BasicItem implements IReactorComponent {
@@ -67,6 +66,7 @@ public class BasicHeatStorage extends BasicItem implements IReactorComponent {
     }
 
     @Override
+    @ParametersAreNonnullByDefault
     public boolean showDurabilityBar(ItemStack stack) {
         return true;
     }

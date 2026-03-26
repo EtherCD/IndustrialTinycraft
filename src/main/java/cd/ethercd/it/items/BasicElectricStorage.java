@@ -4,9 +4,8 @@ import cd.ethercd.it.ITcItemLoader;
 import ic2.api.item.ElectricItem;
 import ic2.api.item.IElectricItem;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
 
-import javax.annotation.Nullable;
+import javax.annotation.ParametersAreNonnullByDefault;
 
 public class BasicElectricStorage extends BasicItem implements IElectricItem {
     private final int maxCharge;
@@ -42,12 +41,14 @@ public class BasicElectricStorage extends BasicItem implements IElectricItem {
     }
 
     @Override
+    @ParametersAreNonnullByDefault
     public boolean showDurabilityBar(ItemStack stack) {
         return true;
     }
 
     @Override
+    @ParametersAreNonnullByDefault
     public double getDurabilityForDisplay(ItemStack stack) {
-        return ((double) this.maxCharge - (double) ElectricItem.manager.getCharge(stack)) / (double) this.maxCharge;
+        return ((double) this.maxCharge - ElectricItem.manager.getCharge(stack)) / (double) this.maxCharge;
     }
 }

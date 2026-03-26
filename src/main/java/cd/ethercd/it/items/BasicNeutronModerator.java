@@ -4,8 +4,6 @@ import cd.ethercd.it.ITcItemLoader;
 import ic2.api.reactor.IReactor;
 import ic2.api.reactor.IReactorComponent;
 import ic2.core.init.Localization;
-import ic2.core.item.reactor.ItemReactorMOX;
-import ic2.core.item.reactor.ItemReactorUranium;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.text.TextComponentTranslation;
@@ -13,6 +11,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
+import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.List;
 
 public class BasicNeutronModerator extends BasicItem implements IReactorComponent {
@@ -108,6 +107,7 @@ public class BasicNeutronModerator extends BasicItem implements IReactorComponen
     }
 
     @Override
+    @ParametersAreNonnullByDefault
     public boolean showDurabilityBar(ItemStack stack) {
         return true;
     }

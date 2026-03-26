@@ -1,10 +1,7 @@
 package cd.ethercd.it.utils;
 
 import cd.ethercd.it.jei.machines.ProcessOptimizerWrapper;
-import cd.ethercd.it.jei.machines.ProcessorAssemblerWrapper;
-import com.google.common.collect.HashBasedTable;
 import com.google.common.collect.Lists;
-import com.google.common.collect.Table;
 import net.minecraft.item.ItemStack;
 
 import java.util.*;

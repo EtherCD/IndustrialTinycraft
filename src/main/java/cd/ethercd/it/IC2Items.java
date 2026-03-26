@@ -40,12 +40,6 @@ public class IC2Items {
     public static final ItemStack resource_advanced_machine = ic2.api.item.IC2Items.getItem("resource", "advanced_machine");
     public static final ItemStack crafting_alloy = ic2.api.item.IC2Items.getItem("crafting", "alloy");
 
-    public static final ItemStack fluid_cell = ic2.api.item.IC2Items.getItem("fluid_cell");
-
-    public static final ItemStack carbon_plate = ic2.api.item.IC2Items.getItem("crafting", "carbon_plate");
-
-    public static final ItemStack fuel_rod = ic2.api.item.IC2Items.getItem("crafting", "fuel_rod");
-
     public static final ItemStack mfsu = ic2.api.item.IC2Items.getItem("te", "mfsu");
     public static final ItemStack chargepad_mfsu = ic2.api.item.IC2Items.getItem("te", "chargepad_mfsu");
     public static final ItemStack blast_furnace = ic2.api.item.IC2Items.getItem("te", "blast_furnace");

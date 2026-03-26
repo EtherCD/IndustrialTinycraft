@@ -60,10 +60,9 @@ public class ProcessorAssemblerRecipeManager {
     }
 
     public List<ProcessorAssemblerWrapper> getRecipes() {
-        Table<ItemStack, ItemStack, ItemStack> recipes = recipesList;
         List<ProcessorAssemblerWrapper> jeiRecipes = Lists.newArrayList();
 
-        for (Map.Entry<ItemStack, Map<ItemStack, ItemStack>> entry : recipes.columnMap().entrySet()) {
+        for (Map.Entry<ItemStack, Map<ItemStack, ItemStack>> entry : recipesList.columnMap().entrySet()) {
             for (Map.Entry<ItemStack, ItemStack> ent : entry.getValue().entrySet()) {
                 ItemStack input1 = entry.getKey();
                 ItemStack input2 = ent.getKey();

@@ -11,17 +11,16 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
+import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.List;
 
 public class BasicEnrichmentFuel extends BasicItem implements IReactorComponent {
-    private final int numberOfCells;
     private final ItemStack depleted;
 
-    public BasicEnrichmentFuel(String name, int maxDamage, int cells, ItemStack depleted) {
+    public BasicEnrichmentFuel(String name, int maxDamage, ItemStack depleted) {
         super(name);
         this.setMaxDamage(maxDamage);
         ITcItemLoader.ITEMS.add(this);
-        this.numberOfCells = cells;
         this.depleted = depleted;
     }
 
@@ -82,6 +81,7 @@ public class BasicEnrichmentFuel extends BasicItem implements IReactorComponent 
     }
 
     @Override
+    @ParametersAreNonnullByDefault
     public boolean showDurabilityBar(ItemStack stack) {
         return true;
     }

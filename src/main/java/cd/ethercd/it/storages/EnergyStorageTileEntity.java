@@ -3,11 +3,8 @@ package cd.ethercd.it.storages;
 import cd.ethercd.it.utils.gui.ContainerElectricStorageBlock;
 import cd.ethercd.it.utils.gui.GuiElectricStorageBlock;
 import ic2.core.ContainerBase;
-import ic2.core.block.invslot.InvSlot;
 import ic2.core.block.invslot.InvSlotCharge;
-import ic2.core.block.wiring.ContainerElectricBlock;
 import ic2.core.block.wiring.TileEntityElectricBlock;
-import ic2.core.block.wiring.TileEntityElectricMFSU;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
@@ -37,11 +34,5 @@ public class EnergyStorageTileEntity extends TileEntityElectricBlock {
     @Override
     public void readFromNBT(NBTTagCompound nbtTagCompound) {
         super.readFromNBT(nbtTagCompound);
-    }
-
-    @Override
-    public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
-        super.writeToNBT(nbt);
-        return nbt;
     }
 }

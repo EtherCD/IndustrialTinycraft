@@ -20,19 +20,11 @@ public class ProcessorAssemblerWrapper implements IRecipeWrapper {
 
     @Override
     public void getIngredients(IIngredients ingredients) {
-        List<ItemStack> items = new ArrayList();
+        List<ItemStack> items = new ArrayList<>();
         items.add(firstInput);
         items.add(secondInput);
         ingredients.setInputs(ItemStack.class, items);
         ingredients.setOutput(ItemStack.class, output);
-    }
-
-    public ItemStack getFirstInput() {
-        return firstInput;
-    }
-
-    public ItemStack getSecondInput() {
-        return secondInput;
     }
 
     public ItemStack getOutput() {

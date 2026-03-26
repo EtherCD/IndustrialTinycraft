@@ -1,0 +1,12 @@
+{
+	"parent": "block/cube",
+	"textures": {
+		"particle": "industrialtinycraft:blocks/machines/crystal_grower_side",
+		"down": "industrialtinycraft:blocks/machines/crystal_grower_bottom",
+		"up": "industrialtinycraft:blocks/machines/crystal_grower_side",
+		"north": "industrialtinycraft:blocks/machines/crystal_grower_front",
+		"east": "industrialtinycraft:blocks/machines/crystal_grower_side",
+		"south": "industrialtinycraft:blocks/machines/crystal_grower_side",
+		"west": "industrialtinycraft:blocks/machines/crystal_grower_side"
+	}
+}

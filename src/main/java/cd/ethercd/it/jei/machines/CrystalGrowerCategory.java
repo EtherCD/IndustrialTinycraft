@@ -6,6 +6,7 @@ import cd.ethercd.it.IndustrialTinyCraft;
 import ic2.api.recipe.IBasicMachineRecipeManager;
 import ic2.jeiIntegration.SlotPosition;
 import ic2.jeiIntegration.recipe.machine.IORecipeCategory;
+import mcp.MethodsReturnNonnullByDefault;
 import mezz.jei.api.IGuiHelper;
 import mezz.jei.api.gui.IDrawable;
 import mezz.jei.api.gui.IDrawableStatic;
@@ -15,7 +16,7 @@ import mezz.jei.api.recipe.IRecipeWrapper;
 import net.minecraft.client.Minecraft;
 import net.minecraft.util.ResourceLocation;
 
-import java.util.Collections;
+import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.List;
 
 public class CrystalGrowerCategory extends IORecipeCategory<IBasicMachineRecipeManager> implements IDrawable {
@@ -35,30 +36,33 @@ public class CrystalGrowerCategory extends IORecipeCategory<IBasicMachineRecipeM
     }
 
     @Override
+    @MethodsReturnNonnullByDefault
     public String getUid() {
         return UID;
     }
 
     @Override
+    @MethodsReturnNonnullByDefault
     public String getTitle() {
         return "Crystal Grower";
     }
 
     @Override
+    @MethodsReturnNonnullByDefault
     public String getModName() {
         return IndustrialTinyCraft.NAME;
     }
 
     @Override
     protected List<SlotPosition> getInputSlotPos() {
-        List<SlotPosition> array = Collections.emptyList();
+        List<SlotPosition> array = new java.util.ArrayList<>();
         array.add(0, new SlotPosition(0, 4));
         return array;
     }
 
     @Override
     protected List<SlotPosition> getOutputSlotPos() {
-        List<SlotPosition> array = Collections.emptyList();
+        List<SlotPosition> array = new java.util.ArrayList<>();
         array.add(0, new SlotPosition(56, 0));
         return array;
     }
@@ -74,9 +78,12 @@ public class CrystalGrowerCategory extends IORecipeCategory<IBasicMachineRecipeM
     }
 
     @Override
+    @MethodsReturnNonnullByDefault
+    @ParametersAreNonnullByDefault
     public void draw(Minecraft minecraft, int xOffset, int yOffset) {}
 
     @Override
+    @MethodsReturnNonnullByDefault
     public IDrawable getBackground() {
         return bg;
     }

@@ -12,6 +12,7 @@ import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fluids.capability.templates.FluidHandlerItemStack;
 
 import javax.annotation.Nullable;
+import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.List;
 
 public class BasicEmptyBattery extends BasicItem {
@@ -20,11 +21,13 @@ public class BasicEmptyBattery extends BasicItem {
     }
 
     @Override
+    @ParametersAreNonnullByDefault
     public ICapabilityProvider initCapabilities(ItemStack stack, @Nullable NBTTagCompound nbt) {
         return new BatteryFluidHandler(stack);
     }
 
     @Override
+    @ParametersAreNonnullByDefault
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
         tooltip.add(Localization.translate("industrialtinycraft.tooltip.unfilled_battery"));
     }
@@ -51,6 +54,7 @@ public class BasicEmptyBattery extends BasicItem {
                 ItemStack filledBattery = new ItemStack(ITcItemLoader.lithium_battery);
 
                 if (container.hasTagCompound()) {
+                    assert container.getTagCompound() != null;
                     filledBattery.setTagCompound(container.getTagCompound().copy());
                 }
 
