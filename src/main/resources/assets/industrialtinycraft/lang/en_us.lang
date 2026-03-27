@@ -90,6 +90,10 @@ item.dense_molybdenum_alloy_plate.name=Dense Heat-Resistant Molybdenum Alloy Pla
 item.silicon_lithium_battery.name=Lithium-Silicon Battery
 item.silicon_lithium_battery_assembly.name=Lithium-Silicon Battery Assembly
 item.unfilled_silicon_lithium_battery.name=Unfilled Lithium-Silicon Battery
+item.unrivaled_overclocker.name=Unrivaled Overlocker
+item.zirconium_technetium_mixture.name=Zirconium-Technetium Mixture
+item.zirconium_technetium_rod.name=Target Rod (Zirconium-Technetium Mixture)
+item.depleted_zirconium_technetium.name=Target Rod (Depleted Zirconium-Technetium Mixture)
 
 industrialtinycraft.tooltip.parallel_processing_upgrade=Makes the processing of items parallel.
 industrialtinycraft.tooltip.parallel_processing_upgrade.not_working=Not working with Tech-Process Optimizer and Processor Fabricator.

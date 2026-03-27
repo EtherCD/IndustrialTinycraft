@@ -137,16 +137,25 @@ public class ITcRecipes {
                 "   ",
                 "CCC",
                 "PUP",
-                'C', IC2Items.heat_storage,
+                'C', new ItemStack(ITcItemLoader.improved_heat_storage),
                 'P', BasicCraftItem.PROCESSOR_90NM.getStack(),
                 'U', IC2Items.upgrade_overclocker);
         addBasicRecipe(new ItemStack(ITcItemLoader.advanced_overclocker),
                 "   ",
                 "CCC",
                 "PUP",
-                'C', new ItemStack(ITcItemLoader.advanced_heat_storage),
+                'C', new ItemStack(ITcItemLoader.advanced_tri_heat_storage),
                 'P', BasicCraftItem.PROCESSOR_22NM.getStack(),
                 'U', new ItemStack(ITcItemLoader.improved_overclocker));
+        addBasicRecipe(new ItemStack(ITcItemLoader.unrivaled_overclocker),
+                "MPH",
+                "TOT",
+                "HPM",
+                'M', BasicCraftItem.DENSE_MOLYBDENUM_ALLOY_PLATE.getStack(),
+                'H', BasicCraftItem.DENSE_HAFNIUM_PLATE.getStack(),
+                'T', new ItemStack(ITcItemLoader.advanced_hex_heat_storage),
+                'P', BasicCraftItem.PROCESSOR_7NM.getStack(),
+                'O', new ItemStack(ITcItemLoader.advanced_overclocker));
         // Machines
         addBasicRecipe(ITcMachine.crystal_grower.getStack(),
                 "WSW",
@@ -333,6 +342,7 @@ public class ITcRecipes {
                 'S', BasicCraftItem.PROCESSOR_22NM.getStack(),
                 'C', new ItemStack(ITcItemLoader.lithium_battery),
                 'Q', IC2Items.resource_advanced_machine);
+        // unrivaled_overclocker
     }
 
     public static void addMachineRecipes() {
@@ -345,6 +355,7 @@ public class ITcRecipes {
         addCompressorRecipe(factory.forStack(BasicCraftItem.RAW_LITHIUM_ASSEMBLY.getStack()), BasicCraftItem.UNFILLED_LITHIUM_BATTERY.getStack());
         addCompressorRecipe(factory.forStack(new ItemStack(ITcItemLoader.lithium_battery), 9), new ItemStack(ITcItemLoader.lithium_battery_assembly));
         addCompressorRecipe(factory.forStack(BasicCraftItem.MOLYBDENUM_ALLOY_PLATE.getStack(), 9), BasicCraftItem.DENSE_MOLYBDENUM_ALLOY_PLATE.getStack());
+        addCompressorRecipe(factory.forStack(BasicCraftItem.HAFNIUM_PLATE.getStack(), 9), BasicCraftItem.DENSE_HAFNIUM_PLATE.getStack());
 
         addMaceratorRecipe(factory.forStack(new ItemStack(Blocks.GLASS)), BasicCraftItem.GLASS_DUST.getStack());
         addMaceratorRecipe(factory.forStack(BasicCraftItem.FIBERGLASS.getStack()), BasicCraftItem.MICROSTRUCTURED_FIBERGLASS_DUST.getStack());
@@ -376,6 +387,7 @@ public class ITcRecipes {
         addCentrifugeRecipe(factory.forStack(BasicCraftItem.DEPLETED_MOLYBDENUM.getStack()), BasicCraftItem.MOLYBDENUM_SMALL_DUST.getStack(7), BasicCraftItem.TECHNETIUM_SMALL_DUST.getStack(3));
         addCentrifugeRecipe(factory.forStack(BasicCraftItem.DEPLETED_DUAL_MOLYBDENUM.getStack()), BasicCraftItem.MOLYBDENUM_DUST.getStack(1), BasicCraftItem.MOLYBDENUM_SMALL_DUST.getStack(1), BasicCraftItem.TECHNETIUM_SMALL_DUST.getStack(8));
         addCentrifugeRecipe(factory.forStack(BasicCraftItem.DEPLETED_QUAD_MOLYBDENUM.getStack()), BasicCraftItem.MOLYBDENUM_DUST.getStack(2), BasicCraftItem.TECHNETIUM_DUST.getStack(1), BasicCraftItem.TECHNETIUM_SMALL_DUST.getStack(6));
+        addCentrifugeRecipe(factory.forStack(BasicCraftItem.DEPLETED_ZIRCONIUM_TECHNETIUM.getStack()), BasicCraftItem.ZIRCONIUM_SMALL_DUST.getStack(9), BasicCraftItem.HAFNIUM_SMALL_DUST.getStack(4), BasicCraftItem.TECHNETIUM_SMALL_DUST.getStack(6));
 
         addCentrifugeRecipe(factory.forStack(BasicCraftItem.DEPLETED_TECHNETIUM.getStack()), BasicCraftItem.TECHNETIUM_DUST.getStack(1), BasicCraftItem.TECHNETIUM_SMALL_DUST.getStack(4));
         addCentrifugeRecipe(factory.forStack(BasicCraftItem.DEPLETED_DUAL_TECHNETIUM.getStack()), BasicCraftItem.TECHNETIUM_DUST.getStack(2), BasicCraftItem.TECHNETIUM_SMALL_DUST.getStack(8));
@@ -390,6 +402,7 @@ public class ITcRecipes {
         addCannerBottleRecipe(factory.forFluidContainer(ITcFluid.LITHIUM_ELECTROLYTE.getFluid()), factory.forStack(BasicCraftItem.UNFILLED_LITHIUM_BATTERY.getStack()), new ItemStack(ITcItemLoader.lithium_battery));
         addCannerBottleRecipe(factory.forStack(BasicCraftItem.ZIRCONIUM_ROD.getStack()), factory.forStack(BasicCraftItem.MOLYBDENUM_DUST.getStack()), new ItemStack(ITcItemLoader.molybdenum_rod));
         addCannerBottleRecipe(factory.forStack(BasicCraftItem.ZIRCONIUM_ROD.getStack()), factory.forStack(BasicCraftItem.TECHNETIUM_FUEL.getStack()), new ItemStack(ITcItemLoader.technetium_rod));
+        addCannerBottleRecipe(factory.forStack(BasicCraftItem.ZIRCONIUM_ROD.getStack()), factory.forStack(BasicCraftItem.ZIRCONIUM_TECHNETIUM_MIXTURE.getStack()), new ItemStack(ITcItemLoader.zirconium_technetium_rod));
 
         addCrystalGrowerRecipe(factory.forStack(BasicCraftItem.PURIFIED_SILICON.getStack()), BasicCraftItem.SILICON_INGOT.getStack());
 

@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "ZT"
+  ],
+  "key": {
+    "Z": {
+      "item": "industrialtinycraft:zirconium_dust"
+    },
+    "T": {
+      "item": "industrialtinycraft:technetium_dust"
+    }
+  },
+  "result": {
+    "item": "industrialtinycraft:zirconium_technetium_mixture",
+    "count": 1
+  }
+}

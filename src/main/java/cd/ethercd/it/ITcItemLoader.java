@@ -10,6 +10,7 @@ public class ITcItemLoader {
     public static final List<Item> ITEMS = new ArrayList<>();
     public static final BasicOverclockerUpgrade improved_overclocker = new BasicOverclockerUpgrade("improved_overclocker", 0.4, 1.5);
     public static final BasicOverclockerUpgrade advanced_overclocker = new BasicOverclockerUpgrade("advanced_overclocker", 0.2, 1.4);
+    public static final BasicOverclockerUpgrade unrivaled_overclocker = new BasicOverclockerUpgrade("unrivaled_overclocker", 0.2, 1);
     public static final BasicCentrifugeUpgrade always_on_centrifuge = new BasicCentrifugeUpgrade("always_on_centrifuge");
 
     public static final BasicParallelProcessingUpgrade parallel_processing_upgrade = new BasicParallelProcessingUpgrade("parallel_processing_upgrade", 2, 2);
@@ -31,6 +32,8 @@ public class ITcItemLoader {
     public static final BasicEnrichmentFuel molybdenum_rod = new BasicEnrichmentFuel("molybdenum_rod", 1000, BasicCraftItem.DEPLETED_MOLYBDENUM.getStack());
     public static final BasicEnrichmentFuel molybdenum_dual_rod = new BasicEnrichmentFuel("molybdenum_dual_rod", 1000, BasicCraftItem.DEPLETED_DUAL_MOLYBDENUM.getStack());
     public static final BasicEnrichmentFuel molybdenum_quad_rod = new BasicEnrichmentFuel("molybdenum_quad_rod", 1000, BasicCraftItem.DEPLETED_QUAD_MOLYBDENUM.getStack());
+
+    public static final BasicEnrichmentFuel zirconium_technetium_rod = new BasicEnrichmentFuel("zirconium_technetium_rod", 10000, BasicCraftItem.DEPLETED_ZIRCONIUM_TECHNETIUM.getStack());
 
     public static final BasicNeutronAbsorber hafnium_rod = new BasicNeutronAbsorber("hafnium_rod", 5000, -2F, 10);
 

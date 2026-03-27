@@ -3,7 +3,6 @@
 ## TODO
 
 - [ ] Control Rod
-- [ ] Lithium Fabricator
 
 ## Предметы 
 

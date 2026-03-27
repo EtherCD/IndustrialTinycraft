@@ -14,6 +14,7 @@ public enum BasicCraftItem {
     HAFNIUM_DUST("hafnium_dust"),
     HAFNIUM_SMALL_DUST("hafnium_small"),
     HAFNIUM_PLATE("hafnium_plate"),
+    DENSE_HAFNIUM_PLATE("dense_hafnium_plate"),
 
     ZIRCONIUM_INGOT("zirconium_ingot"),
     ZIRCONIUM_DUST("zirconium_dust"),
@@ -23,6 +24,7 @@ public enum BasicCraftItem {
 
     TECHNETIUM_DUST("technetium_dust"),
     TECHNETIUM_SMALL_DUST("technetium_small"),
+    ZIRCONIUM_TECHNETIUM_MIXTURE("zirconium_technetium_mixture"),
     MOLYBDENUM_DUST("molybdenum_dust"),
     MOLYBDENUM_SMALL_DUST("molybdenum_small"),
 
@@ -73,6 +75,8 @@ public enum BasicCraftItem {
     DEPLETED_MOLYBDENUM("depleted_molybdenum", CustomConstructor.REACTOR_COMPONENT),
     DEPLETED_DUAL_MOLYBDENUM("depleted_dual_molybdenum", CustomConstructor.REACTOR_COMPONENT),
     DEPLETED_QUAD_MOLYBDENUM("depleted_quad_molybdenum", CustomConstructor.REACTOR_COMPONENT),
+
+    DEPLETED_ZIRCONIUM_TECHNETIUM("depleted_zirconium_technetium", CustomConstructor.REACTOR_COMPONENT),
 
     TECHNETIUM_FUEL("technetium_fuel"),
 
