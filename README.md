@@ -1,6 +1,5 @@
 <div align="center">
-    <h1>Industrial TinyCraft</h1>
-    <img src="./github/logotype.svg" width="156"/>
+    <img src="./src/main/resources/logo.png" />
 
 An addon for IndustrialCraft2, that adds processors, new elements, usage for lithium, and more other.
 
@@ -28,7 +27,7 @@ Used in almost all electronics of new **items/improvements/mechanisms**
 
 Adds a neutron moderator, target rods for producing new isotopes
 
-### Ugrades!
+### Upgrades!
 
 In addition to the well-worn upgrades for mechanisms like Overclocker, the project will add "Parallel Processing" upgrades and other more useful upgrades (like "Centrifuge Heating Holder").
 
@@ -38,7 +37,7 @@ Also, the previously useless lithium is now used for batteries and the new MFSU.
 
 ### Screenshot
 
-![Screenshot](./github/screenshot.png)
+![Screenshot](./src/main/resources/screenshot.png)
 
 </details>
 

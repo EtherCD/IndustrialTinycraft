@@ -94,6 +94,7 @@ item.unrivaled_overclocker.name=Unrivaled Overlocker
 item.zirconium_technetium_mixture.name=Zirconium-Technetium Mixture
 item.zirconium_technetium_rod.name=Target Rod (Zirconium-Technetium Mixture)
 item.depleted_zirconium_technetium.name=Target Rod (Depleted Zirconium-Technetium Mixture)
+item.dense_hafnium_plate.name=Dense Hafnium Plate
 
 industrialtinycraft.tooltip.parallel_processing_upgrade=Makes the processing of items parallel.
 industrialtinycraft.tooltip.parallel_processing_upgrade.not_working=Not working with Tech-Process Optimizer and Processor Fabricator.

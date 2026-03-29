@@ -37,6 +37,5 @@ public class JEIIntegration implements IModPlugin {
 
     private void addRecipeCatalyst(IModRegistry registry, ITeBlock block, String uid) {
         registry.addRecipeCatalyst(block.getDummyTe().getBlockType().getItemStack(block), uid);
-
     }
 }
