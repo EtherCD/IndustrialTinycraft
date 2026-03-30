@@ -40,9 +40,8 @@ public class ITcItemLoader {
     public static final BasicElectricStorage lithium_battery = new BasicElectricStorage("lithium_battery", 4000000, 4);
     public static final BasicElectricStorage lithium_battery_assembly = new BasicElectricStorage("lithium_battery_assembly", 4000000 * 9, 5);
 
-    public static final BasicElectricStorage silicon_lithium_battery = new BasicElectricStorage("silicon_lithium_battery", (int) (4000000 * 1.5), 4);
-    public static final BasicElectricStorage silicon_lithium_battery_assembly = new BasicElectricStorage("silicon_lithium_battery_assembly", (int) (4000000 * 1.5 * 9), 5);
-
+//    public static final BasicElectricStorage silicon_lithium_battery = new BasicElectricStorage("silicon_lithium_battery", (int) (4000000 * 1.5), 4);
+//    public static final BasicElectricStorage silicon_lithium_battery_assembly = new BasicElectricStorage("silicon_lithium_battery_assembly", (int) (4000000 * 1.5 * 9), 5);
 
     public static void register() {
         BasicCraftItem.register();

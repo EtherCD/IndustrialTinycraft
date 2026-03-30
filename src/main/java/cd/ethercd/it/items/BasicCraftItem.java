@@ -80,9 +80,7 @@ public enum BasicCraftItem {
 
     TECHNETIUM_FUEL("technetium_fuel"),
 
-    RAW_LITHIUM_ASSEMBLY("raw_lithium_assembly"),
     UNFILLED_LITHIUM_BATTERY("unfilled_lithium_battery", CustomConstructor.EMPTY_BATTERY),
-    UNFILLED_SILICON_LITHIUM_BATTERY("unfilled_silicon_lithium_battery", CustomConstructor.EMPTY_BATTERY),
     LITHIUM_SULFURIC_MIXTURE("lithium_sulfuric_mixture"),
 
     MOLYBDENUM_ALLOY_DUST("molybdenum_alloy_dust"),

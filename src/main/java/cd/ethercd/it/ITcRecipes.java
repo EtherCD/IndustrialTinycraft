@@ -82,6 +82,16 @@ public class ITcRecipes {
                 'F', plate3);
     }
 
+    private static void addFullPlateCraft(ItemStack output, ItemStack plate1, ItemStack plate2, ItemStack plate3) {
+        addBasicRecipe(output,
+                "GGG",
+                "RRR",
+                "FFF",
+                'G', plate1,
+                'R', plate2,
+                'F', plate3);
+    }
+
     public static void addBasicRecipes() {
         // Radioactive
         addCycleRecipeForDust(BasicCraftItem.HAFNIUM_DUST, BasicCraftItem.HAFNIUM_SMALL_DUST);
@@ -98,8 +108,17 @@ public class ITcRecipes {
         addRecipeForRod(ITcItemLoader.molybdenum_rod, ITcItemLoader.molybdenum_dual_rod, ITcItemLoader.molybdenum_quad_rod);
 
         addTriPlateCraft(BasicCraftItem.RAW_PROCESSOR_SUBSTRATE.getStack(), IC2Items.plate_gold, IC2Items.rubber, BasicCraftItem.FIBERGLASS.getStack());
-        addTriPlateCraft(BasicCraftItem.RAW_LITHIUM_ASSEMBLY.getStack(), IC2Items.plate_copper, BasicCraftItem.FIBERGLASS.getStack(), BasicCraftItem.GRAPHITE_PLATE.getStack());
-        addTriPlateCraft(BasicCraftItem.MOLYBDENUM_ALLOY_DUST.getStack(), BasicCraftItem.MOLYBDENUM_DUST.getStack(), IC2Items.dust_iron, IC2Items.dust_coal_fuel);
+
+        addBasicRecipe(BasicCraftItem.UNFILLED_LITHIUM_BATTERY.getStack(),
+                "WCP",
+                "WFP",
+                "PGP",
+                'G', BasicCraftItem.GRAPHITE_PLATE.getStack(),
+                'F', BasicCraftItem.FIBERGLASS.getStack(),
+                'W', IC2Items.cable_copper,
+                'C', IC2Items.plate_copper,
+                'P', IC2Items.plate_iron);
+        addFullPlateCraft(BasicCraftItem.MOLYBDENUM_ALLOY_DUST.getStack(2), BasicCraftItem.MOLYBDENUM_DUST.getStack(), IC2Items.dust_iron, IC2Items.dust_coal_fuel);
 
         addBasicRecipe(BasicCraftItem.LITHIUM_SULFURIC_MIXTURE.getStack(2),
                 "SSS",
@@ -352,7 +371,6 @@ public class ITcRecipes {
         addCompressorRecipe(factory.forStack(BasicCraftItem.RAW_PROCESSOR_SUBSTRATE.getStack()), BasicCraftItem.PROCESSOR_SUBSTRATE.getStack());
         addCompressorRecipe(factory.forStack(BasicCraftItem.MICROSTRUCTURED_FIBERGLASS_DUST.getStack(9)), BasicCraftItem.FIBER_OPTIC_PLATE.getStack());
         addCompressorRecipe(factory.forStack(IC2Items.dust_coal_fuel, 4), BasicCraftItem.GRAPHITE_PLATE.getStack());
-        addCompressorRecipe(factory.forStack(BasicCraftItem.RAW_LITHIUM_ASSEMBLY.getStack()), BasicCraftItem.UNFILLED_LITHIUM_BATTERY.getStack());
         addCompressorRecipe(factory.forStack(new ItemStack(ITcItemLoader.lithium_battery), 9), new ItemStack(ITcItemLoader.lithium_battery_assembly));
         addCompressorRecipe(factory.forStack(BasicCraftItem.MOLYBDENUM_ALLOY_PLATE.getStack(), 9), BasicCraftItem.DENSE_MOLYBDENUM_ALLOY_PLATE.getStack());
         addCompressorRecipe(factory.forStack(BasicCraftItem.HAFNIUM_PLATE.getStack(), 9), BasicCraftItem.DENSE_HAFNIUM_PLATE.getStack());

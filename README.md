@@ -7,10 +7,6 @@ An addon for IndustrialCraft2, that adds processors, new elements, usage for lit
 
 </div>
 
-
-<details align="left">
-  <summary>Adds (Spoilers!)</summary>
-
 ### New ores and elements
 
 **Cyrtolite** and **Wulfenite**
@@ -38,8 +34,6 @@ Also, the previously useless lithium is now used for batteries and the new MFSU.
 ### Screenshot
 
 ![Screenshot](./src/main/resources/screenshot.png)
-
-</details>
 
 ## How to
 
