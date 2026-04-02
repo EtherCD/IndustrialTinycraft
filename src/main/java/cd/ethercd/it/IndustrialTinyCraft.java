@@ -14,12 +14,12 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import org.apache.logging.log4j.Logger;
 
-@Mod(modid = IndustrialTinyCraft.MODID, name = IndustrialTinyCraft.NAME, version = IndustrialTinyCraft.VERSION)
+@Mod(modid = IndustrialTinyCraft.MODID, name = IndustrialTinyCraft.NAME, version = IndustrialTinyCraft.VERSION, dependencies = "required-after:ic2")
 public class IndustrialTinyCraft
 {
     public static final String MODID = "industrialtinycraft";
     public static final String NAME = "Industrial TinyCraft";
-    public static final String VERSION = "0.1";
+    public static final String VERSION = "1.0";
 
     public static Logger LOGGER;
 

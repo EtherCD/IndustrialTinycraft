@@ -2,7 +2,6 @@ package cd.ethercd.it.items;
 
 import cd.ethercd.it.ITcCreativeTab;
 import cd.ethercd.it.IndustrialTinyCraft;
-import cd.ethercd.it.ITcItemLoader;
 import cd.ethercd.it.utils.IHasModel;
 import net.minecraft.item.Item;
 

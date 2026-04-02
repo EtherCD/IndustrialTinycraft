@@ -258,14 +258,14 @@ public class ITcRecipes {
                 "BSB",
                 "BCB",
                 "BSB",
-                'B', IC2Items.plate_tin,
+                'B', IC2Items.dense_plate_tin,
                 'S', BasicCraftItem.PROCESSOR_22NM.getStack(),
                 'C', new ItemStack(ITcItemLoader.improved_tri_heat_storage));
         addBasicRecipe(new ItemStack(ITcItemLoader.advanced_hex_heat_storage),
                 "BSB",
                 "BCB",
                 "BSB",
-                'B', IC2Items.plate_tin,
+                'B', IC2Items.dense_plate_tin,
                 'S', BasicCraftItem.PROCESSOR_22NM.getStack(),
                 'C', new ItemStack(ITcItemLoader.improved_hex_heat_storage));
         // Unstable/Stabilized Energy Core

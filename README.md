@@ -1,9 +1,11 @@
 <div align="center">
     <img src="./src/main/resources/logo.png" />
 
-An addon for IndustrialCraft2, that adds processors, new elements, usage for lithium, and more other.
+An addon that adds a new industry branch (processors) and research. Have fun!
 
-**Currently in deeeeeeep development**
+**Currently in deep development**
+
+[Current RoadMap](./ROADMAP.md)
 
 </div>
 

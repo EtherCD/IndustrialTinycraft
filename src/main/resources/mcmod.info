@@ -2,7 +2,7 @@
 {
   "modid": "industrialtinycraft",
   "name": "Industrial TinyCraft",
-  "description": "An addon for IndustrialCraft2, that adds processors, new elements, usage for lithium, and more other.",
+  "description": "An addon for Industrial Craft 2 that adds a new branch of industry (processors) and their research",
   "version": "${version}",
   "mcversion": "${mcversion}",
   "url": "https://github.com/EtherCD/IndustrialTinycraft",
@@ -11,6 +11,6 @@
   "credits": "To me.",
   "logoFile": "logo.png",
   "screenshots": ["screenshot.png"],
-  "dependencies": ["ic2"]
+  "requiredMods": []
 }
 ]
