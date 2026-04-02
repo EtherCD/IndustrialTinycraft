@@ -3,7 +3,7 @@ package cd.ethercd.it.jei.machines;
 import cd.ethercd.it.ITcMachine;
 import cd.ethercd.it.ITcRecipes;
 import cd.ethercd.it.IndustrialTinyCraft;
-import cd.ethercd.it.utils.ProcessorAssemblerRecipeManager;
+import cd.ethercd.it.utils.DualRecipeManager;
 import ic2.jeiIntegration.SlotPosition;
 import ic2.jeiIntegration.recipe.machine.IORecipeCategory;
 import mezz.jei.api.IGuiHelper;
@@ -18,7 +18,7 @@ import net.minecraft.util.ResourceLocation;
 import java.util.Collections;
 import java.util.List;
 
-public class ProcessorAssemblerCategory extends IORecipeCategory<ProcessorAssemblerRecipeManager> implements IDrawable {
+public class ProcessorAssemblerCategory extends IORecipeCategory<DualRecipeManager> implements IDrawable {
     private final IDrawableStatic bg;
     public static final String UID = IndustrialTinyCraft.MODID + ".processor_assembler";
 

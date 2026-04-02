@@ -3,7 +3,7 @@
   "textures": {
     "particle": "industrialtinycraft:blocks/machines/industrial_alloy_furnace_leftright",
     "down": "industrialtinycraft:blocks/machines/industrial_alloy_furnace_bottom",
-    "up": "industrialtinycraft:blocks/machines/industrial_alloy_furnace_leftright",
+    "up": "industrialtinycraft:blocks/machines/industrial_alloy_furnace_top",
     "north": "industrialtinycraft:blocks/machines/industrial_alloy_furnace_front",
     "east": "industrialtinycraft:blocks/machines/industrial_alloy_furnace_leftright",
     "south": "industrialtinycraft:blocks/machines/industrial_alloy_furnace_back",

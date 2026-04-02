@@ -1,12 +1,12 @@
 {
   "parent": "block/cube",
   "textures": {
-    "particle": "industrialtinycraft:blocks/machines/industrial_alloy_furnace_leftright_active",
+    "particle": "industrialtinycraft:blocks/machines/industrial_alloy_furnace_leftright",
     "down": "industrialtinycraft:blocks/machines/industrial_alloy_furnace_bottom",
-    "up": "industrialtinycraft:blocks/machines/industrial_alloy_furnace_leftright_active",
-    "north": "industrialtinycraft:blocks/machines/industrial_alloy_furnace_front",
-    "east": "industrialtinycraft:blocks/machines/industrial_alloy_furnace_leftright_active",
+    "up": "industrialtinycraft:blocks/machines/industrial_alloy_furnace_top",
+    "north": "industrialtinycraft:blocks/machines/industrial_alloy_furnace_front_active",
+    "east": "industrialtinycraft:blocks/machines/industrial_alloy_furnace_leftright",
     "south": "industrialtinycraft:blocks/machines/industrial_alloy_furnace_back",
-    "west": "industrialtinycraft:blocks/machines/industrial_alloy_furnace_leftright_active"
+    "west": "industrialtinycraft:blocks/machines/industrial_alloy_furnace_leftright"
   }
 }

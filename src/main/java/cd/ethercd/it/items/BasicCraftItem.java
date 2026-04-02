@@ -37,34 +37,37 @@ public enum BasicCraftItem {
     PURIFIED_REDSTONE("purified_redstone"),
 
     SILICON_INGOT("silicon_ingot"),
+
     SILICON_PLATE("silicon_plate"),
-    ALLOYED_SILICON_PLATE("alloyed_silicon_plate"),
-    MICROSTRUCTURED_SILICON_PLATE("microstructured_silicon_plate"),
-    HIGH_DENSITY_SILICON_PLATE("high_density_silicon_plate"),
+    IMPROVED_SILICON_PLATE("improved_silicon_plate"),
+    ADVANCED_SILICON_PLATE("advanced_silicon_plate"),
+    PERFECT_SILICON_PLATE("perfect_silicon_plate"),
     FIBER_OPTIC_PLATE("fiber_optic_plate"),
 
     FIBERGLASS("fiberglass"),
     MICROSTRUCTURED_FIBERGLASS_DUST("microstructured_fiberglass_dust"),
     GLASS_DUST("glass_dust"),
+
     RAW_PROCESSOR_SUBSTRATE("raw_processor_substrate"),
+
     PROCESSOR_SUBSTRATE("processor_substrate"),
     IMPROVED_PROCESSOR_SUBSTRATE("improved_processor_substrate"),
     ADVANCED_PROCESSOR_SUBSTRATE("advanced_processor_substrate"),
+    PERFECT_PROCESSOR_SUBSTRATE("perfect_processor_substrate"),
 
-    PROCESSOR_90NM("processor_90nm"),
-    PROCESSOR_45NM("processor_45nm"),
-    PROCESSOR_22NM("processor_22nm"),
-    PROCESSOR_7NM("processor_7nm"),
-    PROCESSOR_2NM("processor_2nm"),
+    BASIC_PROCESSOR("basic_processor"),
+    IMPROVED_PROCESSOR("improved_processor"),
+    ADVANCED_PROCESSOR("advanced_processor"),
+    PERFECT_PROCESSOR("perfect_processor"),
+    QUANTUM_PROCESSOR("quantum_processor"),
+    PRHOTONIC_PROCESSOR("photonic_processor"),
 
-    PROCESSOR_90NM_CHIP("processor_90nm_chip"),
-    PROCESSOR_45NM_CHIP("processor_45nm_chip"),
-    PROCESSOR_22NM_CHIP("processor_22nm_chip"),
-    PROCESSOR_7NM_CHIP("processor_7nm_chip"),
+    BASIC_PROCESSOR_CHIP("basic_processor_chip"),
+    IMPROVED_PROCESSOR_CHIP("improved_processor_chip"),
+    ADVANCED_PROCESSOR_CHIP("advanced_processor_chip"),
+    PERFECT_PROCESSOR_CHIP("perfect_processor_chip"),
 
-    PHOTONIC_COMPUTING_ACCELERATOR("photonic_computing_accelerator"),
-
-    LITHOGRAPHY_LASER("lithography_laser"),
+    FUSION_CORE("fusion_core"),
     UNSTABLE_ENERGY_CORE("unstable_energy_core"),
     STABILIZED_ENERGY_CORE("stabilized_energy_core"),
 
@@ -86,7 +89,7 @@ public enum BasicCraftItem {
     MOLYBDENUM_ALLOY_DUST("molybdenum_alloy_dust"),
     MOLYBDENUM_ALLOY_INGOT("molybdenum_alloy_ingot"),
     MOLYBDENUM_ALLOY_PLATE("molybdenum_alloy_plate"),
-    DENSE_MOLYBDENUM_ALLOY_PLATE("dense_molybdenum_alloy_plate")
+    DENSE_MOLYBDENUM_ALLOY_PLATE("dense_molybdenum_alloy_plate"),
     ;
 
     private BasicItem item;

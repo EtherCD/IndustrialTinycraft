@@ -1,4 +1,5 @@
 import sys
+import os
 
 prompt = sys.argv[1]
 print(prompt)
@@ -21,4 +22,11 @@ if parts[0] == "gen":
         
             with open(f"src/main/resources/assets/{mod_id}/models/item/{model_name}.json", "w+") as file:
                 file.write(gen_item_model(model_name))
+if parts[0] == "ren":
+    if parts[1] == "item":
+        model_name = parts[2]
+        new_model_name = parts[3]
+        os.remove(f"src/main/resources/assets/{mod_id}/models/item/{model_name}.json")
+        with open(f"src/main/resources/assets/{mod_id}/models/item/{new_model_name}.json", "w+") as file:
+            file.write(gen_item_model(new_model_name))
 
