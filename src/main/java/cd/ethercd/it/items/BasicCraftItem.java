@@ -67,6 +67,12 @@ public enum BasicCraftItem {
     ADVANCED_PROCESSOR_CHIP("advanced_processor_chip"),
     PERFECT_PROCESSOR_CHIP("perfect_processor_chip"),
 
+    EMPTY_LITHOGRAPHIC_MASK("empty_lithographic_mask"),
+    BASIC_PROCESSOR_LITHOGRAPHIC_MASK("basic_processor_lithographic_mask"),
+    IMPROVED_PROCESSOR_LITHOGRAPHIC_MASK("improved_processor_lithographic_mask"),
+    ADVANCED_PROCESSOR_LITHOGRAPHIC_MASK("advanced_processor_lithographic_mask"),
+    PERFECT_PROCESSOR_LITHOGRAPHIC_MASK("perfect_processor_lithographic_mask"),
+
     FUSION_CORE("fusion_core"),
     UNSTABLE_ENERGY_CORE("unstable_energy_core"),
     STABILIZED_ENERGY_CORE("stabilized_energy_core"),

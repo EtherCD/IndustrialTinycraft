@@ -2,9 +2,7 @@
 <gui width="176" height="166">
     <text y="6" align="center">{industrialtinycraft.industrial_alloy_furnace.title}</text>
     <slot name="input" x="50" y="17"/>
-    <slotgrid name="output" x="110" y="37" rows="1" style="plain"/>
-    <image x="109" y="36" src="industrialtinycraft:textures/gui/overlay/normal_output"/>
-    <image x="125" y="36" src="industrialtinycraft:textures/gui/overlay/normal_output"/>
+    <slotgrid name="output" x="110" y="37" rows="1"/>
     <slot name="discharge" x="50" y="52"/>
     <environment name="game">
         <button type="recipe" x="77" y="37" width="22" height="15" event="blast_furnace"></button>

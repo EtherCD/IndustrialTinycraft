@@ -3,7 +3,8 @@ package cd.ethercd.it.jei.machines;
 import cd.ethercd.it.ITcMachine;
 import cd.ethercd.it.ITcRecipes;
 import cd.ethercd.it.IndustrialTinyCraft;
-import cd.ethercd.it.utils.DualRecipeManager;
+import cd.ethercd.it.utils.DualInputRecipeManager;
+import cd.ethercd.it.utils.LithographyRecipeManager;
 import ic2.jeiIntegration.SlotPosition;
 import ic2.jeiIntegration.recipe.machine.IORecipeCategory;
 import mezz.jei.api.IGuiHelper;
@@ -18,20 +19,20 @@ import net.minecraft.util.ResourceLocation;
 import java.util.Collections;
 import java.util.List;
 
-public class ProcessorAssemblerCategory extends IORecipeCategory<DualRecipeManager> implements IDrawable {
+public class LithographyUnitCategory extends IORecipeCategory<LithographyRecipeManager> implements IDrawable {
     private final IDrawableStatic bg;
-    public static final String UID = IndustrialTinyCraft.MODID + ".processor_assembler";
+    public static final String UID = IndustrialTinyCraft.MODID + ".lithography_unit";
 
-    public ProcessorAssemblerCategory(IGuiHelper h) {
-        super(ITcMachine.crystal_grower, ITcRecipes.processor_assembler);
-        bg = h.createDrawable(new ResourceLocation(IndustrialTinyCraft.MODID + ":textures/gui/processor_assembler.png"), 0, 0, 67, 36, 67, 36);
+    public LithographyUnitCategory(IGuiHelper h) {
+        super(ITcMachine.lithography_unit, ITcRecipes.lithography_unit);
+        bg = h.createDrawable(new ResourceLocation(IndustrialTinyCraft.MODID + ":textures/gui/lithography_unit.png"), 43, 34, 90, 18);
     }
 
     @Override
     public void setRecipe(IRecipeLayout recipeLayout, IRecipeWrapper recipeWrapper, IIngredients ingredients) {
         recipeLayout.getItemStacks().init(0, true,  0, 0);
-        recipeLayout.getItemStacks().init(1, true,  0, 18);
-        recipeLayout.getItemStacks().init(2, false,  49, 9);
+        recipeLayout.getItemStacks().init(1, true,  26, 0);
+        recipeLayout.getItemStacks().init(2, false,  72, 0);
         recipeLayout.getItemStacks().set(ingredients); // Hello World
     }
 

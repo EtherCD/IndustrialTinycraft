@@ -1,21 +1,14 @@
 package cd.ethercd.it.utils;
 
-import cd.ethercd.it.jei.machines.ProcessOptimizerWrapper;
+import cd.ethercd.it.jei.machines.TriInputRecipeWrapper;
 import com.google.common.collect.Lists;
 import net.minecraft.item.ItemStack;
 
 import java.util.*;
 
-public class TriRecipeManager {
+public class TriInputRecipeManager {
     private final List<ItemStack> recipesList = new ArrayList<>();
 
-    /**
-     * Adds recipe to Mutagenesis Processor.
-     *
-     * @param input1 Input first seeds
-     * @param input2 Input second seeds
-     * @param output Output seeds
-     */
     public void addRecipe(ItemStack input1, ItemStack input2, ItemStack input3, ItemStack output) {
         if (getResult(input1, input2, input3) != ItemStack.EMPTY) return;
         recipesList.add(input1);
@@ -24,13 +17,6 @@ public class TriRecipeManager {
         recipesList.add(output);
     }
 
-    /**
-     * Returns result from recipe
-     *
-     * @param input1 Recipe input first slot
-     * @param input2 Recipe inputs second slot
-     * @return Result or ItemStack.EMPTY
-     */
     public ItemStack getResult(ItemStack input1, ItemStack input2, ItemStack input3) {
         for (int index = 0; index < recipesList.size(); index += 4) {
             ItemStack r1 = recipesList.get(index);
@@ -102,15 +88,15 @@ public class TriRecipeManager {
         return new int[] {0, 0, 0};
     }
 
-    public List<ProcessOptimizerWrapper> getRecipes() {
-        List<ProcessOptimizerWrapper> jeiRecipes = Lists.newArrayList();
+    public List<TriInputRecipeWrapper> getRecipes() {
+        List<TriInputRecipeWrapper> jeiRecipes = Lists.newArrayList();
 
         for (int index = 0; index < recipesList.size(); index += 4) {
             ItemStack r1 = recipesList.get(index);
             ItemStack r2 = recipesList.get(index + 1);
             ItemStack r3 = recipesList.get(index + 2);
             ItemStack out = recipesList.get(index + 3);
-            ProcessOptimizerWrapper recipe = new ProcessOptimizerWrapper(r1, r2, r3, out);
+            TriInputRecipeWrapper recipe = new TriInputRecipeWrapper(r1, r2, r3, out);
             jeiRecipes.add(recipe);
         }
 

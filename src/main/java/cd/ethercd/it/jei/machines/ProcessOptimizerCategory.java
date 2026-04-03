@@ -3,7 +3,8 @@ package cd.ethercd.it.jei.machines;
 import cd.ethercd.it.ITcMachine;
 import cd.ethercd.it.ITcRecipes;
 import cd.ethercd.it.IndustrialTinyCraft;
-import cd.ethercd.it.utils.DualRecipeManager;
+import cd.ethercd.it.utils.DualInputRecipeManager;
+import cd.ethercd.it.utils.TriInputRecipeManager;
 import ic2.jeiIntegration.SlotPosition;
 import ic2.jeiIntegration.recipe.machine.IORecipeCategory;
 import mcp.MethodsReturnNonnullByDefault;
@@ -20,12 +21,12 @@ import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.Collections;
 import java.util.List;
 
-public class ProcessOptimizerCategory extends IORecipeCategory<DualRecipeManager> implements IDrawable {
+public class ProcessOptimizerCategory extends IORecipeCategory<TriInputRecipeManager> implements IDrawable {
     private final IDrawableStatic bg;
     public static final String UID = IndustrialTinyCraft.MODID + ".process_optimizer";
 
     public ProcessOptimizerCategory(IGuiHelper h) {
-        super(ITcMachine.crystal_grower, ITcRecipes.processor_assembler);
+        super(ITcMachine.crystal_grower, ITcRecipes.processs_optimizer);
         bg = h.createDrawable(new ResourceLocation(IndustrialTinyCraft.MODID + ":textures/gui/process_optimizer.png"), 0, 0, 103, 18, 103, 18);
     }
 

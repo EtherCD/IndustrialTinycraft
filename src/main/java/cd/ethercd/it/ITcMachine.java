@@ -1,5 +1,6 @@
 package cd.ethercd.it;
 
+import cd.ethercd.it.machines.LithographyUnitTileEntity;
 import ic2.api.tile.IEnergyStorage;
 import ic2.core.block.ITeBlock;
 import ic2.core.block.TileEntityBlock;
@@ -20,7 +21,7 @@ import java.util.Set;
 
 public enum ITcMachine implements ITeBlock {
     crystal_grower(cd.ethercd.it.machines.CrystalGrowerTileEntity.class, 0, EnumRarity.UNCOMMON),
-    processor_assembler(cd.ethercd.it.machines.ProcessorAssemblerTileEntity.class, 1, EnumRarity.UNCOMMON),
+    lithography_unit(LithographyUnitTileEntity.class, 1, EnumRarity.UNCOMMON),
     process_optimizer(cd.ethercd.it.machines.ProcessOptimizerTileEntity.class, 2, EnumRarity.UNCOMMON),
     industrial_alloy_furnace(cd.ethercd.it.machines.IndustrialAlloyFurnaceTileEntity.class, 3, EnumRarity.EPIC)
     ;

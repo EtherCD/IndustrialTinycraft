@@ -10,10 +10,10 @@ That's why I'll write my own thoughts and what I'll add/change in the modificati
 
 #### Renaming items
 
-- Basic Processor (old 90nm)
-- Improved Processor (old 45nm)
-- Advanced Processor (old 22nm)
-- Unrichment Processor (old 7nm)
+- [x] Basic Processor (old 90nm)
+- [x] Improved Processor (old 45nm)
+- [x] Advanced Processor (old 22nm)
+- [x] Perfect Processor (old 7nm)
 
 #### New upgrades
 
@@ -21,7 +21,7 @@ That's why I'll write my own thoughts and what I'll add/change in the modificati
 
 ### New recipe blocks
 
-- Perfect Mechanism Casing
+- [x] Perfect Mechanism Casing
 
 ### Changes in mechanisms
 

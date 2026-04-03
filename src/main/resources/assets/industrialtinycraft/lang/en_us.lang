@@ -138,12 +138,12 @@ industrialtinycraft.tooltip.unfilled_battery=Place in Fluid/Solid Canning Machin
 itemGroup.industrialtinycraft=Industrial TinyCraft
 
 industrialtinycraft.crystal_grower.title=Crystal Grower
-industrialtinycraft.processor_assembler.title=Processor Fabricator
+industrialtinycraft.lithography_unit.title=Lithogpraphy Unit
 industrialtinycraft.process_optimizer.title=Tech-Process Optimizer
 industrialtinycraft.industrial_alloy_furnace.title=Industrial Alloy Furnace
 
 industrialtinycraft.machines.crystal_grower=Crystal Grower
-industrialtinycraft.machines.processor_assembler=Processor Fabricator
+industrialtinycraft.machines.lithography_unit=Lithogpraphy Unit
 industrialtinycraft.machines.process_optimizer=Tech-Process Optimizer
 industrialtinycraft.storages.lithium_mfsu=Lithium MFSU
 industrialtinycraft.machines.industrial_alloy_furnace=Industrial Alloy Furnace
