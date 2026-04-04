@@ -26,15 +26,15 @@ That's why I'll write my own thoughts and what I'll add/change in the modificati
 ### Changes in mechanisms
 
 The following mechanisms will be added:
-- Basic/Improved Lithography Unit
-- Basic/Improved Quality Improver
-- Basic/Improved Processor Slicer
-- Industrial Soldering Station
-- Industrial Research Lab
+- [X] Basic/Improved Lithography Unit
+- [ ] Basic/Improved Quality Improver
+- [ ] Basic/Improved Processor Slicer
+- [X] Industrial Soldering Station
+- [ ] Industrial Research Lab
 
 The mechanisms will be removed:
-- Processor assembler
-- Tech-Process Optimizer
+- [X] Processor assembler
+- [ ] Tech-Process Optimizer
 
 Now the entire chain of processor creation will be like this:
 - Researching new processor architectures based on old technologies (electrical circuits, or current processors being researched) has a certain chance of yielding a processor architecture template.

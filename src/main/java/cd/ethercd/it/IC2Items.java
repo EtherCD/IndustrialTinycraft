@@ -20,6 +20,9 @@ public class IC2Items {
     public static final ItemStack dust_sulfuric = ic2.api.item.IC2Items.getItem("dust", "sulfur");
     public static final ItemStack dust_lithium = ic2.api.item.IC2Items.getItem("dust", "lithium");
     public static final ItemStack dust_iron = ic2.api.item.IC2Items.getItem("dust", "iron");
+    public static final ItemStack dust_lead = ic2.api.item.IC2Items.getItem("dust", "lead");
+    public static final ItemStack dust_lapis = ic2.api.item.IC2Items.getItem("dust", "lapis");
+    public static final ItemStack dust_tin = ic2.api.item.IC2Items.getItem("dust", "tin");
 
     public static final ItemStack plate_gold = ic2.api.item.IC2Items.getItem("plate", "gold");
     public static final ItemStack plate_tin = ic2.api.item.IC2Items.getItem("plate", "tin");

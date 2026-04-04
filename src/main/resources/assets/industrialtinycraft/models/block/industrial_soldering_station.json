@@ -4,7 +4,7 @@
 		"particle": "industrialtinycraft:blocks/machines/advanced_machine_sides",
 		"down": "industrialtinycraft:blocks/machines/lithography_unit_bottom",
 		"up": "industrialtinycraft:blocks/machines/advanced_machine_sides",
-		"north": "industrialtinycraft:blocks/machines/lithography_unit_front",
+		"north": "industrialtinycraft:blocks/machines/industrial_soldering_station_front",
 		"east": "industrialtinycraft:blocks/machines/advanced_machine_sides",
 		"south": "industrialtinycraft:blocks/machines/advanced_machine_sides",
 		"west": "industrialtinycraft:blocks/machines/advanced_machine_sides"

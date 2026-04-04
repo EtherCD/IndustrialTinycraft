@@ -3,11 +3,9 @@ package cd.ethercd.it.jei.machines;
 import cd.ethercd.it.ITcMachine;
 import cd.ethercd.it.ITcRecipes;
 import cd.ethercd.it.IndustrialTinyCraft;
-import cd.ethercd.it.utils.DualInputRecipeManager;
-import cd.ethercd.it.utils.TriInputRecipeManager;
+import cd.ethercd.it.utils.LithographyRecipeManager;
 import ic2.jeiIntegration.SlotPosition;
 import ic2.jeiIntegration.recipe.machine.IORecipeCategory;
-import mcp.MethodsReturnNonnullByDefault;
 import mezz.jei.api.IGuiHelper;
 import mezz.jei.api.gui.IDrawable;
 import mezz.jei.api.gui.IDrawableStatic;
@@ -17,42 +15,37 @@ import mezz.jei.api.recipe.IRecipeWrapper;
 import net.minecraft.client.Minecraft;
 import net.minecraft.util.ResourceLocation;
 
-import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.Collections;
 import java.util.List;
 
-public class ProcessOptimizerCategory extends IORecipeCategory<TriInputRecipeManager> implements IDrawable {
+public class ImprovedLithographyUnitCategory extends IORecipeCategory<LithographyRecipeManager> implements IDrawable {
     private final IDrawableStatic bg;
-    public static final String UID = IndustrialTinyCraft.MODID + ".process_optimizer";
+    public static final String UID = IndustrialTinyCraft.MODID + ".improved_lithography_unit";
 
-    public ProcessOptimizerCategory(IGuiHelper h) {
-        super(ITcMachine.crystal_grower, ITcRecipes.processs_optimizer);
-        bg = h.createDrawable(new ResourceLocation(IndustrialTinyCraft.MODID + ":textures/gui/process_optimizer.png"), 0, 0, 103, 18, 103, 18);
+    public ImprovedLithographyUnitCategory(IGuiHelper h) {
+        super(ITcMachine.improved_lithography_unit, ITcRecipes.improved_lithography_unit);
+        bg = h.createDrawable(new ResourceLocation(IndustrialTinyCraft.MODID + ":textures/gui/improved_lithography_unit.png"), 43, 34, 90, 18);
     }
 
     @Override
     public void setRecipe(IRecipeLayout recipeLayout, IRecipeWrapper recipeWrapper, IIngredients ingredients) {
         recipeLayout.getItemStacks().init(0, true,  0, 0);
-        recipeLayout.getItemStacks().init(1, true,  18, 0);
-        recipeLayout.getItemStacks().init(2, true,  36, 0);
-        recipeLayout.getItemStacks().init(3, false,  85, 0);
-        recipeLayout.getItemStacks().set(ingredients);
+        recipeLayout.getItemStacks().init(1, true,  26, 0);
+        recipeLayout.getItemStacks().init(2, false,  72, 0);
+        recipeLayout.getItemStacks().set(ingredients); // Hello World
     }
 
     @Override
-    @MethodsReturnNonnullByDefault
     public String getUid() {
         return UID;
     }
 
     @Override
-    @MethodsReturnNonnullByDefault
     public String getTitle() {
-        return "Tech-Process Optimizer";
+        return "Improved Lithography Unit";
     }
 
     @Override
-    @MethodsReturnNonnullByDefault
     public String getModName() {
         return IndustrialTinyCraft.NAME;
     }
@@ -78,11 +71,9 @@ public class ProcessOptimizerCategory extends IORecipeCategory<TriInputRecipeMan
     }
 
     @Override
-    @ParametersAreNonnullByDefault
     public void draw(Minecraft minecraft, int xOffset, int yOffset) {}
 
     @Override
-    @MethodsReturnNonnullByDefault
     public IDrawable getBackground() {
         return bg;
     }

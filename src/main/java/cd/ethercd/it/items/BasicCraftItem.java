@@ -68,6 +68,7 @@ public enum BasicCraftItem {
     PERFECT_PROCESSOR_CHIP("perfect_processor_chip"),
 
     EMPTY_LITHOGRAPHIC_MASK("empty_lithographic_mask"),
+    MICROCONTROLLER_LITHOGRAPHY_MASK("microcontroller_lithographic_mask"),
     BASIC_PROCESSOR_LITHOGRAPHIC_MASK("basic_processor_lithographic_mask"),
     IMPROVED_PROCESSOR_LITHOGRAPHIC_MASK("improved_processor_lithographic_mask"),
     ADVANCED_PROCESSOR_LITHOGRAPHIC_MASK("advanced_processor_lithographic_mask"),
@@ -96,6 +97,10 @@ public enum BasicCraftItem {
     MOLYBDENUM_ALLOY_INGOT("molybdenum_alloy_ingot"),
     MOLYBDENUM_ALLOY_PLATE("molybdenum_alloy_plate"),
     DENSE_MOLYBDENUM_ALLOY_PLATE("dense_molybdenum_alloy_plate"),
+
+    TEXTOLITE("textolite"),
+    MICROCONTROLLER_CHIP("microcontroller_chip"),
+    MICROCONTROLLER("microcontroller")
     ;
 
     private BasicItem item;

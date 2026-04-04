@@ -18,8 +18,8 @@ import net.minecraftforge.fluids.FluidStack;
 
 public class ITcRecipes {
     public static LithographyRecipeManager lithography_unit = new LithographyRecipeManager();
-    public static TriInputRecipeManager processs_optimizer = new TriInputRecipeManager();
-    public static IBasicMachineRecipeManager processs_optimizer_ic2_plug = new BasicMachineRecipeManager();
+    public static LithographyRecipeManager improved_lithography_unit = new LithographyRecipeManager();
+    public static TriInputRecipeManager industrial_soldering_station = new TriInputRecipeManager();
     public static IBasicMachineRecipeManager crystal_grower = new BasicMachineRecipeManager();
 
     private static void addCycleRecipeForDust(BasicCraftItem dust, BasicCraftItem small) {
@@ -58,29 +58,6 @@ public class ITcRecipes {
                 'C', IC2Items.plate_copper);
     }
 
-    private static void addTriPlateCraft(ItemStack output, ItemStack plate1, ItemStack plate2, ItemStack plate3) {
-        addBasicRecipe(output,
-                " G ",
-                " R ",
-                " F ",
-                'G', plate1,
-                'R', plate2,
-                'F', plate3);
-        addBasicRecipe(output,
-                "G  ",
-                "R  ",
-                "F  ",
-                'G', plate1,
-                'R', plate2,
-                'F', plate3);
-        addBasicRecipe(output,
-                "  G",
-                "  R",
-                "  F",
-                'G', plate1,
-                'R', plate2,
-                'F', plate3);
-    }
 
     private static void addFullPlateCraft(ItemStack output, ItemStack plate1, ItemStack plate2, ItemStack plate3) {
         addBasicRecipe(output,
@@ -106,8 +83,6 @@ public class ITcRecipes {
                 'M', BasicCraftItem.MOLYBDENUM_SMALL_DUST.getStack());
         addRecipeForRod(ITcItemLoader.technetium_rod, ITcItemLoader.technetium_dual_rod, ITcItemLoader.technetium_quad_rod);
         addRecipeForRod(ITcItemLoader.molybdenum_rod, ITcItemLoader.molybdenum_dual_rod, ITcItemLoader.molybdenum_quad_rod);
-
-        addTriPlateCraft(BasicCraftItem.RAW_PROCESSOR_SUBSTRATE.getStack(), IC2Items.plate_gold, IC2Items.rubber, BasicCraftItem.FIBERGLASS.getStack());
 
         // Resource Crafting
         addBasicRecipe(ITcResource.PERFECT_MACHINE_CASING.getStack(),
@@ -320,16 +295,6 @@ public class ITcRecipes {
                 'S', BasicCraftItem.ADVANCED_PROCESSOR.getStack(),
                 'L', new ItemStack(ITcItemLoader.lithium_battery_assembly),
                 'M', IC2Items.chargepad_mfsu);
-        // Tech-Process Optimizer
-        addBasicRecipe(ITcMachine.process_optimizer.getStack(),
-                "PCP",
-                "SBS",
-                "PEP",
-                'P', BasicCraftItem.MOLYBDENUM_ALLOY_PLATE.getStack(),
-                'B', IC2Items.blast_furnace,
-                'E', IC2Items.electric_heat_generator,
-                'S', BasicCraftItem.BASIC_PROCESSOR.getStack(),
-                'C', IC2Items.energy_crystal);
         // Industrial Alloy Furance
         addBasicRecipe(ITcMachine.industrial_alloy_furnace.getStack(),
                 "PCQ",
@@ -347,7 +312,6 @@ public class ITcRecipes {
         IRecipeInputFactory factory = Recipes.inputFactory;
 
         addCompressorRecipe(factory.forStack(BasicCraftItem.GLASS_DUST.getStack(), 4), BasicCraftItem.FIBERGLASS.getStack());
-        addCompressorRecipe(factory.forStack(BasicCraftItem.RAW_PROCESSOR_SUBSTRATE.getStack()), BasicCraftItem.PROCESSOR_SUBSTRATE.getStack());
         addCompressorRecipe(factory.forStack(BasicCraftItem.MICROSTRUCTURED_FIBERGLASS_DUST.getStack(9)), BasicCraftItem.FIBER_OPTIC_PLATE.getStack());
         addCompressorRecipe(factory.forStack(IC2Items.dust_coal_fuel, 4), BasicCraftItem.GRAPHITE_PLATE.getStack());
         addCompressorRecipe(factory.forStack(new ItemStack(ITcItemLoader.lithium_battery), 9), new ItemStack(ITcItemLoader.lithium_battery_assembly));
@@ -400,15 +364,29 @@ public class ITcRecipes {
         addCannerBottleRecipe(factory.forStack(BasicCraftItem.ZIRCONIUM_ROD.getStack()), factory.forStack(BasicCraftItem.MOLYBDENUM_DUST.getStack()), new ItemStack(ITcItemLoader.molybdenum_rod));
         addCannerBottleRecipe(factory.forStack(BasicCraftItem.ZIRCONIUM_ROD.getStack()), factory.forStack(BasicCraftItem.TECHNETIUM_FUEL.getStack()), new ItemStack(ITcItemLoader.technetium_rod));
         addCannerBottleRecipe(factory.forStack(BasicCraftItem.ZIRCONIUM_ROD.getStack()), factory.forStack(BasicCraftItem.ZIRCONIUM_TECHNETIUM_MIXTURE.getStack()), new ItemStack(ITcItemLoader.zirconium_technetium_rod));
+        addCannerBottleRecipe(factory.forStack(IC2Items.dust_iron, 2), factory.forStack(BasicCraftItem.FIBERGLASS.getStack()), BasicCraftItem.TEXTOLITE.getStack());
 
         addCrystalGrowerRecipe(factory.forStack(BasicCraftItem.PURIFIED_SILICON.getStack()), BasicCraftItem.SILICON_INGOT.getStack());
 
+        addLithographyUnitRecipe(factory, BasicCraftItem.MICROCONTROLLER_LITHOGRAPHY_MASK.getStack(), BasicCraftItem.SILICON_PLATE.getStack(), BasicCraftItem.MICROCONTROLLER_CHIP.getStack());
         addLithographyUnitRecipe(factory, BasicCraftItem.BASIC_PROCESSOR_LITHOGRAPHIC_MASK.getStack(), BasicCraftItem.SILICON_PLATE.getStack(), BasicCraftItem.BASIC_PROCESSOR_CHIP.getStack());
         addLithographyUnitRecipe(factory, BasicCraftItem.IMPROVED_PROCESSOR_LITHOGRAPHIC_MASK.getStack(), BasicCraftItem.IMPROVED_SILICON_PLATE.getStack(), BasicCraftItem.IMPROVED_PROCESSOR_CHIP.getStack());
-        addLithographyUnitRecipe(factory, BasicCraftItem.ADVANCED_PROCESSOR_LITHOGRAPHIC_MASK.getStack(), BasicCraftItem.ADVANCED_SILICON_PLATE.getStack(), BasicCraftItem.ADVANCED_PROCESSOR_CHIP.getStack());
-        addLithographyUnitRecipe(factory, BasicCraftItem.PERFECT_PROCESSOR_LITHOGRAPHIC_MASK.getStack(), BasicCraftItem.PERFECT_SILICON_PLATE.getStack(), BasicCraftItem.PERFECT_PROCESSOR_CHIP.getStack());
+        addImprovedLithographyUnitRecipe(factory, BasicCraftItem.ADVANCED_PROCESSOR_LITHOGRAPHIC_MASK.getStack(), BasicCraftItem.ADVANCED_SILICON_PLATE.getStack(), BasicCraftItem.ADVANCED_PROCESSOR_CHIP.getStack());
+        addImprovedLithographyUnitRecipe(factory, BasicCraftItem.PERFECT_PROCESSOR_LITHOGRAPHIC_MASK.getStack(), BasicCraftItem.PERFECT_SILICON_PLATE.getStack(), BasicCraftItem.PERFECT_PROCESSOR_CHIP.getStack());
 
-//        Recipes.electrolyzer.addRecipe("ic2heavy_water", 40, 1, new IElectrolyzerRecipeManager.ElectrolyzerOutput("itc_deuterium", 26, EnumFacing.UP), new IElectrolyzerRecipeManager.ElectrolyzerOutput("ic2oxygen", 13, EnumFacing.DOWN));
+        addSolderingRecipe(factory, IC2Items.cable_copper, 2, IC2Items.dust_tin, 2, new ItemStack(Items.REDSTONE), 2, IC2Items.circuit);
+        addSolderingRecipe(factory, IC2Items.circuit, 1, new ItemStack(Items.GLOWSTONE_DUST), 2, IC2Items.dust_lapis, 2, IC2Items.advanced_circuit);
+        addSolderingRecipe(factory, BasicCraftItem.TEXTOLITE.getStack(), 1, IC2Items.dust_tin, 2, IC2Items.dust_gold, 2, BasicCraftItem.PROCESSOR_SUBSTRATE.getStack());
+        addSolderingRecipe(factory, BasicCraftItem.TEXTOLITE.getStack(), 1, IC2Items.rubber, 2, BasicCraftItem.MICROCONTROLLER_CHIP.getStack(), 2, BasicCraftItem.MICROCONTROLLER.getStack());
+        addSolderingRecipe(factory, BasicCraftItem.PROCESSOR_SUBSTRATE.getStack(), 1, IC2Items.circuit, 4, IC2Items.dust_tin, 4, BasicCraftItem.IMPROVED_PROCESSOR_SUBSTRATE.getStack());
+        addSolderingRecipe(factory, BasicCraftItem.PROCESSOR_SUBSTRATE.getStack(), 1, IC2Items.dust_tin, 1, BasicCraftItem.BASIC_PROCESSOR_CHIP.getStack(), 1, BasicCraftItem.BASIC_PROCESSOR.getStack());
+        addSolderingRecipe(factory, BasicCraftItem.IMPROVED_PROCESSOR_SUBSTRATE.getStack(), 1, IC2Items.advanced_circuit, 4, IC2Items.dust_gold, 4, BasicCraftItem.ADVANCED_PROCESSOR_SUBSTRATE.getStack());
+        addSolderingRecipe(factory, BasicCraftItem.IMPROVED_PROCESSOR_SUBSTRATE.getStack(), 1, IC2Items.dust_gold, 2, BasicCraftItem.IMPROVED_PROCESSOR_CHIP.getStack(), 1, BasicCraftItem.IMPROVED_PROCESSOR.getStack());
+        addSolderingRecipe(factory, BasicCraftItem.ADVANCED_PROCESSOR_SUBSTRATE.getStack(), 1, BasicCraftItem.MICROCONTROLLER.getStack(), 2, BasicCraftItem.MOLYBDENUM_DUST.getStack(), 2, BasicCraftItem.PERFECT_PROCESSOR_SUBSTRATE.getStack());
+        addSolderingRecipe(factory, BasicCraftItem.ADVANCED_PROCESSOR_SUBSTRATE.getStack(), 1, IC2Items.dust_lead, 2, BasicCraftItem.ADVANCED_PROCESSOR_CHIP.getStack(), 1, BasicCraftItem.ADVANCED_PROCESSOR.getStack());
+        addSolderingRecipe(factory, BasicCraftItem.PERFECT_PROCESSOR_SUBSTRATE.getStack(), 1,  BasicCraftItem.TECHNETIUM_DUST.getStack(), 2, BasicCraftItem.PERFECT_PROCESSOR_CHIP.getStack(), 1, BasicCraftItem.PERFECT_PROCESSOR.getStack());
+
+        //        Recipes.electrolyzer.addRecipe("ic2heavy_water", 40, 1, new IElectrolyzerRecipeManager.ElectrolyzerOutput("itc_deuterium", 26, EnumFacing.UP), new IElectrolyzerRecipeManager.ElectrolyzerOutput("ic2oxygen", 13, EnumFacing.DOWN));
     }
 
     private static void addBasicRecipe(ItemStack output, Object... input) {
@@ -464,15 +442,23 @@ public class ITcRecipes {
                 chip);
     }
 
-    private static void addProcessOptimizerRecipe(IRecipeInputFactory factory, ItemStack firstInput, ItemStack secondInput, ItemStack tridInput, ItemStack output) {
+    private static void addImprovedLithographyUnitRecipe(IRecipeInputFactory factory, ItemStack mask, ItemStack plate, ItemStack chip) {
+        if (chip.isEmpty()) return;
+        ITcRecipes.improved_lithography_unit.addRecipe(factory,
+                new LithographyRecipeManager.LithographyRecipeInput(mask, true),
+                new LithographyRecipeManager.LithographyRecipeInput(plate, false),
+                chip);
+    }
+
+    private static void addSolderingRecipe(IRecipeInputFactory factory, ItemStack firstInput, int firstCount, ItemStack secondInput, int secondCount, ItemStack tridInput, int tridCount, ItemStack output) {
         if (output.isEmpty()) return;
-        ITcRecipes.processs_optimizer.addRecipe(firstInput, secondInput, tridInput, output);
-        if (!firstInput.isEmpty())
-            ITcRecipes.processs_optimizer_ic2_plug.addRecipe(factory.forStack(firstInput), null, false, output);
-        if (!secondInput.isEmpty())
-            ITcRecipes.processs_optimizer_ic2_plug.addRecipe(factory.forStack(secondInput), null, false, output);
-        if (!tridInput.isEmpty())
-            ITcRecipes.processs_optimizer_ic2_plug.addRecipe(factory.forStack(tridInput), null, false, output);
+        ItemStack first = firstInput.copy();
+        first.setCount(firstCount);
+        ItemStack second = secondInput.copy();
+        second.setCount(secondCount);
+        ItemStack trid = tridInput.copy();
+        trid.setCount(tridCount);
+        ITcRecipes.industrial_soldering_station.addRecipe(factory, first, second, trid, output);
     }
 
     private static void addCrystalGrowerRecipe(IRecipeInput input, ItemStack output) {

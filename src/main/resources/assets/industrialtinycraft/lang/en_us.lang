@@ -12,6 +12,9 @@ item.perfect_processor.name=Perfect Processor
 item.photonic_processor.name=Photonic Processor
 item.quantum_processor.name=Quantum Processor
 
+item.microcontroller_chip.name=Microcontroller Chip
+item.microcontroller.name=Microcontroller
+
 # UPGRADES
 
 item.parallel_processing_upgrade.name=Parallel Processing Upgrade
@@ -32,6 +35,8 @@ item.silicon_plate.name=Basic Silicon Plate
 item.improved_silicon_plate.name=Improved Silicon Plate
 item.advanced_silicon_plate.name=Advanced Silicon Plate
 item.perfect_silicon_plate.name=Perfect Silicon Plate
+
+item.textolite=Textolite
 
 item.hafnium_plate.name=Hafnium Plate
 item.zirconium_plate.name=Zirconium Plate
@@ -83,6 +88,15 @@ item.hafnium_ingot.name=Hafnium Ingot
 item.cyrtolite_ore.name=Cyrtolite Ore
 item.crushed_cyrtolite_ore.name=Crushed Cyrtolite Ore
 
+
+item.fusion_core.name=Fusion Core
+
+item.empty_lithographic_mask.name=Empty Lithographic Mask
+item.microcontroller_lithographic_mask.name=Microcontroller Lithography Mask
+item.basic_processor_lithographic_mask.name=Basic Processor Lithographic Mask
+item.improved_processor_empty_lithographic_mask.name=Improved Processor Lithographic Mask
+item.advanced_processor_empty_lithographic_mask.name=Advanced Processor Lithographic Mask
+item.perfect_processor_empty_lithographic_mask.name=Perfect Processor Lithographic Mask
 
 item.lithography_laser.name=Lithography Laser
 item.advanced_overclocker.name=Advanced Overclocker
@@ -139,12 +153,14 @@ itemGroup.industrialtinycraft=Industrial TinyCraft
 
 industrialtinycraft.crystal_grower.title=Crystal Grower
 industrialtinycraft.lithography_unit.title=Lithogpraphy Unit
-industrialtinycraft.process_optimizer.title=Tech-Process Optimizer
+industrialtinycraft.improved_lithography_unit.title=Improved Lithography Unit
+industrialtinycraft.industrial_soldering_station.title=Industrial Soldering Station
 industrialtinycraft.industrial_alloy_furnace.title=Industrial Alloy Furnace
 
 industrialtinycraft.machines.crystal_grower=Crystal Grower
-industrialtinycraft.machines.lithography_unit=Lithogpraphy Unit
-industrialtinycraft.machines.process_optimizer=Tech-Process Optimizer
+industrialtinycraft.machines.lithography_unit=Lithography Unit
+industrialtinycraft.machines.improved_lithography_unit=Improved Lithography Unit
+industrialtinycraft.machines.industrial_soldering_station=Industrial Soldering Station
 industrialtinycraft.storages.lithium_mfsu=Lithium MFSU
 industrialtinycraft.machines.industrial_alloy_furnace=Industrial Alloy Furnace
 

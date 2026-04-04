@@ -2,19 +2,30 @@ package cd.ethercd.it.utils;
 
 import cd.ethercd.it.jei.machines.TriInputRecipeWrapper;
 import com.google.common.collect.Lists;
+import ic2.api.recipe.IBasicMachineRecipeManager;
+import ic2.api.recipe.IRecipeInputFactory;
+import ic2.core.recipe.BasicMachineRecipeManager;
 import net.minecraft.item.ItemStack;
 
 import java.util.*;
 
 public class TriInputRecipeManager {
     private final List<ItemStack> recipesList = new ArrayList<>();
+    public final IBasicMachineRecipeManager ic2_input_plug = new BasicMachineRecipeManager();
 
-    public void addRecipe(ItemStack input1, ItemStack input2, ItemStack input3, ItemStack output) {
+    public void addRecipe(IRecipeInputFactory factory, ItemStack input1, ItemStack input2, ItemStack input3, ItemStack output) {
         if (getResult(input1, input2, input3) != ItemStack.EMPTY) return;
         recipesList.add(input1);
         recipesList.add(input2);
         recipesList.add(input3);
         recipesList.add(output);
+
+        if (!input1.isEmpty() && ic2_input_plug.getOutputFor(input1, false) == null)
+            ic2_input_plug.addRecipe(factory.forStack(input1), null, false, output);
+        if (!input2.isEmpty() && ic2_input_plug.getOutputFor(input2, false) == null)
+            ic2_input_plug.addRecipe(factory.forStack(input2), null, false, output);
+        if (!input3.isEmpty() && ic2_input_plug.getOutputFor(input3, false) == null)
+            ic2_input_plug.addRecipe(factory.forStack(input3), null, false, output);
     }
 
     public ItemStack getResult(ItemStack input1, ItemStack input2, ItemStack input3) {

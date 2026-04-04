@@ -6,11 +6,12 @@ import net.minecraft.item.ItemStack;
 
 import java.util.Collections;
 
-public class ProcessOptimizerTileEntity extends ComplexMachineTileEntity {
+public class IndustrialSolderingStationTileEntity extends ComplexMachineTileEntity {
 
-    public ProcessOptimizerTileEntity() {
-        super(64000, 4, 3000);
-        this.inputSlot = new InvSlotProcessableGeneric(this, "input", 3, ITcRecipes.processs_optimizer_ic2_plug);
+    public IndustrialSolderingStationTileEntity() {
+        super(100000, 4, 3000);
+        this.activeEU = 600;
+        this.inputSlot = new InvSlotProcessableGeneric(this, "input", 3, ITcRecipes.industrial_soldering_station.ic2_input_plug);
     }
 
     @Override
@@ -18,7 +19,7 @@ public class ProcessOptimizerTileEntity extends ComplexMachineTileEntity {
         ItemStack input1 = inputSlot.get(0);
         ItemStack input2 = inputSlot.get(1);
         ItemStack input3 = inputSlot.get(2);
-        int[] ingredientsConsume = ITcRecipes.processs_optimizer.getIngirientsConsume(input1, input2, input3);
+        int[] ingredientsConsume = ITcRecipes.industrial_soldering_station.getIngirientsConsume(input1, input2, input3);
 
         if (!input1.isEmpty()) {
             input1.shrink(ingredientsConsume[0]);
@@ -43,7 +44,7 @@ public class ProcessOptimizerTileEntity extends ComplexMachineTileEntity {
     }
 
     public void operate() {
-        ItemStack output = ITcRecipes.processs_optimizer.getResult(this.inputSlot.get(0), this.inputSlot.get(1), this.inputSlot.get(2));
+        ItemStack output = ITcRecipes.industrial_soldering_station.getResult(this.inputSlot.get(0), this.inputSlot.get(1), this.inputSlot.get(2));
         this.processUpgrades(Collections.singletonList(output));
         this.outputSlot.add(output);
     }
@@ -53,7 +54,7 @@ public class ProcessOptimizerTileEntity extends ComplexMachineTileEntity {
         if (this.inputSlot.get(0).isEmpty() && this.inputSlot.get(1).isEmpty() && this.inputSlot.get(2).isEmpty()) {
             return false;
         }
-        ItemStack output = ITcRecipes.processs_optimizer.getResult(this.inputSlot.get(0), this.inputSlot.get(1), this.inputSlot.get(2));
+        ItemStack output = ITcRecipes.industrial_soldering_station.getResult(this.inputSlot.get(0), this.inputSlot.get(1), this.inputSlot.get(2));
         return !output.isEmpty() && this.outputSlot.canAdd(output);
     }
 }

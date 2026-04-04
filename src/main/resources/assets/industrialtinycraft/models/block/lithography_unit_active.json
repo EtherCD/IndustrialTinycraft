@@ -1,12 +1,12 @@
 {
   "parent": "block/cube",
   "textures": {
-    "particle": "industrialtinycraft:blocks/machines/plithography_unit_side",
+    "particle": "industrialtinycraft:blocks/machines/advanced_machine_sides",
     "down": "industrialtinycraft:blocks/machines/lithography_unit_bottom",
-    "up": "industrialtinycraft:blocks/machines/lithography_unit_side",
+    "up": "industrialtinycraft:blocks/machines/advanced_machine_sides",
     "north": "industrialtinycraft:blocks/machines/lithography_unit_front",
-    "east": "industrialtinycraft:blocks/machines/lithography_unit_side",
-    "south": "industrialtinycraft:blocks/machines/lithography_unit_side",
-    "west": "industrialtinycraft:blocks/machines/lithography_unit_side"
+    "east": "industrialtinycraft:blocks/machines/advanced_machine_sides",
+    "south": "industrialtinycraft:blocks/machines/advanced_machine_sides",
+    "west": "industrialtinycraft:blocks/machines/advanced_machine_sides"
   }
 }

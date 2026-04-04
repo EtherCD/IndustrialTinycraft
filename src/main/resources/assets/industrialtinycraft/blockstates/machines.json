@@ -4,10 +4,14 @@
     "type": {
       "lithography_unit": { "model": "industrialtinycraft:lithography_unit" },
       "lithography_unit_active": { "model": "industrialtinycraft:lithography_unit_active" },
+
+      "improved_lithography_unit": { "model": "industrialtinycraft:improved_lithography_unit" },
+      "improved_lithography_unit_active": { "model": "industrialtinycraft:improved_lithography_unit" },
+
       "crystal_grower": { "model": "industrialtinycraft:crystal_grower" },
       "crystal_grower_active": { "model": "industrialtinycraft:crystal_grower_active" },
-      "process_optimizer": { "model": "industrialtinycraft:process_optimizer" },
-      "process_optimizer_active": { "model": "industrialtinycraft:process_optimizer_active" },
+      "industrial_soldering_station": { "model": "industrialtinycraft:industrial_soldering_station" },
+      "industrial_soldering_station_active": { "model": "industrialtinycraft:industrial_soldering_station" },
       "industrial_alloy_furnace": { "model": "industrialtinycraft:industrial_alloy_furnace" },
       "industrial_alloy_furnace_active": { "model": "industrialtinycraft:industrial_alloy_furnace_active" }
     },

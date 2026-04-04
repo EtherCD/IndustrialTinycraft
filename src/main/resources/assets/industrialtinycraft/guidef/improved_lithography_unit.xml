@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gui width="176" height="166">
+    <slot       name="mask_input"   x="43"  y="33"/>
+    <slot       name="input"        x="69"  y="33"/>
+    <slotgrid   name="output"       x="116" y="34" rows="1" style="plain"/>
+    <slot       name="discharge"    x="15"  y="33"/>
+    <image      x="0" y="0" src="industrialtinycraft:textures/gui/improved_lithography_unit"/>
+    <text       y="6" align="center">{industrialtinycraft.improved_lithography_unit.title}</text>
+    <environment name="game">
+        <button type="recipe" x="88" y="34" width="22" height="15" event="industrialtinycraft.improved_lithography_unit" />
+        <slotgrid name="upgrade" x="151" y="7" cols="1"/>
+    </environment>
+    <energygauge x="20" y="17"/>
+    <gauge name="progress" x="90" y="35" style="progressarrow"/>
+    <playerInventory x="7" y="83"/>
+</gui>
