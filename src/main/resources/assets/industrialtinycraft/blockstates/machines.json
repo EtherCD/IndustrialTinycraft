@@ -10,6 +10,10 @@
 
       "crystal_grower": { "model": "industrialtinycraft:crystal_grower" },
       "crystal_grower_active": { "model": "industrialtinycraft:crystal_grower_active" },
+      "crystal_slicer": { "model": "industrialtinycraft:crystal_slicer" },
+      "crystal_slicer_active": { "model": "industrialtinycraft:crystal_slicer" },
+      "improved_crystal_slicer": { "model": "industrialtinycraft:improved_crystal_slicer" },
+      "improved_crystal_slicer_active": { "model": "industrialtinycraft:improved_crystal_slicer" },
       "industrial_soldering_station": { "model": "industrialtinycraft:industrial_soldering_station" },
       "industrial_soldering_station_active": { "model": "industrialtinycraft:industrial_soldering_station" },
       "industrial_alloy_furnace": { "model": "industrialtinycraft:industrial_alloy_furnace" },

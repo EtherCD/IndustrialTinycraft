@@ -104,13 +104,14 @@ item.crushed_skutterudite_ore.name=Crushed Skutterudite Ore
 item.cobalt_lithium_oxide_plate.name=Cobalt Lithium Oxide Plate
 
 item.fusion_core.name=Fusion Core
+item.iridium_block_cutting_blade.name=Iridium Block Cutting Blade
 
 item.empty_lithographic_mask.name=Empty Lithographic Mask
 item.microcontroller_lithographic_mask.name=Microcontroller Lithography Mask
 item.basic_processor_lithographic_mask.name=Basic Processor Lithographic Mask
-item.improved_processor_empty_lithographic_mask.name=Improved Processor Lithographic Mask
-item.advanced_processor_empty_lithographic_mask.name=Advanced Processor Lithographic Mask
-item.perfect_processor_empty_lithographic_mask.name=Perfect Processor Lithographic Mask
+item.improved_processor_lithographic_mask.name=Improved Processor Lithographic Mask
+item.advanced_processor_lithographic_mask.name=Advanced Processor Lithographic Mask
+item.perfect_processor_lithographic_mask.name=Perfect Processor Lithographic Mask
 
 item.lithography_laser.name=Lithography Laser
 item.advanced_overclocker.name=Advanced Overclocker
@@ -166,12 +167,16 @@ industrialtinycraft.tooltip.unfilled_battery=Place in Fluid/Solid Canning Machin
 itemGroup.industrialtinycraft=Industrial TinyCraft
 
 industrialtinycraft.crystal_grower.title=Crystal Grower
+industrialtinycraft.crystal_slicer.title=Crystal Slicer
+industrialtinycraft.improved_crystal_slicer.title=Improved Crystal Slicer
 industrialtinycraft.lithography_unit.title=Lithogpraphy Unit
 industrialtinycraft.improved_lithography_unit.title=Improved Lithography Unit
 industrialtinycraft.industrial_soldering_station.title=Industrial Soldering Station
 industrialtinycraft.industrial_alloy_furnace.title=Industrial Alloy Furnace
 
 industrialtinycraft.machines.crystal_grower=Crystal Grower
+industrialtinycraft.machines.crystal_slicer=Crystal Slicer
+industrialtinycraft.machines.improved_crystal_slicer=Improved Crystal Slicer
 industrialtinycraft.machines.lithography_unit=Lithography Unit
 industrialtinycraft.machines.improved_lithography_unit=Improved Lithography Unit
 industrialtinycraft.machines.industrial_soldering_station=Industrial Soldering Station

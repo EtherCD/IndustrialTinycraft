@@ -16,6 +16,8 @@ public class JEIIntegration implements IModPlugin {
     @Override
     public void registerCategories(IRecipeCategoryRegistration registry) {
         registry.addRecipeCategories(new CrystalGrowerCategory(registry.getJeiHelpers().getGuiHelper()));
+        registry.addRecipeCategories(new CrystalSlicerCategory(registry.getJeiHelpers().getGuiHelper()));
+        registry.addRecipeCategories(new ImprovedCrystalSlicerCategory(registry.getJeiHelpers().getGuiHelper()));
         registry.addRecipeCategories(new LithographyUnitCategory(registry.getJeiHelpers().getGuiHelper()));
         registry.addRecipeCategories(new ImprovedLithographyUnitCategory(registry.getJeiHelpers().getGuiHelper()));
         registry.addRecipeCategories(new IndustrialSolderingStationCategory(registry.getJeiHelpers().getGuiHelper()));
@@ -24,8 +26,16 @@ public class JEIIntegration implements IModPlugin {
     @Override
     public void register(IModRegistry registry) {
         registry.addRecipes(Lists.newArrayList(ITcRecipes.crystal_grower.getRecipes()), CrystalGrowerCategory.UID);
-        registry.handleRecipes(MachineRecipe.class, CrystalGrowerWrapper::new, CrystalGrowerCategory.UID);
+        registry.handleRecipes(MachineRecipe.class, BasicRecipeWrapper::new, CrystalGrowerCategory.UID);
         addRecipeCatalyst(registry, ITcMachine.crystal_grower, CrystalGrowerCategory.UID);
+
+        registry.addRecipes(Lists.newArrayList(ITcRecipes.crystal_slicer.getRecipes()), CrystalSlicerCategory.UID);
+        registry.handleRecipes(MachineRecipe.class, BasicRecipeWrapper::new, CrystalSlicerCategory.UID);
+        addRecipeCatalyst(registry, ITcMachine.crystal_slicer, CrystalSlicerCategory.UID);
+
+        registry.addRecipes(Lists.newArrayList(ITcRecipes.improved_crystal_slicer.getRecipes()), ImprovedCrystalSlicerCategory.UID);
+        registry.handleRecipes(MachineRecipe.class, BasicRecipeWrapper::new, ImprovedCrystalSlicerCategory.UID);
+        addRecipeCatalyst(registry, ITcMachine.improved_crystal_slicer, ImprovedCrystalSlicerCategory.UID);
 
         registry.addRecipes(ITcRecipes.lithography_unit.getRecipes(), LithographyUnitCategory.UID);
         addRecipeCatalyst(registry, ITcMachine.lithography_unit, LithographyUnitCategory.UID);

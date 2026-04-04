@@ -6,6 +6,7 @@ import cd.ethercd.it.items.BasicItem;
 import cd.ethercd.it.utils.LithographyRecipeManager;
 import cd.ethercd.it.utils.TriInputRecipeManager;
 import ic2.api.recipe.*;
+import ic2.core.IC2;
 import ic2.core.recipe.BasicMachineRecipeManager;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -19,6 +20,8 @@ public class ITcRecipes {
     public static LithographyRecipeManager improved_lithography_unit = new LithographyRecipeManager();
     public static TriInputRecipeManager industrial_soldering_station = new TriInputRecipeManager();
     public static IBasicMachineRecipeManager crystal_grower = new BasicMachineRecipeManager();
+    public static IBasicMachineRecipeManager crystal_slicer = new BasicMachineRecipeManager();
+    public static IBasicMachineRecipeManager improved_crystal_slicer = new BasicMachineRecipeManager();
 
     private static void addCycleRecipeForDust(BasicCraftItem dust, BasicCraftItem small) {
         addBasicRecipe(dust.getStack(),
@@ -137,6 +140,58 @@ public class ITcRecipes {
                 'C', new ItemStack(ITcItemLoader.advanced_tri_heat_storage),
                 'P', BasicCraftItem.ADVANCED_PROCESSOR.getStack(),
                 'U', new ItemStack(ITcItemLoader.improved_overclocker));
+        addBasicRecipe(ITcMachine.lithography_unit.getStack(),
+                "IOA",
+                "UCP",
+                "AOI",
+                'I', IC2Items.dense_iron,
+                'C', BasicCraftItem.FUSION_CORE.getStack(),
+                'A', IC2Items.advanced_circuit,
+                'O', IC2Items.resource_advanced_machine,
+                'P', BasicCraftItem.SILICON_PLATE.getStack(),
+                'U', IC2Items.energy_crystal);
+        addBasicRecipe(ITcMachine.industrial_soldering_station.getStack(),
+                "PAC",
+                "ITI",
+                "CAP",
+                'P', IC2Items.dense_iron,
+                'I', IC2Items.coil,
+                'C', IC2Items.resource_advanced_machine,
+                'A', IC2Items.advanced_circuit,
+                'T', BasicCraftItem.TEXTOLITE.getStack());
+        addBasicRecipe(ITcMachine.crystal_grower.getStack(),
+                "BCB",
+                "UUU",
+                "BCB",
+                'B', IC2Items.resource_machine,
+                'C', IC2Items.circuit,
+                'U', IC2Items.fluid_cell);
+        addBasicRecipe(ITcMachine.crystal_slicer.getStack(),
+                "ICB",
+                "UPU",
+                "BCI",
+                'B', IC2Items.resource_advanced_machine,
+                'C', IC2Items.advanced_circuit,
+                'I', IC2Items.dense_iron,
+                'U', IC2Items.block_cutting_blade_diamond,
+                'P', BasicCraftItem.SILICON_PLATE.getStack());
+        addBasicRecipe(ITcMachine.improved_crystal_slicer.getStack(),
+                "ICB",
+                "TUT",
+                "BCI",
+                'B', ITcResource.PERFECT_MACHINE_CASING.getStack(),
+                'C', BasicCraftItem.IMPROVED_PROCESSOR.getStack(),
+                'T', BasicCraftItem.IRIDIUM_BLOCK_CUTTING_BLADE.getStack(),
+                'U', ITcMachine.crystal_slicer.getStack(),
+                'P', BasicCraftItem.SILICON_PLATE.getStack(),
+                'I', new ItemStack(ITcItemLoader.lithium_battery));
+        addBasicRecipe(BasicCraftItem.IRIDIUM_BLOCK_CUTTING_BLADE.getStack(),
+                "TIT",
+                "IUI",
+                "TIT",
+                'T', BasicCraftItem.TECHNETIUM_SMALL_DUST.getStack(),
+                'U', IC2Items.block_cutting_blade_diamond,
+                'I', IC2Items.iridium_ore);
 //        addBasicRecipe(new ItemStack(ITcItemLoader.unrivaled_overclocker),
 //                "MPH",
 //                "TOT",
@@ -309,7 +364,7 @@ public class ITcRecipes {
     public static void addMachineRecipes() {
         IRecipeInputFactory factory = Recipes.inputFactory;
 
-        addCompressorRecipe(factory.forStack(BasicCraftItem.GLASS_DUST.getStack(), 4), BasicCraftItem.FIBERGLASS.getStack());
+        addCompressorRecipe(factory.forStack(BasicCraftItem.GLASS_DUST.getStack(), 9), BasicCraftItem.FIBERGLASS.getStack());
         addCompressorRecipe(factory.forStack(BasicCraftItem.MICROSTRUCTURED_FIBERGLASS_DUST.getStack(9)), BasicCraftItem.FIBER_OPTIC_PLATE.getStack());
         addCompressorRecipe(factory.forStack(IC2Items.dust_coal_fuel, 4), BasicCraftItem.GRAPHITE_PLATE.getStack());
         addCompressorRecipe(factory.forStack(new ItemStack(ITcItemLoader.lithium_battery), 9), new ItemStack(ITcItemLoader.lithium_battery_assembly));
@@ -387,6 +442,12 @@ public class ITcRecipes {
         addSolderingRecipe(factory, BasicCraftItem.ADVANCED_PROCESSOR_SUBSTRATE.getStack(), 1, IC2Items.dust_lead, 2, BasicCraftItem.ADVANCED_PROCESSOR_CHIP.getStack(), 1, BasicCraftItem.ADVANCED_PROCESSOR.getStack());
         addSolderingRecipe(factory, BasicCraftItem.PERFECT_PROCESSOR_SUBSTRATE.getStack(), 1,  BasicCraftItem.TECHNETIUM_DUST.getStack(), 2, BasicCraftItem.PERFECT_PROCESSOR_CHIP.getStack(), 1, BasicCraftItem.PERFECT_PROCESSOR.getStack());
 
+        addCrystalSlicerRecipe(factory.forStack(BasicCraftItem.SILICON_INGOT.getStack()), BasicCraftItem.SILICON_PLATE.getStack(2));
+        addCrystalSlicerRecipe(factory.forStack(BasicCraftItem.MICROCONTROLLER_WAFFLE.getStack()), BasicCraftItem.MICROCONTROLLER_CHIP.getStack());
+        addCrystalSlicerRecipe(factory.forStack(BasicCraftItem.BASIC_PROCESSOR_WAFFLE.getStack()), BasicCraftItem.BASIC_PROCESSOR_CHIP.getStack());
+        addCrystalSlicerRecipe(factory.forStack(BasicCraftItem.IMPROVED_PROCESSOR_WAFFLE.getStack()), BasicCraftItem.IMPROVED_PROCESSOR_CHIP.getStack());
+        addImprovedCrystalSlicerRecipe(factory.forStack(BasicCraftItem.ADVANCED_PROCESSOR_WAFFLE.getStack()), BasicCraftItem.ADVANCED_PROCESSOR_CHIP.getStack(3));
+        addImprovedCrystalSlicerRecipe(factory.forStack(BasicCraftItem.PERFECT_PROCESSOR_WAFFLE.getStack()), BasicCraftItem.PERFECT_PROCESSOR_CHIP.getStack(2));
         //        Recipes.electrolyzer.addRecipe("ic2heavy_water", 40, 1, new IElectrolyzerRecipeManager.ElectrolyzerOutput("itc_deuterium", 26, EnumFacing.UP), new IElectrolyzerRecipeManager.ElectrolyzerOutput("ic2oxygen", 13, EnumFacing.DOWN));
     }
 
@@ -402,9 +463,9 @@ public class ITcRecipes {
         Recipes.macerator.addRecipe(input, null, false, output);
     }
 
-    private static void addCannerEnrichRecipe(FluidStack fluid, IRecipeInput additive, FluidStack output) {
-        Recipes.cannerEnrich.addRecipe(new ICannerEnrichRecipeManager.Input(fluid, additive), output, null, false);
-    }
+//    private static void addCannerEnrichRecipe(FluidStack fluid, IRecipeInput additive, FluidStack output) {
+//        Recipes.cannerEnrich.addRecipe(new ICannerEnrichRecipeManager.Input(fluid, additive), output, null, false);
+//    }
 
     private static void addCannerBottleRecipe(IRecipeInput input, IRecipeInput fill, ItemStack output) {
         Recipes.cannerBottle.addRecipe(input, fill, output);
@@ -441,6 +502,10 @@ public class ITcRecipes {
                 new LithographyRecipeManager.LithographyRecipeInput(mask, true),
                 new LithographyRecipeManager.LithographyRecipeInput(plate, false),
                 chip);
+        ITcRecipes.improved_lithography_unit.addRecipe(factory,
+                new LithographyRecipeManager.LithographyRecipeInput(mask, true),
+                new LithographyRecipeManager.LithographyRecipeInput(plate, false),
+                chip);
     }
 
     private static void addImprovedLithographyUnitRecipe(IRecipeInputFactory factory, ItemStack mask, ItemStack plate, ItemStack chip) {
@@ -464,5 +529,16 @@ public class ITcRecipes {
 
     private static void addCrystalGrowerRecipe(IRecipeInput input, ItemStack output) {
         ITcRecipes.crystal_grower.addRecipe(input, null, false, output);
+    }
+
+    private static void addCrystalSlicerRecipe(IRecipeInput input, ItemStack output) {
+        ITcRecipes.crystal_slicer.addRecipe(input, null, false, output);
+        ItemStack improvedOutput = output.copy();
+        improvedOutput.setCount(4);
+        ITcRecipes.improved_crystal_slicer.addRecipe(input, null, false, improvedOutput);
+    }
+
+    private static void addImprovedCrystalSlicerRecipe(IRecipeInput input, ItemStack output) {
+        ITcRecipes.improved_crystal_slicer.addRecipe(input, null, false, output);
     }
 }

@@ -113,6 +113,7 @@ public enum BasicCraftItem {
     MOLYBDENUM_ALLOY_INGOT("molybdenum_alloy_ingot"),
     MOLYBDENUM_ALLOY_PLATE("molybdenum_alloy_plate"),
     DENSE_MOLYBDENUM_ALLOY_PLATE("dense_molybdenum_alloy_plate"),
+    IRIDIUM_BLOCK_CUTTING_BLADE("iridium_block_cutting_blade"),
 
     ;
 

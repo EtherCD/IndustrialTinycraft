@@ -23,10 +23,15 @@ import java.util.Set;
 
 public enum ITcMachine implements ITeBlock {
     crystal_grower(cd.ethercd.it.machines.CrystalGrowerTileEntity.class, 0, EnumRarity.UNCOMMON),
-    lithography_unit(LithographyUnitTileEntity.class, 1, EnumRarity.UNCOMMON),
-    improved_lithography_unit(ImprovedLithographyUnitTileEntity.class, 2, EnumRarity.EPIC),
+    crystal_slicer(cd.ethercd.it.machines.CrystalSlicerTileEntity.class, 1, EnumRarity.UNCOMMON),
+
+    lithography_unit(LithographyUnitTileEntity.class, 2, EnumRarity.UNCOMMON),
     industrial_soldering_station(IndustrialSolderingStationTileEntity.class, 3, EnumRarity.UNCOMMON),
-    industrial_alloy_furnace(cd.ethercd.it.machines.IndustrialAlloyFurnaceTileEntity.class, 4, EnumRarity.EPIC)
+
+    improved_lithography_unit(ImprovedLithographyUnitTileEntity.class, 4, EnumRarity.EPIC),
+    improved_crystal_slicer(cd.ethercd.it.machines.ImprovedCrystalSlicerTileEntity.class, 5, EnumRarity.UNCOMMON),
+
+    industrial_alloy_furnace(cd.ethercd.it.machines.IndustrialAlloyFurnaceTileEntity.class, 6, EnumRarity.EPIC)
     ;
 
     private final Class<? extends TileEntityBlock> teClass;

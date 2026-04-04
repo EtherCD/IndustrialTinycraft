@@ -28,6 +28,7 @@ public class IC2Items {
     public static final ItemStack plate_tin = ic2.api.item.IC2Items.getItem("plate", "tin");
     public static final ItemStack plate_copper = ic2.api.item.IC2Items.getItem("plate", "copper");
     public static final ItemStack plate_iron = ic2.api.item.IC2Items.getItem("plate", "iron");
+    public static final ItemStack dense_iron = ic2.api.item.IC2Items.getItem("plate", "dense_iron");
     public static final ItemStack plate_steel = ic2.api.item.IC2Items.getItem("plate", "steel");
     public static final ItemStack dense_plate_tin = ic2.api.item.IC2Items.getItem("plate", "dense_tin");
     public static final ItemStack carbon_plate = ic2.api.item.IC2Items.getItem("crafting", "carbon_plate");
@@ -51,4 +52,7 @@ public class IC2Items {
     public static final ItemStack blast_furnace = ic2.api.item.IC2Items.getItem("te", "blast_furnace");
     public static final ItemStack electric_heat_generator = ic2.api.item.IC2Items.getItem("te", "electric_heat_generator");
     public static final ItemStack coil = ic2.api.item.IC2Items.getItem("crafting", "coil");
+    public static final ItemStack fluid_cell = ic2.api.item.IC2Items.getItem("fluid_cell");
+    public static final ItemStack block_cutting_blade_diamond = ic2.api.item.IC2Items.getItem("block_cutting_blade", "diamond");
+    public static final ItemStack iridium_ore = ic2.api.item.IC2Items.getItem("misc_resource", "iridium_ore");
 }

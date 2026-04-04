@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "particle": "industrialtinycraft:blocks/machines/advanced_machine_sides",
+    "down": "industrialtinycraft:blocks/machines/lithography_unit_bottom",
+    "up": "industrialtinycraft:blocks/machines/advanced_machine_sides",
+    "north": "industrialtinycraft:blocks/machines/crystal_slicer_front",
+    "east": "industrialtinycraft:blocks/machines/advanced_machine_sides",
+    "south": "industrialtinycraft:blocks/machines/advanced_machine_sides",
+    "west": "industrialtinycraft:blocks/machines/advanced_machine_sides"
+  }
+}
