@@ -1,0 +1,6 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "industrialtinycraft:items/cobalt_lithium_oxide_ingot"
+  }
+}

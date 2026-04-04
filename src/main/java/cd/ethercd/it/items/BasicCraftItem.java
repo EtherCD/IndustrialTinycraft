@@ -71,7 +71,13 @@ public enum BasicCraftItem {
     ADVANCED_PROCESSOR("advanced_processor"),
     PERFECT_PROCESSOR("perfect_processor"),
     QUANTUM_PROCESSOR("quantum_processor"),
-    PRHOTONIC_PROCESSOR("photonic_processor"),
+    PHOTONIC_PROCESSOR("photonic_processor"),
+
+    MICROCONTROLLER_WAFFLE("microcontroller_waffle"),
+    BASIC_PROCESSOR_WAFFLE("basic_processor_waffle"),
+    IMPROVED_PROCESSOR_WAFFLE("improved_processor_waffle"),
+    ADVANCED_PROCESSOR_WAFFLE("advanced_processor_waffle"),
+    PERFECT_PROCESSOR_WAFFLE("perfect_processor_waffle"),
 
     BASIC_PROCESSOR_CHIP("basic_processor_chip"),
     IMPROVED_PROCESSOR_CHIP("improved_processor_chip"),

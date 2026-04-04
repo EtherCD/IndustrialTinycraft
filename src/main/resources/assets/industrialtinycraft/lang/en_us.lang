@@ -46,6 +46,13 @@ item.molybdenum_alloy_plate.name=Heat-Resistant Molybdenum Alloy Plate
 item.dense_molybdenum_alloy_plate.name=Dense Heat-Resistant Molybdenum Alloy Plate
 item.dense_hafnium_plate.name=Dense Hafnium Plate
 
+# WAFFLES
+
+item.microcontroller_waffle.name=Microcontroller Waffle
+item.basic_processor_waffle.name=Basic Processor Waffle
+item.improved_processor_waffle.name=Improved Processor Waffle
+item.advanced_processor_waffle.name=Advanced Processor Waffle
+item.perfect_processor_waffle.name=Perfect Processor Waffle
 
 # Substrates
 item.improved_processor_substrate.name=Improved Processor Substrate
@@ -64,10 +71,11 @@ item.microstructured_fiberglass_dust.name=Microstructured Fiberglass Dust
 item.hafnium_dust.name=Hafnium Dust
 item.zirconium_dust.name=Zirconium Dust
 item.glass_dust.name=Glass Dust
+item.cobalt_dust.name=Cobalt Dust
 
 ## Small
 item.hafnium_small.name=Tiny Pile of Hafnium Dust
-
+item.cobalt_small.name=Tiny Pile of Cobalt Dust
 
 ## Purified
 item.purified_hafnium_dust.name=Purified Hafnium Dust
@@ -84,6 +92,7 @@ item.purified_skutterudite.name=Purified Skutterudite Ore
 item.silicon_ingot.name=Silicon Crystal
 item.zirconium_ingot.name=Zirconium Ingot
 item.hafnium_ingot.name=Hafnium Ingot
+item.cobalt_lithium_oxide_ingot.name=Cobalt Lithium Oxide Ingot
 
 # Ores
 item.cyrtolite_ore.name=Cyrtolite Ore
@@ -91,6 +100,8 @@ item.crushed_cyrtolite_ore.name=Crushed Cyrtolite Ore
 item.skutterudite_ore.name=Skutterudite Ore
 item.crushed_skutterudite_ore.name=Crushed Skutterudite Ore
 
+
+item.cobalt_lithium_oxide_plate.name=Cobalt Lithium Oxide Plate
 
 item.fusion_core.name=Fusion Core
 

@@ -25,7 +25,7 @@ public class LithographyUnitCategory extends IORecipeCategory<LithographyRecipeM
 
     public LithographyUnitCategory(IGuiHelper h) {
         super(ITcMachine.lithography_unit, ITcRecipes.lithography_unit);
-        bg = h.createDrawable(new ResourceLocation(IndustrialTinyCraft.MODID + ":textures/gui/lithography_unit.png"), 43, 34, 90, 18);
+        bg = h.createDrawable(new ResourceLocation(IndustrialTinyCraft.MODID + ":textures/gui/lithography_unit.png"), 43, 33, 90, 18);
     }
 
     @Override

@@ -80,6 +80,12 @@ public class ITcRecipes {
                 " M ",
                 'T', BasicCraftItem.TECHNETIUM_DUST.getStack(),
                 'M', BasicCraftItem.MOLYBDENUM_SMALL_DUST.getStack());
+        addBasicRecipe(BasicCraftItem.COBALT_LITHIUM_MIXTURE.getStack(3),
+                "CCC",
+                "CLL",
+                "LLL",
+                'C', BasicCraftItem.COBALT_DUST.getStack(),
+                'L', IC2Items.dust_lithium);
         addRecipeForRod(ITcItemLoader.technetium_rod, ITcItemLoader.technetium_dual_rod, ITcItemLoader.technetium_quad_rod);
         addRecipeForRod(ITcItemLoader.molybdenum_rod, ITcItemLoader.molybdenum_dual_rod, ITcItemLoader.molybdenum_quad_rod);
 
@@ -363,11 +369,11 @@ public class ITcRecipes {
 
         addCrystalGrowerRecipe(factory.forStack(BasicCraftItem.PURIFIED_SILICON.getStack()), BasicCraftItem.SILICON_INGOT.getStack());
 
-        addLithographyUnitRecipe(factory, BasicCraftItem.MICROCONTROLLER_LITHOGRAPHY_MASK.getStack(), BasicCraftItem.SILICON_PLATE.getStack(), BasicCraftItem.MICROCONTROLLER_CHIP.getStack());
-        addLithographyUnitRecipe(factory, BasicCraftItem.BASIC_PROCESSOR_LITHOGRAPHIC_MASK.getStack(), BasicCraftItem.SILICON_PLATE.getStack(), BasicCraftItem.BASIC_PROCESSOR_CHIP.getStack());
-        addLithographyUnitRecipe(factory, BasicCraftItem.IMPROVED_PROCESSOR_LITHOGRAPHIC_MASK.getStack(), BasicCraftItem.IMPROVED_SILICON_PLATE.getStack(), BasicCraftItem.IMPROVED_PROCESSOR_CHIP.getStack());
-        addImprovedLithographyUnitRecipe(factory, BasicCraftItem.ADVANCED_PROCESSOR_LITHOGRAPHIC_MASK.getStack(), BasicCraftItem.ADVANCED_SILICON_PLATE.getStack(), BasicCraftItem.ADVANCED_PROCESSOR_CHIP.getStack());
-        addImprovedLithographyUnitRecipe(factory, BasicCraftItem.PERFECT_PROCESSOR_LITHOGRAPHIC_MASK.getStack(), BasicCraftItem.PERFECT_SILICON_PLATE.getStack(), BasicCraftItem.PERFECT_PROCESSOR_CHIP.getStack());
+        addLithographyUnitRecipe(factory, BasicCraftItem.MICROCONTROLLER_LITHOGRAPHY_MASK.getStack(), BasicCraftItem.SILICON_PLATE.getStack(), BasicCraftItem.MICROCONTROLLER_WAFFLE.getStack());
+        addLithographyUnitRecipe(factory, BasicCraftItem.BASIC_PROCESSOR_LITHOGRAPHIC_MASK.getStack(), BasicCraftItem.SILICON_PLATE.getStack(), BasicCraftItem.BASIC_PROCESSOR_WAFFLE.getStack());
+        addLithographyUnitRecipe(factory, BasicCraftItem.IMPROVED_PROCESSOR_LITHOGRAPHIC_MASK.getStack(), BasicCraftItem.IMPROVED_SILICON_PLATE.getStack(), BasicCraftItem.IMPROVED_PROCESSOR_WAFFLE.getStack());
+        addImprovedLithographyUnitRecipe(factory, BasicCraftItem.ADVANCED_PROCESSOR_LITHOGRAPHIC_MASK.getStack(), BasicCraftItem.ADVANCED_SILICON_PLATE.getStack(), BasicCraftItem.ADVANCED_PROCESSOR_WAFFLE.getStack());
+        addImprovedLithographyUnitRecipe(factory, BasicCraftItem.PERFECT_PROCESSOR_LITHOGRAPHIC_MASK.getStack(), BasicCraftItem.PERFECT_SILICON_PLATE.getStack(), BasicCraftItem.PERFECT_PROCESSOR_WAFFLE.getStack());
 
         addSolderingRecipe(factory, IC2Items.cable_copper, 2, IC2Items.dust_tin, 2, new ItemStack(Items.REDSTONE), 2, IC2Items.circuit);
         addSolderingRecipe(factory, IC2Items.circuit, 1, new ItemStack(Items.GLOWSTONE_DUST), 2, IC2Items.dust_lapis, 2, IC2Items.advanced_circuit);

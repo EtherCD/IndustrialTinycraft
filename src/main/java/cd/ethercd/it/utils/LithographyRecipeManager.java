@@ -57,7 +57,7 @@ public class LithographyRecipeManager {
                 ItemStack input1 = entry.getKey().input;
                 ItemStack input2 = ent.getKey().input;
                 ItemStack output = ent.getValue();
-                DualInputRecipeWrapper recipe = new DualInputRecipeWrapper(input1, input2, output);
+                DualInputRecipeWrapper recipe = new DualInputRecipeWrapper(input2, input1, output);
                 jeiRecipes.add(recipe);
             }
         }
