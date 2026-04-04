@@ -12,6 +12,7 @@ import net.minecraft.item.ItemStack;
 public enum ITcResource {
     CYRTOLITE_ORE("cyrtolite_ore", Material.ROCK, SoundType.STONE, 5.0f, 8.0f),
     WULFENITE_ORE("wulfenite_ore", Material.ROCK, SoundType.STONE, 5.0f, 8.0f),
+    SKUTTERUDITE_ORE("skutterudite_ore", Material.ROCK, SoundType.STONE, 5.0f ,8.0f),
     PERFECT_MACHINE_CASING("perfect_machine", Material.IRON, SoundType.STONE, 5.0f, 8.0f)
     ;
     private final BasicBlock block;

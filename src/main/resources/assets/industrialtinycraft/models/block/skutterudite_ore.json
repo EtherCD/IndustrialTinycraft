@@ -1,0 +1,6 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "industrialtinycraft:blocks/ores/skutterudite_ore"
+  }
+}

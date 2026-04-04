@@ -36,7 +36,7 @@ item.improved_silicon_plate.name=Improved Silicon Plate
 item.advanced_silicon_plate.name=Advanced Silicon Plate
 item.perfect_silicon_plate.name=Perfect Silicon Plate
 
-item.textolite=Textolite
+item.textolite.name=Textolite
 
 item.hafnium_plate.name=Hafnium Plate
 item.zirconium_plate.name=Zirconium Plate
@@ -78,6 +78,7 @@ item.purified_copper_dust.name=Purified Copper Dust
 item.purified_gold_dust.name=Purified Gold Dust
 item.purified_diamond_dust.name=Purified Diamond Dust
 item.purified_redstone.name=Purified Redstone
+item.purified_skutterudite.name=Purified Skutterudite Ore
 
 # INGOTS/CRYSTALS
 item.silicon_ingot.name=Silicon Crystal
@@ -87,6 +88,8 @@ item.hafnium_ingot.name=Hafnium Ingot
 # Ores
 item.cyrtolite_ore.name=Cyrtolite Ore
 item.crushed_cyrtolite_ore.name=Crushed Cyrtolite Ore
+item.skutterudite_ore.name=Skutterudite Ore
+item.crushed_skutterudite_ore.name=Crushed Skutterudite Ore
 
 
 item.fusion_core.name=Fusion Core
@@ -125,9 +128,8 @@ item.crushed_wulfenite.name=Crushed Wulfenite Ore
 item.purified_wulfenite.name=Purified Wulfenite Ore
 item.hafnium_rod.name=Control Rod (WIP)
 item.zirconium_fuel_rod.name=Zirconium Fuel Rod (Empty)
-item.lithium_battery.name=Lithium-Pol Battery
-item.lithium_battery_assembly.name=Lithium-Pol Battery Assembly
-item.raw_lithium_assembly.name=Raw Lithium-Pol Assembly
+item.lithium_battery.name=Lithium-Co Battery
+item.lithium_battery_assembly.name=Lithium-Co Battery Assembly
 item.lithium_sulfuric_mixture.name=Lithium Sulfuric Mixture
 item.unfilled_lithium_battery.name=Unfilled Lithium Battery
 item.molybdenum_alloy_dust.name=Heat-Resistant Molybdenum Alloy Dust
@@ -139,6 +141,7 @@ item.unrivaled_overclocker.name=Unrivaled Overlocker
 item.zirconium_technetium_mixture.name=Zirconium-Technetium Mixture
 item.zirconium_technetium_rod.name=Target Rod (Zirconium-Technetium Mixture)
 item.depleted_zirconium_technetium.name=Target Rod (Depleted Zirconium-Technetium Mixture)
+
 
 industrialtinycraft.tooltip.parallel_processing_upgrade=Makes the processing of items parallel.
 industrialtinycraft.tooltip.parallel_processing_upgrade.not_working=Not working with Tech-Process Optimizer and Processor Fabricator.
@@ -166,6 +169,7 @@ industrialtinycraft.machines.industrial_alloy_furnace=Industrial Alloy Furnace
 
 tile.cyrtolite_ore.name=Cyrtolite Ore
 tile.wulfenite_ore.name=Wulfenite Ore
+tile.skutterudite_ore.name=Skutterudite Ore
 tile.perfect_machine.name=Perfect Machine Casing
 tile.itc_lithium_electrolyte.name=Lithium Electrolyte
 tile.itc_deuterium.name=Lithium Electrolyte

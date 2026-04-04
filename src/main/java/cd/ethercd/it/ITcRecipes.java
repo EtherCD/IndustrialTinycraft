@@ -5,14 +5,12 @@ import cd.ethercd.it.items.BasicCraftItem;
 import cd.ethercd.it.items.BasicItem;
 import cd.ethercd.it.utils.LithographyRecipeManager;
 import cd.ethercd.it.utils.TriInputRecipeManager;
-import cd.ethercd.it.utils.DualInputRecipeManager;
 import ic2.api.recipe.*;
 import ic2.core.recipe.BasicMachineRecipeManager;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.util.EnumFacing;
 import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fluids.FluidStack;
 
@@ -75,6 +73,7 @@ public class ITcRecipes {
         addCycleRecipeForDust(BasicCraftItem.ZIRCONIUM_DUST, BasicCraftItem.ZIRCONIUM_SMALL_DUST);
         addCycleRecipeForDust(BasicCraftItem.TECHNETIUM_DUST, BasicCraftItem.TECHNETIUM_SMALL_DUST);
         addCycleRecipeForDust(BasicCraftItem.MOLYBDENUM_DUST, BasicCraftItem.MOLYBDENUM_SMALL_DUST);
+        addCycleRecipeForDust(BasicCraftItem.COBALT_DUST, BasicCraftItem.COBALT_SMALL_DUST);
         addBasicRecipe(BasicCraftItem.TECHNETIUM_FUEL.getStack(),
                 " M ",
                 "MTM",
@@ -95,25 +94,18 @@ public class ITcRecipes {
                 'T', BasicCraftItem.TECHNETIUM_DUST.getStack(),
                 'I', IC2Items.iridium_plate);
 
-        addBasicRecipe(BasicCraftItem.UNFILLED_LITHIUM_BATTERY.getStack(),
-                "WIP",
+        addBasicRecipe(new ItemStack(ITcItemLoader.lithium_battery),
+                "PIP",
                 "CFG",
-                "PRP",
-                'G', BasicCraftItem.GRAPHITE_PLATE.getStack(),
+                "PTP",
+                'G', BasicCraftItem.COBALT_LITHIUM_OXIDE_PLATE.getStack(),
                 'F', BasicCraftItem.FIBERGLASS.getStack(),
-                'W', IC2Items.cable_copper,
-                'C', IC2Items.plate_copper,
+                'C', BasicCraftItem.GRAPHITE_PLATE.getStack(),
                 'P', IC2Items.plate_iron,
-                'I', BasicCraftItem.BASIC_PROCESSOR.getStack(),
+                'T', BasicCraftItem.LITHIUM_SULFURIC_MIXTURE.getStack(),
+                'I', BasicCraftItem.MICROCONTROLLER.getStack(),
                 'R', IC2Items.rubber);
         addFullPlateCraft(BasicCraftItem.MOLYBDENUM_ALLOY_DUST.getStack(2), BasicCraftItem.MOLYBDENUM_DUST.getStack(), IC2Items.dust_iron, IC2Items.dust_coal_fuel);
-
-        addBasicRecipe(BasicCraftItem.LITHIUM_SULFURIC_MIXTURE.getStack(2),
-                "SSS",
-                "BBB",
-                "SSS",
-                'B', IC2Items.dust_lithium,
-                'S', IC2Items.dust_sulfuric);
 
         addBasicRecipe(BasicCraftItem.FUSION_CORE.getStack(),
                 "SEP",
@@ -322,6 +314,7 @@ public class ITcRecipes {
         addMaceratorRecipe(factory.forStack(BasicCraftItem.FIBERGLASS.getStack()), BasicCraftItem.MICROSTRUCTURED_FIBERGLASS_DUST.getStack());
         addMaceratorRecipe(factory.forStack(ITcResource.CYRTOLITE_ORE.getStack()), BasicCraftItem.CRUSHED_CYRTOLITE_ORE.getStack());
         addMaceratorRecipe(factory.forStack(ITcResource.WULFENITE_ORE.getStack()), BasicCraftItem.CRUSHED_WULFENITE_ORE.getStack());
+        addMaceratorRecipe(factory.forStack(ITcResource.SKUTTERUDITE_ORE.getStack()), BasicCraftItem.CRUSHED_SKUTTERUDITE_ORE.getStack());
         addMaceratorRecipe(factory.forStack(BasicCraftItem.HAFNIUM_INGOT.getStack()), BasicCraftItem.HAFNIUM_DUST.getStack());
         addMaceratorRecipe(factory.forStack(BasicCraftItem.ZIRCONIUM_INGOT.getStack()), BasicCraftItem.ZIRCONIUM_DUST.getStack());
 
@@ -334,16 +327,19 @@ public class ITcRecipes {
         addOreWashingRecipe(factory.forStack(new ItemStack(Items.REDSTONE)), BasicCraftItem.PURIFIED_REDSTONE.getStack(), nbt);
         addOreWashingRecipe(factory.forStack(BasicCraftItem.CRUSHED_CYRTOLITE_ORE.getStack()), BasicCraftItem.PURIFIED_CYRTOLITE_ORE.getStack(), nbt);
         addOreWashingRecipe(factory.forStack(BasicCraftItem.CRUSHED_WULFENITE_ORE.getStack()), BasicCraftItem.PURIFIED_WULFENITE_ORE.getStack(), nbt);
+        addOreWashingRecipe(factory.forStack(BasicCraftItem.CRUSHED_SKUTTERUDITE_ORE.getStack()), BasicCraftItem.PURIFIED_SKUTTERUDITE_ORE.getStack(), nbt);
 
         addRollingRecipe(factory.forStack(BasicCraftItem.SILICON_INGOT.getStack()), BasicCraftItem.SILICON_PLATE.getStack());
         addRollingRecipe(factory.forStack(BasicCraftItem.HAFNIUM_INGOT.getStack()), BasicCraftItem.HAFNIUM_PLATE.getStack());
         addRollingRecipe(factory.forStack(BasicCraftItem.ZIRCONIUM_INGOT.getStack()), BasicCraftItem.ZIRCONIUM_PLATE.getStack());
+        addRollingRecipe(factory.forStack(BasicCraftItem.COBALT_LITHIUM_OXIDE_INGOT.getStack()), BasicCraftItem.COBALT_LITHIUM_OXIDE_PLATE.getStack());
         addRollingRecipe(factory.forStack(BasicCraftItem.MOLYBDENUM_ALLOY_INGOT.getStack()), BasicCraftItem.MOLYBDENUM_ALLOY_PLATE.getStack());
 
         addExtrudingRecipe(factory.forStack(BasicCraftItem.ZIRCONIUM_PLATE.getStack()), BasicCraftItem.ZIRCONIUM_ROD.getStack());
 
         addCentrifugeRecipe(factory.forStack(BasicCraftItem.PURIFIED_CYRTOLITE_ORE.getStack()), BasicCraftItem.ZIRCONIUM_SMALL_DUST.getStack(2), BasicCraftItem.HAFNIUM_SMALL_DUST.getStack(), IC2Items.dust_stone);
         addCentrifugeRecipe(factory.forStack(BasicCraftItem.PURIFIED_WULFENITE_ORE.getStack()), BasicCraftItem.MOLYBDENUM_DUST.getStack(1), BasicCraftItem.MOLYBDENUM_SMALL_DUST.getStack(8), IC2Items.dust_stone);
+        addCentrifugeRecipe(factory.forStack(BasicCraftItem.PURIFIED_SKUTTERUDITE_ORE.getStack()), BasicCraftItem.COBALT_SMALL_DUST.getStack(6), IC2Items.dust_stone);
 
         addCentrifugeRecipe(factory.forStack(BasicCraftItem.DEPLETED_MOLYBDENUM.getStack()), BasicCraftItem.MOLYBDENUM_SMALL_DUST.getStack(7), BasicCraftItem.TECHNETIUM_SMALL_DUST.getStack(3));
         addCentrifugeRecipe(factory.forStack(BasicCraftItem.DEPLETED_DUAL_MOLYBDENUM.getStack()), BasicCraftItem.MOLYBDENUM_DUST.getStack(1), BasicCraftItem.MOLYBDENUM_SMALL_DUST.getStack(1), BasicCraftItem.TECHNETIUM_SMALL_DUST.getStack(8));
@@ -356,11 +352,10 @@ public class ITcRecipes {
 
         addBlastRecipe(factory.forStack(BasicCraftItem.HAFNIUM_DUST.getStack()), BasicCraftItem.HAFNIUM_INGOT.getStack());
         addBlastRecipe(factory.forStack(BasicCraftItem.ZIRCONIUM_DUST.getStack()), BasicCraftItem.ZIRCONIUM_INGOT.getStack());
+        addBlastRecipe(factory.forStack(BasicCraftItem.COBALT_LITHIUM_MIXTURE.getStack()), BasicCraftItem.COBALT_LITHIUM_OXIDE_INGOT.getStack());
         addBlastRecipe(factory.forStack(BasicCraftItem.MOLYBDENUM_ALLOY_DUST.getStack()), BasicCraftItem.MOLYBDENUM_ALLOY_INGOT.getStack());
 
-        addCannerEnrichRecipe(new FluidStack(FluidRegistry.WATER, 1000), factory.forStack(BasicCraftItem.LITHIUM_SULFURIC_MIXTURE.getStack()), new FluidStack(ITcFluid.LITHIUM_ELECTROLYTE.getFluid(), 1000));
 
-        addCannerBottleRecipe(factory.forFluidContainer(ITcFluid.LITHIUM_ELECTROLYTE.getFluid()), factory.forStack(BasicCraftItem.UNFILLED_LITHIUM_BATTERY.getStack()), new ItemStack(ITcItemLoader.lithium_battery));
         addCannerBottleRecipe(factory.forStack(BasicCraftItem.ZIRCONIUM_ROD.getStack()), factory.forStack(BasicCraftItem.MOLYBDENUM_DUST.getStack()), new ItemStack(ITcItemLoader.molybdenum_rod));
         addCannerBottleRecipe(factory.forStack(BasicCraftItem.ZIRCONIUM_ROD.getStack()), factory.forStack(BasicCraftItem.TECHNETIUM_FUEL.getStack()), new ItemStack(ITcItemLoader.technetium_rod));
         addCannerBottleRecipe(factory.forStack(BasicCraftItem.ZIRCONIUM_ROD.getStack()), factory.forStack(BasicCraftItem.ZIRCONIUM_TECHNETIUM_MIXTURE.getStack()), new ItemStack(ITcItemLoader.zirconium_technetium_rod));
@@ -377,7 +372,7 @@ public class ITcRecipes {
         addSolderingRecipe(factory, IC2Items.cable_copper, 2, IC2Items.dust_tin, 2, new ItemStack(Items.REDSTONE), 2, IC2Items.circuit);
         addSolderingRecipe(factory, IC2Items.circuit, 1, new ItemStack(Items.GLOWSTONE_DUST), 2, IC2Items.dust_lapis, 2, IC2Items.advanced_circuit);
         addSolderingRecipe(factory, BasicCraftItem.TEXTOLITE.getStack(), 1, IC2Items.dust_tin, 2, IC2Items.dust_gold, 2, BasicCraftItem.PROCESSOR_SUBSTRATE.getStack());
-        addSolderingRecipe(factory, BasicCraftItem.TEXTOLITE.getStack(), 1, IC2Items.rubber, 2, BasicCraftItem.MICROCONTROLLER_CHIP.getStack(), 2, BasicCraftItem.MICROCONTROLLER.getStack());
+        addSolderingRecipe(factory, BasicCraftItem.TEXTOLITE.getStack(), 1, IC2Items.rubber, 2, BasicCraftItem.MICROCONTROLLER_CHIP.getStack(), 1, BasicCraftItem.MICROCONTROLLER.getStack());
         addSolderingRecipe(factory, BasicCraftItem.PROCESSOR_SUBSTRATE.getStack(), 1, IC2Items.circuit, 4, IC2Items.dust_tin, 4, BasicCraftItem.IMPROVED_PROCESSOR_SUBSTRATE.getStack());
         addSolderingRecipe(factory, BasicCraftItem.PROCESSOR_SUBSTRATE.getStack(), 1, IC2Items.dust_tin, 1, BasicCraftItem.BASIC_PROCESSOR_CHIP.getStack(), 1, BasicCraftItem.BASIC_PROCESSOR.getStack());
         addSolderingRecipe(factory, BasicCraftItem.IMPROVED_PROCESSOR_SUBSTRATE.getStack(), 1, IC2Items.advanced_circuit, 4, IC2Items.dust_gold, 4, BasicCraftItem.ADVANCED_PROCESSOR_SUBSTRATE.getStack());

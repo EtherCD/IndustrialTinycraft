@@ -19,9 +19,6 @@ import org.apache.logging.log4j.Level;
 import java.awt.*;
 
 public enum ITcFluid  {
-    LITHIUM_ELECTROLYTE("itc_lithium_electrolyte", "lithium_electrolyte_still", "lithium_electrolyte_flow", Color.YELLOW, Material.WATER),
-    DEUTERIUM("itc_deuterium", "deuterium_still", "deuterium_still", Color.BLUE, Material.WATER),
-    TRITIUM("itc_tritium", "tritium_still", "tritium_still", Color.YELLOW, Material.WATER),
     ;
 
     private final FluidLiquid fluid;

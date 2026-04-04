@@ -10,6 +10,8 @@ public enum BasicCraftItem {
     PURIFIED_CYRTOLITE_ORE("purified_cyrtolite_ore"),
     CRUSHED_WULFENITE_ORE("crushed_wulfenite"),
     PURIFIED_WULFENITE_ORE("purified_wulfenite"),
+    CRUSHED_SKUTTERUDITE_ORE("crushed_skutterudite"),
+    PURIFIED_SKUTTERUDITE_ORE("purified_skutterudite"),
     HAFNIUM_INGOT("hafnium_ingot"),
     HAFNIUM_DUST("hafnium_dust"),
     HAFNIUM_SMALL_DUST("hafnium_small"),
@@ -24,11 +26,17 @@ public enum BasicCraftItem {
 
     TECHNETIUM_DUST("technetium_dust"),
     TECHNETIUM_SMALL_DUST("technetium_small"),
+
     ZIRCONIUM_TECHNETIUM_MIXTURE("zirconium_technetium_mixture"),
+
+    COBALT_DUST("cobalt_dust"),
+    COBALT_SMALL_DUST("cobalt_small"),
+    COBALT_LITHIUM_MIXTURE("cobalt_lithium_mixture"),
+    COBALT_LITHIUM_OXIDE_INGOT("cobalt_lithium_oxide_ingot"),
+    COBALT_LITHIUM_OXIDE_PLATE("cobalt_lithium_oxide_plate"),
+
     MOLYBDENUM_DUST("molybdenum_dust"),
     MOLYBDENUM_SMALL_DUST("molybdenum_small"),
-
-    GRAPHITE_PLATE("graphite_plate"),
 
     PURIFIED_SILICON("purified_silicon"),
     PURIFIED_COPPER_DUST("purified_copper_dust"),
@@ -37,24 +45,27 @@ public enum BasicCraftItem {
     PURIFIED_REDSTONE("purified_redstone"),
 
     SILICON_INGOT("silicon_ingot"),
-
     SILICON_PLATE("silicon_plate"),
+
     IMPROVED_SILICON_PLATE("improved_silicon_plate"),
     ADVANCED_SILICON_PLATE("advanced_silicon_plate"),
     PERFECT_SILICON_PLATE("perfect_silicon_plate"),
     FIBER_OPTIC_PLATE("fiber_optic_plate"),
 
+    GRAPHITE_PLATE("graphite_plate"),
+
     FIBERGLASS("fiberglass"),
     MICROSTRUCTURED_FIBERGLASS_DUST("microstructured_fiberglass_dust"),
     GLASS_DUST("glass_dust"),
 
-    RAW_PROCESSOR_SUBSTRATE("raw_processor_substrate"),
-
+    TEXTOLITE("textolite"),
+    MICROCONTROLLER_CHIP("microcontroller_chip"),
     PROCESSOR_SUBSTRATE("processor_substrate"),
     IMPROVED_PROCESSOR_SUBSTRATE("improved_processor_substrate"),
     ADVANCED_PROCESSOR_SUBSTRATE("advanced_processor_substrate"),
     PERFECT_PROCESSOR_SUBSTRATE("perfect_processor_substrate"),
 
+    MICROCONTROLLER("microcontroller"),
     BASIC_PROCESSOR("basic_processor"),
     IMPROVED_PROCESSOR("improved_processor"),
     ADVANCED_PROCESSOR("advanced_processor"),
@@ -90,7 +101,6 @@ public enum BasicCraftItem {
 
     TECHNETIUM_FUEL("technetium_fuel"),
 
-    UNFILLED_LITHIUM_BATTERY("unfilled_lithium_battery", CustomConstructor.EMPTY_BATTERY),
     LITHIUM_SULFURIC_MIXTURE("lithium_sulfuric_mixture"),
 
     MOLYBDENUM_ALLOY_DUST("molybdenum_alloy_dust"),
@@ -98,9 +108,6 @@ public enum BasicCraftItem {
     MOLYBDENUM_ALLOY_PLATE("molybdenum_alloy_plate"),
     DENSE_MOLYBDENUM_ALLOY_PLATE("dense_molybdenum_alloy_plate"),
 
-    TEXTOLITE("textolite"),
-    MICROCONTROLLER_CHIP("microcontroller_chip"),
-    MICROCONTROLLER("microcontroller")
     ;
 
     private BasicItem item;
