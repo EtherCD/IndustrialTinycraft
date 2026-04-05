@@ -24,8 +24,10 @@ public enum BasicCraftItem {
     ZIRCONIUM_PLATE("zirconium_plate"),
     ZIRCONIUM_ROD("zirconium_fuel_rod"),
 
+    TECHNETIUM_INGOT("technetium_ingot"),
     TECHNETIUM_DUST("technetium_dust"),
     TECHNETIUM_SMALL_DUST("technetium_small"),
+    TECHNETIUM_PLATE("technetium_plate"),
 
     ZIRCONIUM_TECHNETIUM_MIXTURE("zirconium_technetium_mixture"),
 

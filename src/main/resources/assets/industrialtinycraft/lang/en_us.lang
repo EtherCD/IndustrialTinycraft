@@ -3,12 +3,12 @@ item.fiberglass.name=Fiberglass
 # Processors
 item.basic_processor_chip.name=Basic Processor Crystal
 item.basic_processor.name=Basic Processor
-item.improved_processor_chip.name=Improved Processor Crystal
-item.improved_processor.name=Improved Processor
-item.advanced_processor_chip.name=Advanced Processor Crystal
-item.advanced_processor.name=Advanced Processor
-item.perfect_processor_chip.name=Perfect Processor Crystal
-item.perfect_processor.name=Perfect Processor
+item.improved_processor_chip.name=Optimized Processor Crystal
+item.improved_processor.name=Optimized Processor
+item.advanced_processor_chip.name=High-PerformanceProcessor Crystal
+item.advanced_processor.name=High-Performance Processor
+item.perfect_processor_chip.name=High-Frequency Processor Crystal
+item.perfect_processor.name=High-Frequency Processor
 item.photonic_processor.name=Photonic Processor
 item.quantum_processor.name=Quantum Processor
 
@@ -31,10 +31,10 @@ item.advanced_tri_heat_storage.name=60k Coolant Cell
 
 # PLATES
 
-item.silicon_plate.name=Basic Silicon Plate
-item.improved_silicon_plate.name=Improved Silicon Plate
-item.advanced_silicon_plate.name=Advanced Silicon Plate
-item.perfect_silicon_plate.name=Perfect Silicon Plate
+item.silicon_plate.name=Purified Silicon Plate
+item.improved_silicon_plate.name=Alloyed Silicon Plate
+item.advanced_silicon_plate.name=High-density Silicon Plate
+item.perfect_silicon_plate.name=Experimental Silicon Plate
 
 item.textolite.name=Textolite
 
@@ -50,16 +50,15 @@ item.dense_hafnium_plate.name=Dense Hafnium Plate
 
 item.microcontroller_waffle.name=Microcontroller Waffle
 item.basic_processor_waffle.name=Basic Processor Waffle
-item.improved_processor_waffle.name=Improved Processor Waffle
-item.advanced_processor_waffle.name=Advanced Processor Waffle
-item.perfect_processor_waffle.name=Perfect Processor Waffle
+item.improved_processor_waffle.name=Optimized Processor Waffle
+item.advanced_processor_waffle.name=High-Performance Processor Waffle
+item.perfect_processor_waffle.name=High-Frequency Processor Waffle
 
 # Substrates
-item.improved_processor_substrate.name=Improved Processor Substrate
-item.advanced_processor_substrate.name=Advanced Processor Substrate
-item.raw_processor_substrate.name=Raw Processor Substrate
-item.processor_substrate.name=Processor Substrate
-item.perfect_processor_substrate.name=Perfect Processor Substrate
+item.processor_substrate.name=Copper Processor Substrate
+item.improved_processor_substrate.name=Gold Processor Substrate
+item.advanced_processor_substrate.name=Hafnium Processor Substrate
+item.perfect_processor_substrate.name=Technetium Processor Substrate
 
 
 # THE CORE (amphibia)
@@ -93,6 +92,8 @@ item.silicon_ingot.name=Silicon Crystal
 item.zirconium_ingot.name=Zirconium Ingot
 item.hafnium_ingot.name=Hafnium Ingot
 item.cobalt_lithium_oxide_ingot.name=Cobalt Lithium Oxide Ingot
+item.technetium_ingot.name=Technetium Ingot
+item.technetium_plate.name=Technetium Plate
 
 # Ores
 item.cyrtolite_ore.name=Cyrtolite Ore
@@ -109,9 +110,9 @@ item.iridium_block_cutting_blade.name=Iridium Block Cutting Blade
 item.empty_lithographic_mask.name=Empty Lithographic Mask
 item.microcontroller_lithographic_mask.name=Microcontroller Lithography Mask
 item.basic_processor_lithographic_mask.name=Basic Processor Lithographic Mask
-item.improved_processor_lithographic_mask.name=Improved Processor Lithographic Mask
-item.advanced_processor_lithographic_mask.name=Advanced Processor Lithographic Mask
-item.perfect_processor_lithographic_mask.name=Perfect Processor Lithographic Mask
+item.improved_processor_lithographic_mask.name=Optimized Processor Lithographic Mask
+item.advanced_processor_lithographic_mask.name=High-Speed Processor Lithographic Mask
+item.perfect_processor_lithographic_mask.name=High-Performance Processor Lithographic Mask
 
 item.lithography_laser.name=Lithography Laser
 item.advanced_overclocker.name=Advanced Overclocker

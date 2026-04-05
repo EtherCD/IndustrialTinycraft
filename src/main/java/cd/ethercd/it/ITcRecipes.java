@@ -85,9 +85,9 @@ public class ITcRecipes {
                 'T', BasicCraftItem.TECHNETIUM_DUST.getStack(),
                 'M', BasicCraftItem.MOLYBDENUM_SMALL_DUST.getStack());
         addBasicRecipe(BasicCraftItem.COBALT_LITHIUM_MIXTURE.getStack(3),
-                "CCC",
-                "CLL",
-                "LLL",
+                "CCL",
+                "LL ",
+                "   ",
                 'C', BasicCraftItem.COBALT_DUST.getStack(),
                 'L', IC2Items.dust_lithium);
         addRecipeForRod(ITcItemLoader.technetium_rod, ITcItemLoader.technetium_dual_rod, ITcItemLoader.technetium_quad_rod);
@@ -168,24 +168,34 @@ public class ITcRecipes {
                 'C', IC2Items.circuit,
                 'U', IC2Items.fluid_cell);
         addBasicRecipe(ITcMachine.crystal_slicer.getStack(),
-                "ICB",
+                "ICI",
                 "UPU",
-                "BCI",
+                "IBI",
                 'B', IC2Items.resource_advanced_machine,
                 'C', IC2Items.advanced_circuit,
                 'I', IC2Items.dense_iron,
                 'U', IC2Items.block_cutting_blade_diamond,
                 'P', BasicCraftItem.SILICON_PLATE.getStack());
         addBasicRecipe(ITcMachine.improved_crystal_slicer.getStack(),
-                "ICB",
+                "CIS",
                 "TUT",
-                "BCI",
+                "SBC",
                 'B', ITcResource.PERFECT_MACHINE_CASING.getStack(),
                 'C', BasicCraftItem.IMPROVED_PROCESSOR.getStack(),
                 'T', BasicCraftItem.IRIDIUM_BLOCK_CUTTING_BLADE.getStack(),
                 'U', ITcMachine.crystal_slicer.getStack(),
-                'P', BasicCraftItem.SILICON_PLATE.getStack(),
-                'I', new ItemStack(ITcItemLoader.lithium_battery));
+                'P', BasicCraftItem.IMPROVED_SILICON_PLATE.getStack(),
+                'I', new ItemStack(ITcItemLoader.lithium_battery),
+                'S', BasicCraftItem.TECHNETIUM_PLATE.getStack());
+        addBasicRecipe(ITcMachine.improved_lithography_unit.getStack(),
+                "ICI",
+                "UPU",
+                "IBI",
+                'B', ITcResource.PERFECT_MACHINE_CASING.getStack(),
+                'C', IC2Items.advanced_circuit,
+                'I', BasicCraftItem.TECHNETIUM_PLATE.getStack(),
+                'U', BasicCraftItem.IMPROVED_PROCESSOR.getStack(),
+                'P', ITcMachine.lithography_unit.getStack());
         addBasicRecipe(BasicCraftItem.IRIDIUM_BLOCK_CUTTING_BLADE.getStack(),
                 "TIT",
                 "IUI",
@@ -396,6 +406,7 @@ public class ITcRecipes {
         addRollingRecipe(factory.forStack(BasicCraftItem.ZIRCONIUM_INGOT.getStack()), BasicCraftItem.ZIRCONIUM_PLATE.getStack());
         addRollingRecipe(factory.forStack(BasicCraftItem.COBALT_LITHIUM_OXIDE_INGOT.getStack()), BasicCraftItem.COBALT_LITHIUM_OXIDE_PLATE.getStack());
         addRollingRecipe(factory.forStack(BasicCraftItem.MOLYBDENUM_ALLOY_INGOT.getStack()), BasicCraftItem.MOLYBDENUM_ALLOY_PLATE.getStack());
+        addRollingRecipe(factory.forStack(BasicCraftItem.TECHNETIUM_INGOT.getStack()), BasicCraftItem.TECHNETIUM_PLATE.getStack());
 
         addExtrudingRecipe(factory.forStack(BasicCraftItem.ZIRCONIUM_PLATE.getStack()), BasicCraftItem.ZIRCONIUM_ROD.getStack());
 
@@ -416,6 +427,7 @@ public class ITcRecipes {
         addBlastRecipe(factory.forStack(BasicCraftItem.ZIRCONIUM_DUST.getStack()), BasicCraftItem.ZIRCONIUM_INGOT.getStack());
         addBlastRecipe(factory.forStack(BasicCraftItem.COBALT_LITHIUM_MIXTURE.getStack()), BasicCraftItem.COBALT_LITHIUM_OXIDE_INGOT.getStack());
         addBlastRecipe(factory.forStack(BasicCraftItem.MOLYBDENUM_ALLOY_DUST.getStack()), BasicCraftItem.MOLYBDENUM_ALLOY_INGOT.getStack());
+        addBlastRecipe(factory.forStack(BasicCraftItem.TECHNETIUM_DUST.getStack()), BasicCraftItem.TECHNETIUM_INGOT.getStack());
 
 
         addCannerBottleRecipe(factory.forStack(BasicCraftItem.ZIRCONIUM_ROD.getStack()), factory.forStack(BasicCraftItem.MOLYBDENUM_DUST.getStack()), new ItemStack(ITcItemLoader.molybdenum_rod));
@@ -433,13 +445,15 @@ public class ITcRecipes {
 
         addSolderingRecipe(factory, IC2Items.cable_copper, 2, IC2Items.dust_tin, 2, new ItemStack(Items.REDSTONE), 2, IC2Items.circuit);
         addSolderingRecipe(factory, IC2Items.circuit, 1, new ItemStack(Items.GLOWSTONE_DUST), 2, IC2Items.dust_lapis, 2, IC2Items.advanced_circuit);
-        addSolderingRecipe(factory, BasicCraftItem.TEXTOLITE.getStack(), 1, IC2Items.dust_tin, 2, IC2Items.dust_gold, 2, BasicCraftItem.PROCESSOR_SUBSTRATE.getStack());
         addSolderingRecipe(factory, BasicCraftItem.TEXTOLITE.getStack(), 1, IC2Items.rubber, 2, BasicCraftItem.MICROCONTROLLER_CHIP.getStack(), 1, BasicCraftItem.MICROCONTROLLER.getStack());
-        addSolderingRecipe(factory, BasicCraftItem.PROCESSOR_SUBSTRATE.getStack(), 1, IC2Items.circuit, 4, IC2Items.dust_tin, 4, BasicCraftItem.IMPROVED_PROCESSOR_SUBSTRATE.getStack());
-        addSolderingRecipe(factory, BasicCraftItem.PROCESSOR_SUBSTRATE.getStack(), 1, IC2Items.dust_tin, 1, BasicCraftItem.BASIC_PROCESSOR_CHIP.getStack(), 1, BasicCraftItem.BASIC_PROCESSOR.getStack());
-        addSolderingRecipe(factory, BasicCraftItem.IMPROVED_PROCESSOR_SUBSTRATE.getStack(), 1, IC2Items.advanced_circuit, 4, IC2Items.dust_gold, 4, BasicCraftItem.ADVANCED_PROCESSOR_SUBSTRATE.getStack());
-        addSolderingRecipe(factory, BasicCraftItem.IMPROVED_PROCESSOR_SUBSTRATE.getStack(), 1, IC2Items.dust_gold, 2, BasicCraftItem.IMPROVED_PROCESSOR_CHIP.getStack(), 1, BasicCraftItem.IMPROVED_PROCESSOR.getStack());
-        addSolderingRecipe(factory, BasicCraftItem.ADVANCED_PROCESSOR_SUBSTRATE.getStack(), 1, BasicCraftItem.MICROCONTROLLER.getStack(), 2, BasicCraftItem.MOLYBDENUM_DUST.getStack(), 2, BasicCraftItem.PERFECT_PROCESSOR_SUBSTRATE.getStack());
+
+        addSolderingRecipe(factory, BasicCraftItem.TEXTOLITE.getStack(), 1, IC2Items.dust_tin, 4, IC2Items.dust_copper, 4, BasicCraftItem.PROCESSOR_SUBSTRATE.getStack());
+        addSolderingRecipe(factory, BasicCraftItem.PROCESSOR_SUBSTRATE.getStack(), 1, IC2Items.circuit, 4, IC2Items.dust_gold, 4, BasicCraftItem.IMPROVED_PROCESSOR_SUBSTRATE.getStack());
+        addSolderingRecipe(factory, BasicCraftItem.IMPROVED_PROCESSOR_SUBSTRATE.getStack(), 1, IC2Items.advanced_circuit, 4, BasicCraftItem.HAFNIUM_DUST.getStack(), 2, BasicCraftItem.ADVANCED_PROCESSOR_SUBSTRATE.getStack());
+        addSolderingRecipe(factory, BasicCraftItem.ADVANCED_PROCESSOR_SUBSTRATE.getStack(), 1, BasicCraftItem.MICROCONTROLLER.getStack(), 2, BasicCraftItem.TECHNETIUM_DUST.getStack(), 2, BasicCraftItem.PERFECT_PROCESSOR_SUBSTRATE.getStack());
+
+        addSolderingRecipe(factory, BasicCraftItem.PROCESSOR_SUBSTRATE.getStack(), 1, IC2Items.dust_gold, 4, BasicCraftItem.BASIC_PROCESSOR_CHIP.getStack(), 1, BasicCraftItem.BASIC_PROCESSOR.getStack());
+        addSolderingRecipe(factory, BasicCraftItem.IMPROVED_PROCESSOR_SUBSTRATE.getStack(), 1, BasicCraftItem.HAFNIUM_DUST.getStack(), 2, BasicCraftItem.IMPROVED_PROCESSOR_CHIP.getStack(), 1, BasicCraftItem.IMPROVED_PROCESSOR.getStack());
         addSolderingRecipe(factory, BasicCraftItem.ADVANCED_PROCESSOR_SUBSTRATE.getStack(), 1, IC2Items.dust_lead, 2, BasicCraftItem.ADVANCED_PROCESSOR_CHIP.getStack(), 1, BasicCraftItem.ADVANCED_PROCESSOR.getStack());
         addSolderingRecipe(factory, BasicCraftItem.PERFECT_PROCESSOR_SUBSTRATE.getStack(), 1,  BasicCraftItem.TECHNETIUM_DUST.getStack(), 2, BasicCraftItem.PERFECT_PROCESSOR_CHIP.getStack(), 1, BasicCraftItem.PERFECT_PROCESSOR.getStack());
 
@@ -447,8 +461,8 @@ public class ITcRecipes {
         addCrystalSlicerRecipe(factory.forStack(BasicCraftItem.MICROCONTROLLER_WAFFLE.getStack()), BasicCraftItem.MICROCONTROLLER_CHIP.getStack());
         addCrystalSlicerRecipe(factory.forStack(BasicCraftItem.BASIC_PROCESSOR_WAFFLE.getStack()), BasicCraftItem.BASIC_PROCESSOR_CHIP.getStack());
         addCrystalSlicerRecipe(factory.forStack(BasicCraftItem.IMPROVED_PROCESSOR_WAFFLE.getStack()), BasicCraftItem.IMPROVED_PROCESSOR_CHIP.getStack());
-        addImprovedCrystalSlicerRecipe(factory.forStack(BasicCraftItem.ADVANCED_PROCESSOR_WAFFLE.getStack()), BasicCraftItem.ADVANCED_PROCESSOR_CHIP.getStack(3));
-        addImprovedCrystalSlicerRecipe(factory.forStack(BasicCraftItem.PERFECT_PROCESSOR_WAFFLE.getStack()), BasicCraftItem.PERFECT_PROCESSOR_CHIP.getStack(2));
+        addImprovedCrystalSlicerRecipe(factory.forStack(BasicCraftItem.ADVANCED_PROCESSOR_WAFFLE.getStack()), BasicCraftItem.ADVANCED_PROCESSOR_CHIP.getStack(2));
+        addImprovedCrystalSlicerRecipe(factory.forStack(BasicCraftItem.PERFECT_PROCESSOR_WAFFLE.getStack()), BasicCraftItem.PERFECT_PROCESSOR_CHIP.getStack(1));
         //        Recipes.electrolyzer.addRecipe("ic2heavy_water", 40, 1, new IElectrolyzerRecipeManager.ElectrolyzerOutput("itc_deuterium", 26, EnumFacing.UP), new IElectrolyzerRecipeManager.ElectrolyzerOutput("ic2oxygen", 13, EnumFacing.DOWN));
 
         addLayeringMachineRecipe(factory, IC2Items.plate_iron, 1, IC2Items.plate_copper, 2, IC2Items.plate_tin, 2, IC2Items.crafting_alloy);
