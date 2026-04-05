@@ -16,6 +16,8 @@
       "improved_crystal_slicer_active": { "model": "industrialtinycraft:improved_crystal_slicer" },
       "industrial_soldering_station": { "model": "industrialtinycraft:industrial_soldering_station" },
       "industrial_soldering_station_active": { "model": "industrialtinycraft:industrial_soldering_station" },
+      "layering_machine": { "model": "industrialtinycraft:layering_machine" },
+      "layering_machine_active": { "model": "industrialtinycraft:layering_machine" },
       "industrial_alloy_furnace": { "model": "industrialtinycraft:industrial_alloy_furnace" },
       "industrial_alloy_furnace_active": { "model": "industrialtinycraft:industrial_alloy_furnace_active" }
     },

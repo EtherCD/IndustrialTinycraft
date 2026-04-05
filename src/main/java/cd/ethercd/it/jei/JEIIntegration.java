@@ -20,6 +20,7 @@ public class JEIIntegration implements IModPlugin {
         registry.addRecipeCategories(new ImprovedCrystalSlicerCategory(registry.getJeiHelpers().getGuiHelper()));
         registry.addRecipeCategories(new LithographyUnitCategory(registry.getJeiHelpers().getGuiHelper()));
         registry.addRecipeCategories(new ImprovedLithographyUnitCategory(registry.getJeiHelpers().getGuiHelper()));
+        registry.addRecipeCategories(new LayeringMachineCategory(registry.getJeiHelpers().getGuiHelper()));
         registry.addRecipeCategories(new IndustrialSolderingStationCategory(registry.getJeiHelpers().getGuiHelper()));
     }
 
@@ -44,6 +45,9 @@ public class JEIIntegration implements IModPlugin {
 
         registry.addRecipes(ITcRecipes.industrial_soldering_station.getRecipes(), IndustrialSolderingStationCategory.UID);
         addRecipeCatalyst(registry, ITcMachine.industrial_soldering_station, IndustrialSolderingStationCategory.UID);
+
+        registry.addRecipes(ITcRecipes.layering_machine.getRecipes(), LayeringMachineCategory.UID);
+        addRecipeCatalyst(registry, ITcMachine.layering_machine, LayeringMachineCategory.UID);
 
         addRecipeCatalyst(registry, ITcMachine.industrial_alloy_furnace, "blast_furnace");
     }

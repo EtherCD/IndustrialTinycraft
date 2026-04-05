@@ -17,10 +17,12 @@ import java.util.Random;
 public class ITcWorldGenerator implements IWorldGenerator {
     private final WorldGenerator cyrtolite_ore;
     private final WorldGenerator wulfenite_ore;
+    private final WorldGenerator skutterudite_ore;
 
     public ITcWorldGenerator() {
         cyrtolite_ore = new WorldGenMinable(ITcResource.CYRTOLITE_ORE.getBlock().getDefaultState(), 4, BlockMatcher.forBlock(Blocks.STONE));
         wulfenite_ore = new WorldGenMinable(ITcResource.WULFENITE_ORE.getBlock().getDefaultState(), 2, BlockMatcher.forBlock(Blocks.STONE));
+        skutterudite_ore = new WorldGenMinable(ITcResource.SKUTTERUDITE_ORE.getBlock().getDefaultState(), 4, BlockMatcher.forBlock(Blocks.STONE));
     }
 
     @Override
@@ -29,6 +31,7 @@ public class ITcWorldGenerator implements IWorldGenerator {
             case 0:
                 runGenerator(cyrtolite_ore, world, random, chunkx, chunkz, 4, 20, 80);
                 runGenerator(wulfenite_ore, world, random, chunkx, chunkz, 4, 20, 80);
+                runGenerator(skutterudite_ore, world, random, chunkx, chunkz, 7, 20, 80);
                 break;
         }
     }

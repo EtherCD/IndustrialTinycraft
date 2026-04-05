@@ -19,6 +19,7 @@ public class ITcRecipes {
     public static LithographyRecipeManager lithography_unit = new LithographyRecipeManager();
     public static LithographyRecipeManager improved_lithography_unit = new LithographyRecipeManager();
     public static TriInputRecipeManager industrial_soldering_station = new TriInputRecipeManager();
+    public static TriInputRecipeManager layering_machine = new TriInputRecipeManager();
     public static IBasicMachineRecipeManager crystal_grower = new BasicMachineRecipeManager();
     public static IBasicMachineRecipeManager crystal_slicer = new BasicMachineRecipeManager();
     public static IBasicMachineRecipeManager improved_crystal_slicer = new BasicMachineRecipeManager();
@@ -420,7 +421,7 @@ public class ITcRecipes {
         addCannerBottleRecipe(factory.forStack(BasicCraftItem.ZIRCONIUM_ROD.getStack()), factory.forStack(BasicCraftItem.MOLYBDENUM_DUST.getStack()), new ItemStack(ITcItemLoader.molybdenum_rod));
         addCannerBottleRecipe(factory.forStack(BasicCraftItem.ZIRCONIUM_ROD.getStack()), factory.forStack(BasicCraftItem.TECHNETIUM_FUEL.getStack()), new ItemStack(ITcItemLoader.technetium_rod));
         addCannerBottleRecipe(factory.forStack(BasicCraftItem.ZIRCONIUM_ROD.getStack()), factory.forStack(BasicCraftItem.ZIRCONIUM_TECHNETIUM_MIXTURE.getStack()), new ItemStack(ITcItemLoader.zirconium_technetium_rod));
-        addCannerBottleRecipe(factory.forStack(IC2Items.dust_iron, 2), factory.forStack(BasicCraftItem.FIBERGLASS.getStack()), BasicCraftItem.TEXTOLITE.getStack());
+        addCannerBottleRecipe(factory.forStack(IC2Items.dust_copper, 4), factory.forStack(BasicCraftItem.FIBERGLASS.getStack()), BasicCraftItem.TEXTOLITE.getStack());
 
         addCrystalGrowerRecipe(factory.forStack(BasicCraftItem.PURIFIED_SILICON.getStack()), BasicCraftItem.SILICON_INGOT.getStack());
 
@@ -449,6 +450,12 @@ public class ITcRecipes {
         addImprovedCrystalSlicerRecipe(factory.forStack(BasicCraftItem.ADVANCED_PROCESSOR_WAFFLE.getStack()), BasicCraftItem.ADVANCED_PROCESSOR_CHIP.getStack(3));
         addImprovedCrystalSlicerRecipe(factory.forStack(BasicCraftItem.PERFECT_PROCESSOR_WAFFLE.getStack()), BasicCraftItem.PERFECT_PROCESSOR_CHIP.getStack(2));
         //        Recipes.electrolyzer.addRecipe("ic2heavy_water", 40, 1, new IElectrolyzerRecipeManager.ElectrolyzerOutput("itc_deuterium", 26, EnumFacing.UP), new IElectrolyzerRecipeManager.ElectrolyzerOutput("ic2oxygen", 13, EnumFacing.DOWN));
+
+        addLayeringMachineRecipe(factory, IC2Items.plate_iron, 1, IC2Items.plate_copper, 2, IC2Items.plate_tin, 2, IC2Items.crafting_alloy);
+        addLayeringMachineRecipe(factory, IC2Items.iridium_ore, 4, IC2Items.crafting_alloy, 2, new ItemStack(Items.DIAMOND), 2, IC2Items.iridium_plate);
+        addLayeringMachineRecipe(factory, BasicCraftItem.SILICON_PLATE.getStack(), BasicCraftItem.PURIFIED_COPPER_DUST.getStack(2), BasicCraftItem.PURIFIED_GOLD_DUST.getStack(2), BasicCraftItem.IMPROVED_SILICON_PLATE.getStack());
+        addLayeringMachineRecipe(factory, BasicCraftItem.IMPROVED_SILICON_PLATE.getStack(), BasicCraftItem.HAFNIUM_DUST.getStack(2), BasicCraftItem.PURIFIED_REDSTONE.getStack(4), BasicCraftItem.ADVANCED_SILICON_PLATE.getStack());
+        addLayeringMachineRecipe(factory, BasicCraftItem.ADVANCED_SILICON_PLATE.getStack(), BasicCraftItem.TECHNETIUM_DUST.getStack(2), BasicCraftItem.MOLYBDENUM_DUST.getStack(), BasicCraftItem.PERFECT_SILICON_PLATE.getStack());
     }
 
     private static void addBasicRecipe(ItemStack output, Object... input) {
@@ -514,6 +521,19 @@ public class ITcRecipes {
                 new LithographyRecipeManager.LithographyRecipeInput(mask, true),
                 new LithographyRecipeManager.LithographyRecipeInput(plate, false),
                 chip);
+    }
+
+    private static void addLayeringMachineRecipe(IRecipeInputFactory factory, ItemStack input1, ItemStack input2, ItemStack input3, ItemStack output) {
+        if (output.isEmpty()) return;
+        ITcRecipes.layering_machine.addRecipe(factory, input1, input2, input3, output);
+    }
+
+    private static void addLayeringMachineRecipe(IRecipeInputFactory factory, ItemStack input1, int count1, ItemStack input2, int count2, ItemStack input3, int count3, ItemStack output) {
+        if (output.isEmpty()) return;
+        ItemStack input1WithCount = input1.copy(); input1WithCount.setCount(count1);
+        ItemStack input2WithCount = input2.copy(); input2WithCount.setCount(count2);
+        ItemStack input3WithCount = input3.copy(); input3WithCount.setCount(count3);
+        ITcRecipes.layering_machine.addRecipe(factory, input1WithCount, input2WithCount, input3WithCount, output);
     }
 
     private static void addSolderingRecipe(IRecipeInputFactory factory, ItemStack firstInput, int firstCount, ItemStack secondInput, int secondCount, ItemStack tridInput, int tridCount, ItemStack output) {

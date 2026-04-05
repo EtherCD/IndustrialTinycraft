@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gui width="176" height="166">
+    <slotgrid   name="input" x="33" y="33" rows="1" />
+    <slotgrid   name="output" x="115" y="33" rows="1" />
+    <slot       name="discharge" x="13" y="33"/>
+    <image      x="0" y="0" src="industrialtinycraft:textures/gui/layering_machine"/>
+    <text y="6" align="center">{industrialtinycraft.layering_machine.title}</text>
+    <environment name="game">
+        <button type="recipe" x="94" y="36" width="22" height="15" event="industrialtinycraft.layering_machine"></button>
+        <slotgrid name="upgrade" x="151" y="7" cols="1"/>
+    </environment>
+    <energygauge x="18" y="17"/>
+    <gauge name="progress" x="90" y="35" style="progressarrow"/>
+    <playerInventory x="7" y="83"/>
+</gui>

@@ -2,6 +2,7 @@ package cd.ethercd.it;
 
 import cd.ethercd.it.machines.ImprovedLithographyUnitTileEntity;
 import cd.ethercd.it.machines.IndustrialSolderingStationTileEntity;
+import cd.ethercd.it.machines.LayeringMachineTileEntity;
 import cd.ethercd.it.machines.LithographyUnitTileEntity;
 import ic2.api.tile.IEnergyStorage;
 import ic2.core.block.ITeBlock;
@@ -29,9 +30,10 @@ public enum ITcMachine implements ITeBlock {
     industrial_soldering_station(IndustrialSolderingStationTileEntity.class, 3, EnumRarity.UNCOMMON),
 
     improved_lithography_unit(ImprovedLithographyUnitTileEntity.class, 4, EnumRarity.EPIC),
-    improved_crystal_slicer(cd.ethercd.it.machines.ImprovedCrystalSlicerTileEntity.class, 5, EnumRarity.UNCOMMON),
+    improved_crystal_slicer(cd.ethercd.it.machines.ImprovedCrystalSlicerTileEntity.class, 5, EnumRarity.EPIC),
 
-    industrial_alloy_furnace(cd.ethercd.it.machines.IndustrialAlloyFurnaceTileEntity.class, 6, EnumRarity.EPIC)
+    industrial_alloy_furnace(cd.ethercd.it.machines.IndustrialAlloyFurnaceTileEntity.class, 6, EnumRarity.EPIC),
+    layering_machine(LayeringMachineTileEntity.class, 7, EnumRarity.EPIC)
     ;
 
     private final Class<? extends TileEntityBlock> teClass;
